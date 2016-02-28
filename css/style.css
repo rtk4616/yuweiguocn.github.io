@@ -624,7 +624,7 @@ a {
   border: 1px solid #cf5d0f;
 }
 #header .header-nav .social a.github {
-  background: url("/img/github.png") center no-repeat #afb6ca;
+  background: url("/img/github.png") center no-repeat #000;
   border: 1px solid #afb6ca;
 }
 #header .header-nav .social a.github:hover {
@@ -678,6 +678,13 @@ a {
 }
 #header .header-nav .social a.mail:hover {
   border: 1px solid #006b98;
+}
+#header .header-nav .social a.dashang {
+  background: url("/img/dashang.png") center no-repeat #d27f25;
+  border: 1px solid #d27f25;
+}
+#header .header-nav .social a.dashang:hover {
+  border: 1px solid #d27f25;
 }
 #header .switch-part {
   width: 100%;
