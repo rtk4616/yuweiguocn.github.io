@@ -4,20 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>打赏 | yuweiguo&#39;s blog</title>
+  <title>java集合类框架 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="很高兴能帮到你，打赏请随意。">
+  <meta name="description" content="集合类框架集合中存放的是对象的引用。
+Collection接口boolean add(Object o)boolean addAll(Collection c)boolean remove(Object o)boolean removeAll(Collection c)去交集boolean retainAll(Collection c)取交集Iterator iterator()Object[]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打赏">
-<meta property="og:url" content="http://yoursite.com/2016/02/19/dashang/index.html">
+<meta property="og:title" content="java集合类框架">
+<meta property="og:url" content="http://yoursite.com/2016/03/06/java-collection/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="很高兴能帮到你，打赏请随意。">
-<meta property="og:image" content="http://yoursite.com/assets/img/wechat1.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/alipay.jpg">
-<meta property="og:updated_time" content="2016-03-06T08:40:49.000Z">
+<meta property="og:description" content="集合类框架集合中存放的是对象的引用。
+Collection接口boolean add(Object o)boolean addAll(Collection c)boolean remove(Object o)boolean removeAll(Collection c)去交集boolean retainAll(Collection c)取交集Iterator iterator()Object[]">
+<meta property="og:updated_time" content="2016-03-06T08:40:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="打赏">
-<meta name="twitter:description" content="很高兴能帮到你，打赏请随意。">
+<meta name="twitter:title" content="java集合类框架">
+<meta name="twitter:description" content="集合类框架集合中存放的是对象的引用。
+Collection接口boolean add(Object o)boolean addAll(Collection c)boolean remove(Object o)boolean removeAll(Collection c)去交集boolean retainAll(Collection c)取交集Iterator iterator()Object[]">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -197,11 +198,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-dashang" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java-collection" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/19/dashang/" class="article-date">
-  	<time datetime="2016-02-19T03:05:10.000Z" itemprop="datePublished">2016-02-19</time>
+      <a href="/2016/03/06/java-collection/" class="article-date">
+  	<time datetime="2016-03-06T02:56:43.000Z" itemprop="datePublished">2016-03-06</time>
 </a>
     </div>
   
@@ -214,7 +215,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      打赏
+      java集合类框架
     </h1>
   
 
@@ -223,7 +224,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/">other</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
         
@@ -234,10 +235,89 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很高兴能帮到你，打赏请随意。<br><a id="more"></a></p>
-<p>微信<br><img src="/assets/img/wechat1.png" alt="wechat"></p>
-<p>支付宝</p>
-<p><img src="/assets/img/alipay.jpg" alt="alipay"></p>
+        <h2 id="集合类框架"><a href="#集合类框架" class="headerlink" title="集合类框架"></a>集合类框架</h2><p>集合中存放的是对象的引用。</p>
+<h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h4><p>boolean add(Object o)<br>boolean addAll(Collection c)<br>boolean remove(Object o)<br>boolean removeAll(Collection c)去交集<br>boolean retainAll(Collection c)取交集<br>Iterator iterator()<br>Object[] toArray()<br>Object[] toArray(Object[] a)  </p>
+<a id="more"></a>
+<h4 id="Iterator接口"><a href="#Iterator接口" class="headerlink" title="Iterator接口"></a>Iterator接口</h4><p>boolean hasNext()<br>Object next()<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">Iterator</span> it=c.<span class="keyword">iterator</span>();it.hasNext();) &#123;</span><br><span class="line">  <span class="type">Object</span> o=it.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="ListIterator接口"><a href="#ListIterator接口" class="headerlink" title="ListIterator接口"></a>ListIterator接口</h4><p>ListIterator是Iterator的子接口。  </p>
+<h4 id="Iterator和ListIterator的区别"><a href="#Iterator和ListIterator的区别" class="headerlink" title="Iterator和ListIterator的区别"></a>Iterator和ListIterator的区别</h4><ul>
+<li>遍历方法 ListIterator和Iterator都有hasNext()和next()方法，可以实现顺序身后遍历，但是ListIterator还有hasPrevious()和pervious()方法，可以实现逆向（顺序向前）遍历，Iterator就不可以。  </li>
+<li>遍历索引定位  ListIterator 可以定位索引位置——nextIndex()和previousIndex(),Iterator没有此功能。  </li>
+<li>增加集合对象元素方法 ListIterator有add方法，可以向List中添加对象，而Iterator不能。</li>
+<li>对象维护  都可实现删除对象，但ListIterator可以调用set方法来对集合元素进行修改。而Iterator不能。</li>
+</ul>
+<h4 id="Map接口类型"><a href="#Map接口类型" class="headerlink" title="Map接口类型"></a>Map接口类型</h4><p>Map接口实现者调用接口方法values()返回一个实现collection接口的对象引用。collection接口的实现者又可以调用iterator()方法返回一个实现Iterator接口的对象引用。<br>Map接口用于将一个键（key）映射到一个值（value），且不允许有重复的键。Map提供了一个称为entrySet()的方法，这个方法返回一个实现Set接口的集合对象，集合中的每个对象元素又都实现了Map.Entry接口。Map.Entry接口提供了一个getKey()方法和一个getValue()方法。</p>
+<h4 id="集合对象排序接口Comparator"><a href="#集合对象排序接口Comparator" class="headerlink" title="集合对象排序接口Comparator"></a>集合对象排序接口Comparator</h4><ul>
+<li>实现此接口的类可以进行排序，实现compare方法就可以了。</li>
+<li>基本数据类型实现了这个接口，调用Collections.sort(list)进行排序;</li>
+<li>如果Comparator只用一次，可使用匿名类。</li>
+</ul>
+<h4 id="List和Set的区别"><a href="#List和Set的区别" class="headerlink" title="List和Set的区别"></a>List和Set的区别</h4><p><strong>List:</strong>  </p>
+<ul>
+<li>元素是有序的，因为该集合体系有索引</li>
+<li>元素可以重复</li>
+</ul>
+<p><strong>Set:</strong>  </p>
+<ul>
+<li>元素是无序的</li>
+<li>元素不可以重复</li>
+</ul>
+<h4 id="Vector和ArrayList的区别"><a href="#Vector和ArrayList的区别" class="headerlink" title="Vector和ArrayList的区别"></a>Vector和ArrayList的区别</h4><p><strong>Vector:</strong>  </p>
+<ul>
+<li>线程同步  </li>
+<li>当Vector中的元素超过它的初始大小时，Vector会将它的容量翻倍</li>
+</ul>
+<p><strong>ArrayList:</strong>  </p>
+<ul>
+<li>线程不同步，但性能很好    </li>
+<li>当ArrayList中的元素超过它的初始大小时，ArrayList只增加50%的大小</li>
+</ul>
+<h4 id="ArrayList和LinkedList的区别"><a href="#ArrayList和LinkedList的区别" class="headerlink" title="ArrayList和LinkedList的区别"></a>ArrayList和LinkedList的区别</h4><p><strong>ArrayList:</strong>  </p>
+<ul>
+<li>底层是数组数据结构</li>
+<li>查询快，增删慢</li>
+</ul>
+<p><strong>LinkedList:</strong>  </p>
+<ul>
+<li>底层是链表数据结构</li>
+<li>增删快，查询慢</li>
+</ul>
+<h4 id="HashTable和HashMap的区别"><a href="#HashTable和HashMap的区别" class="headerlink" title="HashTable和HashMap的区别"></a>HashTable和HashMap的区别</h4><p><strong>HashTable:</strong>  </p>
+<ul>
+<li>线程同步</li>
+<li>不允许key和value的值为null</li>
+</ul>
+<p><strong>HashMap:</strong></p>
+<ul>
+<li>线程不同步</li>
+<li>允许一个key为null，和多个value为null</li>
+</ul>
+<h4 id="TreeMap和HashMap的区别"><a href="#TreeMap和HashMap的区别" class="headerlink" title="TreeMap和HashMap的区别"></a>TreeMap和HashMap的区别</h4><p><strong>TreeMap:</strong>  </p>
+<ul>
+<li>二叉树结构</li>
+<li>线程不同步  </li>
+<li>可用于给map集合中的键进行排序  </li>
+</ul>
+<p><strong>HashMap:</strong>  </p>
+<ul>
+<li>哈希表结构  </li>
+<li>线程不同步  </li>
+<li>允许一个key为null，和多个value为null</li>
+</ul>
+<h4 id="集合类的选择"><a href="#集合类的选择" class="headerlink" title="集合类的选择"></a>集合类的选择</h4><ul>
+<li>是否有线程安全问题</li>
+<li>集合类的元素数量是否很大（很大应该选择Hash开头的类，便于快速检索）</li>
+<li>哪种集合类的结构方便当前使用</li>
+</ul>
+<h4 id="Collections类"><a href="#Collections类" class="headerlink" title="Collections类"></a>Collections类</h4><ul>
+<li>Set singleton(Object o)</li>
+<li>List singletonList(Object o)</li>
+<li>Map singletonMap(Object key,Object value)</li>
+<li>填充集合 nCopies(int length,Object o)</li>
+<li>复制集合 copy(List dest,List src)</li>
+<li>查找替换 boolean replaceAll(List list,Object oldVal,Object newVal)</li>
+<li>集合排序 void sort(List list)</li>
+</ul>
 
       
     </div>
@@ -247,15 +327,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/02/20/my-first-blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          我的第一篇文章
-        
-      </div>
-    </a>
   
+    <a href="/2016/02/28/android-note/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -288,7 +364,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="dashang" data-title="打赏" data-url="http://yoursite.com/2016/02/19/dashang/"></div>
+	<div class="ds-thread" data-thread-key="java-collection" data-title="java集合类框架" data-url="http://yoursite.com/2016/03/06/java-collection/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

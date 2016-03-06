@@ -32,7 +32,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/yuweiguo.jpg" class="js-avatar">
+			<img lazy-src="/assets/img/avatar.jpg" class="js-avatar">
 			
 		</a>
 
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/博客，文章/" style="font-size: 10px;">博客，文章</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 20px;">other</a>
 					</div>
 				</section>
 				
@@ -125,17 +125,11 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
 			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
 			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
 			        
 			        </div>
 				</section>
@@ -164,7 +158,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/img/yuweiguo.jpg" class="js-avatar">
+				<img lazy-src="/assets/img/avatar.jpg" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -202,10 +196,71 @@
 
       <div class="body-wrap">
   
-    <article id="post-android-interview-note" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-java-collection" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/28/android-interview-note/" class="article-date">
+      <a href="/2016/03/06/java-collection/" class="article-date">
+  	<time datetime="2016-03-06T02:56:43.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/java-collection/">java集合类框架</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="集合类框架"><a href="#集合类框架" class="headerlink" title="集合类框架"></a>集合类框架</h2><p>集合中存放的是对象的引用。</p>
+<h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h4><p>boolean add(Object o)<br>boolean addAll(Collection c)<br>boolean remove(Object o)<br>boolean removeAll(Collection c)去交集<br>boolean retainAll(Collection c)取交集<br>Iterator iterator()<br>Object[] toArray()<br>Object[] toArray(Object[] a)  </p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/06/java-collection/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-android-note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/28/android-note/" class="article-date">
   	<time datetime="2016-02-28T05:37:12.000Z" itemprop="datePublished">2016-02-28</time>
 </a>
     </div>
@@ -219,7 +274,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/28/android-interview-note/">android面试笔记</a>
+      <a class="article-title" href="/2016/02/28/android-note/">android笔记</a>
     </h1>
   
 
@@ -228,36 +283,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Activity生命周期<br><img src="http://hi.csdn.net/attachment/201109/1/0_1314838777He6C.gif" alt=""><br>onCreate onStart onResume onPause onStop onDestory<br>onRestart onStart onResume onPause onStop onDestory</p>
+        <p>Activity生命周期</p>
+<p>onCreate onStart onResume onPause onStop onDestory<br>onRestart onStart onResume onPause onStop onDestory</p>
 <p>Activity启动模式及含义</p>
-<p>介绍Activity、Service、Broadcast、BroadcastReceiver、Intent、IntentFilter</p>
-<p>Fragment生命周期</p>
-<p>四大组件</p>
-<p>数据存储</p>
-<p>图片缓存</p>
-<p>OOM</p>
-<p>消息推送</p>
-<p>设计模式</p>
-<p>Android事件传递及处理机制</p>
-<p>横竖屏切换生命周期</p>
-<p>常见集合<br>List-&gt;ArrayList、LinkedList<br>Map-&gt;HashMap<br>ArrayList和Vector区别，HashMap和HashTable区别</p>
-<p>写一个求递归程序<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>*<span class="number">4</span>*<span class="number">3</span>*<span class="number">2</span>*<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<p>Handler机制</p>
-<p>子线程中更新UI的方法</p>
-<p>ListView优化</p>
-<p>屏幕适配</p>
-<p>Json<br>fastjson在解析时字段不能大写且必须用get set方法<br>gson</p>
-<p>百度地图遇到的问题，是怎么解决的</p>
-<p>怎么考虑数据传输的安全性</p>
-
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+	</div>
+
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/28/android-note/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -310,14 +354,10 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客，文章/">博客，文章</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/">other</a></li></ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/blog/">blog</a>
-	</div>
-
 
       
       <div class="clearfix"></div>
@@ -362,18 +402,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>微信<br><img src="/assets/img/wechat1.png" alt="wechat"></p>
-<p>支付宝</p>
-<p><img src="/assets/img/alipay.jpg" alt="alipay"></p>
-
+        <p>很高兴能帮到你，打赏请随意。<br>
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/">other</a></li></ul>
+	</div>
+
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/19/dashang/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -414,7 +459,7 @@
 	var yiliaConfig = {
 		fancybox: true,
 		mathjax: true,
-		animate: true,
+		animate: falsee,
 		isHome: true,
 		isPost: false,
 		isArchive: false,
