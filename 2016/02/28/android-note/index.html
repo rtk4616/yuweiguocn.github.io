@@ -7,21 +7,18 @@
   <title>android笔记 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Activity生命周期
-onCreate onStart onResume onPause onStop onDestoryonRestart onStart onResume onPause onStop onDestory
-Activity启动模式及含义">
+onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;onPause-&amp;gt;onStop-&amp;gt;onDestoryonRestart onStart onResume onPause onStop onDestory">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android笔记">
 <meta property="og:url" content="http://yoursite.com/2016/02/28/android-note/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="Activity生命周期
-onCreate onStart onResume onPause onStop onDestoryonRestart onStart onResume onPause onStop onDestory
-Activity启动模式及含义">
-<meta property="og:updated_time" content="2016-03-06T08:41:02.000Z">
+onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;onPause-&amp;gt;onStop-&amp;gt;onDestoryonRestart onStart onResume onPause onStop onDestory">
+<meta property="og:updated_time" content="2016-03-08T05:06:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android笔记">
 <meta name="twitter:description" content="Activity生命周期
-onCreate onStart onResume onPause onStop onDestoryonRestart onStart onResume onPause onStop onDestory
-Activity启动模式及含义">
+onCreate-&amp;gt;onStart-&amp;gt;onResume-&amp;gt;onPause-&amp;gt;onStop-&amp;gt;onDestoryonRestart onStart onResume onPause onStop onDestory">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -123,7 +120,7 @@ Activity启动模式及含义">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 20px;">other</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 20px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 15px;">other</a> <a href="/tags/software/" style="font-size: 15px;">software</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
 					</div>
 				</section>
 				
@@ -239,28 +236,84 @@ Activity启动模式及含义">
     <div class="article-entry" itemprop="articleBody">
       
         <p>Activity生命周期</p>
-<p>onCreate onStart onResume onPause onStop onDestory<br>onRestart onStart onResume onPause onStop onDestory</p>
-<p>Activity启动模式及含义</p>
+<p>onCreate-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestory<br>onRestart onStart onResume onPause onStop onDestory</p>
 <a id="more"></a>
+<p>横竖屏切换<br>onPause-&gt;onStop-&gt;onDestory-&gt;onCreate-&gt;onStart-&gt;onResume<br>若配置configchanges=“orientation|keyboard|Hidden”则只会执行onConfigurationChanged()方法</p>
+<p>对话框弹出不会执行任何生命周期</p>
+<h4 id="Activity启动模式及含义"><a href="#Activity启动模式及含义" class="headerlink" title="Activity启动模式及含义"></a>Activity启动模式及含义</h4><p>任务栈 先进后出  后进先出</p>
+<ul>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask   </li>
+<li>singleInstance  onNewIntent</li>
+</ul>
 <p>介绍Activity、Service、Broadcast、BroadcastReceiver、Intent、IntentFilter</p>
-<p>Fragment生命周期</p>
-<p>四大组件</p>
-<p>数据存储</p>
-<p>图片缓存</p>
-<p>OOM</p>
-<p><br>消息推送</p>
-<p>设计模式</p>
-<p>Android事件传递及处理机制</p>
+<h4 id="Fragment生命周期"><a href="#Fragment生命周期" class="headerlink" title="Fragment生命周期"></a>Fragment生命周期</h4><p>onAttach-&gt;onCreate-&gt;onCreateView-&gt;onActivityCteated-&gt;oonStart-&gt;onResume-&gt;onStop-&gt;onDestoryView-&gt;onDestory-&gt;onDetach</p>
+<h4 id="四大组件"><a href="#四大组件" class="headerlink" title="四大组件"></a>四大组件</h4><ul>
+<li>Activity</li>
+<li>Service</li>
+<li>BroadcastReceiver</li>
+<li>ContentProvider</li>
+</ul>
+<p>广播<br>无序广播、有序广播 -1000——1000<br>同优先级，清单文件中上面先收到</p>
+<h4 id="进程优先级"><a href="#进程优先级" class="headerlink" title="进程优先级"></a>进程优先级</h4><ul>
+<li>前台</li>
+<li>可视</li>
+<li>服务</li>
+<li>后台</li>
+<li>空</li>
+</ul>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul>
+<li>SharedPreference</li>
+<li>数据库SQLite</li>
+<li>文件</li>
+<li>ContentProvider内容提供者，如联系人</li>
+<li>网络</li>
+</ul>
+<h4 id="图片缓存-图片优化"><a href="#图片缓存-图片优化" class="headerlink" title="图片缓存 图片优化"></a>图片缓存 图片优化</h4><h4 id="OOM"><a href="#OOM" class="headerlink" title="OOM"></a>OOM</h4><p></p>
+<h4 id="消息推送"><a href="#消息推送" class="headerlink" title="消息推送"></a>消息推送</h4><h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><ul>
+<li>单例模式</li>
+<li>工厂模式</li>
+<li>Adapter适配器模式</li>
+<li>观察者模式（Observer）</li>
+<li>代理模式（AIDL） Binder</li>
+<li>建造者（AlertDialog.Builder）</li>
+</ul>
+<h4 id="Android事件传递及处理机制"><a href="#Android事件传递及处理机制" class="headerlink" title="Android事件传递及处理机制"></a>Android事件传递及处理机制</h4><ul>
+<li>dispatchTouchEvent()事件分发</li>
+<li>onInterceptTouchEvent()事件拦截</li>
+<li>onTouchEvent()</li>
+</ul>
+<p>首先由父控件接收到事件进行分发，调用拦截，返回true进行消费调用onTouchEvent，返回false则将事件传递给子控件，若子控件为ViewGroup则继续传递，最终为View时，事件无法向下传递调用onTouchEvent返回true消费，返回false，回传事件，父控件的onTouchEvent返回true消费，返回false事件丢失<br>无子类的View没有onInterceptTouchEvent()事件拦截方法</p>
 <p>横竖屏切换生命周期</p>
 <p>常见集合<br>List-&gt;ArrayList、LinkedList<br>Map-&gt;HashMap<br>ArrayList和Vector区别，HashMap和HashTable区别</p>
 <p>写一个求递归程序<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>*<span class="number">4</span>*<span class="number">3</span>*<span class="number">2</span>*<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <p>Handler机制</p>
-<p>子线程中更新UI的方法</p>
-<p>ListView优化</p>
+<ul>
+<li>Handler和Looper满足线程间通信</li>
+<li>Handler先进先出</li>
+<li>Looper管理特定线程内对象之间的消息交换</li>
+<li>Looper：一个线程产生一个Looper管理消息队列</li>
+<li>Handler和Looper通讯</li>
+<li>Message Queue：存放线程放入的消息，android启动时创建消息队列</li>
+<li>线程：UIthread、mainthread</li>
+</ul>
+<h4 id="子线程中更新UI的方法"><a href="#子线程中更新UI的方法" class="headerlink" title="子线程中更新UI的方法"></a>子线程中更新UI的方法</h4><p>1.Handler+Message<br>2.<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler(context.getMainLooper()).post(</span><br><span class="line">  <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//更新UI</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>3.<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="list">(<span class="keyword">Activity</span>)</span>context)</span>runOnUiThread<span class="list">(</span><br><span class="line">  <span class="keyword">new</span> Runnable<span class="list">()</span>&#123;</span><br><span class="line">    public void run<span class="list">()</span>&#123;</span><br><span class="line">      //更新UI</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  )</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>ListView优化，大量数据时</p>
 <p>屏幕适配</p>
+<p>AIDL</p>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>调用隐藏API</p>
 <p>Json<br>fastjson在解析时字段不能大写且必须用get set方法<br>gson</p>
 <p>百度地图遇到的问题，是怎么解决的</p>
+<h4 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h4><p>接口声明能引用所有实现类对象<br>抽象类声明能引用所有具体类对象<br>面向抽象类和接口编程<br>不要面向具体类编程，这也是各种设计模式的核心思想</p>
+<p>相同点：都有抽象方法，不能实例化，有声明，能引用<br>不同点：抽象类有域变量，可能有具体方法可调用抽象方法  必须有子类继承  扩展性弱<br>       接口不能有域变量，只有静态常量，只有抽象方法，必须有具体类实现  扩展性强</p>
+<p>异常  OutOfMemaryError<br>RuntimeException<br>空指针异常<br>算术（除零）异常<br>数组溢出异常<br>类转换异常<br>类没找到异常</p>
+<p>热修复</p>
 <p>怎么考虑数据传输的安全性</p>
+<p>openfire</p>
+<p>Rest API</p>
+<p>Volley</p>
 
       
     </div>
