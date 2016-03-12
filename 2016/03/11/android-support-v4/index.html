@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android Support Library官方Demo之V4 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分享组件——ShareCompatShareCompat 提供了几个功能帮助用户在应用程序之间分享内容并且特别适合分享内容到用户已安装的社交应用程序。代码示例相关的两个类：SharingReceiverSupport 被配置用来接收带着一个text/plain的类型的ACTION_SEND 和 ACTION_SEND_MULTIPLE的分享意图（sharing intents）。它提供了使用Sha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Support Library官方Demo之V4">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/android-support-v4/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="分享组件——ShareCompatShareCompat 提供了几个功能帮助用户在应用程序之间分享内容并且特别适合分享内容到用户已安装的社交应用程序。代码示例相关的两个类：SharingReceiverSupport 被配置用来接收带着一个text/plain的类型的ACTION_SEND 和 ACTION_SEND_MULTIPLE的分享意图（sharing intents）。它提供了使用Sha">
+<meta property="og:image" content="http://yoursite.com/assets/img/support_sharecompat.gif">
+<meta property="og:updated_time" content="2016-03-12T03:07:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Support Library官方Demo之V4">
+<meta name="twitter:description" content="分享组件——ShareCompatShareCompat 提供了几个功能帮助用户在应用程序之间分享内容并且特别适合分享内容到用户已安装的社交应用程序。代码示例相关的两个类：SharingReceiverSupport 被配置用来接收带着一个text/plain的类型的ACTION_SEND 和 ACTION_SEND_MULTIPLE的分享意图（sharing intents）。它提供了使用Sha">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://yuweiguocn.github.io/assets/img/yuweiguo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 20px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/software/" style="font-size: 15px;">software</a> <a href="/tags/support/" style="font-size: 10px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://yuweiguocn.github.io/assets/img/yuweiguo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-support-v4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/11/android-support-v4/" class="article-date">
+  	<time datetime="2016-03-11T09:16:49.000Z" itemprop="datePublished">2016-03-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Support Library官方Demo之V4
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/support/">support</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="分享组件——ShareCompat"><a href="#分享组件——ShareCompat" class="headerlink" title="分享组件——ShareCompat"></a>分享组件——ShareCompat</h3><p><strong>ShareCompat</strong> 提供了几个功能帮助用户在应用程序之间分享内容并且特别适合分享内容到用户已安装的社交应用程序。<br>代码示例相关的两个类：<strong>SharingReceiverSupport</strong> 被配置用来接收带着一个text/plain的类型的ACTION_SEND 和 ACTION_SEND_MULTIPLE的分享意图（sharing intents）。它提供了使用ShareCompat的功能写一个分享目标的示例。SharingSupportProvider是一个简单的内容提供者（android.content.ContentProvider）提供了访问两个文本文件作为内容流进行分享。<br><a id="more"></a></p>
+<h4 id="分享文本"><a href="#分享文本" class="headerlink" title="分享文本"></a>分享文本</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ShareCompat.IntentBuilder.<span class="keyword">from</span>(this)</span><br><span class="line">                .<span class="built_in">set</span>Type(<span class="string">"text/plain"</span>)</span><br><span class="line">                .<span class="built_in">set</span>Text(<span class="string">"I'm sharing!"</span>)</span><br><span class="line">                .startChooser();</span><br></pre></td></tr></table></figure>
+<h4 id="通过菜单分享"><a href="#通过菜单分享" class="headerlink" title="通过菜单分享"></a>通过菜单分享</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public <span class="type">boolean</span> onCreateOptionsMenu(Menu menu) &#123;</span><br><span class="line">    ShareCompat.IntentBuilder b = ShareCompat.IntentBuilder.<span class="keyword">from</span>(this);</span><br><span class="line">    b.setType(<span class="string">"text/plain"</span>).setText(<span class="string">"Share from menu"</span>);</span><br><span class="line">    MenuItem <span class="property">item</span> = menu.add(<span class="string">"Share"</span>);</span><br><span class="line">    ShareCompat.configureMenuItem(<span class="property">item</span>, b);</span><br><span class="line">    MenuItemCompat.setShowAsAction(<span class="property">item</span>, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);</span><br><span class="line"><span class="command">    return</span> <span class="constant">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分享单个文件"><a href="#分享单个文件" class="headerlink" title="分享单个文件"></a>分享单个文件</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// This file will be accessed by the target of the share through</span></span><br><span class="line">    <span class="comment">// the ContentProvider SharingSupportProvider.</span></span><br><span class="line">    FileWriter fw = <span class="keyword">new</span> FileWriter(getFilesDir() + <span class="string">"/foo.txt"</span>);</span><br><span class="line">    fw.<span class="keyword">write</span>(<span class="string">"This is a file share"</span>);</span><br><span class="line">    fw.close();</span><br><span class="line"></span><br><span class="line">    ShareCompat.IntentBuilder.<span class="keyword">from</span>(<span class="keyword">this</span>)</span><br><span class="line">            .setType(<span class="string">"text/plain"</span>)</span><br><span class="line">            .setStream(Uri.parse(SharingSupportProvider.CONTENT_URI + <span class="string">"/foo.txt"</span>))</span><br><span class="line">            .startChooser();</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分享多个文件"><a href="#分享多个文件" class="headerlink" title="分享多个文件"></a>分享多个文件</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">// These files will be accessed by the target of the share through</span></span><br><span class="line"><span class="comment">// the ContentProvider SharingSupportProvider.</span></span><br><span class="line">FileWriter fw = <span class="keyword">new</span> FileWriter(getFilesDir() + <span class="string">"/foo.txt"</span>);</span><br><span class="line">fw.<span class="keyword">write</span>(<span class="string">"This is a file share"</span>);</span><br><span class="line">fw.close();</span><br><span class="line"></span><br><span class="line">fw = <span class="keyword">new</span> FileWriter(getFilesDir() + <span class="string">"/bar.txt"</span>);</span><br><span class="line">fw.<span class="keyword">write</span>(<span class="string">"This is another file share"</span>);</span><br><span class="line">fw.close();</span><br><span class="line"></span><br><span class="line">ShareCompat.IntentBuilder.<span class="keyword">from</span>(<span class="keyword">this</span>)</span><br><span class="line">        .setType(<span class="string">"text/plain"</span>)</span><br><span class="line">        .addStream(Uri.parse(SharingSupportProvider.CONTENT_URI + <span class="string">"/foo.txt"</span>))</span><br><span class="line">        .addStream(Uri.parse(SharingSupportProvider.CONTENT_URI + <span class="string">"/bar.txt"</span>))</span><br><span class="line">        .startChooser();</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><p><img src="/assets/img/support_sharecompat.gif" alt=""></p>
+<h3 id="分享私有文件——FileProvider"><a href="#分享私有文件——FileProvider" class="headerlink" title="分享私有文件——FileProvider"></a>分享私有文件——FileProvider</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String AUTHORITY = <span class="string">"com.example.android.supportv4.my_files"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> onShareFileClick(View view) &#123;</span><br><span class="line">    <span class="comment">// Save a thumbnail to file</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">File</span> thumbsDir = <span class="keyword">new</span> <span class="keyword">File</span>(getFilesDir(), <span class="string">"thumbs"</span>);</span><br><span class="line">    thumbsDir.mkdirs();</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">File</span> <span class="keyword">file</span> = <span class="keyword">new</span> <span class="keyword">File</span>(thumbsDir, <span class="string">"private.png"</span>);</span><br><span class="line">    saveThumbnail(view, <span class="keyword">file</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用FileProvider分享私有文件</span></span><br><span class="line">    <span class="keyword">final</span> Uri uri = FileProvider.getUriForFile(<span class="keyword">this</span>, AUTHORITY, <span class="keyword">file</span>);</span><br><span class="line">    <span class="keyword">final</span> Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_SEND);</span><br><span class="line">    intent.setType(<span class="string">"image/png"</span>);</span><br><span class="line">    intent.putExtra(Intent.EXTRA_STREAM, uri);</span><br><span class="line">    startActivity(intent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 将缩略图保存到文件.</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> saveThumbnail(View view, <span class="keyword">File</span> <span class="keyword">file</span>) &#123;</span><br><span class="line">    <span class="keyword">final</span> Bitmap bitmap = Bitmap.createBitmap(</span><br><span class="line">            view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);</span><br><span class="line">    <span class="keyword">final</span> Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line">    view.draw(canvas);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> OutputStream os = <span class="keyword">new</span> FileOutputStream(<span class="keyword">file</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            bitmap.compress(Bitmap.CompressFormat.PNG, <span class="number">100</span>, os);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            os.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/06/java-collection/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合类框架</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-support-v4" data-title="Android Support Library官方Demo之V4" data-url="http://yoursite.com/2016/03/11/android-support-v4/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

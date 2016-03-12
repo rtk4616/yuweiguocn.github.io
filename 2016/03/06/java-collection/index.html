@@ -14,7 +14,7 @@ Collections：集合的搜索、排序、线程安全化等">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="集合类框架集合中存放的是对象的引用。
 Collections：集合的搜索、排序、线程安全化等">
-<meta property="og:updated_time" content="2016-03-08T05:03:56.000Z">
+<meta property="og:updated_time" content="2016-03-11T09:13:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合类框架">
 <meta name="twitter:description" content="集合类框架集合中存放的是对象的引用。
@@ -36,7 +36,7 @@ Collections：集合的搜索、排序、线程安全化等">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/yuweiguo.jpg" class="js-avatar">
+			<img lazy-src="http://yuweiguocn.github.io/assets/img/yuweiguo.png" class="js-avatar">
 			
 		</a>
 
@@ -120,7 +120,7 @@ Collections：集合的搜索、排序、线程安全化等">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 20px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 15px;">other</a> <a href="/tags/software/" style="font-size: 15px;">software</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
+						<a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 20px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/software/" style="font-size: 15px;">software</a> <a href="/tags/support/" style="font-size: 10px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/translate/" style="font-size: 10px;">translate</a>
 					</div>
 				</section>
 				
@@ -162,7 +162,7 @@ Collections：集合的搜索、排序、线程安全化等">
 		<header id="header" class="inner">
 			<div class="profilepic">
 			
-				<img lazy-src="/img/yuweiguo.jpg" class="js-avatar">
+				<img lazy-src="http://yuweiguocn.github.io/assets/img/yuweiguo.png" class="js-avatar">
 			
 			</div>
 			<hgroup>
@@ -262,7 +262,9 @@ Collections：集合的搜索、排序、线程安全化等">
 <ul>
 <li>元素是无序的</li>
 <li>元素不可以重复</li>
+<li>取出只能是Iterator</li>
 </ul>
+<h4 id="HashSet和TreeSet的区别"><a href="#HashSet和TreeSet的区别" class="headerlink" title="HashSet和TreeSet的区别"></a>HashSet和TreeSet的区别</h4><p><strong>HashSet:</strong><br>哈希表结构  判断是否重复用hashCode和equals方法<br>当hashCode相等时判断equals方法<br><strong>TreeSet:</strong><br>二叉树结构，可以排序</p>
 <h4 id="Vector和ArrayList的区别"><a href="#Vector和ArrayList的区别" class="headerlink" title="Vector和ArrayList的区别"></a>Vector和ArrayList的区别</h4><p><strong>Vector:</strong>  </p>
 <ul>
 <li>线程同步  </li>
@@ -305,6 +307,7 @@ Collections：集合的搜索、排序、线程安全化等">
 <li>线程不同步  </li>
 <li>允许一个key为null，和多个value为null</li>
 </ul>
+<h4 id="hashCode的作用"><a href="#hashCode的作用" class="headerlink" title="hashCode的作用"></a>hashCode的作用</h4><p>哈希算法可以提高从集合中查找元素的效率，这种方式将集合分成若干个存储区域，每个对象可以计算出一个哈希码，可以将哈希码分组，每组分别对应某个存储区域，根据一个对象的哈希码就可以确定对象应该存储在哪个区域。hashCode在有哈希算法类的集合里才有价值，如hashSet、hashMap、hashTable。只有类的实例对象被要求采用哈希算法进行存储和检索时，这个类才需要按要求覆盖hashCode方法。<br>当一个对象存储进hashSet集合中就不能再修改这个对象中的那些参与计算哈希值的字段了，否则，对象修改后的哈希值与最初存储进HashSet集合时的哈希值就不同了。这种情况下，即使在contains方法中使用该对象的当前引用作为参数去HashSet集合中检索对象，也将返回找不到对象的结果，这也会导致无法从HashSet集合中单独删除当前对象，从而造成内存泄露。</p>
 <h4 id="集合类的选择"><a href="#集合类的选择" class="headerlink" title="集合类的选择"></a>集合类的选择</h4><ul>
 <li>是否有线程安全问题</li>
 <li>集合类的元素数量是否很大（很大应该选择Hash开头的类，便于快速检索）</li>
@@ -327,6 +330,15 @@ Collections：集合的搜索、排序、线程安全化等">
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/03/11/android-support-v4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android Support Library官方Demo之V4
+        
+      </div>
+    </a>
   
   
     <a href="/2016/02/28/android-note/" id="article-nav-older" class="article-nav-link-wrap">
