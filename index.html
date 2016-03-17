@@ -282,7 +282,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文链接：<a href="http://developer.android.com/reference/android/support/v4/content/FileProvider.html">http://developer.android.com/reference/android/support/v4/content/FileProvider.html</a></p>
+        <p>原文链接：<a href="http://developer.android.com/reference/android/support/v4/content/FileProvider.html">FileProvider</a></p>
 <p>FileProvider 是 ContentProvider 的一个特殊的子类，它有利于安全地分享应用相关的文件，通过对一个文件创建<code>content:// Uri</code>而不是<code>file:/// Uri</code>。</p>
 <p>content URI允许你使用临时访问权限授权读写访问。当你创建一个包含content URI的Intent时，为了发送content URI 到一个客户端应用程序，你可以调用<code>Intent.setFlags()</code>添加权限。这些权限是提供给客户端应用程序，只要接收Activity的栈处于活动状态。对于一个和Service通讯的Intent，只要Service在运行，权限也是可用的。<br>
       
