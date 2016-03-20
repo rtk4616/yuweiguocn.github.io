@@ -7,21 +7,18 @@
   <title>（转）Android面试题收集 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="原文链接：http://www.nowcoder.com/discuss/3244
-J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。   
-equals与==的区别：==是判断两个变量或实例是不是指向同一个内存空间eq">
+J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="（转）Android面试题收集">
 <meta property="og:url" content="http://yoursite.com/2016/03/20/android-interview-1/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="原文链接：http://www.nowcoder.com/discuss/3244
-J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。   
-equals与==的区别：==是判断两个变量或实例是不是指向同一个内存空间eq">
-<meta property="og:updated_time" content="2016-03-20T10:30:35.000Z">
+J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。">
+<meta property="og:updated_time" content="2016-03-20T10:33:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（转）Android面试题收集">
 <meta name="twitter:description" content="原文链接：http://www.nowcoder.com/discuss/3244
-J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。   
-equals与==的区别：==是判断两个变量或实例是不是指向同一个内存空间eq">
+J2EE 部分：Switch能否用string做参数？在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -240,6 +237,7 @@ equals与==的区别：==是判断两个变量或实例是不是指向同一个�
       
         <p>原文链接：<a href="http://www.nowcoder.com/discuss/3244" target="_blank" rel="external">http://www.nowcoder.com/discuss/3244</a></p>
 <h3 id="J2EE-部分："><a href="#J2EE-部分：" class="headerlink" title="J2EE 部分："></a>J2EE 部分：</h3><h4 id="Switch能否用string做参数？"><a href="#Switch能否用string做参数？" class="headerlink" title="Switch能否用string做参数？"></a>Switch能否用string做参数？</h4><p>在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。   </p>
+<a id="more"></a>
 <h4 id="equals与-的区别："><a href="#equals与-的区别：" class="headerlink" title="equals与==的区别："></a>equals与==的区别：</h4><p>==是判断两个变量或实例是不是指向同一个内存空间<br>equals是判断两个变量或实例所指向的内存空间的值是不是相同</p>
 <h4 id="Object有哪些公用方法？"><a href="#Object有哪些公用方法？" class="headerlink" title="Object有哪些公用方法？"></a>Object有哪些公用方法？</h4><p>方法equals测试的是两个对象是否相等<br>方法clone进行对象拷贝<br>方法getClass返回和当前对象相关的Class对象<br>方法notify,notifyall,wait都是用来对给定对象进行线程同步的</p>
 <h4 id="Java的四种引用，强弱软虚，用到的场景"><a href="#Java的四种引用，强弱软虚，用到的场景" class="headerlink" title="Java的四种引用，强弱软虚，用到的场景"></a>Java的四种引用，强弱软虚，用到的场景</h4><p>强引用：如果一个对象具有强引用，它就不会被垃圾回收器回收。即使当前内存空间不足，JVM 也不会回收它，而是抛出 OutOfMemoryError 错误，使程序异常终止。如果想中断强引用和某个对象之间的关联，可以显式地将引用赋值为null，这样一来的话，JVM在合适的时间就会回收该对象<br>软引用：在使用软引用时，如果内存的空间足够，软引用就能继续被使用，而不会被垃圾回收器回收，只有在内存不足时，软引用才会被垃圾回收器回收。<br>弱引用：具有弱引用的对象拥有的生命周期更短暂。因为当 JVM 进行垃圾回收，一旦发现弱引用对象，无论当前内存空间是否充足，都会将弱引用回收。不过由于垃圾回收器是一个优先级较低的线程，所以并不一定能迅速发现弱引用对象<br>虚引用：顾名思义，就是形同虚设，如果一个对象仅持有虚引用，那么它相当于没有引用，在任何时候都可能被垃圾回收器回收。<br>使用场景：<br>利用软引用和弱引用解决OOM问题：用一个HashMap来保存图片的路径和相应图片对象关联的软引用之间的映射关系，在内存不足时，JVM会自动回收这些缓存图片对象所占用的空间，从而有效地避免了OOM的问题<br>通过软可及对象重获方法实现Java对象的高速缓存:比如我们创建了一Employee的类，如果每次需要查询一个雇员的信息。哪怕是几秒中之前刚刚查询过的，都要重新构建一个实例，这是需要消耗很多时间的。我们可以通过软引用和 HashMap 的结合，先是保存引用方面：以软引用的方式对一个Employee对象的实例进行引用并保存该引用到HashMap 上，key 为此雇员的 id，value为这个对象的软引用，另一方面是取出引用，缓存中是否有该Employee实例的软引用，如果有，从软引用中取得。如果没有软引用，或者从软引用中得到的实例是null，重新构建一个实例，并保存对这个新建实例的软引用</p>
