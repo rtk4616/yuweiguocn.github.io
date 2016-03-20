@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android Studio使用技巧系列教程（三） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文链接：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-2/
+这是我发表在Google+上的Android Studio每日技巧的第二篇文章。你可以从这查看以前发表的文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android Studio使用技巧系列教程（三）">
+<meta property="og:url" content="http://yoursite.com/2015/07/22/android-studio-tips-3/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="原文链接：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-2/
+这是我发表在Google+上的Android Studio每日技巧的第二篇文章。你可以从这查看以前发表的文章。">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707140535690">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707140554607">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707140605507">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707140615746">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162545163">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162602803">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162711526">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162659174">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162737148">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162749993">
+<meta property="og:image" content="http://img.blog.csdn.net/20150707162801427">
+<meta property="og:updated_time" content="2016-03-20T02:35:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android Studio使用技巧系列教程（三）">
+<meta name="twitter:description" content="原文链接：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-2/
+这是我发表在Google+上的Android Studio每日技巧的第二篇文章。你可以从这查看以前发表的文章。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 18.33px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-studio-tips-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/22/android-studio-tips-3/" class="article-date">
+  	<time datetime="2015-07-22T13:33:38.000Z" itemprop="datePublished">2015-07-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android Studio使用技巧系列教程（三）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/series/">series</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文链接：<a href="http://www.developerphil.com/android-studio-tips-of-the-day-roundup-2/" target="_blank" rel="external">http://www.developerphil.com/android-studio-tips-of-the-day-roundup-2/</a></p>
+<p>这是我发表在<a href="https://plus.google.com/+PhilippeBreault/" target="_blank" rel="external">Google+</a>上的Android Studio每日技巧的第二篇文章。你可以从这查看<a href="http://www.developerphil.com/android-studio-tips-of-the-day-roundup-1/" target="_blank" rel="external">以前发表的文章</a>。</p>
+<a id="more"></a>
+<p><strong>关于键位映射</strong><br>Android Studio 提供了不同的键位映射（即快捷键和它对应的操作之间的映射），你可以在“Settings-&gt;Keymap”菜单里面查看当前所使用的键位映射。</p>
+<p>列出每个键位映射是不实用的，因此将会使用下面的：</p>
+<blockquote>
+<p>Windows:<strong>默认</strong><br>Linux:<strong>默认</strong><br>OSX:<strong>Mac OSX 10.5+</strong></p>
+</blockquote>
+<h3 id="复制行"><a href="#复制行" class="headerlink" title="复制行"></a><strong>复制行</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+d</strong><br>Windows Or Linux: <strong>ctrl+d</strong></p>
+</blockquote>
+<p>正如下面所说的：它将会复制当前行并且粘贴在下一行，它并不会复制到剪贴板。当它被用于复制当前行时它将会是非常有用的。</p>
+<p><img src="http://img.blog.csdn.net/20150707140535690" alt="这里写图片描述"></p>
+<h3 id="扩大-收缩-选中部分"><a href="#扩大-收缩-选中部分" class="headerlink" title="扩大/收缩 选中部分"></a><strong>扩大/收缩 选中部分</strong></h3><blockquote>
+<p>OS X:    <strong>alt+up/down</strong><br>Windows Or Linux: <strong>ctrl+w/ctrl+shift+w</strong></p>
+</blockquote>
+<p>这个能扩大当前选中的区域。如它能选择当前的变量，然后是声明，然后是方法等等。</p>
+<p><img src="http://img.blog.csdn.net/20150707140554607" alt="这里写图片描述"></p>
+<h3 id="包裹代码块"><a href="#包裹代码块" class="headerlink" title="包裹代码块"></a><strong>包裹代码块</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+alt+t</strong><br>Windows Or Linux: <strong>ctrl+alt+t</strong></p>
+</blockquote>
+<p>这个被用来用一些结构包裹代码块。通常使用if、while、try-catch或runnable。<br>如果什么也没有选中，它将会包裹当前行。</p>
+<p><img src="http://img.blog.csdn.net/20150707140605507" alt="这里写图片描述"></p>
+<h3 id="最近打开的文件"><a href="#最近打开的文件" class="headerlink" title="最近打开的文件"></a><strong>最近打开的文件</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+e</strong><br>Windows Or Linux: <strong>ctrl+e</strong></p>
+</blockquote>
+<p>在第一篇文章中已经提到，使用这个可以得到一个最近打开的文件的可搜索的列表！</p>
+<p><img src="http://img.blog.csdn.net/20150707140615746" alt="这里写图片描述"></p>
+<h3 id="在线模板"><a href="#在线模板" class="headerlink" title="在线模板"></a><strong>在线模板</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+j</strong><br>Windows Or Linux: <strong>ctrl+j</strong></p>
+</blockquote>
+<p>在线模板是一个快速插入代码片段的方式。使用在线模板有趣的是它能参数化，当你插入代码时它可以使用参数智能的引导你。</p>
+<p><strong>额外的技巧：</strong></p>
+<ul>
+<li>如果你知道它的缩写你就不需要调用快捷键。你可以直接输入它并用“Tab”键完成输入。</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150707162545163" alt="这里写图片描述"></p>
+<h3 id="移动方法"><a href="#移动方法" class="headerlink" title="移动方法"></a><strong>移动方法</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+alt+up/down</strong><br>Windows Or Linux: <strong>ctrl+shift+up/down</strong></p>
+</blockquote>
+<p>这个和移动当前行类似，但它可以用于整个方法。它可以上下移动一个方法不用复制粘贴。<br>这个action真正的名称是“Move Statement”。这意味着它可以移动“statement”中的任何一种。如：你可以重新排列字段和内部类的顺序。</p>
+<p><img src="http://img.blog.csdn.net/20150707162602803" alt="这里写图片描述"></p>
+<h3 id="完成Statement"><a href="#完成Statement" class="headerlink" title="完成Statement"></a><strong>完成Statement</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+shift+enter</strong><br>Windows Or Linux: <strong>ctrl+shift+enter</strong></p>
+</blockquote>
+<p>它可以在完成statement时生成未完成的代码，通常用于下列情况：</p>
+<ul>
+<li>在行尾添加一个分号，甚至可以在你的光标没在行尾时</li>
+<li>在if、while或for添加括号和花括号</li>
+<li>在方法的声明后添加一个花括号</li>
+</ul>
+<p><strong>额外的技巧：</strong></p>
+<ul>
+<li>如果statement已经完成，它会直接跳到下一行，甚至光标没有在当前行的最后一个字符时。</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150707162711526" alt="这里写图片描述"></p>
+<h3 id="最后编辑的位置"><a href="#最后编辑的位置" class="headerlink" title="最后编辑的位置"></a><strong>最后编辑的位置</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+shift+backspace</strong><br>Windows Or Linux: <strong>ctrl+shift+backspace</strong></p>
+</blockquote>
+<p>在第一篇文章中已经提到,它将会跳到你最后修改代码的位置。这个和工具栏上的后退是不同的，它会在你的编辑历史中跳转，而不是导航历史。</p>
+<p><img src="http://img.blog.csdn.net/20150707162659174" alt="这里写图片描述"></p>
+<h3 id="合并行和文字"><a href="#合并行和文字" class="headerlink" title="合并行和文字"></a><strong>合并行和文字</strong></h3><blockquote>
+<p>OS X:    <strong>ctrl+shift+j</strong><br>Windows Or Linux: <strong>ctrl+shift+j</strong></p>
+</blockquote>
+<p>这个比在行尾模拟删除键能做的更多！它会保存格式化规则，还有下面的特性：</p>
+<ul>
+<li>合并两个注释行并且删除没有用的//</li>
+<li>合并多行字符串，移除加号和双引号</li>
+<li>合并字段和赋值</li>
+</ul>
+<p><strong>额外的技巧：</strong></p>
+<ul>
+<li>如果你选择一个多行的字符串，它将会合并成一行。</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150707162737148" alt="这里写图片描述"></p>
+<h3 id="选择于"><a href="#选择于" class="headerlink" title="选择于"></a><strong>选择于</strong></h3><blockquote>
+<p>OS X:    <strong>alt+f1</strong><br>Windows Or Linux: <strong>alt+f1</strong></p>
+</blockquote>
+<p>询问你从哪选择当前的文件。恕我直言，这是最有用的快捷键对于在工程结构中或你的文件资源管理器中打开。每个action都有一个字母或数字的前缀，这是快速调用它的快捷键。<br>通常，我会使用Alt+F1然后回车为了在工程视图中打开和Alt+F1+8在Mac的文件资源管理器中打开。<br>你可以从工程视图中调用这个对于一个文件或文件夹。</p>
+<p><img src="http://img.blog.csdn.net/20150707162749993" alt="这里写图片描述"></p>
+<h3 id="打开-删除"><a href="#打开-删除" class="headerlink" title="打开/删除"></a><strong>打开/删除</strong></h3><blockquote>
+<p>OS X:    <strong>cmd+shift+delete</strong><br>Windows Or Linux: <strong>ctrl+shift+delete</strong></p>
+</blockquote>
+<p>这个会移除周围代码。它可以移除if、while、try/catch或者甚至一个runnable。这个正好和Surround With（包裹代码块）的快捷键功能相反。</p>
+<p><img src="http://img.blog.csdn.net/20150707162801427" alt="这里写图片描述"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/28/android-studio-tips-4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          （译）Android Studio使用技巧系列教程（四）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/14/android-studio-tips-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Android Studio使用技巧系列教程（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-studio-tips-3" data-title="（译）Android Studio使用技巧系列教程（三）" data-url="http://yoursite.com/2015/07/22/android-studio-tips-3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

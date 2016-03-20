@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android Design Support Library概览 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址：http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234
+简介在Google I/O 2015大会中，Google为Android开发者介绍了Design Support Library。这个library可以让开发者很容易地实现更多Material Design">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android Design Support Library概览">
+<meta property="og:url" content="http://yoursite.com/2015/08/25/android-design-support-library/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="原文地址：http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234
+简介在Google I/O 2015大会中，Google为Android开发者介绍了Design Support Library。这个library可以让开发者很容易地实现更多Material Design">
+<meta property="og:image" content="http://img.blog.csdn.net/20150825132027396">
+<meta property="og:image" content="http://img.blog.csdn.net/20150825102424870">
+<meta property="og:image" content="http://img.blog.csdn.net/20150825132131021">
+<meta property="og:image" content="http://img.blog.csdn.net/20150825132838390">
+<meta property="og:updated_time" content="2016-03-20T02:38:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android Design Support Library概览">
+<meta name="twitter:description" content="原文地址：http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234
+简介在Google I/O 2015大会中，Google为Android开发者介绍了Design Support Library。这个library可以让开发者很容易地实现更多Material Design">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 18.33px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-design-support-library" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/25/android-design-support-library/" class="article-date">
+  	<time datetime="2015-08-25T14:03:31.000Z" itemprop="datePublished">2015-08-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android Design Support Library概览
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/support/">support</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234" target="_blank" rel="external">http://code.tutsplus.com/articles/overview-of-the-android-design-support-library--cms-24234</a></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><strong>简介</strong></h3><p>在<a href="http://code.tutsplus.com/articles/google-io-2015-aftermath--cms-24124" target="_blank" rel="external">Google I/O 2015</a>大会中，Google为Android开发者介绍了Design Support Library。这个library可以让开发者很容易地实现更多Material Design概念到他们的应用中，因为很多关键元素是不可用的在原来的框架外。首先就是很易于使用，Design Support Library向下兼容到API 7。Design Support Library可以引入到你的Android工程中通过导入Gradle依赖。</p>
+<a id="more"></a>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:design:22.2.0'</span></span><br></pre></td></tr></table></figure>
+<p><strong>视觉组件</strong><br>在Design支持库中有两个主要类别的工具：</p>
+<ul>
+<li>视觉组件</li>
+<li>动作组件</li>
+</ul>
+<p>我们先看看有哪些新的视觉组件可以应用到你的App上。</p>
+<h3 id="Material-Text-Input"><a href="#Material-Text-Input" class="headerlink" title="Material Text Input"></a><strong>Material Text Input</strong></h3><p><strong>EditText</strong>自从最开始就已经在Android中了，并且<a href="http://code.tutsplus.com/tutorials/android-user-interface-design-edittext-controls--mobile-7183" target="_blank" rel="external">使用很简单</a>，他们一直没有什么改变。使用Design Support Library，Google已经介绍了新的包含容器叫作<strong>TextInputLayout</strong>。这个新的view添加功能到标准的<strong>EditText</strong>上，例如支持让你的用户界面弹出错误消息和动画提示。</p>
+<p>正如下面的代码所示，<strong>TextInputLayout</strong> 可以包含在你的布局文件中包裹一个标准的<strong>EditText</strong>。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.TextInputLayout</span></span><br><span class="line">    android:id=<span class="string">"@+id/textinput"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditText</span><br><span class="line">        android:id=<span class="string">"@+id/edittext"</span></span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">        android:hint=<span class="string">"What is your name?"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.TextInputLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://tutsplus.com/authors/gianluca-segato" target="_blank" rel="external">Gianluca Segato</a> 会带着你学习TextInputLayout 组件的使用在教程中。</p>
+<h3 id="Floating-Action-Buttons"><a href="#Floating-Action-Buttons" class="headerlink" title="Floating Action Buttons"></a><strong>Floating Action Buttons</strong></h3><p>在Material Design 应用中最占优势的用户界面组件之一就是Floating Action Buttons。自从他们的介绍后，开发者不得不从头开始创建这些按钮或者是从很多第三方设计的类库特别是这些按钮相关的选择一个。</p>
+<p>使用Design 支持库，floating action buttons可以包含在一个布局中并且挂靠在屏幕的一部分用简单几行代码。每个按钮都可以用icons和colors很容易地进行自定义。可以使用两个sizes ，<strong>standard</strong> (56dp) 和 <strong>mini</strong> (40dp)。最大的优势之一是Google已经支持这些按钮作为他们的设计演变。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.FloatingActionButton</span></span><br><span class="line">    android:id=<span class="string">"@+id/fab"</span></span><br><span class="line">    android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:layout_gravity=<span class="string">"end|bottom"</span></span><br><span class="line">    android:layout_margin=<span class="string">"16dp"</span></span><br><span class="line">    android:src=<span class="string">"@drawable/ic_fab"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>导航组件</strong></p>
+<p>当<strong>ViewPager</strong> 和<strong>DrawerLayout</strong> 组件通过<strong>v4 support library</strong>可用时，Google已经对其进行了扩展通过提供两个新的相关的部件。第一个是官方版本常用的<a href="http://viewpagerindicator.com/" target="_blank" rel="external">ViewPagerIndicator library</a>由<a href="https://plus.google.com/+JakeWharton/posts" target="_blank" rel="external">Jake Wharton</a>开发称为<strong>TabLayout</strong>。第二个是<strong>NavigationView</strong>，提供drawer header的支持。</p>
+<h3 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a><strong>TabLayout</strong></h3><p><strong>TabLayout</strong>组件可以用代码使用<strong>addTab</strong>方法手动添加内容。看看下面的例子。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">tabLayout</span><span class="class">.addTab</span>(<span class="tag">tabLayout</span><span class="class">.newTab</span>()<span class="class">.setText</span>("<span class="tag">Tab</span> 1"));</span><br><span class="line"><span class="tag">tabLayout</span><span class="class">.addTab</span>(<span class="tag">tabLayout</span><span class="class">.newTab</span>()<span class="class">.setText</span>("<span class="tag">Tab</span> 2"));</span><br><span class="line"><span class="tag">tabLayout</span><span class="class">.addTab</span>(<span class="tag">tabLayout</span><span class="class">.newTab</span>()<span class="class">.setText</span>("<span class="tag">Tab</span> 3"));</span><br></pre></td></tr></table></figure>
+<p>另外，你可以将<strong>TabLayout</strong>和<strong>ViewPager</strong>组件进行关联。通过调用<strong>setupWithViewPager()</strong>可以完成，使用<strong>ViewPager</strong>作为参数。这是另一种方式切换<strong>ViewPager</strong>的页面。应该注意的是<strong>getPageTitle()</strong>需要被重写当使用<strong>TabLayout</strong>和<strong>ViewPager</strong>时给每个Tab一个合适的名称。</p>
+<p><img src="http://img.blog.csdn.net/20150825132027396" alt="这里写图片描述"></p>
+<h3 id="NavigationView"><a href="#NavigationView" class="headerlink" title="NavigationView"></a><strong>NavigationView</strong></h3><p><strong>NavigationView</strong>是一个新的部件继承了<strong>DrawerLayout</strong>的功能。开发者使用这个组件能很容易地添加头布局到drawer 和标记已选择的部分。</p>
+<p>除此之外，它现在可以通过菜单资源文件非常简单地创建sections和subsections在drawer 中。一个NavigationView需要和一个DrawerLayout进行关联在XML文件中。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>      xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    android:id=<span class="string">"@+id/drawer_layout"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:fitsSystemWindows=<span class="string">"true"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;include layout=<span class="string">"@layout/content"</span>/&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.NavigationView</span></span><br><span class="line">        android:id=<span class="string">"@+id/nav_view"</span></span><br><span class="line">        android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">        android:layout_gravity=<span class="string">"start"</span></span><br><span class="line">        android:fitsSystemWindows=<span class="string">"true"</span></span><br><span class="line">        app:headerLayout=<span class="string">"@layout/nav_header"</span></span><br><span class="line">        app:menu=<span class="string">"@menu/drawer_view"</span>/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.v4</span><span class="class">.widget</span><span class="class">.DrawerLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20150825102424870" alt="这里写图片描述"></p>
+<h3 id="增强的Toasts"><a href="#增强的Toasts" class="headerlink" title="增强的Toasts"></a><strong>增强的Toasts</strong></h3><p><strong>Toast</strong>消息成为Android中主要的功能已经多年，一个新的用户界面部件叫作<strong>Snackbar</strong>可用于提供相似功能但改善了外观。<strong>Snackbar</strong> 不仅能给用户提示短时间的信息，它还支持一个动作添加到上下文中基于你的应用的功能并且可以使用手势滑掉使其消失。</p>
+<p><strong>Snackbar</strong> 比<strong>Toast</strong>功能有所增强，使用它需要注意的是需要创建一个可以被用来找到应用显示的最底部的View。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Snackbar.make( view, <span class="string">"Action"</span>, Snackbar.LENGTH_LONG )</span><br><span class="line">    .setAction(<span class="string">"Action!"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            Log.e(<span class="string">"App"</span>, <span class="string">"Action!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; )</span><br><span class="line">    .show();</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20150825132131021" alt="这里写图片描述"></p>
+<p><strong>动作组件</strong></p>
+<p>一个用户界面特效和动画在Material Design中是非常重要的。为了促进这个，Googlen已经发布了多个常见用例的组件在Design支持库中。<a href="http://tutsplus.com/authors/kerry-perez" target="_blank" rel="external">Kerry Perez-Huanca</a>将会在教程中带着大家学习Design支持库中的这方面的组件。</p>
+<h3 id="Reactive-Views"><a href="#Reactive-Views" class="headerlink" title="Reactive Views"></a><strong>Reactive Views</strong></h3><p>你可能已经注意到了在之前例子中的<strong>FloatingActionButton</strong>会在<strong>Snackbar</strong>出现的时候向上移动。这是用一个新的部件叫作<strong>CoordinatorLayout</strong>完成的，用它包裹的view应该给其它view留出空间。</p>
+<h3 id="改善Quick-Return-and-Toolbars"><a href="#改善Quick-Return-and-Toolbars" class="headerlink" title="改善Quick Return and Toolbars"></a><strong>改善Quick Return and Toolbars</strong></h3><p>很多开发者询问用最简单的方式显示一个视差图片作用于快速返回设计模式，随着用户上下滑动而出现或消失。你可以在Play Store的应用列表看到这个效果。为了让开发者实现这个功能不用写大量冗余代码，Google发布了<strong>CollapsingToolBarLayout</strong> 和<strong>AppBarLayout</strong> views。在这些部件里使用不同的选项，开发者能固定views在屏幕的顶部或特定的位置当这些views应该随着用户滑动显示时。</p>
+<p><img src="http://img.blog.csdn.net/20150825132838390" alt="这里写图片描述"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>Design 支持库带来了大量期待已久的工具在Android上。当它和AppCompat 库配合使用时，它变得很容易地添加Material Design到应用上并且保持向下兼容。</p>
+<p>可以在Google官方相关的应用上找到这些新组件是怎样工作的很多例子，<a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">CheeseSquare</a>，Tuts+将会继续提供深入教程在怎样实现这些新特征上。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/06/java-collection/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          java集合类框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/10/android-studio-tips-6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Android Studio使用技巧系列教程（六）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-design-support-library" data-title="（译）Android Design Support Library概览" data-url="http://yoursite.com/2015/08/25/android-design-support-library/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

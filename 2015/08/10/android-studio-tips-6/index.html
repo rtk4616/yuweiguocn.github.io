@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android Studio使用技巧系列教程（六） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文地址：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-5/
+这是我发表在Google+上的Android Studio每日技巧的第五篇文章。你可以从这查看以前发表的文章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android Studio使用技巧系列教程（六）">
+<meta property="og:url" content="http://yoursite.com/2015/08/10/android-studio-tips-6/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="原文地址：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-5/
+这是我发表在Google+上的Android Studio每日技巧的第五篇文章。你可以从这查看以前发表的文章。">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719211721075">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719211930398">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212108379">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212157054">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212302360">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212610434">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212636627">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212719276">
+<meta property="og:image" content="http://img.blog.csdn.net/20150719212748348">
+<meta property="og:updated_time" content="2016-03-20T02:29:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android Studio使用技巧系列教程（六）">
+<meta name="twitter:description" content="原文地址：http://www.developerphil.com/android-studio-tips-of-the-day-roundup-5/
+这是我发表在Google+上的Android Studio每日技巧的第五篇文章。你可以从这查看以前发表的文章。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 18.33px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/2016/02/19/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-studio-tips-6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/10/android-studio-tips-6/" class="article-date">
+  	<time datetime="2015-08-10T11:33:38.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android Studio使用技巧系列教程（六）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/series/">series</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文地址：<a href="http://www.developerphil.com/android-studio-tips-of-the-day-roundup-5/" target="_blank" rel="external">http://www.developerphil.com/android-studio-tips-of-the-day-roundup-5/</a></p>
+<p>这是我发表在<a href="https://plus.google.com/+PhilippeBreault/" target="_blank" rel="external">Google+</a>上的Android Studio每日技巧的第五篇文章。你可以从这查看<a href="http://www.developerphil.com/android-studio-tips-of-the-day-roundup-4/" target="_blank" rel="external">以前发表的文章</a>。</p>
+<a id="more"></a>
+<p><strong>关于键位映射</strong><br>Android Studio 提供了不同的键位映射（即快捷键和它对应的操作之间的映射），你可以在“Settings-&gt;Keymap”菜单里面查看当前所使用的键位映射。</p>
+<p>列出每个键位映射是不实用的，因此将会使用下面的：</p>
+<blockquote>
+<p>Windows:<strong>默认</strong><br>Linux:<strong>默认</strong><br>OSX:<strong>Mac OSX 10.5+</strong></p>
+</blockquote>
+<h3 id="代码自动完成Enter-vs-Tab"><a href="#代码自动完成Enter-vs-Tab" class="headerlink" title="代码自动完成Enter vs Tab"></a><strong>代码自动完成Enter vs Tab</strong></h3><blockquote>
+<p>during code completion:<strong>Enter or Tab</strong></p>
+</blockquote>
+<p>你可以用Enter或Tab来实现代码自动完成并且它们之间有一个有趣的差异。</p>
+<p>使用Enter将会自动完成你想要的statement。使用Tab将会自动完成statement并且向前删除所有直到下一个点号，括号，分号或空格。</p>
+<p><img src="http://img.blog.csdn.net/20150719211721075" alt="这里写图片描述"></p>
+<h3 id="跳到父类"><a href="#跳到父类" class="headerlink" title="跳到父类"></a><strong>跳到父类</strong></h3><blockquote>
+<p>Mac:<strong>Cmd+U</strong><br>Windows/Linux:<strong>Ctrl+U</strong></p>
+</blockquote>
+<p>如果你的光标在重写父类的一个方法内（如：Activity#onCreate()），这个将会跳到父类的实现上。<br>如果你的光标在类名上，它将会跳到父类。</p>
+<p><img src="http://img.blog.csdn.net/20150719211930398" alt="这里写图片描述"></p>
+<h3 id="返回到编辑器"><a href="#返回到编辑器" class="headerlink" title="返回到编辑器"></a><strong>返回到编辑器</strong></h3><blockquote>
+<p>返回并不关闭面板：<strong>Escape</strong><br>返回并关闭面板：<strong>Shift+Escape</strong></p>
+</blockquote>
+<p>有很多快捷键使光标离开编辑器（type hierarchy,find usages等）</p>
+<p>如果你想返回到编辑器，有如下选项：</p>
+<ul>
+<li><strong>Escape</strong>:它只是简单地返回到编辑器。</li>
+<li><strong>Shift+Escape</strong>:它会关闭当前面板然后使光标返回到编辑器。</li>
+</ul>
+<p><img src="http://img.blog.csdn.net/20150719212108379" alt="这里写图片描述"></p>
+<h3 id="跳到最近使用的工具窗口"><a href="#跳到最近使用的工具窗口" class="headerlink" title="跳到最近使用的工具窗口"></a><strong>跳到最近使用的工具窗口</strong></h3><blockquote>
+<p>Mac:<strong>F12</strong><br>Windows/Linux:<strong>F12</strong></p>
+</blockquote>
+<p>可能和操作系统的快捷键有冲突</p>
+<p>有时候，你从面板返回到编辑器，但是你发现不得不再返回到这个面板。例如：浏览find usages。使用这个快捷键，你可以不用鼠标返回到这个面板。</p>
+<p><img src="http://img.blog.csdn.net/20150719212157054" alt="这里写图片描述"></p>
+<h3 id="隐藏所有面板"><a href="#隐藏所有面板" class="headerlink" title="隐藏所有面板"></a><strong>隐藏所有面板</strong></h3><blockquote>
+<p>Mac: <strong>Cmd+Shift+F12</strong><br>windows/linux: <strong>Ctrl+Shift+F12</strong></p>
+</blockquote>
+<p>让编辑器进入某种形式上的全屏模式。再次调用这个快捷键可以返回所有面板到它们之前的状态。</p>
+<p><img src="http://img.blog.csdn.net/20150719212302360" alt="这里写图片描述"></p>
+<h3 id="通过编号打开面板"><a href="#通过编号打开面板" class="headerlink" title="通过编号打开面板"></a><strong>通过编号打开面板</strong></h3><blockquote>
+<p>Mac: <strong>Cmd+Number</strong><br>windows/linux: <strong>Alt+Number</strong></p>
+</blockquote>
+<p>你可能注意到一些面板名字左边有一个数字。这是打开它们的快捷键。<br>如果你看不到面板的名字，可以点击IDE的左下角的盒子似的东西。</p>
+<p><img src="http://img.blog.csdn.net/20150719212610434" alt="这里写图片描述"></p>
+<h3 id="参数信息"><a href="#参数信息" class="headerlink" title="参数信息"></a><strong>参数信息</strong></h3><blockquote>
+<p>Mac: <strong>Cmd+P</strong><br>windows/linux: <strong>Ctrl+P</strong></p>
+</blockquote>
+<p>当你正在写一个方法调用时会显示一个同样参数的列表。当你想看已存在的方法参数时是有用的。</p>
+<p>你光标所在位置的参数会用黄色显示。如果没有参数用黄色，这意味着方法调用是无效的，可能有参数不能被正确地强转（如：一个float参数传一个int值）</p>
+<p>当你正在写一个方法调用参数信息意外地消失了，就像我经常做的，你也可以输入一个逗号（,）用来触发参数信息的显示。</p>
+<p><img src="http://img.blog.csdn.net/20150719212636627" alt="这里写图片描述"></p>
+<h3 id="切换器"><a href="#切换器" class="headerlink" title="切换器"></a><strong>切换器</strong></h3><blockquote>
+<p>Shortcut:<strong>Ctrl+Tab</strong></p>
+</blockquote>
+<p>这个功能和IDE的alt+tab/cmd+tab差不多。它允许你导航到一个tab或一个panel。</p>
+<p>一旦它被打开，只要你按住ctrl键，你可以使用数字或字母快捷键快速导航。你也可以关闭一个已选择的tab或panel通过按下backspace。（译者注：验证时未能使用backspace键关闭已选择的tab或panel，如您知道正确的使用方法，恳请留言告知）</p>
+<p><img src="http://img.blog.csdn.net/20150719212719276" alt="这里写图片描述"></p>
+<h3 id="上下文信息"><a href="#上下文信息" class="headerlink" title="上下文信息"></a><strong>上下文信息</strong></h3><blockquote>
+<p>Shortcut:<strong>Ctrl+Shift+Q</strong></p>
+</blockquote>
+<p>这个将会显示你当前位置，当你的定义范围超出滚动的区域时。通常，这将会是类或内部类的名称，但它也可能是当前方法名。</p>
+<p>在我看来，它最好的使用是快速查看当前类继承或实现。<br>它也可以在xml文件中使用。</p>
+<p><img src="http://img.blog.csdn.net/20150719212748348" alt="这里写图片描述"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/25/android-design-support-library/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          （译）Android Design Support Library概览
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/03/android-studio-tips-5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Android Studio使用技巧系列教程（五）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-studio-tips-6" data-title="（译）Android Studio使用技巧系列教程（六）" data-url="http://yoursite.com/2015/08/10/android-studio-tips-6/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
