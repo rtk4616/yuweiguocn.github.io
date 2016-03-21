@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 18.33px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
+						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
 					</div>
 				</section>
 				
@@ -195,6 +195,67 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-android-toolbar-theme-bug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/21/android-toolbar-theme-bug/" class="article-date">
+  	<time datetime="2016-03-21T07:37:09.000Z" itemprop="datePublished">2016-03-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/21/android-toolbar-theme-bug/">Toolbar主题Theme.AppCompat.Light.DarkActionBar的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当我们在使用Toolbar时，通常设置Toolbar为Dark（深黑色的），而页面为Light（亮色），给Activity设置为下面的Theme：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="property">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><br><span class="line">        &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowActionBar"</span>&gt;<span class="constant">false</span>&lt;/<span class="property">item</span>&gt;</span><br><span class="line">        &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"windowNoTitle"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>会发现整个Activity的主题是深暗色的，下面提供解决方案<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/support/">support</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/toolbar/">toolbar</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/21/android-toolbar-theme-bug/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-android-interview-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -746,70 +807,9 @@
 
 
   
-    <article id="post-android-note" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/18/android-note/" class="article-date">
-  	<time datetime="2016-01-18T05:37:12.000Z" itemprop="datePublished">2016-01-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/18/android-note/">android笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Activity生命周期</p>
-<p>onCreate-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestory<br>onRestart onStart onResume onPause onStop onDestory</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/18/android-note/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>
