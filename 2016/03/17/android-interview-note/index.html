@@ -14,7 +14,7 @@ AsyncTask简介ListView的优化">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成
 AsyncTask简介ListView的优化">
-<meta property="og:updated_time" content="2016-03-21T11:57:54.000Z">
+<meta property="og:updated_time" content="2016-03-24T06:35:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android常见面试题总结">
 <meta name="twitter:description" content="状态：未完成
@@ -120,7 +120,7 @@ AsyncTask简介ListView的优化">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 18.33px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
+						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.67px;">android studio</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.67px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.67px;">interview</a> <a href="/tags/java/" style="font-size: 11.67px;">java</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/note/" style="font-size: 11.67px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 16.67px;">series</a> <a href="/tags/software/" style="font-size: 11.67px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 18.33px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 20px;">translate</a>
 					</div>
 				</section>
 				
@@ -385,8 +385,10 @@ AsyncTask简介ListView的优化">
 <p>屏幕适配</p>
 <p>AIDL</p>
 <h4 id="volatile修饰符"><a href="#volatile修饰符" class="headerlink" title="volatile修饰符"></a>volatile修饰符</h4><p>在JVM 1.2之前，Java总是从主存读取变量，但随着JVM的优化，线程可以把变量保存在机器的寄存器中，而不是直接在主存中进行读写。这就可能造成一个线程在主存中修改了一个变量的值。而另外一个线程还继续使用它在寄存器中变量值的副本，造成数据的不一致。要解决这个问题，就需要把该变量声明为volatile（不稳定的），它指示JVM这个变量是不稳定的，每次使用它都到主存中进行读取，因此多线程环境下volatile关键字的使用变得非常重要。一般来说，多线程环境下各线程间共享的变量都应该加volatile修饰。</p>
+<h4 id="notifyDataSetChanged和notifyDataSetInvalidated的区别"><a href="#notifyDataSetChanged和notifyDataSetInvalidated的区别" class="headerlink" title="notifyDataSetChanged和notifyDataSetInvalidated的区别"></a>notifyDataSetChanged和notifyDataSetInvalidated的区别</h4><p>notifyDataSetInvalidated()，会重绘整个控件（还原到初始状态）<br>notifyDataSetChanged()，重绘当前可见区域</p>
 <h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>调用隐藏API</p>
-<p>Json<br>fastjson在解析时字段不能大写且必须用get set方法<br>gson</p>
+<h4 id="fastjson和GSON的区别"><a href="#fastjson和GSON的区别" class="headerlink" title="fastjson和GSON的区别"></a>fastjson和GSON的区别</h4><p>1 fastjson 是阿里出的json解析工具<br>2 gson 是谷歌推荐的解析工具</p>
+<p>1 fastjson在解析的时候，字段不能大写。<br>2 fastjson必须使用get和set方法</p>
 <p>百度地图遇到的问题，是怎么解决的</p>
 <h4 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h4><p>接口声明能引用所有实现类对象<br>抽象类声明能引用所有具体类对象<br>面向抽象类和接口编程<br>不要面向具体类编程，这也是各种设计模式的核心思想</p>
 <p>相同点：都有抽象方法，不能实例化，有声明，能引用<br>不同点：抽象类有域变量，可能有具体方法可调用抽象方法  必须有子类继承  扩展性弱<br>       接口不能有域变量，只有静态常量，只有抽象方法，必须有具体类实现  扩展性强</p>
