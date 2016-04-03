@@ -28,7 +28,7 @@
 同一个程序不同的Activity如何放在不同的任务栈中？
 如何将一个Activity设置成窗口的样式
 如何退出">
-<meta property="og:updated_time" content="2016-03-29T05:40:59.000Z">
+<meta property="og:updated_time" content="2016-04-02T14:17:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试题集合">
 <meta name="twitter:description" content="Android基础Activity
@@ -141,7 +141,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 15.71px;">android studio</a> <a href="/tags/basic/" style="font-size: 10px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.43px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/interview/" style="font-size: 11.43px;">interview</a> <a href="/tags/java/" style="font-size: 11.43px;">java</a> <a href="/tags/mac/" style="font-size: 12.86px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 15.71px;">series</a> <a href="/tags/service/" style="font-size: 10px;">service</a> <a href="/tags/software/" style="font-size: 11.43px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 14.29px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.14px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.57px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 15.71px;">android studio</a> <a href="/tags/basic/" style="font-size: 17.14px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.43px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.86px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 11.43px;">interview</a> <a href="/tags/java/" style="font-size: 11.43px;">java</a> <a href="/tags/mac/" style="font-size: 12.86px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/series/" style="font-size: 15.71px;">series</a> <a href="/tags/service/" style="font-size: 12.86px;">service</a> <a href="/tags/software/" style="font-size: 11.43px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 14.29px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.14px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.57px;">translate</a>
 					</div>
 				</section>
 				
@@ -256,7 +256,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h3><p>Activity</p>
+        <h3 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h3><p><a href="/2016/03/26/android-basic-1/">Activity</a></p>
 <ul>
 <li>生命周期及横竖屏切换时生命周期</li>
 <li>启动模式</li>
@@ -274,16 +274,6 @@
 <li>Fragment嵌套多个Fragment会出现bug吗？</li>
 </ul>
 <p>onAttach-&gt;onCreate-&gt;onCreateView-&gt;onActivityCteated-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestoryView-&gt;onDestory-&gt;onDetach</p>
-<p>Service</p>
-<ul>
-<li>注册Service需要注意什么  </li>
-<li>什么是Service以及描述下它的生命周期。</li>
-<li>Service与Activity怎么实现通信  </li>
-<li>Service有哪些启动方法，有什么区别，怎样停用Service？</li>
-<li>什么是IntentService？有何优点？</li>
-<li>AIDL</li>
-<li>两个android应用间的互相调用方法？</li>
-</ul>
 <p>Broadcast Receiver</p>
 <ul>
 <li>注册广播有哪几种方式,有什么区别  </li>
@@ -292,6 +282,16 @@
 <li>同优先级，清单文件中上面先收到</li>
 <li>Broadcast、Content Provider 和 AIDL的区别和联系</li>
 </ul>
+<p>Service</p>
+<ul>
+<li>注册Service需要注意什么  </li>
+<li>什么是Service以及描述下它的生命周期。</li>
+<li>Service与Activity怎么实现通信  </li>
+<li>Service有哪些启动方法，有什么区别，怎样停用Service？</li>
+<li>什么是IntentService？有何优点？</li>
+<li>AIDL,两个android应用间的互相调用方法？</li>
+</ul>
+<p><a href="/2016/03/28/android-basic-service/">Android基础——Service</a><br><a href="/2016/03/31/android-basic-intentservice/">Android基础——IntentService</a><br><a href="/2016/04/02/android-guide-service/">Android开发指导——Service</a><br><a href="/2016/03/31/android-guide-bound-service/">Android开发指导——绑定Service</a><br><a href="/2016/03/31/android-guide-aidl/">Android开发指导——进程间通信AIDL</a></p>
 <p>数据存储</p>
 <ul>
 <li>SharedPreference</li>
