@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>java集合类框架 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="集合类框架集合中存放的是对象的引用。
-Collections：集合的搜索、排序、线程安全化等">
+  <meta name="description" content="Java集合类框架概览及各集合之间的区别。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合类框架">
 <meta property="og:url" content="http://yoursite.com/2016/01/06/java-collection/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="集合类框架集合中存放的是对象的引用。
-Collections：集合的搜索、排序、线程安全化等">
-<meta property="og:updated_time" content="2016-03-20T02:21:12.000Z">
+<meta property="og:description" content="Java集合类框架概览及各集合之间的区别。">
+<meta property="og:updated_time" content="2016-04-09T00:43:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合类框架">
-<meta name="twitter:description" content="集合类框架集合中存放的是对象的引用。
-Collections：集合的搜索、排序、线程安全化等">
+<meta name="twitter:description" content="Java集合类框架概览及各集合之间的区别。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -120,7 +117,7 @@ Collections：集合的搜索、排序、线程安全化等">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.25px;">android studio</a> <a href="/tags/as/" style="font-size: 10px;">as</a> <a href="/tags/basic/" style="font-size: 17.5px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 13.75px;">mac</a> <a href="/tags/ndk/" style="font-size: 10px;">ndk</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 16.25px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.5px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.75px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 17.5px;">android studio</a> <a href="/tags/basic/" style="font-size: 18.75px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.5px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 13.75px;">mac</a> <a href="/tags/ndk/" style="font-size: 10px;">ndk</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 16.25px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.5px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.75px;">translate</a>
 					</div>
 				</section>
 				
@@ -235,9 +232,9 @@ Collections：集合的搜索、排序、线程安全化等">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="集合类框架"><a href="#集合类框架" class="headerlink" title="集合类框架"></a>集合类框架</h2><p>集合中存放的是对象的引用。</p>
+        <p>Java集合类框架概览及各集合之间的区别。<br><a id="more"></a></p>
+<p>集合中存放的是对象的引用。</p>
 <p>Collections：集合的搜索、排序、线程安全化等</p>
-<a id="more"></a>
 <h4 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h4><p>boolean add(Object o)<br>boolean addAll(Collection c)<br>boolean remove(Object o)<br>boolean removeAll(Collection c)去交集<br>boolean retainAll(Collection c)取交集<br>Iterator iterator()<br>Object[] toArray()<br>Object[] toArray(Object[] a)  </p>
 <h4 id="Iterator接口"><a href="#Iterator接口" class="headerlink" title="Iterator接口"></a>Iterator接口</h4><p>boolean hasNext()<br>Object next()<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">Iterator</span> it=c.<span class="keyword">iterator</span>();it.hasNext();) &#123;</span><br><span class="line">  <span class="type">Object</span> o=it.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="ListIterator接口"><a href="#ListIterator接口" class="headerlink" title="ListIterator接口"></a>ListIterator接口</h4><p>ListIterator是Iterator的子接口。  </p>

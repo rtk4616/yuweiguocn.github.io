@@ -16,7 +16,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
 <meta property="og:description" content="状态：未完成
 原文链接：AIDL    墙内链接：AIDL
 AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你定义编程接口在客户端和服务进行约定为了使用进程间通信（IPC）彼此交流。在Android上，一个进程不能正常访问其它进程的内存。所以说，它们需要分解操作系统可以理解的原语，并且给你安排对象跨越边界。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
-<meta property="og:updated_time" content="2016-03-31T03:00:01.000Z">
+<meta property="og:updated_time" content="2016-04-09T00:56:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发指导——进程间通信AIDL">
 <meta name="twitter:description" content="状态：未完成
@@ -123,7 +123,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 16.25px;">android studio</a> <a href="/tags/as/" style="font-size: 10px;">as</a> <a href="/tags/basic/" style="font-size: 17.5px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 13.75px;">mac</a> <a href="/tags/ndk/" style="font-size: 10px;">ndk</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 16.25px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.5px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.75px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 17.5px;">android studio</a> <a href="/tags/basic/" style="font-size: 18.75px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.5px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 13.75px;">mac</a> <a href="/tags/ndk/" style="font-size: 10px;">ndk</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 16.25px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.5px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.75px;">translate</a>
 					</div>
 				</section>
 				
@@ -227,7 +227,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aidl/">aidl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guide/">guide</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aidl/">aidl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/doc/">doc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guide/">guide</a></li></ul>
 	</div>
 
         
@@ -244,6 +244,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
 <p>带着问题去学习</p>
 <ul>
 <li>AIDL,两个android应用间的互相调用方法？</li>
+<li>AIDL的全称是什么？如何工作？能处理哪些类型的数据</li>
 </ul>
 <p>注意：使用AIDL是必要的，如果你允许</p>
 
