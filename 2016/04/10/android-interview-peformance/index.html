@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/10/android-interview-peformance/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="Android应用性能优化基础知识。">
-<meta property="og:updated_time" content="2016-04-10T13:14:24.000Z">
+<meta property="og:updated_time" content="2016-04-10T13:17:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试——APP性能优化">
 <meta name="twitter:description" content="Android应用性能优化基础知识。">
@@ -256,7 +256,6 @@
 <li>图片缓存，采用内存缓存LRUCache和硬盘缓存DiskLRUCache</li>
 <li>Bitmap优化，采用适当分辨率大小并及时回收</li>
 </ul>
-<p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a></p>
 <h4 id="移动端获取网络数据优化"><a href="#移动端获取网络数据优化" class="headerlink" title="移动端获取网络数据优化"></a>移动端获取网络数据优化</h4><ul>
 <li>连接复用 :节省连接建立时间，如开启 keep-alive。<br>对于 Android 来说默认情况下 HttpURLConnection 和 HttpClient 都开启了 keep-alive。只是 2.2 之前 HttpURLConnection 存在影响连接池的 Bug，具体可见：Android HttpURLConnection 及 HttpClient 选择</li>
 <li>请求合并:即将多个请求合并为一个进行请求，比较常见的就是网页中的 CSS Image Sprites。如果某个页面内请求过多，也可以考虑做一定的请求合并。</li>
@@ -268,8 +267,10 @@
 <li>使用AndroidStudio Memory Monitor查看内存使用情况</li>
 <li>使用TraceView优化App性能</li>
 <li>使用MAT分析APP内存状态</li>
+<li>推荐一个检测内存泄露情况的开源库：<a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a></li>
+<li>腾讯出品：<a href="http://gt.qq.com/" target="_blank" rel="external">GT</a><h4 id="Android中引起内存泄露的原因"><a href="#Android中引起内存泄露的原因" class="headerlink" title="Android中引起内存泄露的原因"></a>Android中引起内存泄露的原因</h4></li>
 </ul>
-<h4 id="Android中引起内存泄露的原因"><a href="#Android中引起内存泄露的原因" class="headerlink" title="Android中引起内存泄露的原因"></a>Android中引起内存泄露的原因</h4><p>内存泄漏简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。</p>
+<p>内存泄漏简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。</p>
 <ul>
 <li>注册没取消造成内存泄露，如：广播</li>
 <li>查询数据库后没有关闭游标cursor  </li>
