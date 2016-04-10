@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/26/android-interview-basic-1/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成Android面试基础知识总结。">
-<meta property="og:updated_time" content="2016-04-09T00:41:26.000Z">
+<meta property="og:updated_time" content="2016-04-10T07:13:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试基础知识总结（一）">
 <meta name="twitter:description" content="状态：未完成Android面试基础知识总结。">
@@ -117,7 +117,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 17.5px;">android studio</a> <a href="/tags/basic/" style="font-size: 18.75px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.5px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 13.75px;">mac</a> <a href="/tags/ndk/" style="font-size: 10px;">ndk</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 16.25px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 15px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 17.5px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.75px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 15.56px;">android studio</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.11px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.78px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.33px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 12.22px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 15.56px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 11.11px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 14.44px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 16.67px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
 					</div>
 				</section>
 				
@@ -279,7 +279,6 @@
 <p>配置为android:configChanges=”orientation|screenSize”时</p>
 <ul>
 <li>只会调用onConfigurationChanged方法</li>
-<li>如果你的应用支持Android3.2(API13)以后的系统，你应该添加screenSize配置</li>
 <li>注意当配置screenOrientation属性后，此属性无效。</li>
 </ul>
 <p>启动模式</p>
@@ -300,28 +299,17 @@
 <p>如何退出Activity？如何安全退出已调用多个Activity的Application？</p>
 <ul>
 <li>退出Activity直接finish即可。</li>
-<li>抛异常强制退出：<br>该方法通过抛异常，使程序Force Close。<br>验证可以，但是，需要解决的问题是，如何使程序结束掉，而不弹出Force Close的窗口。</li>
-<li>记录打开的Activity：<br>每打开一个Activity，就记录下来。在需要退出时，关闭每一个Activity即可。</li>
-<li>发送特定广播：<br>在需要结束应用时，发送一个特定的广播，每个Activity收到广播后，关闭即可。</li>
-<li>递归退出<br>在打开新的Activity时使用startActivityForResult，然后自己加标志，在onActivityResult中处理，递归关闭。</li>
+<li>抛异常强制退出,该方法通过抛异常，使程序Force Close。验证可以，但是，需要解决的问题是，如何使程序结束掉，而不弹出Force Close的窗口。</li>
+<li>记录打开的Activity：每打开一个Activity，就记录下来。在需要退出时，关闭每一个Activity即可。</li>
+<li>发送特定广播：在需要结束应用时，发送一个特定的广播，每个Activity收到广播后，关闭即可。</li>
+<li>递归退出：在打开新的Activity时使用startActivityForResult，然后自己加标志，在onActivityResult中处理，递归关闭。</li>
 </ul>
 <p>Fragment生命周期</p>
 <blockquote>
 <p>onAttach-&gt;onCreate-&gt;onCreateView-&gt;onActivityCreated-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestroyView-&gt;onDestroy-&gt;onDetach</p>
 </blockquote>
-<p>注册广播有哪几种方式,有什么区别</p>
-<ul>
-<li>通过代码动态注册</li>
-<li>在清单文件静态注册</li>
-</ul>
-<p>Android引入广播机制的用意？</p>
-<ul>
-<li>从MVC的角度考虑(应用程序内) 其实回答这个问题的时候还可以这样问，android为什么要有那4大组件，现在的移动开发模型基本上也是照搬的web那一套MVC架构，只不过是改了点嫁妆而已。android的四大组件本质上就是为了实现移动或者说嵌入式设备上的MVC架构，它们之间有时候是一种相互依存的关系，有时候又是一种补充关系，引入广播机制可以方便几大组件的信息和数据交互。 　　</li>
-<li>程序间互通消息(例如在自己的应用程序内监听系统来电) 　</li>
-<li>效率上(参考UDP的广播协议在局域网的方便性) 　</li>
-<li>设计模式上(反转控制的一种应用，类似监听者模式)</li>
-</ul>
-<h4 id="Broadcast、Content-Provider-和-AIDL的区别和联系"><a href="#Broadcast、Content-Provider-和-AIDL的区别和联系" class="headerlink" title="Broadcast、Content Provider 和 AIDL的区别和联系"></a>Broadcast、Content Provider 和 AIDL的区别和联系</h4><p>这3种都可以实现跨进程的通信，那么从效率，适用范围，安全性等方面来比较的话他们3者之间有什么区别？</p>
+<p>Broadcast、Content Provider 和 AIDL的区别和联系</p>
+<p>这3种都可以实现跨进程的通信，那么从效率，适用范围，安全性等方面来比较的话他们3者之间有什么区别？</p>
 <p>Broadcast：用于发送和接收广播！实现信息的发送和接收！<br>AIDL：用于不同程序间服务的相互调用！实现了一个程序为另一个程序服务的功能！<br>Content Provider:用于将程序的数据库人为地暴露出来！实现一个程序可以对另个程序的数据库进行相对用的操作！  </p>
 <p>Broadcast,既然是广播，那么它的优点是：注册了这个广播接收器的应用都能够收到广播，范围广。<br>缺点是：速度慢点，而且必须在一定时间内把事情处理完(onReceive执行必须在几秒之内)，否则的话系统给出ANR。<br>AIDL，是进程间通信用的，类似一种协议吧。优点是：速度快(系统底层直接是共享内存)，性能稳，效率高，一般进程间通信就用它。<br>Content Provider,因为只是把自己的数据库暴露出去，其他程序都可以来获取数据，数据本身不是实时的，不像前两者,只是起个数据供应作用。一般是某个成熟的应用来暴露自己的数据用的。 你要是为了进程间通信，还是别用这个了，这个又不是实时数据。</p>
 <p>参考链接：<a href="http://blog.csdn.net/woaieillen/article/details/8185531" target="_blank" rel="external">http://blog.csdn.net/woaieillen/article/details/8185531</a></p>
@@ -332,40 +320,44 @@
 <li>Handler: 你可以构造Handler对象来与Looper沟通，以便push新消息到MessageQueue里;或者接收Looper从Message Queue取出)所送来的消息。</li>
 <li>Message Queue(消息队列):用来存放线程放入的消息。</li>
 <li>线程：UIthread 通常就是main thread，而Android启动程序时会替它建立一个MessageQueue。</li>
-<li>Handle通信具体到源码，是怎么实现的  </li>
-<li>请解释下在单线程模型中Message、Handler、Message Queue、Looper之间的关系</li>
-<li>Handler和Looper满足线程间通信</li>
-<li>Handler先进先出</li>
-<li>Looper管理特定线程内对象之间的消息交换</li>
-<li>Looper：一个线程产生一个Looper管理消息队列</li>
-<li>Handler和Looper通讯</li>
-<li>Message Queue：存放线程放入的消息，android启动时创建消息队列</li>
-<li>线程：UIthread、mainthread</li>
 </ul>
-<h4 id="数据存储，数据持久化的方式有哪些"><a href="#数据存储，数据持久化的方式有哪些" class="headerlink" title="数据存储，数据持久化的方式有哪些"></a>数据存储，数据持久化的方式有哪些</h4><ul>
+<p>ListView卡顿原因</p>
+<ul>
+<li>Adapter的getView方法里面convertView没有使用setTag和getTag方式；</li>
+<li>在getView方法里面ViewHolder初始化后的赋值或者是多个控件的显示状态和背景的显示没有优化好，抑或是里面含有复杂的计算和耗时操作；</li>
+<li>在getView方法里面 inflate的row 嵌套太深（布局过于复杂）或者是布局里面有大图片或者背景所致；</li>
+<li>Adapter多余或者不合理的notifySetDataChanged；</li>
+<li>listview 被多层嵌套，多次的onMessure导致卡顿，如果多层嵌套无法避免，建议把listview的高和宽设置为fill_parent. 如果是代码继承的listview，那么也请你别忘记为你的继承类添加上LayoutPrams，注意高和宽都是fill_parent的；</li>
+</ul>
+<p>数据存储，数据持久化的方式有哪些</p>
+<ul>
 <li>SharedPreference</li>
 <li>数据库SQLite</li>
 <li>文件</li>
 <li>ContentProvider内容提供者，如联系人</li>
 <li>网络</li>
 </ul>
-<h4 id="postInvalidate与invalidate有什么区别？"><a href="#postInvalidate与invalidate有什么区别？" class="headerlink" title="postInvalidate与invalidate有什么区别？"></a>postInvalidate与invalidate有什么区别？</h4><ul>
+<p>postInvalidate与invalidate有什么区别？  </p>
+<ul>
 <li>都用于刷新界面</li>
 <li>postInvalidate()用在子线程</li>
 <li>invalidate()用在主线程</li>
 </ul>
-<h4 id="进程优先级"><a href="#进程优先级" class="headerlink" title="进程优先级"></a>进程优先级</h4><ul>
+<p>进程优先级</p>
+<ul>
 <li>前台进程</li>
 <li>可视进程</li>
 <li>服务进程</li>
 <li>后台进程</li>
 <li>空进程</li>
 </ul>
-<h4 id="JVM-和Dalvik虚拟机的区别"><a href="#JVM-和Dalvik虚拟机的区别" class="headerlink" title="JVM 和Dalvik虚拟机的区别"></a>JVM 和Dalvik虚拟机的区别</h4><ul>
+<p>JVM 和Dalvik虚拟机的区别  </p>
+<ul>
 <li>JVM:<br>  .java -&gt; javac -&gt; .class -&gt; jar -&gt; .jar<br>  架构: 堆和栈的架构.</li>
 <li>DVM:<br>  .java -&gt; javac -&gt; .class -&gt; dx.bat -&gt; .dex<br>  架构: 寄存器(cpu上的一块高速缓存)</li>
 </ul>
-<h4 id="Android中px-sp-dip-dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表"><a href="#Android中px-sp-dip-dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表" class="headerlink" title="Android中px,sp,dip,dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表"></a>Android中px,sp,dip,dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表</h4><table>
+<p>Android中px,sp,dip,dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表</p>
+<table>
 <thead>
 <tr>
 <th>ldpi</th>
@@ -396,71 +388,45 @@
 <p>dip: device independent pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA 推荐使用这个，不依赖像素。<br>dp: dip是一样的<br>px: pixels(像素).<br>pt: point，是一个标准的长度单位，1pt＝1/72英寸，用于印刷业，非常简单易用；<br>sp: scaled pixels(放大像素). 主要用于字体显示best for textsize。<br>in（英寸）：长度单位。<br>mm（毫米）：长度单位。</p>
 <p>据px = dip * density / 160，则当屏幕密度为160时，px = dip<br>根据 google 的建议，TextView 的字号最好使用 sp 做单位，而且查看TextView的源码可知Android默认使用sp作为字号单位。将dip作为其他元素的单位。</p>
 <p>参考链接：<a href="http://www.jb51.net/article/38506.htm" target="_blank" rel="external">http://www.jb51.net/article/38506.htm</a><br><a href="http://www.cnblogs.com/bluestorm/p/3640786.html" target="_blank" rel="external">http://www.cnblogs.com/bluestorm/p/3640786.html</a></p>
-<h4 id="简述静默安装的原理，如何在无需root权限的情况下实现静默安装？"><a href="#简述静默安装的原理，如何在无需root权限的情况下实现静默安装？" class="headerlink" title="简述静默安装的原理，如何在无需root权限的情况下实现静默安装？"></a>简述静默安装的原理，如何在无需root权限的情况下实现静默安装？</h4><ul>
+<p>简述Android应用程序的组成</p>
+<ul>
+<li>Activites　　应用程序的表示层。<br>应用程序的每个界面都将是Activity类的扩展。Acitvities用视图(View)构成GUI来显示信息、响应用户操作。就桌面开发而言，一个活动(Activity)相当于一个窗体(Form)。</li>
+<li>Services　　应用程序中的隐形工作者。<br>Service组件在后台运行，更新你的数据源和可见的Activities，触发通知(Notification)。在应用程序的Activities不激活或不可见时，用于执行依然需要继续的长期处理。</li>
+<li>Content Providers　　可共享的数据存储。<br>Content Providers用于管理和共享应用程序数据库。是跨应用程序边界数据共享的优先方式。</li>
+<li>Intents　　一个应用程序间(inter-application)的消息传递框架。<br>使用Intents你可以在系统范围内广播消息或者对一个目标Activity或Service发送消息，来表示你要执行一个动作。</li>
+<li>Widgets　　可以添加到主屏幕界面(home screen)的可视应用程序组件。<br>作为Broadcase Receiver的特殊变种，widgets让你可以为用户创建可嵌入到主屏幕界面的动态的、交互的应用程序组件。</li>
+</ul>
+<p>Android中的动画有哪些，区别是什么<br>两种，一种是Tween动画、还有一种是Frame动画。Tween动画，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化;另一种Frame动画，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。</p>
+<p>简述静默安装的原理，如何在无需root权限的情况下实现静默安装？</p>
+<ul>
 <li>伪装成系统应用，这就要给app打上系统应用的签名，但是这些签名在小米等手机上是没用的。</li>
 <li>通过把应用放在system/app的目录下也可以实现。</li>
 </ul>
-<h4 id="假如com-google-gson-包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则"><a href="#假如com-google-gson-包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则" class="headerlink" title="假如com.google.gson 包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则"></a>假如com.google.gson 包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则</h4><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">google</span>.<span class="title">gson</span>.** &#123; *;</span> &#125;</span><br><span class="line"></span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> * <span class="title">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> &#123;*;</span>&#125;</span></span><br></pre></td></tr></table></figure>
-<h4 id="手动编写gradle脚本，将libs-arm64-v8a目录下的so库及libs-gson-2-5-jar配置到项目依赖中"><a href="#手动编写gradle脚本，将libs-arm64-v8a目录下的so库及libs-gson-2-5-jar配置到项目依赖中" class="headerlink" title="手动编写gradle脚本，将libs\arm64-v8a目录下的so库及libs\gson-2.5.jar配置到项目依赖中"></a>手动编写gradle脚本，将libs\arm64-v8a目录下的so库及libs\gson-2.5.jar配置到项目依赖中</h4><p>指定JNI文件夹为libs<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sourceSets&#123;</span><br><span class="line">        main&#123;</span><br><span class="line">            jniLibs.srcDir([<span class="string">'libs'</span>])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>假如com.google.gson 包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">google</span>.<span class="title">gson</span>.** &#123; *;</span> &#125;</span><br><span class="line"></span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> * <span class="title">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> &#123;*;</span>&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>手动编写gradle脚本，将libs\arm64-v8a目录下的so库及libs\gson-2.5.jar配置到项目依赖中<br>指定JNI文件夹为libs<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sourceSets&#123;</span><br><span class="line">        main&#123;</span><br><span class="line">            jniLibs.srcDir([<span class="string">'libs'</span>])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>添加gson依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="function"><span class="title">files</span><span class="params">(<span class="string">'libs/gson-2.5.jar'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<h4 id="Android中引起内存泄露的原因"><a href="#Android中引起内存泄露的原因" class="headerlink" title="Android中引起内存泄露的原因"></a>Android中引起内存泄露的原因</h4><p>内存泄漏简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。</p>
+<p>Android事件传递及处理机制</p>
 <ul>
-<li>查询数据库后没有关闭游标cursor  </li>
-<li>构造Adapter时，没有使用 convertView 重用</li>
-<li>Bitmap对象不在使用时调用recycle()释放内存</li>
-<li>对象被生命周期长的对象引用，如activity被静态集合引用导致activity不能释放</li>
-</ul>
-<p>参考链接：<a href="http://www.cnblogs.com/yejiurui/archive/2013/02/23/2923418.html" target="_blank" rel="external">http://www.cnblogs.com/yejiurui/archive/2013/02/23/2923418.html</a></p>
-<h4 id="Android中使用Handler造成的内存泄露"><a href="#Android中使用Handler造成的内存泄露" class="headerlink" title="Android中使用Handler造成的内存泄露"></a>Android中使用Handler造成的内存泄露</h4><p>Handler也是造成内存泄露的一个重要的源头，主要Handler属于TLS(Thread Local Storage)变量,生命周期和Activity是不一致的<br>，Handler引用Activity会存在内存泄露。</p>
-<p>我们使用Handler常用的方式<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">HandlerActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Activity</span> &#123;</span>  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Handler</span> mHandler = <span class="keyword">new</span> <span class="type">Handler</span>() &#123;  </span><br><span class="line">        <span class="annotation">@Override</span>  </span><br><span class="line">        public void handleMessage(<span class="type">Message</span> msg) &#123;  </span><br><span class="line">            <span class="comment">// ...  </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;;  </span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span>  </span><br><span class="line">    public void onCreate(<span class="type">Bundle</span> savedInstanceState) &#123;  </span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_main);  </span><br><span class="line">        mHandler.sendMessageDelayed(<span class="type">Message</span>.obtain(), <span class="number">60000</span>);  </span><br><span class="line"></span><br><span class="line">        <span class="comment">//just finish this activity  </span></span><br><span class="line">        finish();  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当我们使用Handler作为内部类时，会出现这样的警告</p>
-<blockquote>
-<p>This Handler class should be static or leaks might occur(null)</p>
-</blockquote>
-<h5 id="导致的原因"><a href="#导致的原因" class="headerlink" title="导致的原因"></a>导致的原因</h5><blockquote>
-<ul>
-<li>Handler 的生命周期与Activity 不一致<br>当Android应用启动的时候，会先创建一个UI主线程的Looper对象，Looper实现了一个简单的消息队列，一个一个的处理里面的Message对象。主线程Looper对象在整个应用生命周期中存在。<br>当在主线程中初始化Handler时，该Handler和Looper的消息队列关联（没有关联会报错的）。发送到消息队列的Message会引用发送该消息的Handler对象，这样系统可以调用 Handler#handleMessage(Message) 来分发处理该消息。</li>
-<li>handler 引用 Activity 阻止了GC对Acivity的回收<br>在Java中，非静态(匿名)内部类会默认隐性引用外部类对象。而静态内部类不会引用外部类对象。<br>如果外部类是Activity，则会引起Activity泄露 。<br>当Activity finish后，延时消息会继续存在主线程消息队列中1分钟，然后处理消息。而该消息引用了Activity的Handler对象，然后这个Handler又引用了这个Activity。这些引用对象会保持到该消息被处理完，这样就导致该Activity对象无法被回收，从而导致了上面说的 Activity泄露。</li>
-</ul>
-</blockquote>
-<p>如何避免？</p>
-<ul>
-<li>使用显形的引用：静态内部类、外部类</li>
-<li>使用弱引用：WeakReference</li>
-</ul>
-<p>修改代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerActivity2</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_1 = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_2 = <span class="number">2</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_3 = <span class="number">3</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Handler mHandler = <span class="keyword">new</span> MyHandler(<span class="keyword">this</span>);  </span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">        setContentView(R.layout.activity_main);  </span><br><span class="line">        mHandler.sendMessageDelayed(Message.obtain(), <span class="number">60000</span>);  </span><br><span class="line"></span><br><span class="line">        <span class="comment">// just finish this activity  </span></span><br><span class="line">        finish();  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    &#125;;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> WeakReference&lt;HandlerActivity2&gt; mActivity;  </span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyHandler</span><span class="params">(HandlerActivity2 activity)</span> </span>&#123;  </span><br><span class="line">            mActivity = <span class="keyword">new</span> WeakReference&lt;HandlerActivity2&gt;(activity);  </span><br><span class="line">        &#125;  </span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span>  </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;  </span><br><span class="line">            System.out.println(msg);  </span><br><span class="line">            <span class="keyword">if</span> (mActivity.get() == <span class="keyword">null</span>) &#123;  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            mActivity.get().todo();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>进一步优化</p>
-<blockquote>
-<p>当Activity finish后 handler对象还是在Message中排队。 还是会处理消息，这些处理有必要？<br>正常Activitiy finish后，已经没有必要对消息处理，那需要怎么做呢？<br>解决方案也很简单，在Activity onStop或者onDestroy的时候，取消掉该Handler对象的Message和Runnable。<br>通过查看Handler的API，它有几个方法：removeCallbacks(Runnable r)和removeMessages(int what)等。</p>
-</blockquote>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**  </span><br><span class="line">  * 一切都是为了不要让mHandler拖泥带水  </span><br><span class="line">  */</span>  </span><br><span class="line"> <span class="annotation">@Override</span>  </span><br><span class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">     mHandler.removeMessages(MESSAGE_1);  </span><br><span class="line">     mHandler.removeMessages(MESSAGE_2);  </span><br><span class="line">     mHandler.removeMessages(MESSAGE_3);  </span><br><span class="line"></span><br><span class="line">     <span class="comment">// ... ...  </span></span><br><span class="line"></span><br><span class="line">     mHandler.removeCallbacks(mRunnable);  </span><br><span class="line"></span><br><span class="line">     <span class="comment">// ... ...  </span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    <span class="comment">//  If null, all callbacks and messages will be removed.  </span></span><br><span class="line">    mHandler.removeCallbacksAndMessages(<span class="keyword">null</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>原文链接：<a href="http://blog.csdn.net/zhuanglonghai/article/details/38233069" target="_blank" rel="external">http://blog.csdn.net/zhuanglonghai/article/details/38233069</a></p>
-<h4 id="Android事件传递及处理机制"><a href="#Android事件传递及处理机制" class="headerlink" title="Android事件传递及处理机制"></a>Android事件传递及处理机制</h4><ul>
 <li>dispatchTouchEvent()事件分发</li>
 <li>onInterceptTouchEvent()事件拦截</li>
 <li>onTouchEvent()</li>
 </ul>
 <p>首先由父控件接收到事件进行分发，调用拦截，返回true进行消费调用onTouchEvent，返回false则将事件传递给子控件，若子控件为ViewGroup则继续传递，最终为View时，事件无法向下传递调用onTouchEvent返回true消费，返回false，回传事件，父控件的onTouchEvent返回true消费，返回false事件丢失<br>无子类的View没有onInterceptTouchEvent()事件拦截方法</p>
-<p>写一个求递归程序<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>*<span class="number">4</span>*<span class="number">3</span>*<span class="number">2</span>*<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="子线程中更新UI的方法"><a href="#子线程中更新UI的方法" class="headerlink" title="子线程中更新UI的方法"></a>子线程中更新UI的方法</h4><p>1.Handler+Message<br>2.<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler(context.getMainLooper()).post(</span><br><span class="line">  <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//更新UI</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>3.<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="list">(<span class="keyword">Activity</span>)</span>context)</span>runOnUiThread<span class="list">(</span><br><span class="line">  <span class="keyword">new</span> Runnable<span class="list">()</span>&#123;</span><br><span class="line">    public void run<span class="list">()</span>&#123;</span><br><span class="line">      //更新UI</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  )</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="volatile修饰符"><a href="#volatile修饰符" class="headerlink" title="volatile修饰符"></a>volatile修饰符</h4><p>在JVM 1.2之前，Java总是从主存读取变量，但随着JVM的优化，线程可以把变量保存在机器的寄存器中，而不是直接在主存中进行读写。这就可能造成一个线程在主存中修改了一个变量的值。而另外一个线程还继续使用它在寄存器中变量值的副本，造成数据的不一致。要解决这个问题，就需要把该变量声明为volatile（不稳定的），它指示JVM这个变量是不稳定的，每次使用它都到主存中进行读取，因此多线程环境下volatile关键字的使用变得非常重要。一般来说，多线程环境下各线程间共享的变量都应该加volatile修饰。</p>
-<h4 id="notifyDataSetChanged和notifyDataSetInvalidated的区别"><a href="#notifyDataSetChanged和notifyDataSetInvalidated的区别" class="headerlink" title="notifyDataSetChanged和notifyDataSetInvalidated的区别"></a>notifyDataSetChanged和notifyDataSetInvalidated的区别</h4><p>notifyDataSetInvalidated()，会重绘整个控件（还原到初始状态）<br>notifyDataSetChanged()，重绘当前可见区域</p>
-<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>调用隐藏API</p>
-<h4 id="fastjson和GSON的区别"><a href="#fastjson和GSON的区别" class="headerlink" title="fastjson和GSON的区别"></a>fastjson和GSON的区别</h4><p>1 fastjson 是阿里出的json解析工具<br>2 gson 是谷歌推荐的解析工具</p>
-<p>1 fastjson在解析的时候，字段不能大写。<br>2 fastjson必须使用get和set方法</p>
-<p>百度地图遇到的问题，是怎么解决的</p>
-<h4 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h4><p>接口声明能引用所有实现类对象<br>抽象类声明能引用所有具体类对象<br>面向抽象类和接口编程<br>不要面向具体类编程，这也是各种设计模式的核心思想</p>
-<p>相同点：都有抽象方法，不能实例化，有声明，能引用<br>不同点：抽象类有域变量，可能有具体方法可调用抽象方法  必须有子类继承  扩展性弱<br>       接口不能有域变量，只有静态常量，只有抽象方法，必须有具体类实现  扩展性强<br> 接口中的字段全部默认为 public static类型。<br> 接口中的方法全部默认为 public类型。<br> 接口中可以申明内部类，而默认为public static，正因为是static，只是命名空间属于接口，代码逻辑不属于接口。所以不违法接口定义。<br> 接口本身可以申明为public或者缺省。<br> 抽象类继承自某接口。如果在抽象类中实现了父类（接口）中的方法，在其子类可以不用实现，否则在子类必须实现。<br>接口是公开的，里面不能有私有的方法或变量，是用于让别人使用的，而抽象类是可以有私有方法或私有变量的，另外，实现接口的一定要实现接口里定义的所有方法，而实现抽象类可以有选择地重写需要用到的方法，一般的应用里，最顶级的是接口，然后是抽象类实现接口，最后才到具体类实现。还有，接口可以实现多重继承，而一个类只能继承一个超类，但可以通过继承多个接口实现多重继承，接口还有标识（里面没有任何方法，如Remote接口）和数据共享（里面的变量全是常量）的作用.</p>
-<p>异常  OutOfMemaryError<br>RuntimeException<br>空指针异常<br>算术（除零）异常<br>数组溢出异常<br>类转换异常<br>类没找到异常</p>
-<h4 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h4><p>模板方法模式是类的行为模式。准备一个抽象类，将部分逻辑以具体方法以及具体构造函数的形式实现，然后声明一些抽象方法来迫使子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现。这就是模板方法模式的用意。</p>
-<p>热修复</p>
-<p>怎么考虑数据传输的安全性</p>
-<p>openfire</p>
-<p>Rest API</p>
-<p>Volley</p>
+<p>子线程中更新UI的方法</p>
+<ul>
+<li>第一种：Handler+Message</li>
+<li><p>第二种：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler(context.getMainLooper()).post(</span><br><span class="line">  <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//更新UI</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="list">(<span class="keyword">Activity</span>)</span>context)</span>runOnUiThread<span class="list">(</span><br><span class="line">  <span class="keyword">new</span> Runnable<span class="list">()</span>&#123;</span><br><span class="line">    public void run<span class="list">()</span>&#123;</span><br><span class="line">      //更新UI</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  )</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>notifyDataSetChanged和notifyDataSetInvalidated的区别</p>
+<ul>
+<li>notifyDataSetInvalidated()，会重绘整个控件（还原到初始状态）</li>
+<li>notifyDataSetChanged()，重绘当前可见区域</li>
+</ul>
 
       
     </div>
