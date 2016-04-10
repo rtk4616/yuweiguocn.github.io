@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android面试题集合 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态：未完成Android面试常见问题列表。">
+  <meta name="description" content="Android面试常见问题列表。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android面试题集合">
 <meta property="og:url" content="http://yoursite.com/2016/03/26/android-interview-list/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="状态：未完成Android面试常见问题列表。">
-<meta property="og:updated_time" content="2016-04-10T08:03:31.000Z">
+<meta property="og:description" content="Android面试常见问题列表。">
+<meta property="og:updated_time" content="2016-04-10T08:45:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试题集合">
-<meta name="twitter:description" content="状态：未完成Android面试常见问题列表。">
+<meta name="twitter:description" content="Android面试常见问题列表。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -232,9 +232,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>状态：未完成<br>Android面试常见问题列表。</p>
+        <p>Android面试常见问题列表。</p>
 <a id="more"></a>
-<p>Java基础</p>
+<h4 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h4><p>简述题（一）</p>
 <ul>
 <li>&amp;和&amp;&amp;的区别。</li>
 <li>Get和Post的区别</li>
@@ -243,8 +243,11 @@
 <li>抽象类和接口的区别</li>
 <li>谈一下对java中的abstract的理解</li>
 <li>Overload和Override的区别</li>
-<li>Static Nested Class 和 Inner Class的不同。</li>
+<li>Static Nested Class 和 Inner Class的不同</li>
 <li>内部类机制</li>
+</ul>
+<p>简述题（二）</p>
+<ul>
 <li>怎么用接口来连接两个层的</li>
 <li>接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承实体类(concreteclass)?</li>
 <li>private和default有什么区别</li>
@@ -259,12 +262,18 @@
 <li>常量final string str=“ab”可不可以变成”abd”，为什么？</li>
 <li>StringBuffer的作用？</li>
 <li>String s=new String(“abc”);  new了几个对象</li>
+</ul>
+<p>简述题（三）</p>
+<ul>
 <li>启动一个线程是用run()还是start()?</li>
 <li>多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么?</li>
 <li>同步和异步的区别？</li>
 <li>sleep和wait有什么区别？ 一个是用来让线程休息，一个是用来挂起线程</li>
 <li>abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?</li>
 <li>当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?</li>
+</ul>
+<p>简述题（四）</p>
+<ul>
 <li>Error与Exception的区别</li>
 <li>Java中的异常处理机制的简单原理和应用。</li>
 <li>GC 垃圾回收机制,垃圾回收的优点和原理。并考虑2种回收机制。</li>
@@ -272,6 +281,9 @@
 <li>反射，求字段的值和方法名</li>
 <li>Socket编程的步骤  </li>
 <li>什么是Java序列化</li>
+</ul>
+<p>简述题（五）</p>
+<ul>
 <li>常见集合及区别</li>
 <li>ArrayList和Vector区别，HashMap和HashTable区别</li>
 <li>ArrayList和LinkedList的区别</li>
@@ -285,8 +297,8 @@
 <li>heap和stack有什么区别。</li>
 <li>用最有效率的方法算出2乘以8等於几? （2&lt;&lt; 3）</li>
 </ul>
-<p><a href="/2016/04/08/android-interview-java/">Android面试——Java相关</a><br><a href="/2016/01/06/java-collection/">java集合类框架</a></p>
-<p>Activity</p>
+<p><a href="/2016/01/06/java-collection/">java集合类框架</a><br><a href="/2016/04/08/android-interview-java/">Android面试——Java相关</a></p>
+<h4 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h4><p>Activity</p>
 <ul>
 <li>生命周期及横竖屏切换时生命周期</li>
 <li>启动模式</li>
@@ -297,7 +309,7 @@
 <li>如何将一个Activity设置成窗口的样式</li>
 <li>如何退出Activity？如何安全退出已调用多个Activity的Application？</li>
 <li>Activity中如何动态的添加Fragment？</li>
-<li>activity的启动过程 （<a href="http://www.cloudchou.com/android/post-788.html）" target="_blank" rel="external">http://www.cloudchou.com/android/post-788.html）</a></li>
+<li>activity的启动过程 <a href="http://www.cloudchou.com/android/post-788.html" target="_blank" rel="external">参考</a></li>
 <li>不用Service,B页面为音乐播放，从A跳到B，再返回，如何使音乐继续播放？</li>
 <li>windows和activity之间关系？</li>
 <li>一个activity打开另外一个activity，再打开一个activity？回去的时候发生了什么操作？</li>
@@ -358,29 +370,32 @@
 <ul>
 <li>谈谈UI中，Padding和Margin有什么区别？</li>
 <li>drawable-hdpi的dpi是什么意思？</li>
-<li>请介绍下Android中常用的五种布局<br>FrameLayout（框架布局），LinearLayout （线性布局），AbsoluteLayout（绝对布局），RelativeLayout（相对布局），TableLayout（表格布局）</li>
+<li>请介绍下Android中常用的五种布局</li>
 <li>Android中px,sp,dip,dp的区别与联系</li>
-<li><p>怎么处理屏幕适配的</p>
-</li>
-<li><p>android开发中怎么去调试debug</p>
-</li>
+<li>怎么处理屏幕适配的</li>
+</ul>
+<p>简述题（一）</p>
+<ul>
+<li>android开发中怎么去调试debug</li>
 <li>请解释下Android程序运行时权限与文件系统的权限的区别</li>
 <li>JVM 和Dalvik虚拟机的区别  </li>
 <li>android dvm的进程和Linux的进程应用程序是否为同一个概念</li>
 <li>sim卡的ef文件有何作用。</li>
 <li>你如何评价Android系统？优缺点</li>
 <li>谈下android系统的架构</li>
-<li><p>根据自己的理解描述下android数字签名</p>
-</li>
-<li><p>如何加载音乐信息，如何改善其效率。</p>
-</li>
+<li>根据自己的理解描述下android数字签名</li>
+</ul>
+<p>简述题（二）</p>
+<ul>
+<li>如何加载音乐信息，如何改善其效率。</li>
 <li>Android程序与java程序的区别？</li>
 <li>什么是 MVC 模式？MVC 模式的好处是什么？  </li>
 <li>在Android中MVC的具体体现</li>
-<li><p>简述Android应用程序的组成</p>
-</li>
-<li><p>如何让程序自动启动</p>
-</li>
+<li>简述Android应用程序的组成</li>
+</ul>
+<p>简述题（三）</p>
+<ul>
+<li>如何让程序自动启动</li>
 <li>如何让程序不被系统自动销毁</li>
 <li>常见异常，5种运行时异常</li>
 <li>运行时异常与一般异常有何异同？</li>
@@ -392,10 +407,8 @@
 <li>数据存储，数据持久化的方式有哪些</li>
 <li>进程优先级</li>
 <li>intent-filter属性及其含义；</li>
-<li><p>如何打开res/raw 目录中的数据库文件？</p>
-</li>
-<li><p>NotifactionManager使用原理</p>
-</li>
+<li>如何打开res/raw 目录中的数据库文件？<br>简述题（四）</li>
+<li>NotifactionManager使用原理</li>
 <li>Asset与raw都能存放资源，他们有什么区别？</li>
 <li>postInvalidate与invalidate有什么区别？</li>
 <li>notifyDataSetChanged 和notifyDataSetInvalidated的区别</li>
@@ -406,10 +419,11 @@
 <li>外存储器文件遍历输出文件名</li>
 <li>Intent启动Activity有几种方式，请分别简述</li>
 <li>AndroidManifest.xml文件中主要包含哪些信息</li>
-<li><p>列举常用的Android开源项目及应用场景</p>
-</li>
-<li><p>常见设计模式，并手动简单实现观察者模式</p>
-</li>
+<li>列举常用的Android开源项目及应用场景</li>
+</ul>
+<p>简述题（五）</p>
+<ul>
+<li>常见设计模式，并手动简单实现观察者模式</li>
 <li>Handler机制</li>
 <li>热修复</li>
 <li>简述静默安装的原理，如何在无需Root权限的情况下实现静默安装</li>
@@ -458,15 +472,14 @@
 <li>Android中引起内存泄露的原因</li>
 </ul>
 <p><a href="/2016/04/10/android-interview-peformance/">Android面试——APP性能优化</a></p>
-<p>数据库</p>
-<ul>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><ul>
+<li>分页查询数据</li>
 <li>如何将SQLite数据库与apk文件一起发布？</li>
 <li>左连接与右连接的区别</li>
 <li>描述Sqlite数据库（类型、关系）；</li>
 <li>你的项目中Sqlite数据库中存储的数据用SharePreference来处理也可以，为什么不用SharePreference呢；</li>
 </ul>
-<p>网络编程</p>
-<ul>
+<h4 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h4><ul>
 <li>Rest API</li>
 <li>Volley相关 <a href="https://bxbxbai.github.io/2014/09/14/android-working-with-volley/" target="_blank" rel="external">Volley</a> <a href="http://blog.csdn.net/guolin_blog/article/details/17656437" target="_blank" rel="external"> Android Volley完全解析</a></li>
 <li>如何控制TCP连接时的拥塞 <a href="http://blog.csdn.net/yechaodechuntian/article/details/25429143" target="_blank" rel="external">TCP的流量控制和拥塞控制</a></li>
@@ -474,11 +487,10 @@
 <li><a href="http://wyong.blog.51cto.com/1115465/1553352" target="_blank" rel="external">Android客户端和服务端如何使用Token和Session</a></li>
 <li>移动端获取网络数据优化</li>
 </ul>
-<p><a href="/2016/04/08/android-interview-program/">编程算法题</a></p>
-<ul>
+<h4 id="编程算法题"><a href="#编程算法题" class="headerlink" title="编程算法题"></a>编程算法题</h4><ul>
 <li>冒泡排序</li>
 <li>求素数</li>
-<li>单例模式——写一个Singleton出来——<a href="/2016/03/24/java-instance/">Java实现单例模式的正确姿势</a>。</li>
+<li>单例模式——写一个Singleton出来</li>
 <li>二叉树遍历</li>
 <li>最长不重复子串（最长重复子串）</li>
 <li>有一个一维整型数组int[]data保存的是一张宽为width，高为height的图片像素值信息。请写一个算法，将该图片所有的白色不透明(xffffffff)像素点的透明度调整为5%。</li>
@@ -499,6 +511,7 @@
 <li>反转字符串，要求手写代码，优化速度、优化空间  </li>
 <li>给出两个无向图，找出这2个无向图中相同的环路。手写代码</li>
 </ul>
+<p><a href="/2016/03/24/java-instance/">Java实现单例模式的正确姿势</a><br><a href="/2016/04/08/android-interview-program/">Android面试——编程算法题</a></p>
 <p>部分答案可参考：<a href="http://blog.csdn.net/x605940745/article/category/1808335" target="_blank" rel="external">CSDN:剑萧舞蝶</a></p>
 
       

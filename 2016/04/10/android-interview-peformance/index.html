@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/10/android-interview-peformance/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="Android应用性能优化基础知识。">
-<meta property="og:updated_time" content="2016-04-10T07:50:53.000Z">
+<meta property="og:updated_time" content="2016-04-10T13:14:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试——APP性能优化">
 <meta name="twitter:description" content="Android应用性能优化基础知识。">
@@ -242,6 +242,9 @@
 <li>ViewStub 是一个隐藏的，不占用内存空间的视图对象，它可以在运行时延迟加载布局资源文件。</li>
 <li><include layout="@layout/activity_main"> 把复杂的界面需要抽取出来</include></li>
 </ul>
+<p><a href="http://www.it165.net/pro/html/201409/22192.html" target="_blank" rel="external">Android布局优化之Merge Include ViewStub使用与源码分析</a></p>
+<p><a href="http://blog.csdn.net/xyz_lmn/article/details/14524567" target="_blank" rel="external">Android抽象布局——include、merge 、ViewStub</a></p>
+<p><a href="http://blog.csdn.net/guolin_blog/article/details/12921889" target="_blank" rel="external"> Android LayoutInflater原理分析，带你一步步深入了解View(一)</a></p>
 <h4 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h4><ul>
 <li>使用AndroidLint分析结果进行相应优化</li>
 <li>不使用枚举及IOC框架，反射性能低</li>
@@ -253,6 +256,7 @@
 <li>图片缓存，采用内存缓存LRUCache和硬盘缓存DiskLRUCache</li>
 <li>Bitmap优化，采用适当分辨率大小并及时回收</li>
 </ul>
+<p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a></p>
 <h4 id="移动端获取网络数据优化"><a href="#移动端获取网络数据优化" class="headerlink" title="移动端获取网络数据优化"></a>移动端获取网络数据优化</h4><ul>
 <li>连接复用 :节省连接建立时间，如开启 keep-alive。<br>对于 Android 来说默认情况下 HttpURLConnection 和 HttpClient 都开启了 keep-alive。只是 2.2 之前 HttpURLConnection 存在影响连接池的 Bug，具体可见：Android HttpURLConnection 及 HttpClient 选择</li>
 <li>请求合并:即将多个请求合并为一个进行请求，比较常见的就是网页中的 CSS Image Sprites。如果某个页面内请求过多，也可以考虑做一定的请求合并。</li>
