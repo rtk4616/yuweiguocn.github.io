@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/10/android-interview-peformance/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="Android应用性能优化基础知识。">
-<meta property="og:updated_time" content="2016-04-10T13:17:11.000Z">
+<meta property="og:updated_time" content="2016-04-12T03:06:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试——APP性能优化">
 <meta name="twitter:description" content="Android应用性能优化基础知识。">
@@ -238,9 +238,9 @@
 <li>优化布局层级</li>
 <li>避免嵌套过多无用布局</li>
 <li>当我们在画布局的时候，如果能实现相同的功能，优先考虑相对布局，然后在考虑别的布局，不要用绝对布局。</li>
-<li>使用<merge>标签，因为它在优化UI结构时起到很重要的作用。目的是通过删减多余或者额外的层级，从而优化整个Android Layout的结构。核心功能就是减少冗余的层次从而达到优化UI的目的！</merge></li>
+<li>使用<code>&lt;include /&gt;</code>标签把复杂的界面需要抽取出来</li>
+<li>使用<code>&lt;merge /&gt;</code>标签，因为它在优化UI结构时起到很重要的作用。目的是通过删减多余或者额外的层级，从而优化整个Android Layout的结构。核心功能就是减少冗余的层次从而达到优化UI的目的！</li>
 <li>ViewStub 是一个隐藏的，不占用内存空间的视图对象，它可以在运行时延迟加载布局资源文件。</li>
-<li><include layout="@layout/activity_main"> 把复杂的界面需要抽取出来</include></li>
 </ul>
 <p><a href="http://www.it165.net/pro/html/201409/22192.html" target="_blank" rel="external">Android布局优化之Merge Include ViewStub使用与源码分析</a></p>
 <p><a href="http://blog.csdn.net/xyz_lmn/article/details/14524567" target="_blank" rel="external">Android抽象布局——include、merge 、ViewStub</a></p>
@@ -251,10 +251,17 @@
 <li>常量加static</li>
 <li>静态方法</li>
 <li>减少不必要的对象、成员变量</li>
-</ul>
-<h4 id="内存优化"><a href="#内存优化" class="headerlink" title="内存优化"></a>内存优化</h4><ul>
+<li>尽量使用线程池</li>
+<li>适当使用软引用和弱引用</li>
+<li>尽量使用静态内部类，避免潜在的内存泄露</li>
 <li>图片缓存，采用内存缓存LRUCache和硬盘缓存DiskLRUCache</li>
 <li>Bitmap优化，采用适当分辨率大小并及时回收</li>
+</ul>
+<h4 id="ListView和GridView优化"><a href="#ListView和GridView优化" class="headerlink" title="ListView和GridView优化"></a>ListView和GridView优化</h4><ul>
+<li>采用ViewHolder复用convertView</li>
+<li>避免在getView中执行耗时操作</li>
+<li>列表在滑动状态时不加载图片</li>
+<li>开启硬件加速</li>
 </ul>
 <h4 id="移动端获取网络数据优化"><a href="#移动端获取网络数据优化" class="headerlink" title="移动端获取网络数据优化"></a>移动端获取网络数据优化</h4><ul>
 <li>连接复用 :节省连接建立时间，如开启 keep-alive。<br>对于 Android 来说默认情况下 HttpURLConnection 和 HttpClient 都开启了 keep-alive。只是 2.2 之前 HttpURLConnection 存在影响连接池的 Bug，具体可见：Android HttpURLConnection 及 HttpClient 选择</li>
@@ -266,13 +273,15 @@
 <li>使用Hierarchy Viewer查看UI布局层级</li>
 <li>使用AndroidStudio Memory Monitor查看内存使用情况</li>
 <li>使用TraceView优化App性能</li>
-<li>使用MAT分析APP内存状态</li>
-<li>推荐一个检测内存泄露情况的开源库：<a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a></li>
+<li>使用内存泄露分析工具MAT分析APP内存状态</li>
+<li>检测内存泄露的开源库：<a href="https://github.com/square/leakcanary" target="_blank" rel="external">LeakCanary</a></li>
 <li>腾讯出品：<a href="http://gt.qq.com/" target="_blank" rel="external">GT</a><h4 id="Android中引起内存泄露的原因"><a href="#Android中引起内存泄露的原因" class="headerlink" title="Android中引起内存泄露的原因"></a>Android中引起内存泄露的原因</h4></li>
 </ul>
 <p>内存泄漏简单地说就是申请了一块内存空间，使用完毕后没有释放掉。它的一般表现方式是程序运行时间越长，占用内存越多，最终用尽全部内存，整个系统崩溃。由程序申请的一块内存，且没有任何一个指针指向它，那么这块内存就泄露了。</p>
 <ul>
 <li>注册没取消造成内存泄露，如：广播</li>
+<li>静态变量持有Activity的引用</li>
+<li>单例模式持有Activity的引用</li>
 <li>查询数据库后没有关闭游标cursor  </li>
 <li>构造Adapter时，没有使用 convertView 重用</li>
 <li>Bitmap对象不在使用时调用recycle()释放内存</li>
@@ -281,8 +290,7 @@
 </ul>
 <h4 id="Android中使用Handler造成的内存泄露解决方案"><a href="#Android中使用Handler造成的内存泄露解决方案" class="headerlink" title="Android中使用Handler造成的内存泄露解决方案"></a>Android中使用Handler造成的内存泄露解决方案</h4><p>原文链接：<a href="http://blog.csdn.net/zhuanglonghai/article/details/38233069" target="_blank" rel="external">Android App 内存泄露之Handler</a></p>
 <ul>
-<li>使用显形的引用：静态内部类、外部类</li>
-<li>使用弱引用：WeakReference</li>
+<li>静态内部类+弱引用WeakReference</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HandlerActivity2</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_1 = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_2 = <span class="number">2</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_3 = <span class="number">3</span>;  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Handler mHandler = <span class="keyword">new</span> MyHandler(<span class="keyword">this</span>);  </span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);  </span><br><span class="line">        setContentView(R.layout.activity_main);  </span><br><span class="line">        mHandler.sendMessageDelayed(Message.obtain(), <span class="number">60000</span>);  </span><br><span class="line"></span><br><span class="line">        <span class="comment">// just finish this activity  </span></span><br><span class="line">        finish();  </span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    &#125;;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> WeakReference&lt;HandlerActivity2&gt; mActivity;  </span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyHandler</span><span class="params">(HandlerActivity2 activity)</span> </span>&#123;  </span><br><span class="line">            mActivity = <span class="keyword">new</span> WeakReference&lt;HandlerActivity2&gt;(activity);  </span><br><span class="line">        &#125;  </span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span>  </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;  </span><br><span class="line">            System.out.println(msg);  </span><br><span class="line">            <span class="keyword">if</span> (mActivity.get() == <span class="keyword">null</span>) &#123;  </span><br><span class="line">                <span class="keyword">return</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">            mActivity.get().todo();  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>进一步优化</p>

@@ -7,18 +7,21 @@
   <title>Android基础——AsyncTask | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask">
+原文链接：AsyncTask   墙内链接：AsyncTask
+AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础——AsyncTask">
 <meta property="og:url" content="http://yoursite.com/2016/04/10/android-basic-asynctask/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask">
-<meta property="og:updated_time" content="2016-04-10T02:44:16.000Z">
+原文链接：AsyncTask   墙内链接：AsyncTask
+AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
+<meta property="og:updated_time" content="2016-04-12T01:56:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——AsyncTask">
 <meta name="twitter:description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask">
+原文链接：AsyncTask   墙内链接：AsyncTask
+AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -237,12 +240,31 @@
       
         <p>状态：未完成</p>
 <p>原文链接：<a href="http://developer.android.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a>   墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a></p>
+<p>AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。</p>
 <a id="more"></a>
 <p>带着问题去学习：</p>
 <ul>
 <li>Asynctask具体用法？  </li>
 <li>Asynctask的Do in background方法是怎么通知UI线程刷新进度条的？  </li>
 <li>Asynctask的Do in background方法默认是返回 true ，表示任务完成，如果想返回具体的数据呢，怎么做。如果Activity被销毁了，还会执行到postexcutd方法吗？</li>
+</ul>
+<p>AsyncTask被设计为Thread 和 Handler一个帮助类并且不会建立一个通用的线程框架。按理来说AsyncTasks应该用于时间比较短的操作（最多几秒）。如果你需要保持线程长时间运行，强烈推荐你使用java.util.concurrent包里提供的不同的API，例如Executor， ThreadPoolExecutor 和 FutureTask。</p>
+<p>异步任务的定义是由一个运行在后台线程上的计算并在UI线程上返回结果。异步任务的定义是由三个常用类型，包括Params, Progress 和 Result，4步，onPreExecute, doInBackground, onProgressUpdate 和 onPostExecute。</p>
+<h4 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h4><p>关于使用tasks和threads的更多信息，请阅读 Processes and Threads开发指南。</p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>使用AsyncTask必须创建一个子类。子类至少重写一个方法 (doInBackground(Params…))，通常重写的第二个是 (onPostExecute(Result))。</p>
+<p>这是一个子类的示例：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">private class <span class="type">DownloadFilesTask</span> extends <span class="type">AsyncTask</span>&lt;<span class="type">URL</span>, <span class="type">Integer</span>, <span class="type">Long</span>&gt; &#123;</span><br><span class="line">     protected <span class="type">Long</span> doInBackground(<span class="type">URL</span>... urls) &#123;</span><br><span class="line">         <span class="type">int</span> count = urls.length;</span><br><span class="line">         long totalSize = <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">             totalSize += <span class="type">Downloader</span>.downloadFile(urls[i]);</span><br><span class="line">             publishProgress((<span class="type">int</span>) ((i / (<span class="type">float</span>) count) * <span class="number">100</span>));</span><br><span class="line">             // <span class="type">Escape</span> early <span class="keyword">if</span> cancel() <span class="keyword">is</span> called</span><br><span class="line">             <span class="keyword">if</span> (isCancelled()) <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> totalSize;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     protected <span class="type">void</span> onProgressUpdate(<span class="type">Integer</span>... progress) &#123;</span><br><span class="line">         setProgressPercent(progress[<span class="number">0</span>]);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     protected <span class="type">void</span> onPostExecute(<span class="type">Long</span> <span class="literal">result</span>) &#123;</span><br><span class="line">         showDialog(<span class="string">"Downloaded "</span> + <span class="literal">result</span> + <span class="string">" bytes"</span>);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>一旦创建，执行一项任务很简单：<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> DownloadFilesTask().<span class="keyword">execute</span>(url1, url2, url3);</span><br></pre></td></tr></table></figure></p>
+<h4 id="AsyncTask的常用类型"><a href="#AsyncTask的常用类型" class="headerlink" title="AsyncTask的常用类型"></a>AsyncTask的常用类型</h4><p>下面三种类型用于异步任务：</p>
+<ul>
+<li>Params，发送到任务执行的参数类型。</li>
+<li>Progress，后台计算期间返回的进度单元的类型。</li>
+<li>Result，后台计算的结果的类型。</li>
+</ul>
+<p>异步任务不是总是使用所有的类型。标记不使用的类型，使用Void就可以了：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTask</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AsyncTask&lt;Void</span>, <span class="title">Void</span>, <span class="title">Void&gt;</span> &#123;</span> ... &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4步"><a href="#4步" class="headerlink" title="4步"></a>4步</h4><p>当一项任务被执行后，任务会经历4个步骤：</p>
+<ul>
+<li>onPreExecute()，任务被执行前在UI线程中被调用。这一步通常用于配置任务，例如在用户界面显示一个进度条。</li>
+<li>doInBackground(Params…)，在onPreExecute()执行完成后在后台线程中立即被调用。这一步用于执行后台花费长时间的计算。异步任务的参数传递到这一步。计算的结果必须通过这一步返回并且会被传递到最后一步。</li>
 </ul>
 
       
