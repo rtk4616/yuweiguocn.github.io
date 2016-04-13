@@ -16,7 +16,7 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 <meta property="og:description" content="状态：未完成
 原文链接：AsyncTask   墙内链接：AsyncTask
 AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
-<meta property="og:updated_time" content="2016-04-12T01:56:33.000Z">
+<meta property="og:updated_time" content="2016-04-12T10:52:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——AsyncTask">
 <meta name="twitter:description" content="状态：未完成
@@ -123,7 +123,7 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 15.56px;">android studio</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.11px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.78px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.33px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 12.22px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 15.56px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 11.11px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 14.44px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 16.67px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 15px;">android studio</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.75px;">basic</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/demo/" style="font-size: 11.25px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 17.5px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.5px;">guide</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.75px;">interview</a> <a href="/tags/java/" style="font-size: 12.5px;">java</a> <a href="/tags/mac/" style="font-size: 12.5px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 15px;">series</a> <a href="/tags/service/" style="font-size: 12.5px;">service</a> <a href="/tags/software/" style="font-size: 11.25px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/support/" style="font-size: 13.75px;">support</a> <a href="/tags/teach/" style="font-size: 10px;">teach</a> <a href="/tags/tips/" style="font-size: 16.25px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.5px;">translate</a>
 					</div>
 				</section>
 				
@@ -264,9 +264,12 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 <h4 id="4步"><a href="#4步" class="headerlink" title="4步"></a>4步</h4><p>当一项任务被执行后，任务会经历4个步骤：</p>
 <ul>
 <li>onPreExecute()，任务被执行前在UI线程中被调用。这一步通常用于配置任务，例如在用户界面显示一个进度条。</li>
-<li>doInBackground(Params…)，在onPreExecute()执行完成后在后台线程中立即被调用。这一步用于执行后台花费长时间的计算。异步任务的参数传递到这一步。计算的结果必须通过这一步返回并且会被传递到最后一步。</li>
+<li>doInBackground(Params…)，在onPreExecute()执行完成后在后台线程中立即被调用。这一步用于执行后台花费长时间的计算。异步任务的参数传递到这一步。计算的结果必须通过这一步返回并且会被传递到最后一步。这一步也可以使用publishProgress(Progress…)发布一个或多个进度单元。这些值在UI线程中被发布，在onProgressUpdate(Progress…)这一步。</li>
+<li>onProgressUpdate(Progress…)，调用publishProgress(Progress…)之后在UI线程被调用。没有定义执行的时机。这个方法用于后台计算还在执行时在用户界面显示进度。例如，它可以用于动画进度条或在文本域显示日志。</li>
+<li>onPostExecute(Result)，后台计算完成后在UI线程中被调用。后台计算的结果作为参数传递到这一步。</li>
 </ul>
-
+<h4 id="取消一个任务"><a href="#取消一个任务" class="headerlink" title="取消一个任务"></a>取消一个任务</h4><p>通过调用cancel(boolean)可以在任何时候取消一个任务。调用这个方法会导致isCancelled()返回true。调用这个方法后，在doInBackground(Object[])返回后，onCancelled(Object)会被调用而不是onPostExecute(Object)。为了确保一个任务尽可能快的被取消，如果可能的话（例如在一个循环内），你应该在doInBackground(Object[])定期检查isCancelled()的返回值。</p>
+<h4 id="线程规则"><a href="#线程规则" class="headerlink" title="线程规则"></a>线程规则</h4><h4 id="内存可观性"><a href="#内存可观性" class="headerlink" title="内存可观性"></a>内存可观性</h4><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4>
       
     </div>
     
@@ -274,6 +277,15 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/04/13/interview-2016-sina-weibo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          2016新浪微博Android面试题
+        
+      </div>
+    </a>
   
   
     <a href="/2016/04/10/android-interview-peformance/" id="article-nav-older" class="article-nav-link-wrap">
