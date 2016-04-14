@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="2016年4月新浪微博面试题及面试流程。">
 <meta property="og:image" content="http://yoursite.com/assets/img/interview-sina.jpg">
-<meta property="og:updated_time" content="2016-04-13T23:51:54.000Z">
+<meta property="og:updated_time" content="2016-04-13T23:59:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016新浪微博Android面试题">
 <meta name="twitter:description" content="2016年4月新浪微博面试题及面试流程。">
@@ -237,8 +237,9 @@
 <p><img src="/assets/img/interview-sina.jpg" alt=""></p>
 <h4 id="静态内部类、内部类、匿名内部类，为什么内部类会持有外部类的引用？持有的引用是this？还是其它？"><a href="#静态内部类、内部类、匿名内部类，为什么内部类会持有外部类的引用？持有的引用是this？还是其它？" class="headerlink" title="静态内部类、内部类、匿名内部类，为什么内部类会持有外部类的引用？持有的引用是this？还是其它？"></a>静态内部类、内部类、匿名内部类，为什么内部类会持有外部类的引用？持有的引用是this？还是其它？</h4><ul>
 <li>静态内部类：使用static修饰的内部类</li>
+<li>内部类：就是在某个类的内部又定义了一个类，内部类所嵌入的类称为外部类</li>
 <li>匿名内部类：使用new生成的内部类</li>
-<li>因为内部类的产生依赖于外部类，持有的引用是类名.this。</li>
+<li>因为内部类的产生依赖于外部类，持有的引用是类名.this</li>
 </ul>
 <h4 id="ArrayList和Vector的主要区别是什么？"><a href="#ArrayList和Vector的主要区别是什么？" class="headerlink" title="ArrayList和Vector的主要区别是什么？"></a>ArrayList和Vector的主要区别是什么？</h4><p>ArrayList在Java1.2引入，用于替换Vector</p>
 <p><strong>Vector:</strong>  </p>
@@ -283,10 +284,12 @@
 <li>Serializable和Parcelable</li>
 <li>文件和数据库哪个效率高</li>
 <li>断点续传</li>
+<li>WebView和JS</li>
 </ul>
 <p><a href="/2016/03/28/android-basic-service/">Android基础——Service</a><br><a href="/2016/03/31/android-basic-intentservice/">Android基础——IntentService</a><br><a href="/2016/04/02/android-guide-service/">Android开发指导——Service</a><br><a href="/2016/03/31/android-guide-bound-service/">Android开发指导——绑定Service</a><br><a href="/2016/03/31/android-guide-aidl/">Android开发指导——进程间通信AIDL</a></p>
 <p><a href="/2016/03/26/android-interview-basic-1/">Android面试基础知识总结（一）</a></p>
 <p><a href="/2016/04/10/android-interview-peformance/">Android面试——APP性能优化</a></p>
+<p><a href="http://droidyue.com/blog/2014/09/20/interaction-between-java-and-javascript-in-android/" target="_blank" rel="external">Android中Java和JavaScript交互</a><br><a href="http://jaq.alibaba.com/blog.htm?spm=0.0.0.0.oMsDAl&amp;id=48" target="_blank" rel="external">WebView 远程代码执行漏洞浅析</a><br><a href="https://github.com/pedant/safe-java-js-webview-bridge" target="_blank" rel="external">WebView中的Java与JavaScript提供【安全可靠】的多样互通方案</a></p>
 <h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><ul>
 <li>所使用的开源框架的实现原理，源码</li>
 <li>没看过，被pass了</li>

@@ -14,7 +14,7 @@ Android面试常见Java相关问题。">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成
 Android面试常见Java相关问题。">
-<meta property="og:updated_time" content="2016-04-10T08:03:31.000Z">
+<meta property="og:updated_time" content="2016-04-14T00:03:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试——Java相关">
 <meta name="twitter:description" content="状态：未完成
@@ -305,6 +305,13 @@ Android面试常见Java相关问题。">
 <li>DOM：消耗内存：先把xml文档都读到内存中，然后再用DOM API来访问树形结构，并获取数据。这个写起来很简单，但是很消耗内存。要是数据过大，手机不够牛逼，可能手机直接死机</li>
 <li>SAX：解析效率高，占用内存少，基于事件驱动的：更加简单地说就是对文档进行顺序扫描，当扫描到文档(document)开始与结束、元素(element)开始与结束、文档(document)结束等地方时通知事件处理函数，由事件处理函数做相应动作，然后继续同样的扫描，直至文档结束。</li>
 <li>PULL：与 SAX 类似，也是基于事件驱动，我们可以调用它的next（）方法，来获取下一个解析事件（就是开始文档，结束文档，开始标签，结束标签），当处于某个元素时可以调用XmlPullParser的getAttributte()方法来获取属性的值，也可调用它的nextText()获取本节点的值。</li>
+</ul>
+<h4 id="HTTP-Status-Code"><a href="#HTTP-Status-Code" class="headerlink" title="HTTP Status Code"></a>HTTP Status Code</h4><ul>
+<li>1字头：消息</li>
+<li>2字头：成功</li>
+<li>3字头：重定向</li>
+<li>4字头：请求错误</li>
+<li>5、6字头：服务器错误</li>
 </ul>
 <h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>调用隐藏API</p>
 <p>异常  OutOfMemaryError<br>RuntimeException<br>空指针异常<br>算术（除零）异常<br>数组溢出异常<br>类转换异常<br>类没找到异常</p>
