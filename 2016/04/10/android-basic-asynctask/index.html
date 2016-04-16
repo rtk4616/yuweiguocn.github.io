@@ -16,7 +16,7 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 <meta property="og:description" content="状态：未完成
 原文链接：AsyncTask   墙内链接：AsyncTask
 AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
-<meta property="og:updated_time" content="2016-04-12T10:52:56.000Z">
+<meta property="og:updated_time" content="2016-04-16T08:31:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——AsyncTask">
 <meta name="twitter:description" content="状态：未完成
@@ -269,7 +269,15 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 <li>onPostExecute(Result)，后台计算完成后在UI线程中被调用。后台计算的结果作为参数传递到这一步。</li>
 </ul>
 <h4 id="取消一个任务"><a href="#取消一个任务" class="headerlink" title="取消一个任务"></a>取消一个任务</h4><p>通过调用cancel(boolean)可以在任何时候取消一个任务。调用这个方法会导致isCancelled()返回true。调用这个方法后，在doInBackground(Object[])返回后，onCancelled(Object)会被调用而不是onPostExecute(Object)。为了确保一个任务尽可能快的被取消，如果可能的话（例如在一个循环内），你应该在doInBackground(Object[])定期检查isCancelled()的返回值。</p>
-<h4 id="线程规则"><a href="#线程规则" class="headerlink" title="线程规则"></a>线程规则</h4><h4 id="内存可观性"><a href="#内存可观性" class="headerlink" title="内存可观性"></a>内存可观性</h4><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4>
+<h4 id="线程规则"><a href="#线程规则" class="headerlink" title="线程规则"></a>线程规则</h4><p>使用这个类有如下几条线程规则：</p>
+<ul>
+<li>AsyncTask类必须在UI线程中加载。这个在Android 4.1 上是自动完成。</li>
+<li>必须在UI线程中实例化。</li>
+<li>execute(Params…)必须在UI线程中调用。</li>
+<li>不能手动调用onPreExecute(), onPostExecute(Result), doInBackground(Params…), onProgressUpdate(Progress…)。</li>
+<li>任务只能被执行一次（第二次执行会抛出异常）。</li>
+</ul>
+<h4 id="内存可观性"><a href="#内存可观性" class="headerlink" title="内存可观性"></a>内存可观性</h4><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4>
       
     </div>
     
