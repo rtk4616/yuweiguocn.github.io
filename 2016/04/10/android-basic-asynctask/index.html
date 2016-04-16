@@ -6,21 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android基础——AsyncTask | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask
+  <meta name="description" content="原文链接：AsyncTask   墙内链接：AsyncTask
 AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础——AsyncTask">
 <meta property="og:url" content="http://yoursite.com/2016/04/10/android-basic-asynctask/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask
+<meta property="og:description" content="原文链接：AsyncTask   墙内链接：AsyncTask
 AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
-<meta property="og:updated_time" content="2016-04-16T08:31:40.000Z">
+<meta property="og:updated_time" content="2016-04-16T08:59:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——AsyncTask">
-<meta name="twitter:description" content="状态：未完成
-原文链接：AsyncTask   墙内链接：AsyncTask
+<meta name="twitter:description" content="原文链接：AsyncTask   墙内链接：AsyncTask
 AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
@@ -238,8 +235,7 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>状态：未完成</p>
-<p>原文链接：<a href="http://developer.android.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a>   墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a></p>
+        <p>原文链接：<a href="http://developer.android.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a>   墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/os/AsyncTask.html" target="_blank" rel="external">AsyncTask</a></p>
 <p>AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作并在UI线程返回一个结果，不用操作线程或handlers。</p>
 <a id="more"></a>
 <p>带着问题去学习：</p>
@@ -277,7 +273,14 @@ AsyncTask使在UI线程中使用变得容易。这个类允许执行后台操作
 <li>不能手动调用onPreExecute(), onPostExecute(Result), doInBackground(Params…), onProgressUpdate(Progress…)。</li>
 <li>任务只能被执行一次（第二次执行会抛出异常）。</li>
 </ul>
-<h4 id="内存可观性"><a href="#内存可观性" class="headerlink" title="内存可观性"></a>内存可观性</h4><h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4>
+<h4 id="内存可观性"><a href="#内存可观性" class="headerlink" title="内存可观性"></a>内存可观性</h4><p>AsyncTask保证所有的回调是同步的，不用显示声明同步，在这种情况下以下操作是安全的。</p>
+<ul>
+<li>在构造方法设置成员变量或onPreExecute()，和它们相关的doInBackground(Params…)方法。</li>
+<li>在doInBackground(Params…)设置成员变量，和它们相关的onProgressUpdate(Progress…) 和 onPostExecute(Result)。</li>
+</ul>
+<h4 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h4><p>当我们第一次引入的时候，AsyncTasks是在一个后台线程中串行执行。从Android 1.6之后，换成了线程池允许多个任务同时执行。从Android 3.0之后，为了避免同时执行导致常见的应用错误任务在一个线程中执行。（快笑死我了。。。）</p>
+<p>如果你真的想同时执行多个任务，你可以使用THREAD_POOL_EXECUTOR调用executeOnExecutor(java.util.concurrent.Executor, Object[])方法。</p>
+
       
     </div>
     
