@@ -6,16 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android基础——广播接收者BroadcastReceiver | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
+  <meta name="description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver
+接收通过sendBroadcast()发送的intent的基类代码。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础——广播接收者BroadcastReceiver">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/android-basic-broadcast-receiver/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
-<meta property="og:updated_time" content="2016-04-21T23:53:41.000Z">
+<meta property="og:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver
+接收通过sendBroadcast()发送的intent的基类代码。">
+<meta property="og:updated_time" content="2016-04-21T23:55:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——广播接收者BroadcastReceiver">
-<meta name="twitter:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
+<meta name="twitter:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver
+接收通过sendBroadcast()发送的intent的基类代码。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -233,6 +236,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>原文链接：<a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a></p>
+<p>接收通过sendBroadcast()发送的intent的基类代码。</p>
 <a id="more"></a>
 <p>带着问题去学习：</p>
 <ul>
@@ -247,7 +251,6 @@
 <li>效率上(参考UDP的广播协议在局域网的方便性) 　</li>
 <li>设计模式上(反转控制的一种应用，类似监听者模式)</li>
 </ul>
-<p>接收通过sendBroadcast()发送的intent的基类代码。</p>
 <p>如果你不需要发送跨应用的广播，考虑使用LocalBroadcastManager这个类而不是下面描述的更常规的组件。这个会给你更高效的实现（不需要跨进程通信）并且可以让你不用考虑其它应用可以接收或发送你的广播相关的安全问题。</p>
 <p>你可以使用 Context.registerReceiver()动态注册这个类的实例或在你的AndroidManifest.xml文件中通过<code>&lt;receiver&gt;</code>标签静态注册。</p>
 <p><strong>注意：</strong> 如果在你的Activity.onResume()实现中注册了一个receiver，你应该在Activity.onPause()注销它。（当paused后不接收intent，这会减少系统不必要的开销）。不要在Activity.onSaveInstanceState()中注销，因为如果用户在历史栈中回退这个不会被调用。</p>
