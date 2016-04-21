@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android基础——广播接收者BroadcastReceiver | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态：未完成
-原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
+  <meta name="description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础——广播接收者BroadcastReceiver">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/android-basic-broadcast-receiver/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="状态：未完成
-原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
-<meta property="og:updated_time" content="2016-04-10T02:34:03.000Z">
+<meta property="og:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
+<meta property="og:updated_time" content="2016-04-21T23:53:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——广播接收者BroadcastReceiver">
-<meta name="twitter:description" content="状态：未完成
-原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
+<meta name="twitter:description" content="原文链接：BroadcastReceiver    墙内链接：BroadcastReceiver">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -235,8 +232,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>状态：未完成</p>
-<p>原文链接：<a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a></p>
+        <p>原文链接：<a href="http://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">BroadcastReceiver</a></p>
 <a id="more"></a>
 <p>带着问题去学习：</p>
 <ul>
@@ -251,6 +247,43 @@
 <li>效率上(参考UDP的广播协议在局域网的方便性) 　</li>
 <li>设计模式上(反转控制的一种应用，类似监听者模式)</li>
 </ul>
+<p>接收通过sendBroadcast()发送的intent的基类代码。</p>
+<p>如果你不需要发送跨应用的广播，考虑使用LocalBroadcastManager这个类而不是下面描述的更常规的组件。这个会给你更高效的实现（不需要跨进程通信）并且可以让你不用考虑其它应用可以接收或发送你的广播相关的安全问题。</p>
+<p>你可以使用 Context.registerReceiver()动态注册这个类的实例或在你的AndroidManifest.xml文件中通过<code>&lt;receiver&gt;</code>标签静态注册。</p>
+<p><strong>注意：</strong> 如果在你的Activity.onResume()实现中注册了一个receiver，你应该在Activity.onPause()注销它。（当paused后不接收intent，这会减少系统不必要的开销）。不要在Activity.onSaveInstanceState()中注销，因为如果用户在历史栈中回退这个不会被调用。</p>
+<p>主要有两类可以接收的广播：</p>
+<ul>
+<li>正常的广播（使用Context.sendBroadcast发送）是完全异步的。所有广播的接收者收到广播是无序的，常常是同一时间收到。这是更高效的，但也意味着接收者不能使用结果或终止API。</li>
+</ul>
+<ul>
+<li>有序广播（使用Context.sendOrderedBroadcast发送）是同一时间分发到一个接收者。因为每个接收者依次执行，它可以传递结果到下一个接收者，或它可以完全终止广播因此它不会传递到其它接收者。接收者运行的顺序可以使用匹配intent-filter的android:priority属性进行控制；具有相同优先级的接收者将按任意顺序运行。</li>
+</ul>
+<p>即使是正常的广播，系统可能在某些情况下会恢复为在同一时间发送广播到一个接收者。特殊情况下，接收者可能需要创建一个进程，为了避免系统超负载同一时间只有一个新进程会运行。在这种情况下，无序的意思是：这些接收者仍不能返回结果或终止它们的广播。</p>
+<p>注意，尽管Intent类用于发送和接收这些广播，这里的Intent广播机制和使用Context.startActivity()开启Activity的Intent是完全分离的。对于广播接收者是没办法使用startActivity()去查看或捕获Intents；同样地，一个广播的Intent，永远也找不到或启动一个Activity。这两种操作的语义是完全不同的：使用Intent开启一个Activity是修改用户当前交互的前台操作；使用Intent发送广播是用户通常不知道的后台操作。BroadcastReceiver（当通过清单文件的<code>&lt;receiver&gt;</code>标签作为一个组件启动时）类是应用程序的整体生命周期中重要的一部分。</p>
+<p>本文包括以下主题：<br>1.安全性<br>2.接收者生命周期<br>3.进程生命周期</p>
+<h4 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h4><p>关于怎样使用这个类接收和处理intents的信息，请阅读Intents and Intent Filters 开发指南。</p>
+<h4 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h4><p>用Context的APIs使用接收者的性质是跨应用的工具，因此你必须考虑其它应用可能会滥用它们。需要考虑的事情如下：</p>
+<ul>
+<li><p>Intent的命名空间是全局的。确定Intent action的名称和其它字符串是用你自己的命名空间写的，否则不经意间可能会和其它应用冲突。</p>
+</li>
+<li><p>当你使用registerReceiver(BroadcastReceiver, IntentFilter)，任何应用程序可能发送广播到接收者。你可以使用下面描述的权限控制谁可以发送广播到它。</p>
+</li>
+<li><p>当你在清单文件中注册了接收者并且为它指定了intent-filters，其它任何应用程序都可以发送广播到它，不管你指定了什么过滤器。为了阻止其它应用给它发送，使用android:exported=”false”让它对其它应用不可用。</p>
+</li>
+<li><p>当你使用sendBroadcast(Intent)或其它相关方法，通常其它应用可以接收这些广播。你可以使用下面描述的权限控制谁可以接收这些广播。另外，从Android 4.0开始，你也可以使用Intent.setPackage限制广播到单一的应用。</p>
+</li>
+</ul>
+<p>当使用LocalBroadcastManager时不会存在这些问题，因为Intent广播根本永远不会在当前进程之外。</p>
+<p>访问权限可以通过发送者或广播接收者进行设置。</p>
+<p>当发送时设置权限，你给sendBroadcast(Intent, String)或sendOrderedBroadcast(Intent, String, BroadcastReceiver, android.os.Handler, int, String, Bundle)提供一个非空的权限参数。只有被授予这个权限（在AndroidManifest.xml文件中使用<code>&lt;uses-permission&gt;</code>标签请求）的接收者才能收到广播。</p>
+<p>当接收时设置权限，注册接收者时提供一个非空权限——调用registerReceiver(BroadcastReceiver, IntentFilter, String, android.os.Handler)或在AndroidManifest.xml文件中使用<code>&lt;receiver&gt;</code>标签。只有被授予这个权限（在AndroidManifest.xml文件中使用<code>&lt;uses-permission&gt;</code>标签请求）的发送者才可以发送Intent到接收者。</p>
+<p>对于常用的权限和安全的更多信息请查看 Security and Permissions文档。</p>
+<h4 id="接收者生命周期"><a href="#接收者生命周期" class="headerlink" title="接收者生命周期"></a>接收者生命周期</h4><p>广播接收者对象只有在调用onReceive(Context, Intent)期间才有效。一旦你的代码从这个方法返回，系统会认为这个对象结束并且不再活动。</p>
+<p>这对在onReceive(Context, Intent)实现中你可以做的有重要的影响：所有的请求异步操作是不可用的，对于处理异步操作因为你需要从这个方法中返回，但这一时刻BroadcastReceiver不再活动并且异步操作完成之前系统可以杀死它的进程。</p>
+<p>尤其是，你不可能在BroadcastReceiver中显示一个对话框或绑定service。对于前者，你应该使用NotificationManager API。对于后者，你可以使用Context.startService()发送命令到service。</p>
+<h4 id="进程生命周期"><a href="#进程生命周期" class="headerlink" title="进程生命周期"></a>进程生命周期</h4><p>正在执行的BroadcastReceiver的进程被认为是一个前台进程并且将由系统保持运行除了在内存不足的情况下。</p>
+<p>一旦从onReceive()返回，BroadcastReceiver就不再活动，它的宿主进程仅仅和运行在它里面的其它任何应用组件一样重要。这是尤其重要，因为如果只有BroadcastReceiver的宿主进程（一个常见的情况是用户从没或最近没有和应用程序交互），那么从onReceive() 返回后系统会认为它的进程是空的并且会尽快把它杀死为了给其它更重要的进程释放资源。</p>
+<p>这意味着对于耗时操作你应该使用一个Service和BroadcastReceiver进行关联在你操作的全部时间内保持宿主进程的活动。</p>
 
       
     </div>

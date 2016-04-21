@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/26/android-interview-basic-1/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成Android面试基础知识总结。">
-<meta property="og:updated_time" content="2016-04-16T08:31:33.000Z">
+<meta property="og:updated_time" content="2016-04-17T08:19:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android面试基础知识总结（一）">
 <meta name="twitter:description" content="状态：未完成Android面试基础知识总结。">
@@ -242,6 +242,8 @@
 <li>退回到此Activity：onRestart-&gt;onStart-&gt;onResume</li>
 <li>退出此Activity：onPause-&gt;onStop-&gt;onDestory</li>
 <li>对话框弹出不会执行任何生命周期(注：对话框如果是Activity(Theme为Dialog)，还是会执行生命周期的)</li>
+<li>从A跳转到B：A-onPause-&gt;B-(onCreate-&gt;onStart-&gt;onResume)-A-onStop</li>
+<li>从B返回到A：B-onPause-&gt;A-(onRestart-&gt;onStart-&gt;onResume)-B-(onStop-&gt;onDestroy)</li>
 </ul>
 <p>onWindowFocusChanged方法</p>
 <ul>
