@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/03/17/android-support-v4-2/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成">
-<meta property="og:updated_time" content="2016-04-09T01:18:23.000Z">
+<meta property="og:updated_time" content="2016-04-25T13:57:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Support V4官方Demo概览（二）">
 <meta name="twitter:description" content="状态：未完成">
@@ -234,7 +234,13 @@
       
         <p>状态：未完成</p>
 <a id="more"></a>
-<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><h3 id="DrawableCompat"><a href="#DrawableCompat" class="headerlink" title="DrawableCompat"></a>DrawableCompat</h3><p>API4引入的用向后兼容的方式帮助访问Drawable的特性。</p>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p>框架Fragment的静态支持类库版本。用于兼容Android 3.0之前的版本。当运行在Android 3.0及之后的版本，还会使用这个实现；它不会切换到框架的实现。查看框架<a href="http://androiddoc.qiniudn.com/reference/android/app/Fragment.html" target="_blank" rel="external">Fragment</a>文档。</p>
+<p>当使用这个支持版本而不是框架的版本最大的不同是：</p>
+<ul>
+<li>activity必须继承FragmentActivity</li>
+<li>必须调用getSupportFragmentManager()获取FragmentManager</li>
+</ul>
+<h3 id="DrawableCompat"><a href="#DrawableCompat" class="headerlink" title="DrawableCompat"></a>DrawableCompat</h3><p>API4引入的用向后兼容的方式帮助访问Drawable的特性。</p>
 <h3 id="CursorLoader"><a href="#CursorLoader" class="headerlink" title="CursorLoader"></a>CursorLoader</h3><h3 id="TransportController"><a href="#TransportController" class="headerlink" title="TransportController"></a>TransportController</h3><h3 id="BidiFormatter"><a href="#BidiFormatter" class="headerlink" title="BidiFormatter"></a>BidiFormatter</h3><p>用于可能反向显示格式化文本的实用类。</p>
 <h3 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h3>
       

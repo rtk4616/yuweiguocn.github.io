@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Android开发指导——进程间通信AIDL | yuweiguo&#39;s blog</title>
+  <title>Android开发指南——进程间通信AIDL | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="状态：未完成
 原文链接：AIDL    墙内链接：AIDL
 AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你定义编程接口在客户端和服务进行约定为了使用进程间通信（IPC）彼此交流。在Android上，一个进程不能正常访问其它进程的内存。所以说，它们需要分解操作系统可以理解的原语，并且给你安排对象跨越边界。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android开发指导——进程间通信AIDL">
+<meta property="og:title" content="Android开发指南——进程间通信AIDL">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/android-guide-aidl/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="状态：未完成
 原文链接：AIDL    墙内链接：AIDL
 AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你定义编程接口在客户端和服务进行约定为了使用进程间通信（IPC）彼此交流。在Android上，一个进程不能正常访问其它进程的内存。所以说，它们需要分解操作系统可以理解的原语，并且给你安排对象跨越边界。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
-<meta property="og:updated_time" content="2016-04-09T00:56:05.000Z">
+<meta property="og:updated_time" content="2016-04-30T08:05:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android开发指导——进程间通信AIDL">
+<meta name="twitter:title" content="Android开发指南——进程间通信AIDL">
 <meta name="twitter:description" content="状态：未完成
 原文链接：AIDL    墙内链接：AIDL
 AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你定义编程接口在客户端和服务进行约定为了使用进程间通信（IPC）彼此交流。在Android上，一个进程不能正常访问其它进程的内存。所以说，它们需要分解操作系统可以理解的原语，并且给你安排对象跨越边界。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
@@ -218,7 +218,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
         
   
     <h1 class="article-title" itemprop="name">
-      Android开发指导——进程间通信AIDL
+      Android开发指南——进程间通信AIDL
     </h1>
   
 
@@ -246,7 +246,10 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
 <li>AIDL,两个android应用间的互相调用方法？</li>
 <li>AIDL的全称是什么？如何工作？能处理哪些类型的数据</li>
 </ul>
-<p>注意：使用AIDL是必要的，如果你允许</p>
+<blockquote>
+<p>注意：只有在你允许不同应用程序的客户端使用IPC访问你的服务并且想要在你的服务中处理多线程时使用AIDL才是必要的。如果你不需要同时执行不同应用程序的IPC，你应该通过实现一个Binder创建你的接口，或者如果你想执行IPC，但不需要处理多线程，使用Messenger实现你的接口。无论如何，实现AIDL之前确保你理解了绑定Service。</p>
+</blockquote>
+<p>在开始设计AIDL接口时，要知道调用AIDL接口是直接调用方法。你不应该猜测调用发生在哪一个线程。因为结果依赖于是从本地进程中一个线程调用还是远程进程中的一个线程调用。尤其是：</p>
 
       
     </div>
@@ -260,14 +263,14 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android开发指导——Service
+          Android开发指南——Service
         
       </div>
     </a>
   
   
     <a href="/2016/03/31/android-guide-bound-service/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android开发指导——绑定Service</div>
+      <div class="article-nav-title">Android开发指南——绑定Service</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -302,7 +305,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许你
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="android-guide-aidl" data-title="Android开发指导——进程间通信AIDL" data-url="http://yoursite.com/2016/03/31/android-guide-aidl/"></div>
+	<div class="ds-thread" data-thread-key="android-guide-aidl" data-title="Android开发指南——进程间通信AIDL" data-url="http://yoursite.com/2016/03/31/android-guide-aidl/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
