@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android开发指南——绑定Service | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态：未完成
-原文链接：Bound Service    墙内链接：Bound Service">
+  <meta name="description" content="原文链接：Bound Service    墙内链接：Bound Service
+绑定的service是在客户端-服务器模型中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发指南——绑定Service">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/android-guide-bound-service/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="状态：未完成
-原文链接：Bound Service    墙内链接：Bound Service">
+<meta property="og:description" content="原文链接：Bound Service    墙内链接：Bound Service
+绑定的service是在客户端-服务器模型中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。">
 <meta property="og:image" content="http://yoursite.com/assets/img/service_binding_tree_lifecycle.png">
-<meta property="og:updated_time" content="2016-05-03T14:30:55.000Z">
+<meta property="og:updated_time" content="2016-05-06T07:49:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发指南——绑定Service">
-<meta name="twitter:description" content="状态：未完成
-原文链接：Bound Service    墙内链接：Bound Service">
+<meta name="twitter:description" content="原文链接：Bound Service    墙内链接：Bound Service
+绑定的service是在客户端-服务器模型中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -236,8 +236,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>状态：未完成</p>
-<p>原文链接：<a href="http://developer.android.com/guide/components/bound-services.html" target="_blank" rel="external">Bound Service</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/guide/components/bound-services.html" target="_blank" rel="external">Bound Service</a></p>
+        <p>原文链接：<a href="http://developer.android.com/guide/components/bound-services.html" target="_blank" rel="external">Bound Service</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/guide/components/bound-services.html" target="_blank" rel="external">Bound Service</a></p>
+<p>绑定的service是在客户端-服务器模型中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。</p>
 <a id="more"></a>
 <p>带着问题去学习</p>
 <ul>
@@ -246,8 +246,7 @@
 <li>Service与Activity怎么实现通信  </li>
 <li>Service有哪些启动方法，有什么区别，怎样停用Service？</li>
 </ul>
-<p>绑定的service是在客户端-服务器接口中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。</p>
-<p>这个文档介绍了怎样创建一个绑定service，包括怎样从其它应用组件绑定到service。然而，你也应该参考Services文档关于Service常见的信息，例如怎样从service分发通知，设置service运行在前台等等。</p>
+<p>这个文档介绍了怎样创建一个绑定service，包括怎样从其它应用组件绑定到service。然而，你也应该参考Services文档关于Service的信息，例如怎样从service分发通知，设置service运行在前台等等。</p>
 <p><a href="http://yuweiguocn.github.io/2016/04/02/android-guide-service/" target="_blank" rel="external">Android开发指南——Service</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>绑定的service是Service类的实现允许其它应用绑定到它并和它交互。为了实现一个可绑定的service，你必须实现onBind()回调方法。这个方法返回一个IBinder对象定义了客户端可以用来和service进行交互的编程接口。</p>
 <p>客户端可以调用bindService()绑定到service。当通过这种方式处理时，客户端必须提供一个ServiceConnection的实现，用来监视和service的连接。bindService()方法没有返回一个值，但当Android系统创建了客户端和service的连接，它会调用ServiceConnection中的onServiceConnected()方法，用于传递客户端可以用来和service进行通信的IBinder对象。</p>
@@ -259,7 +258,7 @@
 <li>继承Binder类</li>
 </ul>
 <p>如果你的service是对于你的应用是私有的并且和客户端运行在同一进程（最常见的），你应该通过继承Binder类创建接口并且从onBind()返回它的实例。客户端接收Binder并且可以使用它直接访问Binder实现或甚至是Service的可用的公有方法。</p>
-<p>这是最好的技术当你的service对你自己的应用仅仅是一个后台工作者。你不会使用这种方法创建接口的唯一原因是因为你的service需要通过其它应用程序或跨进程使用。</p>
+<p>这是最好的方法当你的service对你自己的应用仅仅是一个后台工作者。你不会使用这种方法创建接口的唯一原因是因为你的service需要通过其它应用程序或跨进程使用。</p>
 <ul>
 <li>使用Messenger</li>
 </ul>
@@ -294,12 +293,12 @@
 <p>LocalBinder为客户端提供了getService()方法返回LocalService的当前实例。这允许客户端调用service中公有方法。例如，客户端可以从service中调用getRandomNumber()。</p>
 <p>这有一个绑定到LocalService的activity，当按钮被点击调用getRandomNumber()。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BindingActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    LocalService mService;</span><br><span class="line">    <span class="keyword">boolean</span> mBound = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.main);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStart();</span><br><span class="line">        <span class="comment">// Bind to LocalService</span></span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, LocalService.class);</span><br><span class="line">        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onStop();</span><br><span class="line">        <span class="comment">// Unbind from the service</span></span><br><span class="line">        <span class="keyword">if</span> (mBound) &#123;</span><br><span class="line">            unbindService(mConnection);</span><br><span class="line">            mBound = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Called when a button is clicked (the button in the layout file attaches to</span><br><span class="line">      * this method with the android:onClick attribute) */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onButtonClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mBound) &#123;</span><br><span class="line">            <span class="comment">// Call a method from the LocalService.</span></span><br><span class="line">            <span class="comment">// However, if this call were something that might hang, then this request should</span></span><br><span class="line">            <span class="comment">// occur in a separate thread to avoid slowing down the activity performance.</span></span><br><span class="line">            <span class="keyword">int</span> num = mService.getRandomNumber();</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">"number: "</span> + num, Toast.LENGTH_SHORT).show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Defines callbacks for service binding, passed to bindService() */</span></span><br><span class="line">    <span class="keyword">private</span> ServiceConnection mConnection = <span class="keyword">new</span> ServiceConnection() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName className,</span><br><span class="line">                IBinder service)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// We've bound to LocalService, cast the IBinder and get LocalService instance</span></span><br><span class="line">            LocalBinder binder = (LocalBinder) service;</span><br><span class="line">            mService = binder.getService();</span><br><span class="line">            mBound = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName arg0)</span> </span>&#123;</span><br><span class="line">            mBound = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的例子说明了怎样使用ServiceConnection的实现和onServiceConnected()回调绑定到service。下一部分提供更多信息关于绑定到service的处理。</p>
+<p>上面的例子说明了怎样使用ServiceConnection的实现和onServiceConnected()回调绑定到service。下一部分提供更多关于绑定到service的处理信息。</p>
 <blockquote>
 <p><strong>注意：</strong> 上面的例子没有明确的从service解绑，但所有客户端应该在合适的时间（例如当activity暂停时）解绑。</p>
 </blockquote>
 <p>更多示例代码，从<a href="http://developer.android.com/samples/index.html" target="_blank" rel="external">ApiDemos</a>中查看LocalService.java类和LocalServiceActivities.java类。</p>
-<h3 id="使用Messenger"><a href="#使用Messenger" class="headerlink" title="使用Messenger"></a>使用Messenger</h3><p>如果你需要让service可以和remote进程进行通信，你可以使用Messenger为service提供接口。这个技术可以让你执行进程间通信（IPC）不需要使用AIDL。</p>
+<h3 id="使用Messenger"><a href="#使用Messenger" class="headerlink" title="使用Messenger"></a>使用Messenger</h3><p>如果你需要让service可以和remote进程进行通信，你可以使用Messenger为service提供接口。这个技术可以让你不使用AIDL执行进程间通信（IPC）。</p>
 <p>下面概括了怎样使用 Messenger：</p>
 <ul>
 <li>实现Handler的service接收从客户端每次调用的回调。</li>
@@ -322,7 +321,7 @@
 </blockquote>
 <p>因此，客户端为了绑定到service，需要这么做：</p>
 <p>1.实现ServiceConnection。</p>
-<p>实现必须重写两个回调方法：<br>onServiceConnected()<br>系统调用这个分发service的onBind()方法返回的IBinder。<br>onServiceDisconnected()<br>当连接到的service被意外终止系统会调用这个，例如当service crashed 或被杀死。当客户端解绑时这个不会被调用。</p>
+<p>实现必须重写两个回调方法：<br>onServiceConnected()<br>系统调用这个分发service的onBind()方法返回的IBinder。<br>onServiceDisconnected()<br>当连接到的service被意外终止系统会调用这个，例如当service crashed 或被杀死。当客户端解绑时这个 <strong>不会被调用</strong>。</p>
 <p>2.调用bindService()，传递ServiceConnection实现。</p>
 <p>3.当系统调用onServiceConnected()回调方法时，你可以开始调用到service，使用接口定义的方法。</p>
 <p>4.对于解绑service，调用unbindService()。</p>
@@ -341,7 +340,7 @@
 <li>对象引用跨进程计数。</li>
 <li>通常绑定和解绑应该成对的出现匹配客户端生命周期的建立和销毁。例如：</li>
 </ul>
-<p>如果你只需要在activity可见时和service进行交互，你应该在onStart()绑定并在onStop()解绑。<br>如果你想让你的activity接收响应甚至当它在后台已停止，你可以在onCreate()绑定并在onDestroy()解绑。注意这意味着activity在它运行的整个时间（甚至在后台）需要使用service，因此如果service在其它进程，那么你增加了该进程的重量并且它会变得更容易被系统杀死。</p>
+<p>如果你只需要在activity可见时和service进行交互，你应该在onStart()绑定并在onStop()解绑。<br>如果你想让你的activity接收响应甚至当它在后台已停止，你可以在onCreate()绑定并在onDestroy()解绑。注意这意味着activity在它运行的整个时间（甚至在后台）需要使用service，因此如果service在其它进程，那么你增加了该进程的消耗并且它会变得更容易被系统杀死。</p>
 <blockquote>
 <p><strong>注意：</strong> 通常你不应该在activity的onResume() 和 onPause()进行绑定和解绑，因为这些回调发生在每个生命周期的过渡并且你应该保持发生在这些过渡的处理到最小。还有，如果应用中的多个activity绑定到同一个service，这些activity中的两个之间是一个过渡，service可能被销毁并且会为当前activity重新创建在下一个绑定（resume期间）之前解绑（pause期间）。（在<a href="http://developer.android.com/guide/components/activities.html#CoordinatingActivities" target="_blank" rel="external">Activities</a>文档描述了activity的过渡是怎样协调它们的生命周期）</p>
 </blockquote>
