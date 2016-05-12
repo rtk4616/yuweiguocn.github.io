@@ -6,22 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android开发指南——进程间通信AIDL | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="状态：未完成
-原文链接：AIDL    墙内链接：AIDL
-AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制">
+  <meta name="description" content="原文链接：AIDL    墙内链接：AIDL
+AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发指南——进程间通信AIDL">
 <meta property="og:url" content="http://yoursite.com/2016/03/31/android-guide-aidl/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="状态：未完成
-原文链接：AIDL    墙内链接：AIDL
-AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制">
-<meta property="og:updated_time" content="2016-05-12T09:14:49.000Z">
+<meta property="og:description" content="原文链接：AIDL    墙内链接：AIDL
+AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
+<meta property="og:updated_time" content="2016-05-12T09:18:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发指南——进程间通信AIDL">
-<meta name="twitter:description" content="状态：未完成
-原文链接：AIDL    墙内链接：AIDL
-AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制">
+<meta name="twitter:description" content="原文链接：AIDL    墙内链接：AIDL
+AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制它。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -238,8 +235,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>状态：未完成</p>
-<p>原文链接：<a href="http://developer.android.com/guide/components/aidl.html" target="_blank" rel="external">AIDL</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/guide/components/aidl.html" target="_blank" rel="external">AIDL</a></p>
+        <p>原文链接：<a href="http://developer.android.com/guide/components/aidl.html" target="_blank" rel="external">AIDL</a>    墙内链接：<a href="http://androiddoc.qiniudn.com/guide/components/aidl.html" target="_blank" rel="external">AIDL</a></p>
 <p>AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制它。<br><a id="more"></a></p>
 <p>带着问题去学习</p>
 <ul>
