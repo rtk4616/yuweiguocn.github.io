@@ -16,7 +16,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
 <meta property="og:description" content="状态：未完成
 原文链接：AIDL    墙内链接：AIDL
 AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定义客户端和服务端都同意为了彼此之间的通信使用进程间通信（IPC）的编程接口。在Android系统中，通常一个进程不能访问其它进程的内存。所以说，它们需要分解为操作系统可以理解的原语，并且为你分配跨越边界的对象。编写这种代码很麻烦，因此Android使用AIDL为你控制">
-<meta property="og:updated_time" content="2016-05-12T08:33:56.000Z">
+<meta property="og:updated_time" content="2016-05-12T09:14:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发指南——进程间通信AIDL">
 <meta name="twitter:description" content="状态：未完成
@@ -252,10 +252,10 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
 <p><a href="/2016/03/31/android-guide-bound-service/">Android开发指南——绑定Service</a></p>
 <p>在开始设计AIDL接口时，要知道调用AIDL接口是直接调用方法。你不应该猜测调用发生在哪一个线程。因为发生的情况依赖于是从本地进程中一个线程调用还是远程进程中的一个线程调用。尤其是：</p>
 <ul>
-<li>从本地进程中调用会在调用的同一线程中执行。如果这是主UI线程，该线程会在AIDL接口中继续执行。如果是其它线程，它就是在service中执行代码的一个。因此，如果只有本地线程访问service，你完全可以控制它在哪一个线程中执行（但如果是这种情况，你不应该使用AIDl，而是应该使用实现Binder创建接口）。</li>
+<li>从本地进程中调用会在调用的同一线程中执行。如果这是主UI线程，该线程会在AIDL接口中继续执行。如果是其它线程，它就是在service中执行代码的一个线程。因此，如果只有本地线程访问service，你完全可以控制它在哪一个线程中执行（但如果是这种情况，你不应该使用AIDl，而是应该使用实现Binder创建接口）。</li>
 <li><p>从远程中调用会从平台维护的线程池中取出一个执行而不是你自己的进程。你必须准备好来自未知线程的调用，和同时发生多个调用。换句话说，就是AIDL接口的实现必须完全是线程安全的。</p>
 </li>
-<li><p><code>oneway</code>关键词修改了远程调用的行为。当使用时，远程调用不会阻塞；它只是发送数据并立即返回。接口的实现最终会和正常的远程调用一样收到从Binder线程池调用规则。如果<code>oneway</code>用于本地调用，没有什么影响并调用还是同步的。</p>
+<li><p><code>oneway</code>关键词修改了远程调用的行为。当使用时，远程调用不会阻塞；它只是发送数据并立即返回。接口的实现最终会和正常的远程调用一样收到从Binder线程池调用规则。如果<code>oneway</code>用于本地调用，没有什么影响并且调用还是同步的。</p>
 </li>
 </ul>
 <h3 id="定义AIDL接口"><a href="#定义AIDL接口" class="headerlink" title="定义AIDL接口"></a>定义AIDL接口</h3><p>你必须使用java编程语言语法在.aidl文件中定义AIDL接口，然后把它存放在service的主应用程序和其它要绑定到service的应用程序的源码目录（src/目录）。<br>当你编译包含.aidl文件应用程序时，Android SDK 工具会基于.aidl文件生成IBinder接口并把它保存在工程的gen/目录下。service必须适当的实现IBinder接口。客户端应用程序可以绑定到service并从IBinder调用方法执行IPC。</p>
@@ -265,8 +265,10 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
 <p>2.实现接口</p>
 <p>Android SDK基于.aidl文件生成了Java编程语言的接口。这个接口有一个继承了Binder名为Stub的内部抽象类并从AIDL接口中实现方法。你必须继承Stub类并实现方法。</p>
 <p>3.对客户端暴露接口<br>实现Service并重写onBind()返回Stub类的实现。</p>
-<p><strong>注意：</strong> 在你对AIDL文件做了修改之后，为了使用你service的其它应用避免崩溃，第一次发发布必须保持向后兼容。就是说，.aidl文件必须复制到其它应用程序为了可以访问service的接口，你必须支持原来的接口。</p>
-<h4 id="1-创建-aidl文件"><a href="#1-创建-aidl文件" class="headerlink" title="1.创建.aidl文件"></a>1.创建.aidl文件</h4><p>AIDL使用简的语法让你使用一个或多个方法声明接口，可以获取参数和返回值。参数和返回值可以是任意类型，甚至其它AIDL生成的接口。</p>
+<blockquote>
+<p><strong>注意：</strong> 在你对AIDL文件做了修改之后，为了避免使用你service的其它应用崩溃，第一次发布必须保持向后兼容。就是说，.aidl文件必须复制到其它应用程序为了可以访问service的接口，你必须支持原来的接口。</p>
+</blockquote>
+<h4 id="1-创建-aidl文件"><a href="#1-创建-aidl文件" class="headerlink" title="1.创建.aidl文件"></a>1.创建.aidl文件</h4><p>AIDL使用简单的语法让你使用一个或多个方法声明接口，可以获取参数和返回值。参数和返回值可以是任意类型，甚至其它AIDL生成的接口。</p>
 <p>你必须使用Java编程语言构造.aidl文件。每个.aidl文件必须定义一个接口并且只需要接口声明和方法签名。</p>
 <p>默认情况下，AIDL支持下列数据类型：</p>
 <ul>
@@ -277,7 +279,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
 </ul>
 <p>List 中的所有元素必须是在这个列表中支持的数据类型之一或其它AIDL接口生成的接口之一或你声明的parcelables。List可以用作常规类（例如，<code>List&lt;String&gt;</code>）。对方接收到的具体类总是ArrayList，尽管方法是使用List接口生成的。</p>
 <ul>
-<li>Map<br>Map 中的所有元素必须是在这个列表中支持的数据类型之一或其它AIDL接口生成的接口之一或你声明的parcelables。常规的maps，例如Map<string,integer>这种形式是不支持的。对方接收到的具体类总是HashMap，尽管方法是使用Map接口生成的。</string,integer></li>
+<li>Map<br>Map 中的所有元素必须是在这个列表中支持的数据类型之一或其它AIDL接口生成的接口之一或你声明的parcelables。常规的maps，例如<code>Map&lt;String,Integer&gt;</code>这种形式是不支持的。对方接收到的具体类总是HashMap，尽管方法是使用Map接口生成的。</li>
 </ul>
 <p>当你使用的类型不在上面列表中时你必须包含<code>import</code>声明，即使它们和你的接口定义在同一个包中。</p>
 <p>当你定义service接口时，需要注意的有：</p>
@@ -330,7 +332,7 @@ AIDL（Android接口声明语言）和你可能用过的IDL类似。它允许定
 <blockquote>
 <p><strong>警告：</strong> 不要忘记从其他进程接收数据的安全问题。这种情况下，Rect从Parcel读取四个数，但它是由你来确保这些值是在可接受范围之内，无论调用者尝试做什么。关于怎样维护从恶意软件带来的应用的安全问题的更多信息请查看 Security and Permissions。</p>
 </blockquote>
-<h3 id="调用IPC方法"><a href="#调用IPC方法" class="headerlink" title="调用IPC方法"></a>调用IPC方法</h3><p>这有一个调用类调用使用AIDL定义的远程接口要做的步骤：<br>1.在工程的src/目录下包含.aidl文件。<br>2.声明IBinder接口（基于AIDL生成的）的实例。<br>3.实例ServiceConnection。<br>4.调用Context.bindService()，传入ServiceConnection的实现。<br>5.在你的实现的onServiceConnected()中，你可以接收到IBinder的实例（调用的service）。调用Call YourInterfaceName.Stub.asInterface((IBinder)service)强转返回的参数到YourInterface类型。<br>6.调用接口中定义的方法。你应该总是捕获DeadObjectException异常，当连接被中断时抛出，这个是只有远程方法才会抛出的异常。<br>7.断开连接，使用接口的实例调用Context.unbindService()。</p>
+<h3 id="调用IPC方法"><a href="#调用IPC方法" class="headerlink" title="调用IPC方法"></a>调用IPC方法</h3><p>这有一个调用类调用使用AIDL定义的远程接口要做的步骤：<br>1.在工程的src/目录下包含.aidl文件。<br>2.声明IBinder接口（基于AIDL生成的）的实例。<br>3.实现ServiceConnection。<br>4.调用Context.bindService()，传入ServiceConnection的实现。<br>5.在你的实现的onServiceConnected()中，你可以接收到IBinder的实例（调用的service）。调用YourInterfaceName.Stub.asInterface((IBinder)service)强转返回的参数到YourInterface类型。<br>6.调用接口中定义的方法。你应该总是捕获DeadObjectException异常，当连接被中断时抛出，这个是只有远程方法才会抛出的异常。<br>7.断开连接，使用接口的实例调用Context.unbindService()。</p>
 <p>在调用一个IPC服务需要注意几点：</p>
 <ul>
 <li>对象引用跨进程计数。</li>
