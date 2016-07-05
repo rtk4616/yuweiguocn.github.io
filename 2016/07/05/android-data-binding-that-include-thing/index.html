@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Android Data Binding之`&lt;include&gt;`标签 | yuweiguo&#39;s blog</title>
+  <title>（译）Android Data Binding移除findViewById（二） | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在上一篇文章中介绍了使用Android Studio 1.5+可以很方便地移除findViewById。它本质上是这里描述的View Holder模型。
 我介绍了使用 Android Studio为一个布局文件生成一个类作为一个View Holder，但是included的布局呢？怎样合并included的布局？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Data Binding之`<include>`标签">
+<meta property="og:title" content="（译）Android Data Binding移除findViewById（二）">
 <meta property="og:url" content="http://yoursite.com/2016/07/05/android-data-binding-that-include-thing/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="在上一篇文章中介绍了使用Android Studio 1.5+可以很方便地移除findViewById。它本质上是这里描述的View Holder模型。
 我介绍了使用 Android Studio为一个布局文件生成一个类作为一个View Holder，但是included的布局呢？怎样合并included的布局？">
-<meta property="og:updated_time" content="2016-07-05T07:43:46.000Z">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/no-more-findviewbyid-example.png">
+<meta property="og:updated_time" content="2016-07-05T07:56:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Data Binding之`<include>`标签">
+<meta name="twitter:title" content="（译）Android Data Binding移除findViewById（二）">
 <meta name="twitter:description" content="在上一篇文章中介绍了使用Android Studio 1.5+可以很方便地移除findViewById。它本质上是这里描述的View Holder模型。
 我介绍了使用 Android Studio为一个布局文件生成一个类作为一个View Holder，但是included的布局呢？怎样合并included的布局？">
   
@@ -215,7 +216,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android Data Binding之`&lt;include&gt;`标签
+      （译）Android Data Binding移除findViewById（二）
     </h1>
   
 
@@ -247,6 +248,7 @@
 <p>两个“world” TextViews 可以很容易地被访问：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">HelloWorldBinding</span> <span class="keyword">binding </span>=</span><br><span class="line">    HelloWorldBinding.inflate(getLayoutInflater())<span class="comment">;</span></span><br><span class="line"><span class="keyword">binding.hello.setText(“Hello”);</span><br><span class="line"></span><span class="keyword">binding.world1.world.setText(“First </span>World”)<span class="comment">;</span></span><br><span class="line"><span class="keyword">binding.world2.world.setText(“Second </span>World”)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>记住给include标签一个ID否则将不会给它公有field。还有如果你想生成fields在布局外层使用<code>&lt;layout&gt;</code>。这会触发预处理步骤允许Views和fields进行关联并生成一个类。</p>
 <p>如果你查看生成的类，任何时候included使用的是相同的一个。例如，你有一个goodbye_world.xml包含一个included_layout.xml，只会为它生成一个类。</p>
+<p><img src="/assets/img/t/no-more-findviewbyid-example.png" alt=""></p>
 <p>你可以从这里下载完整代码：<a href="https://github.com/yuweiguocn/DataBindingDemo" target="_blank" rel="external">https://github.com/yuweiguocn/DataBindingDemo</a></p>
 
       
@@ -258,8 +260,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/06/29/no-more-findviewbyid1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">（译）干掉findViewById官方解决方案</div>
+    <a href="/2016/06/29/no-more-findviewbyid/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Android Data Binding移除findViewById（一）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -294,7 +296,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="android-data-binding-that-include-thing" data-title="Android Data Binding之`&lt;include&gt;`标签" data-url="http://yoursite.com/2016/07/05/android-data-binding-that-include-thing/"></div>
+	<div class="ds-thread" data-thread-key="android-data-binding-that-include-thing" data-title="（译）Android Data Binding移除findViewById（二）" data-url="http://yoursite.com/2016/07/05/android-data-binding-that-include-thing/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
