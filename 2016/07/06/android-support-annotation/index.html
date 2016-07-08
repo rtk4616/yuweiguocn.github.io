@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/06/android-support-annotation/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="Android Support Annotation（注解）概览。">
-<meta property="og:updated_time" content="2016-07-07T06:04:25.000Z">
+<meta property="og:updated_time" content="2016-07-08T05:44:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Support 注解概览">
 <meta name="twitter:description" content="Android Support Annotation（注解）概览。">
@@ -243,7 +243,7 @@
 <h3 id="BinderThread"><a href="#BinderThread" class="headerlink" title="@BinderThread"></a>@BinderThread</h3><p>表示方法只能在binder线程中被调用。如果在类上注解，表示类中所有方法都应该在binder线程中被调用。例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@BinderThread</span></span><br><span class="line"><span class="keyword">public</span> <span class="function">BeamShareData <span class="title">createBeamShareData</span><span class="params">()</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="BoolRes"><a href="#BoolRes" class="headerlink" title="@BoolRes"></a>@BoolRes</h3><p>表示一个整形参数，变量或方法的返回值预期是一个boolean资源。</p>
 <h3 id="CallSuper"><a href="#CallSuper" class="headerlink" title="@CallSuper"></a>@CallSuper</h3><p>表示所有重写的方法也应该调用这个方法。例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@CallSuper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">onFocusLost</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="CheckResult"><a href="#CheckResult" class="headerlink" title="@CheckResult"></a>@CheckResult</h3><p>。。。。。</p>
+<h3 id="CheckResult"><a href="#CheckResult" class="headerlink" title="@CheckResult"></a>@CheckResult</h3><p>表示被注解的方法返回的结果通常是可忽略的错误。这通常用于方法没什么效果，因此调用它没有看到实际结果通常意味着开发者不理解方法做了什么。</p>
 <h3 id="ColorInt"><a href="#ColorInt" class="headerlink" title="@ColorInt"></a>@ColorInt</h3><p>被注解的元素表示一个打包的int color,AARRGGBB。如果应用为一个int array，那么array中所有元素都可以表示一个color integer。例如：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="function"><span class="keyword">void</span> <span class="title">setTextColor</span><span class="params">(@ColorInt <span class="keyword">int</span> color)</span></span>;</span><br></pre></td></tr></table></figure></p>
 <h3 id="ColorRes"><a href="#ColorRes" class="headerlink" title="@ColorRes"></a>@ColorRes</h3><p>表示一个整形参数，变量或方法的返回值预期是一个color资源，例如：android.R.color.black。</p>
 <h3 id="DimenRes"><a href="#DimenRes" class="headerlink" title="@DimenRes"></a>@DimenRes</h3><p>表示一个整形参数，变量或方法的返回值预期是一个dimen资源，例如：android.R.dimen.app_icon_size。</p>
