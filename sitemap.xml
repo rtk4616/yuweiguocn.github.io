@@ -9,7 +9,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/mac-hexo-github-blog-tech/</loc>
+    <loc>http://yoursite.com/mac-hexo-github-blog-tech-1/</loc>
     
     <lastmod>2016-09-24T07:15:53.000Z</lastmod>
     
@@ -19,13 +19,6 @@
     <loc>http://yoursite.com//404.html</loc>
     
     <lastmod>2016-09-24T07:15:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-basic-animation-1/</loc>
-    
-    <lastmod>2016-09-23T07:44:05.000Z</lastmod>
     
   </url>
   
@@ -247,13 +240,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-studio-tips-1/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
@@ -261,21 +247,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -289,14 +261,35 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-basic-intentservice/</loc>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-basic-service/</loc>
     
     <lastmod>2016-04-09T00:56:05.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-basic-service/</loc>
+    <loc>http://yoursite.com/android-basic-intentservice/</loc>
     
     <lastmod>2016-04-09T00:56:05.000Z</lastmod>
     
