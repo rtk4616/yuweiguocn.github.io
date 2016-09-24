@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android Support V4官方Demo概览（二） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Support V4包中TransportMediator、ViewPager等组件的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Support V4官方Demo概览（二）">
+<meta property="og:url" content="http://yoursite.com/android-support-v4-2/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Support V4包中TransportMediator、ViewPager等组件的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support-transportcontroller.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support-viewpager.gif">
+<meta property="og:updated_time" content="2016-08-09T02:42:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Support V4官方Demo概览（二）">
+<meta name="twitter:description" content="本文介绍了Support V4包中TransportMediator、ViewPager等组件的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17.78px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/lint/" style="font-size: 10px;">lint</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/perfermance/" style="font-size: 10px;">perfermance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-support-v4-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-support-v4-2/" class="article-date">
+  	<time datetime="2016-03-17T04:25:31.000Z" itemprop="datePublished">2016-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Support V4官方Demo概览（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/demo/">demo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/support/">support</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Support V4包中TransportMediator、ViewPager等组件的使用。</p>
+<a id="more"></a>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p>框架Fragment的静态支持类库版本。用于兼容Android 3.0之前的版本。当运行在Android 3.0及之后的版本，还会使用这个实现；它不会切换到框架的实现。查看框架<a href="http://androiddoc.qiniudn.com/reference/android/app/Fragment.html" target="_blank" rel="external">Fragment</a>文档。</p>
+<p>当使用这个支持版本而不是框架的版本最大的不同是：</p>
+<ul>
+<li>activity必须继承FragmentActivity</li>
+<li>必须调用getSupportFragmentManager()获取FragmentManager</li>
+</ul>
+<h3 id="DrawableCompat"><a href="#DrawableCompat" class="headerlink" title="DrawableCompat"></a>DrawableCompat</h3><p>API4引入的用向后兼容的方式帮助访问Drawable的特性。</p>
+<h3 id="CursorLoader"><a href="#CursorLoader" class="headerlink" title="CursorLoader"></a>CursorLoader</h3><p>框架CursorLoader的静态支持类库版本。用于兼容Android 3.0之前的版本。当运行在Android 3.0及之后的版本，还会使用这个实现；它不会切换到框架的实现。类概览请查看框架SDK文档。</p>
+<h3 id="TransportController之TransportMediator"><a href="#TransportController之TransportMediator" class="headerlink" title="TransportController之TransportMediator"></a>TransportController之TransportMediator</h3><p>帮助实现媒体传输控制（播放，暂停，跳过和其它功能）。控制关键事件和高级功能就像RemoteControlClient。这个类在传输控制（在屏幕上控制，实体按键，远程控制）和实际的播放器之间作为中介服务。播放器通过一个单独的TransportPerformer表现，必须提供这个类。在屏幕想要控制和显示播放器的状态应该调用TransportController接口。</p>
+<p>这有一个简单但很完整的视频播放器的例子。注意这里用到的MediaController类没有包含在标准的Android框架中，而是一个自定义的实现。真正的应用通常实现自己的传输控制，或者你可以复制Support4Demos中的实现。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.support.v4.media.TransportMediator;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.media.TransportPerformer;</span><br><span class="line"><span class="keyword">import</span> com.example.android.supportv4.R;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.ActionBar;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.media.MediaPlayer;</span><br><span class="line"><span class="keyword">import</span> android.os.Handler;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.view.KeyEvent;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.net.Uri;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.widget.VideoView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransportControllerActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * <span class="doctag">TODO:</span> Set the path variable to a streaming video URL or a local media</span><br><span class="line">     * file path.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">private</span> Content mContent;</span><br><span class="line">    <span class="keyword">private</span> TransportMediator mTransportMediator;</span><br><span class="line">    <span class="keyword">private</span> MediaController mMediaController;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Handle actions from on-screen media controls.  Most of these are simple re-directs</span><br><span class="line">     * to the VideoView; some we need to capture to update our state.</span><br><span class="line">     */</span></span><br><span class="line">    TransportPerformer mTransportPerformer = <span class="keyword">new</span> TransportPerformer() &#123;</span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mContent.start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mContent.pause();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            mContent.pause();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">long</span> <span class="title">onGetDuration</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">return</span> mContent.<span class="title">getDuration</span><span class="params">()</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">long</span> <span class="title">onGetCurrentPosition</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">return</span> mContent.<span class="title">getCurrentPosition</span><span class="params">()</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onSeekTo</span><span class="params">(<span class="keyword">long</span> pos)</span> </span>&#123;</span><br><span class="line">            mContent.seekTo((<span class="keyword">int</span>)pos);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onIsPlaying</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">return</span> mContent.<span class="title">isPlaying</span><span class="params">()</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">onGetBufferPercentage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">return</span> mContent.<span class="title">getBufferPercentage</span><span class="params">()</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">onGetTransportControlFlags</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> flags = TransportMediator.FLAG_KEY_MEDIA_PLAY</span><br><span class="line">                    | TransportMediator.FLAG_KEY_MEDIA_PLAY_PAUSE</span><br><span class="line">                    | TransportMediator.FLAG_KEY_MEDIA_STOP;</span><br><span class="line">            <span class="keyword">if</span> (mContent.canPause()) &#123;</span><br><span class="line">                flags |= TransportMediator.FLAG_KEY_MEDIA_PAUSE;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mContent.canSeekBackward()) &#123;</span><br><span class="line">                flags |= TransportMediator.FLAG_KEY_MEDIA_REWIND;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (mContent.canSeekForward()) &#123;</span><br><span class="line">                flags |= TransportMediator.FLAG_KEY_MEDIA_FAST_FORWARD;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> flags;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This is the actual video player.  It is the top-level content of</span><br><span class="line">     * the activity's view hierarchy, going under the status bar and nav</span><br><span class="line">     * bar areas.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Content</span> <span class="keyword">extends</span> <span class="title">VideoView</span> <span class="keyword">implements</span></span><br><span class="line">            <span class="title">View</span>.<span class="title">OnSystemUiVisibilityChangeListener</span>, <span class="title">View</span>.<span class="title">OnClickListener</span>,</span><br><span class="line">            <span class="title">ActionBar</span>.<span class="title">OnMenuVisibilityListener</span>, <span class="title">MediaPlayer</span>.<span class="title">OnPreparedListener</span>,</span><br><span class="line">            <span class="title">MediaPlayer</span>.<span class="title">OnCompletionListener</span>, <span class="title">MediaPlayer</span>.<span class="title">OnErrorListener</span> </span>&#123;</span><br><span class="line">        Activity mActivity;</span><br><span class="line">        TransportMediator mTransportMediator;</span><br><span class="line">        MediaController mMediaController;</span><br><span class="line">        <span class="keyword">boolean</span> mAddedMenuListener;</span><br><span class="line">        <span class="keyword">boolean</span> mMenusOpen;</span><br><span class="line">        <span class="keyword">boolean</span> mPaused;</span><br><span class="line">        <span class="keyword">boolean</span> mNavVisible;</span><br><span class="line">        <span class="keyword">int</span> mLastSystemUiVis;</span><br><span class="line"></span><br><span class="line">        Runnable mNavHider = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                setNavVisibility(<span class="keyword">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Runnable mProgressUpdater = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                mMediaController.updateProgress();</span><br><span class="line">                getHandler().postDelayed(<span class="keyword">this</span>, <span class="number">1000</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Content</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(context, attrs);</span><br><span class="line">            setOnSystemUiVisibilityChangeListener(<span class="keyword">this</span>);</span><br><span class="line">            setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">            setOnPreparedListener(<span class="keyword">this</span>);</span><br><span class="line">            setOnCompletionListener(<span class="keyword">this</span>);</span><br><span class="line">            setOnErrorListener(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Activity activity, TransportMediator transportMediator,</span><br><span class="line">                MediaController mediaController)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// This called by the containing activity to supply the surrounding</span></span><br><span class="line">            <span class="comment">// state of the video player that it will interact with.</span></span><br><span class="line">            mActivity = activity;</span><br><span class="line">            mTransportMediator = transportMediator;</span><br><span class="line">            mMediaController = mediaController;</span><br><span class="line">            pause();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onAttachedToWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onAttachedToWindow();</span><br><span class="line">            <span class="keyword">if</span> (mActivity != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mAddedMenuListener = <span class="keyword">true</span>;</span><br><span class="line">                mActivity.getActionBar().addOnMenuVisibilityListener(<span class="keyword">this</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onDetachedFromWindow</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onDetachedFromWindow();</span><br><span class="line">            <span class="keyword">if</span> (mAddedMenuListener) &#123;</span><br><span class="line">                mActivity.getActionBar().removeOnMenuVisibilityListener(<span class="keyword">this</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            mNavVisible = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onSystemUiVisibilityChange</span><span class="params">(<span class="keyword">int</span> visibility)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// Detect when we go out of nav-hidden mode, to clear our state</span></span><br><span class="line">            <span class="comment">// back to having the full UI chrome up.  Only do this when</span></span><br><span class="line">            <span class="comment">// the state is changing and nav is no longer hidden.</span></span><br><span class="line">            <span class="keyword">int</span> diff = mLastSystemUiVis ^ visibility;</span><br><span class="line">            mLastSystemUiVis = visibility;</span><br><span class="line">            <span class="keyword">if</span> ((diff&amp;SYSTEM_UI_FLAG_HIDE_NAVIGATION) != <span class="number">0</span></span><br><span class="line">                    &amp;&amp; (visibility&amp;SYSTEM_UI_FLAG_HIDE_NAVIGATION) == <span class="number">0</span>) &#123;</span><br><span class="line">                setNavVisibility(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onWindowVisibilityChanged</span><span class="params">(<span class="keyword">int</span> visibility)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onWindowVisibilityChanged(visibility);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// When we become visible or invisible, play is paused.</span></span><br><span class="line">            pause();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// Clicking anywhere makes the navigation visible.</span></span><br><span class="line">            setNavVisibility(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onMenuVisibilityChanged</span><span class="params">(<span class="keyword">boolean</span> isVisible)</span> </span>&#123;</span><br><span class="line">            mMenusOpen = isVisible;</span><br><span class="line">            setNavVisibility(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPrepared</span><span class="params">(MediaPlayer mp)</span> </span>&#123;</span><br><span class="line">            mMediaController.setEnabled(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCompletion</span><span class="params">(MediaPlayer mp)</span> </span>&#123;</span><br><span class="line">            mTransportMediator.pausePlaying();</span><br><span class="line">            pause();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onError</span><span class="params">(MediaPlayer mp, <span class="keyword">int</span> what, <span class="keyword">int</span> extra)</span> </span>&#123;</span><br><span class="line">            mTransportMediator.pausePlaying();</span><br><span class="line">            pause();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.start();</span><br><span class="line">            mPaused = <span class="keyword">false</span>;</span><br><span class="line">            setKeepScreenOn(<span class="keyword">true</span>);</span><br><span class="line">            setNavVisibility(<span class="keyword">true</span>);</span><br><span class="line">            mMediaController.refresh();</span><br><span class="line">            scheduleProgressUpdater();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.pause();</span><br><span class="line">            mPaused = <span class="keyword">true</span>;</span><br><span class="line">            setKeepScreenOn(<span class="keyword">false</span>);</span><br><span class="line">            setNavVisibility(<span class="keyword">true</span>);</span><br><span class="line">            mMediaController.refresh();</span><br><span class="line">            scheduleProgressUpdater();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">scheduleProgressUpdater</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Handler h = getHandler();</span><br><span class="line">            <span class="keyword">if</span> (h != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mNavVisible &amp;&amp; !mPaused) &#123;</span><br><span class="line">                    h.removeCallbacks(mProgressUpdater);</span><br><span class="line">                    h.post(mProgressUpdater);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    h.removeCallbacks(mProgressUpdater);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">setNavVisibility</span><span class="params">(<span class="keyword">boolean</span> visible)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> newVis = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</span><br><span class="line">                    | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</span><br><span class="line">                    | SYSTEM_UI_FLAG_LAYOUT_STABLE;</span><br><span class="line">            <span class="keyword">if</span> (!visible) &#123;</span><br><span class="line">                newVis |= SYSTEM_UI_FLAG_LOW_PROFILE | SYSTEM_UI_FLAG_FULLSCREEN</span><br><span class="line">                        | SYSTEM_UI_FLAG_HIDE_NAVIGATION;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// If we are now visible, schedule a timer for us to go invisible.</span></span><br><span class="line">            <span class="keyword">if</span> (visible) &#123;</span><br><span class="line">                Handler h = getHandler();</span><br><span class="line">                <span class="keyword">if</span> (h != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    h.removeCallbacks(mNavHider);</span><br><span class="line">                    <span class="keyword">if</span> (!mMenusOpen &amp;&amp; !mPaused) &#123;</span><br><span class="line">                        <span class="comment">// If the menus are open or play is paused, we will not auto-hide.</span></span><br><span class="line">                        h.postDelayed(mNavHider, <span class="number">3000</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Set the new desired visibility.</span></span><br><span class="line">            setSystemUiVisibility(newVis);</span><br><span class="line">            mNavVisible = visible;</span><br><span class="line">            mMediaController.setVisibility(visible ? VISIBLE : INVISIBLE);</span><br><span class="line">            scheduleProgressUpdater();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle icicle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(icicle);</span><br><span class="line">        setContentView(R.layout.videoview);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Find the video player in our UI.</span></span><br><span class="line">        mContent = (Content) findViewById(R.id.content);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create transport controller to control video, giving the callback</span></span><br><span class="line">        <span class="comment">// interface to receive actions from.</span></span><br><span class="line">        mTransportMediator = <span class="keyword">new</span> TransportMediator(<span class="keyword">this</span>, mTransportPerformer);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create and initialize the media control UI.</span></span><br><span class="line">        mMediaController = (MediaController) findViewById(R.id.media_controller);</span><br><span class="line">        mMediaController.setMediaPlayer(mTransportMediator);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// We're just playing a built-in demo video.</span></span><br><span class="line">        mContent.init(<span class="keyword">this</span>, mTransportMediator, mMediaController);</span><br><span class="line">        mContent.setVideoURI(Uri.parse(<span class="string">"android.resource://"</span> + getPackageName() +</span><br><span class="line">                <span class="string">"/"</span> + R.raw.videoviewdemo));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">dispatchKeyEvent</span><span class="params">(KeyEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// We first dispatch keys to the transport controller -- we want it</span></span><br><span class="line">        <span class="comment">// to get to consume any media keys rather than letting whoever has focus</span></span><br><span class="line">        <span class="comment">// in the view hierarchy to potentially eat it.</span></span><br><span class="line">        <span class="keyword">if</span> (mTransportMediator.dispatchKeyEvent(event)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">dispatchKeyEvent</span><span class="params">(event)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/img/support-transportcontroller.gif" alt=""></p>
+<h3 id="BidiFormatter"><a href="#BidiFormatter" class="headerlink" title="BidiFormatter"></a>BidiFormatter</h3><p>用于可能反向显示格式化文本的实用类。</p>
+<h3 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h3><p>布局管理器允许用户左右翻动查看页面数据。提供PagerAdapter的实现生成显示view的页面。</p>
+<p>注意这个类目前为早期的设计和开发。API很可能在后面的兼容库更新中修改，当使用新版本编译时需要修改应用的源码。</p>
+<p>ViewPager经常和Fragment配合使用，这是一种很方便的方法对于提供和管理每个页面的生命周期。这有一个标准的使用fragment和ViewPager的adapter的实现，覆盖了最常见的情况。这有FragmentPagerAdapter 和 FragmentStatePagerAdapter两个类；每个类都有怎样使用它们构建用户界面的示例代码。</p>
+<p>更多关于怎样使用ViewPager的信息，阅读 Creating Swipe Views with Tabs。</p>
+<p>下面是一个ViewPager的更复杂的例子，使用它和ActionBar进行关联。你可以在API 4+ Support Demos 和 API 13+ Support Demos的示例代码中找到其它使用ViewPager的例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionBarTabsPager</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    ViewPager mViewPager;</span><br><span class="line">    TabsAdapter mTabsAdapter;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line"></span><br><span class="line">        mViewPager = <span class="keyword">new</span> ViewPager(<span class="keyword">this</span>);</span><br><span class="line">        mViewPager.setId(R.id.pager);</span><br><span class="line">        setContentView(mViewPager);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> ActionBar bar = getActionBar();</span><br><span class="line">        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);</span><br><span class="line">        bar.setDisplayOptions(<span class="number">0</span>, ActionBar.DISPLAY_SHOW_TITLE);</span><br><span class="line"></span><br><span class="line">        mTabsAdapter = <span class="keyword">new</span> TabsAdapter(<span class="keyword">this</span>, mViewPager);</span><br><span class="line">        mTabsAdapter.addTab(bar.newTab().setText(<span class="string">"Simple"</span>),</span><br><span class="line">                CountingFragment.class, <span class="keyword">null</span>);</span><br><span class="line">        mTabsAdapter.addTab(bar.newTab().setText(<span class="string">"List"</span>),</span><br><span class="line">                FragmentPagerSupport.ArrayListFragment.class, <span class="keyword">null</span>);</span><br><span class="line">        mTabsAdapter.addTab(bar.newTab().setText(<span class="string">"Cursor"</span>),</span><br><span class="line">                CursorFragment.class, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</span><br><span class="line">            bar.setSelectedNavigationItem(savedInstanceState.getInt(<span class="string">"tab"</span>, <span class="number">0</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onSaveInstanceState(outState);</span><br><span class="line">        outState.putInt(<span class="string">"tab"</span>, getActionBar().getSelectedNavigationIndex());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * This is a helper class that implements the management of tabs and all</span><br><span class="line">     * details of connecting a ViewPager with associated TabHost.  It relies on a</span><br><span class="line">     * trick.  Normally a tab host has a simple API for supplying a View or</span><br><span class="line">     * Intent that each tab will show.  This is not sufficient for switching</span><br><span class="line">     * between pages.  So instead we make the content part of the tab host</span><br><span class="line">     * 0dp high (it is not shown) and the TabsAdapter supplies its own dummy</span><br><span class="line">     * view to show as the tab content.  It listens to changes in tabs, and takes</span><br><span class="line">     * care of switch to the correct paged in the ViewPager whenever the selected</span><br><span class="line">     * tab changes.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TabsAdapter</span> <span class="keyword">extends</span> <span class="title">FragmentPagerAdapter</span></span><br><span class="line">            <span class="keyword">implements</span> <span class="title">ActionBar</span>.<span class="title">TabListener</span>, <span class="title">ViewPager</span>.<span class="title">OnPageChangeListener</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> Context mContext;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> ActionBar mActionBar;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> ViewPager mViewPager;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> ArrayList&lt;TabInfo&gt; mTabs = <span class="keyword">new</span> ArrayList&lt;TabInfo&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">TabInfo</span> </span>&#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">final</span> Class&lt;?&gt; clss;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">final</span> Bundle args;</span><br><span class="line"></span><br><span class="line">            TabInfo(Class&lt;?&gt; _class, Bundle _args) &#123;</span><br><span class="line">                clss = _class;</span><br><span class="line">                args = _args;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TabsAdapter</span><span class="params">(Activity activity, ViewPager pager)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(activity.getFragmentManager());</span><br><span class="line">            mContext = activity;</span><br><span class="line">            mActionBar = activity.getActionBar();</span><br><span class="line">            mViewPager = pager;</span><br><span class="line">            mViewPager.setAdapter(<span class="keyword">this</span>);</span><br><span class="line">            mViewPager.setOnPageChangeListener(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTab</span><span class="params">(ActionBar.Tab tab, Class&lt;?&gt; clss, Bundle args)</span> </span>&#123;</span><br><span class="line">            TabInfo info = <span class="keyword">new</span> TabInfo(clss, args);</span><br><span class="line">            tab.setTag(info);</span><br><span class="line">            tab.setTabListener(<span class="keyword">this</span>);</span><br><span class="line">            mTabs.add(info);</span><br><span class="line">            mActionBar.addTab(tab);</span><br><span class="line">            notifyDataSetChanged();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> mTabs.size();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            TabInfo info = mTabs.get(position);</span><br><span class="line">            <span class="keyword">return</span> Fragment.instantiate(mContext, info.clss.getName(), info.args);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset, <span class="keyword">int</span> positionOffsetPixels)</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageSelected</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">            mActionBar.setSelectedNavigationItem(position);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrollStateChanged</span><span class="params">(<span class="keyword">int</span> state)</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabSelected</span><span class="params">(Tab tab, FragmentTransaction ft)</span> </span>&#123;</span><br><span class="line">            Object tag = tab.getTag();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;mTabs.size(); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (mTabs.get(i) == tag) &#123;</span><br><span class="line">                    mViewPager.setCurrentItem(i);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabUnselected</span><span class="params">(Tab tab, FragmentTransaction ft)</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTabReselected</span><span class="params">(Tab tab, FragmentTransaction ft)</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/img/support-viewpager.gif" alt=""></p>
+<p>从Android SDK目录可找到源码，或从这里<a href="https://github.com/yuweiguocn/SupportDemo" target="_blank" rel="external">下载</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/android-toolbar-theme-bug/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Toolbar主题Theme.AppCompat.Light.DarkActionBar的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/android-basic-support-fileprovider/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础Support——FileProvider</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-support-v4-2" data-title="Android Support V4官方Demo概览（二）" data-url="http://yoursite.com/android-support-v4-2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

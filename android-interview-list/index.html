@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android面试题集合 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Android面试常见问题列表。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试题集合">
+<meta property="og:url" content="http://yoursite.com/android-interview-list/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="Android面试常见问题列表。">
+<meta property="og:updated_time" content="2016-09-16T01:05:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android面试题集合">
+<meta name="twitter:description" content="Android面试常见问题列表。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17.78px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/lint/" style="font-size: 10px;">lint</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/perfermance/" style="font-size: 10px;">perfermance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-interview-list" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-interview-list/" class="article-date">
+  	<time datetime="2016-03-26T04:17:38.000Z" itemprop="datePublished">2016-03-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android面试题集合
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/">interview</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Android面试常见问题列表。</p>
+<a id="more"></a>
+<h4 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h4><p>简述题（一）</p>
+<ul>
+<li>&amp;和&amp;&amp;的区别。</li>
+<li>Get和Post的区别</li>
+<li>http response code</li>
+<li>udp连接和TCP的不同之处</li>
+<li>java中的soft reference是个什么东西</li>
+<li>抽象类和接口的区别</li>
+<li>谈一下对java中的abstract的理解</li>
+<li>Overload和Override的区别</li>
+<li>Static Nested Class 和 Inner Class的不同</li>
+<li>内部类机制</li>
+</ul>
+<p>简述题（二）</p>
+<ul>
+<li>怎么用接口来连接两个层的</li>
+<li>接口是否可继承接口? 抽象类是否可实现(implements)接口? 抽象类是否可继承实体类(concreteclass)?</li>
+<li>private和default有什么区别</li>
+<li>java里的常量是怎么定义的</li>
+<li>类前边加+final的用处？</li>
+<li>finally final finalize的作用？</li>
+<li>java中final定义的类有什么特点</li>
+<li>try{ return} catch{} finally{};  return还是finally先执行。</li>
+<li>数组有没有length()这个方法? String有没有length()这个方法？</li>
+<li>是否可以继承String类?</li>
+<li>swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?</li>
+<li>常量final string str=“ab”可不可以变成”abd”，为什么？</li>
+<li>StringBuffer的作用？</li>
+<li>String s=new String(“abc”);  new了几个对象</li>
+</ul>
+<p>简述题（三）</p>
+<ul>
+<li>启动一个线程是用run()还是start()?</li>
+<li>多线程有几种实现方法,都是什么?同步有几种实现方法,都是什么?</li>
+<li>同步和异步的区别？</li>
+<li>sleep和wait有什么区别？ 一个是用来让线程休息，一个是用来挂起线程</li>
+<li>abstract的method是否可同时是static,是否可同时是native，是否可同时是synchronized?</li>
+<li>当一个线程进入一个对象的一个synchronized方法后，其它线程是否可进入此对象的其它方法?</li>
+</ul>
+<p>简述题（四）</p>
+<ul>
+<li>Error与Exception的区别</li>
+<li>Java中的异常处理机制的简单原理和应用。</li>
+<li>Java内存回收机制，GC 垃圾回收机制,垃圾回收的优点和原理。并考虑2种回收机制。</li>
+<li>对象Object读写的是哪两个流</li>
+<li>反射，求字段的值和方法名</li>
+<li>Socket编程的步骤  </li>
+<li>什么是Java序列化</li>
+</ul>
+<p>简述题（五）</p>
+<ul>
+<li>常见集合及区别</li>
+<li>ArrayList和Vector区别，HashMap和HashTable区别</li>
+<li>ArrayList和LinkedList的区别</li>
+<li>List, Set, Map是否继承自Collection接口?</li>
+<li>hashCode方法的作用</li>
+<li>Set里的元素是不能重复的，那么用什么方法来区分重复与否呢? 是用==还是equals()? 它们有何区别?</li>
+<li>当x.equals(y)等于true时，x.hashCode()与y.hashCode()可以不相等，这句话对不对?</li>
+<li>JSON，fastjson和GSON的区别</li>
+<li>XML，解析XML的几种方式的原理与特点：DOM、SAX、PULL</li>
+<li>MD5加密原理，可否解密。</li>
+<li>heap和stack有什么区别。</li>
+<li>用最有效率的方法算出2乘以8等於几? （2&lt;&lt; 3）</li>
+</ul>
+<p><a href="/2016/01/06/java-collection/">java集合类框架</a><br><a href="/2016/04/08/android-interview-java/">Android面试——Java相关</a></p>
+<h4 id="Android基础"><a href="#Android基础" class="headerlink" title="Android基础"></a>Android基础</h4><p>Activity</p>
+<ul>
+<li>生命周期及横竖屏切换时生命周期</li>
+<li>启动模式</li>
+<li>内存不足时，怎么保持Activity的一些状态，在哪个方法里面做具体操作？</li>
+<li>介绍Activity、Service、Broadcast、BroadcastReceiver、Intent、IntentFilter</li>
+<li>怎么在启动一个activity时就启动一个service</li>
+<li>同一个程序不同的Activity如何放在不同的任务栈中？</li>
+<li>如何将一个Activity设置成窗口的样式</li>
+<li>如何退出Activity？如何安全退出已调用多个Activity的Application？</li>
+<li>Activity中如何动态的添加Fragment？</li>
+<li>activity的启动过程 <a href="http://www.cloudchou.com/android/post-788.html" target="_blank" rel="external">参考</a></li>
+<li>不用Service,B页面为音乐播放，从A跳到B，再返回，如何使音乐继续播放？</li>
+<li>windows和activity之间关系？</li>
+<li>一个activity打开另外一个activity，再打开一个activity？回去的时候发生了什么操作？</li>
+<li>onActivityResult(int requestCode, int resultCode, Intent data)方法的用法；</li>
+</ul>
+<p>Fragment</p>
+<ul>
+<li>生命周期</li>
+<li>Fragment嵌套多个Fragment会出现bug吗？</li>
+</ul>
+<p>Broadcast Receiver</p>
+<ul>
+<li>注册广播有哪几种方式,有什么区别  </li>
+<li>Android引入广播机制的用意？</li>
+<li>无序广播、有序广播 -1000——1000</li>
+<li>同优先级，清单文件中上面先收到</li>
+<li>Broadcast、Content Provider 和 AIDL的区别和联系</li>
+</ul>
+<p><a href="/2016/04/02/android-basic-broadcast-receiver/">Android基础——广播接收者BroadcastReceiver</a></p>
+<p>Service</p>
+<ul>
+<li>注册Service需要注意什么  </li>
+<li>什么是Service以及描述下它的生命周期。</li>
+<li>Service与Activity怎么实现通信  </li>
+<li>Service有哪些启动方法，有什么区别，怎样停用Service？</li>
+<li>什么是IntentService？有何优点？</li>
+<li>Service和Activity在同一个线程吗 main 线程 UI线程</li>
+<li>Service里面可以弹土司么</li>
+<li>如何启用Service，如何停用Service</li>
+<li>什么时候使用Service?</li>
+<li>说说Activity、Intent、Service是什么关系</li>
+<li>AIDL,两个android应用间的互相调用方法？</li>
+<li>AIDL的全称是什么？如何工作？能处理哪些类型的数据</li>
+</ul>
+<p><a href="/2016/03/28/android-basic-service/">Android基础——Service</a><br><a href="/2016/03/31/android-basic-intentservice/">Android基础——IntentService</a><br><a href="/2016/04/02/android-guide-service/">Android开发指导——Service</a><br><a href="/2016/03/31/android-guide-bound-service/">Android开发指导——绑定Service</a><br><a href="/2016/03/31/android-guide-aidl/">Android开发指导——进程间通信AIDL</a></p>
+<p>ContentProvider</p>
+<ul>
+<li>自定义一个contentProvider。</li>
+<li>请介绍下ContentProvider是如何实现数据共享的<br>创建一个属于你自己的Content provider或者将你的数据添加到一个已经存在的Content provider中，前提是有相同数据类型并且有写入Content provider的权限。</li>
+<li>contentProvider权限；</li>
+</ul>
+<p>AsyncTask简介</p>
+<ul>
+<li>Asynctask具体用法？  </li>
+<li>Asynctask的Do in background方法是怎么通知UI线程刷新进度条的？  </li>
+<li>Asynctask的Do in background方法默认是返回 true ，表示任务完成，如果想返回具体的数据呢，怎么做。如果Activity被销毁了，还会执行到postexcutd方法吗？</li>
+</ul>
+<p><a href="/2016/04/10/android-basic-asynctask/">Android基础——AsyncTask</a></p>
+<p>ListView</p>
+<ul>
+<li>手指快速拖动ListView时，如何处理惯性引起的加载问题；</li>
+<li>怎么实现ListView多种布局？  </li>
+<li>ListView与数据库绑定的实现  </li>
+<li>怎么实现一个部分更新的 ListView？  </li>
+<li>ListView卡顿的原因与性能优化，大量数据时,说的越多越好  </li>
+</ul>
+<p>UI相关</p>
+<ul>
+<li>谈谈UI中，Padding和Margin有什么区别？</li>
+<li>drawable-hdpi的dpi是什么意思？</li>
+<li>请介绍下Android中常用的五种布局</li>
+<li>Android中px,sp,dip,dp的区别与联系</li>
+<li>怎么处理屏幕适配的</li>
+</ul>
+<p>简述题（一）</p>
+<ul>
+<li>android开发中怎么去调试debug</li>
+<li>请解释下Android程序运行时权限与文件系统的权限的区别</li>
+<li>JVM 和Dalvik虚拟机的区别  </li>
+<li>android dvm的进程和Linux的进程应用程序是否为同一个概念</li>
+<li>sim卡的ef文件有何作用。</li>
+<li>你如何评价Android系统？优缺点</li>
+<li>谈下android系统的架构</li>
+<li>根据自己的理解描述下android数字签名</li>
+</ul>
+<p>简述题（二）</p>
+<ul>
+<li>如何加载音乐信息，如何改善其效率。</li>
+<li>Android程序与java程序的区别？</li>
+<li>什么是 MVC 模式？MVC 模式的好处是什么？  </li>
+<li>在Android中MVC的具体体现</li>
+<li>简述Android应用程序的组成</li>
+</ul>
+<p>简述题（三）</p>
+<ul>
+<li>如何让程序自动启动</li>
+<li>如何让程序不被系统自动销毁</li>
+<li>常见异常，5种运行时异常</li>
+<li>运行时异常与一般异常有何异同？</li>
+<li>什么情况会导致Force Close?如何避免？是否捕获导致其的异常</li>
+<li>什么是 ANR 问题？为什么会引起 ANR 问题？  </li>
+<li>系统上安装了多种浏览器，能否指定某浏览器访问指定页面？请说明原由</li>
+<li>ContentValues相关，key是不是任意类型，value是不是任意类型</li>
+<li>URL和URI区别用法</li>
+<li>数据存储，数据持久化的方式有哪些</li>
+<li>进程优先级</li>
+<li>intent-filter属性及其含义；</li>
+<li>如何打开res/raw 目录中的数据库文件？<br>简述题（四）</li>
+<li>NotifactionManager使用原理</li>
+<li>Asset与raw都能存放资源，他们有什么区别？</li>
+<li>postInvalidate与invalidate有什么区别？</li>
+<li>notifyDataSetChanged 和notifyDataSetInvalidated的区别</li>
+<li>Serializable和Parcelable的区别</li>
+<li>子线程中更新UI的方法</li>
+<li>Scrollview怎么判断是否滑倒底部  </li>
+<li>ViewPager 怎么做性能优化</li>
+<li>布局如何动态加载</li>
+<li>外存储器文件遍历输出文件名</li>
+<li>Intent启动Activity有几种方式，请分别简述</li>
+<li>AndroidManifest.xml文件中主要包含哪些信息</li>
+<li>列举常用的Android开源项目及应用场景</li>
+<li>文件和数据库哪个效率高</li>
+</ul>
+<p>简述题（五）</p>
+<ul>
+<li>常见设计模式，并手动简单实现观察者模式</li>
+<li>Handler机制</li>
+<li>热修复</li>
+<li>简述静默安装的原理，如何在无需Root权限的情况下实现静默安装</li>
+<li>什么是65535问题，如何防止或解决65535问题</li>
+<li>简述实现Android APK插件化的简单方法</li>
+<li>如何实现资源文件的混淆</li>
+<li>如何在不引用第三方工具的情况下防止应用二次打包？并对应用进行简单加固</li>
+<li>简述控制反转（Inversion of Control）的应用场景</li>
+<li>怎么考虑数据传输的安全性</li>
+<li>xmpp openfire <a href="http://blog.csdn.net/shimiso/article/details/11225873" target="_blank" rel="external">基于xmpp openfire smack开发之Android客户端开发</a></li>
+<li>应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？</li>
+<li>简述实现Android APK插件化的简单方法</li>
+</ul>
+<p>JS交互</p>
+<ul>
+<li>如何实现点击网站某个链接就自动下载一个程序到手机上并自动安装运行；</li>
+<li>java和JS的交互 <a href="http://droidyue.com/blog/2014/09/20/interaction-between-java-and-javascript-in-android/" target="_blank" rel="external">Android中Java和JavaScript交互</a></li>
+<li><a href="http://jaq.alibaba.com/blog.htm?spm=0.0.0.0.oMsDAl&amp;id=48" target="_blank" rel="external">WebView 远程代码执行漏洞浅析</a> 解决方案：<a href="https://github.com/pedant/safe-java-js-webview-bridge" target="_blank" rel="external">WebView中的Java与JavaScript提供【安全可靠】的多样互通方案</a></li>
+</ul>
+<p>Android动画</p>
+<ul>
+<li>Android中有哪些类型的动画，用属性动画实现控件的缩放</li>
+<li>不使用动画，怎么实现一个动态的 View？</li>
+<li>Android中的动画有哪些，区别是什么  </li>
+</ul>
+<p>自定义View</p>
+<ul>
+<li>View,SurfaceView，GLSurfaceView有什么区别</li>
+<li><a href="http://blog.csdn.net/guolin_blog/article/details/16330267" target="_blank" rel="external">View的绘制</a></li>
+<li>如何自定义ViewGroup？</li>
+<li>View刷新机制</li>
+<li>android UI中的View如何刷新</li>
+<li>事件传递及处理机制</li>
+<li>View中onTouch，onTouchEvent，onClick的执行顺序</li>
+</ul>
+<p><a href="/2016/09/13/android-summary-event-dispath/">Android事件分发机制源码分析及总结</a></p>
+<p>JNI</p>
+<ul>
+<li>JNI怎么使用  </li>
+<li>简单描述你是如何进行JNI开发的</li>
+<li>在哪些情况下java代码中需要调用C代码</li>
+</ul>
+<p>性能优化</p>
+<ul>
+<li>图片缓存及优化,设计一个图片缓存加载机制  </li>
+<li>内存优化，布局优化，代码优化</li>
+<li>内存溢出OOM是怎么引起的？怎么尽量避免OOM问题的出现?</li>
+<li>Android中引起内存泄露的原因</li>
+</ul>
+<p><a href="/2016/04/10/android-interview-peformance/">Android面试——APP性能优化</a></p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><ul>
+<li>分页查询数据</li>
+<li>如何将SQLite数据库与apk文件一起发布？</li>
+<li>左连接与右连接的区别</li>
+<li>描述Sqlite数据库（类型、关系）；</li>
+<li>你的项目中Sqlite数据库中存储的数据用SharePreference来处理也可以，为什么不用SharePreference呢；</li>
+</ul>
+<h4 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h4><ul>
+<li>Rest API</li>
+<li>Volley相关 <a href="https://bxbxbai.github.io/2014/09/14/android-working-with-volley/" target="_blank" rel="external">Volley</a> <a href="http://blog.csdn.net/guolin_blog/article/details/17656437" target="_blank" rel="external"> Android Volley完全解析</a></li>
+<li>如何控制TCP连接时的拥塞 <a href="http://blog.csdn.net/yechaodechuntian/article/details/25429143" target="_blank" rel="external">TCP的流量控制和拥塞控制</a></li>
+<li>三次握手 <a href="http://blog.csdn.net/whuslei/article/details/6667471" target="_blank" rel="external">TCP协议中的三次握手和四次挥手(图解)</a></li>
+<li><a href="http://wyong.blog.51cto.com/1115465/1553352" target="_blank" rel="external">Android客户端和服务端如何使用Token和Session</a></li>
+<li>移动端获取网络数据优化</li>
+</ul>
+<h4 id="编程算法题"><a href="#编程算法题" class="headerlink" title="编程算法题"></a>编程算法题</h4><ul>
+<li>冒泡排序</li>
+<li>求素数</li>
+<li>单例模式——写一个Singleton出来</li>
+<li>二叉树遍历</li>
+<li>最长不重复子串（最长重复子串）</li>
+<li>有一个一维整型数组int[]data保存的是一张宽为width，高为height的图片像素值信息。请写一个算法，将该图片所有的白色不透明(xffffffff)像素点的透明度调整为5%。</li>
+<li>写一个求递归程序  求5<em>4</em>3<em>2</em>1</li>
+<li>请使用java或者C++实现反转单链表</li>
+<li>生产者、消费者</li>
+<li>死锁（同步嵌套同步且锁不同）</li>
+<li>写一个多线程实例代码；</li>
+<li>写一个方法，交换两个变量的值？</li>
+<li>给最外层的rootview，把这个根视图下的全部button背景设置成红色，手写代码，不许用递归  </li>
+<li>给一串字符串比如abbbcccd，输出a1b3c3d1，手写代码（注意有个别字符可能会出现十次以上的情况）  </li>
+<li>一个序列，它的形式是12349678，9是最高峰，经历了一个上升又下降的过程，找出里面的最大值的位置，要求效率尽可能高</li>
+<li>二叉查找树的删除操作，手写代码  </li>
+<li>二分查找，手写代码  </li>
+<li>有海量条 url，其中不重复的有300万条，现在希望挑选出重复出现次数最高的 url，要求效率尽可能的高  </li>
+<li>一篇英语文章，去掉字符只留下k个，如何去掉才能使这k个字符字典序最小  </li>
+<li>弗洛伊德算法和 Dijkstra算法的区别？复杂度是多少？讲讲 Dijkstra算法的具体过程  </li>
+<li>反转字符串，要求手写代码，优化速度、优化空间  </li>
+<li>给出两个无向图，找出这2个无向图中相同的环路。手写代码</li>
+</ul>
+<p><a href="/2016/03/24/java-instance/">Java实现单例模式的正确姿势</a><br><a href="/2016/04/08/android-interview-program/">Android面试——编程算法题</a></p>
+<p>部分答案可参考：<a href="http://blog.csdn.net/x605940745/article/category/1808335" target="_blank" rel="external">CSDN:剑萧舞蝶</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/android-interview-basic-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android面试基础知识总结（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/android-scrollview-nested-listview/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ScrollView嵌套ListView显示不全解决方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-interview-list" data-title="Android面试题集合" data-url="http://yoursite.com/android-interview-list/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

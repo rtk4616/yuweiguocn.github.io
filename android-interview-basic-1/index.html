@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android面试基础知识总结（一） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="状态：未完成Android面试基础知识总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android面试基础知识总结（一）">
+<meta property="og:url" content="http://yoursite.com/android-interview-basic-1/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="状态：未完成Android面试基础知识总结。">
+<meta property="og:updated_time" content="2016-06-24T05:31:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android面试基础知识总结（一）">
+<meta name="twitter:description" content="状态：未完成Android面试基础知识总结。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17.78px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/lint/" style="font-size: 10px;">lint</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/perfermance/" style="font-size: 10px;">perfermance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="assets/img/yuweiguo.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-interview-basic-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-interview-basic-1/" class="article-date">
+  	<time datetime="2016-03-26T06:21:53.000Z" itemprop="datePublished">2016-03-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android面试基础知识总结（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/interview/">interview</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>状态：未完成<br>Android面试基础知识总结。<br><a id="more"></a></p>
+<h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h3><p>生命周期</p>
+<ul>
+<li>启动Activity：onCreate-&gt;onStart-&gt;onResume</li>
+<li>锁屏或被其它Activity覆盖：onPause-&gt;onStop</li>
+<li>解锁或由被覆盖状态再回到前台：onRestart-&gt;onStart-&gt;onResume</li>
+<li>跳转到其它Activity或按Home进入后台：onPause-&gt;onStop</li>
+<li>退回到此Activity：onRestart-&gt;onStart-&gt;onResume</li>
+<li>退出此Activity：onPause-&gt;onStop-&gt;onDestory</li>
+<li>对话框弹出不会执行任何生命周期(注：对话框如果是Activity(Theme为Dialog)，还是会执行生命周期的)</li>
+<li>从A跳转到B：当B的主题为透明时，A只会执行onPause（A-onPause-&gt;B-(onCreate-&gt;onStart-&gt;onResume)）</li>
+<li>从A跳转到B：A-onPause-&gt;B-(onCreate-&gt;onStart-&gt;onResume)-A-onStop(注意是A执行onPause后开始执行B的生命周期，B执行onResume后，A才执行onStop，所以尽量不要在onPause中做耗时操作)</li>
+<li>从B返回到A：B-onPause-&gt;A-(onRestart-&gt;onStart-&gt;onResume)-B-(onStop-&gt;onDestroy)</li>
+</ul>
+<p>onWindowFocusChanged方法</p>
+<ul>
+<li>窗口焦点改变时被调用</li>
+<li>在onResume之后获得焦点，onPause之后失去焦点</li>
+</ul>
+<p>onSaveInstanceState方法</p>
+<ul>
+<li>用于保存Activity的状态存储一些临时数据</li>
+<li>Activity被覆盖或进入后台，由于系统资源不足被kill会被调用</li>
+<li>用户改变屏幕方向会被调用</li>
+<li>跳转到其它Activity或按Home进入后台会被调用</li>
+<li>会在onStop之前被调用，和onPause的顺序不固定的</li>
+</ul>
+<p>onRestoreInstanceState(Bundle savedInstanceState)方法</p>
+<ul>
+<li>用于恢复保存的临时数据，此方法的Bundle参数也会传递到onCreate方法中，你也可以在onCreate(Bundle savedInstanceState)方法中恢复数据</li>
+<li>onRestoreInstanceState和onCreate的区别：当onRestoreInstanceState被调用时Bundle参数一定是有值的，不用做为null判断，onCreate的Bundle则可能会为null。官方文档建议在此方法中进行数据恢复。</li>
+<li>由于系统资源不足被kill之后又回到此Activity会被调用</li>
+<li>用户改变屏幕方向重建Activity时会被调用</li>
+<li>会在onStart之后被调用</li>
+</ul>
+<p>问题：内存不足时，怎么保持Activity的一些状态，在哪个方法里面做具体操作？</p>
+<blockquote>
+<p>在onSaveInstanceState方法中保存Activity的状态，在onRestoreInstanceState或onCreate方法中恢复Activity的状态</p>
+</blockquote>
+<p>屏幕方向</p>
+<ul>
+<li>竖屏：在AndroidManifest.xml中对指定的Activity设置android:screenOrientation=”portrait”或在onCreate方法中调用<code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);</code></li>
+<li>横屏：在AndroidManifest.xml中对指定的Activity设置android:screenOrientation=”landscape”或在onCreate方法中调用<code>setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);</code></li>
+</ul>
+<p>默认情况下，切换屏幕方向时Activity会销毁、重建</p>
+<ul>
+<li>onPause-&gt;onStop-&gt;onDestroy-&gt;onCreate-&gt;onStart-&gt;onResume</li>
+</ul>
+<p>配置为android:configChanges=”orientation|screenSize”时</p>
+<ul>
+<li>只会调用onConfigurationChanged方法</li>
+<li>注意当配置screenOrientation属性后，此属性无效。</li>
+</ul>
+<p>启动模式</p>
+<ul>
+<li>standard 标准模式(activity默认的): 每次调用startActivity, 都会把activity给创建.</li>
+<li>singleTop 单一顶部模式: 每次调用startActivity, 需要判断当前的activity是否已经被创建过并且查看任务栈的顶部是否是当前的    activity, 如果是, 调用onNewIntent方法, 如果不是, 就创建一个新的activity实例.<br>  应用场景: 非法程序员, 写的流氓程序, 一直在弹出某个页面.</li>
+<li>singleTask 单一任务栈模式: 如果任务栈中已经存在当前activity, 再去调用startActivity, 会调用当前任务栈的onNewIntent方法. 同时    , 会把所有以上的activity都给清除出栈.<br>  应用场景: 如果一个界面显示的资源非常大, 只需要初始化一次实例.</li>
+<li>singleInstance 单一实例模式: activity会在一个新的任务栈中实例化, 并且其他的activity不会创建在新的任务栈中. 始终在整个系统中    会被初始化一次.<br>  应用场景: 在整个系统中, 只需要初始化一次的页面.</li>
+</ul>
+<p>同一个程序不同的Activity如何放在不同的任务栈中？</p>
+<ul>
+<li>需要为不同的activity设置不同的affinity属性，启动activity的Intent需要包含FLAG_ACTIVITY_NEW_TASK标记。</li>
+</ul>
+<p>如何将一个Activity设置成窗口的样式</p>
+<ul>
+<li>给Activity设置主题为android:theme=”@android:style/Theme.Dialog”</li>
+</ul>
+<p>如何退出Activity？如何安全退出已调用多个Activity的Application？</p>
+<ul>
+<li>退出Activity直接finish即可。</li>
+<li>抛异常强制退出,该方法通过抛异常，使程序Force Close。验证可以，但是，需要解决的问题是，如何使程序结束掉，而不弹出Force Close的窗口。</li>
+<li>记录打开的Activity：每打开一个Activity，就记录下来。在需要退出时，关闭每一个Activity即可。</li>
+<li>发送特定广播：在需要结束应用时，发送一个特定的广播，每个Activity收到广播后，关闭即可。</li>
+<li>递归退出：在打开新的Activity时使用startActivityForResult，然后自己加标志，在onActivityResult中处理，递归关闭。</li>
+</ul>
+<p>Fragment生命周期</p>
+<blockquote>
+<p>onAttach-&gt;onCreate-&gt;onCreateView-&gt;onActivityCreated-&gt;onStart-&gt;onResume-&gt;onPause-&gt;onStop-&gt;onDestroyView-&gt;onDestroy-&gt;onDetach</p>
+</blockquote>
+<p>Broadcast、Content Provider 和 AIDL的区别和联系</p>
+<p>这3种都可以实现跨进程的通信，那么从效率，适用范围，安全性等方面来比较的话他们3者之间有什么区别？</p>
+<p>Broadcast：用于发送和接收广播！实现信息的发送和接收！<br>AIDL：用于不同程序间服务的相互调用！实现了一个程序为另一个程序服务的功能！<br>Content Provider:用于将程序的数据库人为地暴露出来！实现一个程序可以对另个程序的数据库进行相对用的操作！  </p>
+<p>Broadcast,既然是广播，那么它的优点是：注册了这个广播接收器的应用都能够收到广播，范围广。<br>缺点是：速度慢点，而且必须在一定时间内把事情处理完(onReceive执行必须在几秒之内)，否则的话系统给出ANR。<br>AIDL，是进程间通信用的，类似一种协议吧。优点是：速度快(系统底层直接是共享内存)，性能稳，效率高，一般进程间通信就用它。<br>Content Provider,因为只是把自己的数据库暴露出去，其他程序都可以来获取数据，数据本身不是实时的，不像前两者,只是起个数据供应作用。一般是某个成熟的应用来暴露自己的数据用的。 你要是为了进程间通信，还是别用这个了，这个又不是实时数据。</p>
+<p>参考链接：<a href="http://blog.csdn.net/woaieillen/article/details/8185531" target="_blank" rel="external">http://blog.csdn.net/woaieillen/article/details/8185531</a></p>
+<p>Handler机制</p>
+<ul>
+<li>andriod提供了Handler 和 Looper 来满足线程间的通信。Handler先进先出原则。Looper类用来管理特定线程内对象之间的消息交换(MessageExchange)。</li>
+<li>Looper: 一个线程可以产生一个Looper对象，由它来管理此线程里的MessageQueue(消息队列)。</li>
+<li>Handler: 你可以构造Handler对象来与Looper沟通，以便push新消息到MessageQueue里;或者接收Looper从Message Queue取出)所送来的消息。</li>
+<li>Message Queue(消息队列):用来存放线程放入的消息。</li>
+<li>线程：UIthread 通常就是main thread，而Android启动程序时会替它建立一个MessageQueue。</li>
+</ul>
+<p>ListView卡顿原因</p>
+<ul>
+<li>Adapter的getView方法里面convertView没有使用setTag和getTag方式；</li>
+<li>在getView方法里面ViewHolder初始化后的赋值或者是多个控件的显示状态和背景的显示没有优化好，抑或是里面含有复杂的计算和耗时操作；</li>
+<li>在getView方法里面 inflate的row 嵌套太深（布局过于复杂）或者是布局里面有大图片或者背景所致；</li>
+<li>Adapter多余或者不合理的notifySetDataChanged；</li>
+<li>listview 被多层嵌套，多次的onMessure导致卡顿，如果多层嵌套无法避免，建议把listview的高和宽设置为fill_parent. 如果是代码继承的listview，那么也请你别忘记为你的继承类添加上LayoutPrams，注意高和宽都是fill_parent的；</li>
+</ul>
+<p>数据存储，数据持久化的方式有哪些</p>
+<ul>
+<li>SharedPreference</li>
+<li>数据库SQLite</li>
+<li>文件</li>
+<li>ContentProvider内容提供者，如联系人</li>
+<li>网络</li>
+</ul>
+<p>进程优先级</p>
+<ul>
+<li>前台进程</li>
+<li>可视进程</li>
+<li>服务进程</li>
+<li>后台进程</li>
+<li>空进程</li>
+</ul>
+<p>JVM 和Dalvik虚拟机的区别  </p>
+<ul>
+<li>JVM:<br>  .java -&gt; javac -&gt; .class -&gt; jar -&gt; .jar<br>  架构: 堆和栈的架构.</li>
+<li>DVM:<br>  .java -&gt; javac -&gt; .class -&gt; dx.bat -&gt; .dex<br>  架构: 寄存器(cpu上的一块高速缓存)</li>
+</ul>
+<p>Android中px,sp,dip,dp的区别与联系，将60px转换为相应屏幕的dp，并填入下表</p>
+<table>
+<thead>
+<tr>
+<th>ldpi</th>
+<th>mdpi</th>
+<th>tvdpi</th>
+<th>hdpi</th>
+<th>xhdpi</th>
+<th>xxhdpi</th>
+<th>xxxhdpi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80</td>
+<td>60</td>
+<td>45</td>
+<td>40</td>
+<td>30</td>
+<td>20</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<p>px = dip * density / 160</p>
+<p>ldpi = 60px/0.75 = 80dp<br>mdpi = 60px/1 = 60dp<br>hdpi = 60px/1.5 = 40dp<br>xhdpi = 60px/2.0 = 30dp<br>xxhdpi = 60px/3.0 = 20dp<br>xxxhdpi = 60px/4.0 = 15dp</p>
+<p>PPI = Pixels per inch，每英寸上的像素数,即 “像素密度”<br>xxxhdpi: 4.0<br>xxhdpi: 3.0 (1080<em>1920) ppi=480<br>xhdpi: 2.0 (720</em>1280) ppi=320<br>hdpi: 1.5 (480<em>800) ppi=240<br>mdpi: 1.0 (baseline)(320</em>480) ppi=160<br>ldpi: 0.75 (240*320) ppi=120  </p>
+<p>tvdpi:ppi=213</p>
+<p>dip: device independent pixels(设备独立像素). 不同设备有不同的显示效果,这个和设备硬件有关，一般我们为了支持WVGA、HVGA和QVGA 推荐使用这个，不依赖像素。<br>dp: dip是一样的<br>px: pixels(像素).<br>pt: point，是一个标准的长度单位，1pt＝1/72英寸，用于印刷业，非常简单易用；<br>sp: scaled pixels(放大像素). 主要用于字体显示best for textsize。<br>in（英寸）：长度单位。<br>mm（毫米）：长度单位。</p>
+<p>据px = dip * density / 160，则当屏幕密度为160时，px = dip<br>根据 google 的建议，TextView 的字号最好使用 sp 做单位，而且查看TextView的源码可知Android默认使用sp作为字号单位。将dip作为其他元素的单位。</p>
+<p>参考链接：<a href="http://www.jb51.net/article/38506.htm" target="_blank" rel="external">http://www.jb51.net/article/38506.htm</a><br><a href="http://www.cnblogs.com/bluestorm/p/3640786.html" target="_blank" rel="external">http://www.cnblogs.com/bluestorm/p/3640786.html</a></p>
+<p>简述Android应用程序的组成</p>
+<ul>
+<li>Activites　　应用程序的表示层。<br>应用程序的每个界面都将是Activity类的扩展。Acitvities用视图(View)构成GUI来显示信息、响应用户操作。就桌面开发而言，一个活动(Activity)相当于一个窗体(Form)。</li>
+<li>Services　　应用程序中的隐形工作者。<br>Service组件在后台运行，更新你的数据源和可见的Activities，触发通知(Notification)。在应用程序的Activities不激活或不可见时，用于执行依然需要继续的长期处理。</li>
+<li>Content Providers　　可共享的数据存储。<br>Content Providers用于管理和共享应用程序数据库。是跨应用程序边界数据共享的优先方式。</li>
+<li>Intents　　一个应用程序间(inter-application)的消息传递框架。<br>使用Intents你可以在系统范围内广播消息或者对一个目标Activity或Service发送消息，来表示你要执行一个动作。</li>
+<li>Widgets　　可以添加到主屏幕界面(home screen)的可视应用程序组件。<br>作为Broadcase Receiver的特殊变种，widgets让你可以为用户创建可嵌入到主屏幕界面的动态的、交互的应用程序组件。</li>
+</ul>
+<p>Android中的动画有哪些，区别是什么<br>两种，一种是Tween动画、还有一种是Frame动画。Tween动画，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化;另一种Frame动画，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。</p>
+<p>简述静默安装的原理，如何在无需root权限的情况下实现静默安装？</p>
+<ul>
+<li>伪装成系统应用，这就要给app打上系统应用的签名，但是这些签名在小米等手机上是没用的。</li>
+<li>通过把应用放在system/app的目录下也可以实现。</li>
+</ul>
+<p>假如com.google.gson 包中的类不允许混淆，并且项目中所有的Bean不允许混淆，但是由于项目是由多人开发，并不确定Bean所在的包，只知道Bean实现了序列化，请手动配置项目的混淆规则<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">keep <span class="class"><span class="keyword">class</span> <span class="title">com</span>.<span class="title">google</span>.<span class="title">gson</span>.** &#123; *;</span> &#125;</span><br><span class="line"></span>-<span class="ruby">keep <span class="class"><span class="keyword">class</span> * <span class="title">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> &#123;*;</span>&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>手动编写gradle脚本，将libs\arm64-v8a目录下的so库及libs\gson-2.5.jar配置到项目依赖中<br>指定JNI文件夹为libs<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sourceSets&#123;</span><br><span class="line">        main&#123;</span><br><span class="line">            jniLibs.srcDir([<span class="string">'libs'</span>])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加gson依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="function"><span class="title">files</span><span class="params">(<span class="string">'libs/gson-2.5.jar'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>Android事件传递及处理机制</p>
+<ul>
+<li>dispatchTouchEvent()事件分发</li>
+<li>onInterceptTouchEvent()事件拦截</li>
+<li>onTouchEvent()</li>
+</ul>
+<p>首先由父控件接收到事件进行分发，调用拦截，返回true进行消费调用onTouchEvent，返回false则将事件传递给子控件，若子控件为ViewGroup则继续传递，最终为View时，事件无法向下传递调用onTouchEvent返回true消费，返回false，回传事件，父控件的onTouchEvent返回true消费，返回false事件丢失<br>无子类的View没有onInterceptTouchEvent()事件拦截方法</p>
+<p>子线程中更新UI的方法</p>
+<ul>
+<li>第一种：Handler+Message</li>
+<li><p>第二种：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Handler(context.getMainLooper()).post(</span><br><span class="line">  <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//更新UI</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="list">(<span class="keyword">Activity</span>)</span>context)</span>runOnUiThread<span class="list">(</span><br><span class="line">  <span class="keyword">new</span> Runnable<span class="list">()</span>&#123;</span><br><span class="line">    public void run<span class="list">()</span>&#123;</span><br><span class="line">      //更新UI</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  )</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>postInvalidate与invalidate有什么区别？  </p>
+<ul>
+<li>都用于刷新界面</li>
+<li>postInvalidate()用在子线程</li>
+<li>invalidate()用在主线程</li>
+</ul>
+<p>notifyDataSetChanged和notifyDataSetInvalidated的区别</p>
+<ul>
+<li>notifyDataSetInvalidated()，会重绘整个控件（还原到初始状态）</li>
+<li>notifyDataSetChanged()，重绘当前可见区域</li>
+</ul>
+<p>请介绍下Android中常用的五种布局</p>
+<ul>
+<li>FrameLayout（框架布局）</li>
+<li>LinearLayout （线性布局）</li>
+<li>AbsoluteLayout（绝对布局）</li>
+<li>RelativeLayout（相对布局）</li>
+<li>TableLayout（表格布局）</li>
+</ul>
+<p>Serializable和Parcelable的区别</p>
+<ul>
+<li>都能实现序列化且可用于Intent间的数据传递</li>
+<li>Serializable是Java中的序列化接口，使用简单但开销大，序列化和反序列化过程需要大量I/O操作。</li>
+<li>Parcelable更适合Android平台，使用麻烦但效率高，主要用在内存序列化上。</li>
+</ul>
+<p>文件和数据库哪个效率高</p>
+<ul>
+<li>数据量大时使用数据库效率高</li>
+<li>数据量小时使用文件效率高</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/android-basic-service/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android基础——Service
+        
+      </div>
+    </a>
+  
+  
+    <a href="/android-interview-list/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android面试题集合</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-interview-basic-1" data-title="Android面试基础知识总结（一）" data-url="http://yoursite.com/android-interview-basic-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: falsee,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
