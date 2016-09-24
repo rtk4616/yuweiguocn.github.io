@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>http://yoursite.com/2016/09/23/android-basic-animation-1/</loc>
     <lastmod>2016-09-23T07:44:05.000Z</lastmod>
@@ -691,29 +692,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2015/07/08/android-studio-tips-1/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（一）</title>
-        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2015/08/10/android-studio-tips-6/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
@@ -812,6 +790,29 @@
         <display>
         <title>（译）Android Studio使用技巧系列教程（二）</title>
         <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2015/07/08/android-studio-tips-1/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（一）</title>
+        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
