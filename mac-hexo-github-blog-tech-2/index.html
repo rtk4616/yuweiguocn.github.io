@@ -8,19 +8,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Mac下Hexo+GitHub搭建博客（二） | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文介绍了如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
+  <meta name="description" content="本文介绍了Hexo草稿箱及模板的使用，如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac下Hexo+GitHub搭建博客（二）">
 <meta property="og:url" content="http://yoursite.com/mac-hexo-github-blog-tech-2/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="本文介绍了如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
+<meta property="og:description" content="本文介绍了Hexo草稿箱及模板的使用，如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
 <meta property="og:image" content="http://yoursite.com/assets/img/hexo/hexo-google-1.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/hexo/hexo-google-3.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/hexo/hexo-google-2.png">
-<meta property="og:updated_time" content="2016-09-25T13:28:07.000Z">
+<meta property="og:updated_time" content="2016-09-26T10:35:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac下Hexo+GitHub搭建博客（二）">
-<meta name="twitter:description" content="本文介绍了如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
+<meta name="twitter:description" content="本文介绍了Hexo草稿箱及模板的使用，如何修改URL生成格式，创建404页面及提交网站到搜索引擎。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -237,8 +237,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍了如何修改URL生成格式，创建404页面及提交网站到搜索引擎。</p>
+        <p>本文介绍了Hexo草稿箱及模板的使用，如何修改URL生成格式，创建404页面及提交网站到搜索引擎。</p>
 <a id="more"></a>
+<h3 id="hexo草稿箱的使用"><a href="#hexo草稿箱的使用" class="headerlink" title="hexo草稿箱的使用"></a>hexo草稿箱的使用</h3><p>创建一篇文章：</p>
+<blockquote>
+<p>$ hexo new [layout] <code>&lt;title&gt;</code></p>
+</blockquote>
+<p>您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改<code>_config.yml</code>中的 default_layout 参数来指定默认布局。<br>layout有三个选项：post、page 和 draft。分别对应不同的路径。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">layout</th>
+<th style="text-align:center">path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">post</td>
+<td style="text-align:center">source/_posts</td>
+</tr>
+<tr>
+<td style="text-align:center">page</td>
+<td style="text-align:center">source</td>
+</tr>
+<tr>
+<td style="text-align:center">draft</td>
+<td style="text-align:center">source/_drafts</td>
+</tr>
+</tbody>
+</table>
+<p>创建草稿文章：</p>
+<blockquote>
+<p>$ hexo new draft “the-new-article-name”</p>
+</blockquote>
+<p>这会在<code>source/_drafts</code>目录下生成the-new-article-name.md文件。</p>
+<p>预览草稿文章：</p>
+<blockquote>
+<p>$ hexo s <code>--draft</code></p>
+</blockquote>
+<p>当文章完成后使用下面的命令进行发布，这会将<code>source/_drafts</code>下的文件移动于<code>source/_posts</code>文件夹下：</p>
+<blockquote>
+<p>$ hexo publish “the-new-article-name”</p>
+</blockquote>
+<h3 id="hexo模板"><a href="#hexo模板" class="headerlink" title="hexo模板"></a>hexo模板</h3><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：</p>
+<blockquote>
+<p>$ hexo new post “My Gallery”</p>
+</blockquote>
+<p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 post.md，并根据其内容建立文章。如果我们需要在文章创建时做统一处理，可以使用模板。</p>
 <h3 id="修改URL生成格式"><a href="#修改URL生成格式" class="headerlink" title="修改URL生成格式"></a>修改URL生成格式</h3><p>hexo生成的URL格式默认是带日期的，这样就很不方便查看系列文章，打开hexo文件夹下的_config.yml配置文件，把日期格式去掉<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">permalink:</span> <span class="symbol">:year/</span><span class="symbol">:month/</span><span class="symbol">:day/</span><span class="symbol">:title/</span></span><br></pre></td></tr></table></figure></p>
 <p>改为：</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">permalink:</span> <span class="symbol">:title/</span></span><br></pre></td></tr></table></figure>
