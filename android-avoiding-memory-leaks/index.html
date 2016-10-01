@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android性能优化——避免内存泄露 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android中如何避免常见的内存泄露。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android性能优化——避免内存泄露">
+<meta property="og:url" content="http://yoursite.com/android-avoiding-memory-leaks/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android中如何避免常见的内存泄露。">
+<meta property="og:updated_time" content="2016-10-01T08:36:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android性能优化——避免内存泄露">
+<meta name="twitter:description" content="本文介绍了Android中如何避免常见的内存泄露。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 19px;">support</a> <a href="/tags/teach/" style="font-size: 11px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-avoiding-memory-leaks" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-avoiding-memory-leaks/" class="article-date">
+  	<time datetime="2016-10-01T08:17:08.000Z" itemprop="datePublished">2016-10-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android性能优化——避免内存泄露
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/performance/">performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android中如何避免常见的内存泄露。<br><a id="more"></a></p>
+<p>原文链接：<a href="http://android-developers.blogspot.com/2009/01/avoiding-memory-leaks.html" target="_blank" rel="external">Avoiding memory leaks</a></p>
+<p>Android应用中导致内存泄露大多数是由于相同的错误：长时间持有Context的引用。</p>
+<p>在Android中，Context用于很多操作但主要用于加载和访问资源。这是为什么所有组件会在构造函数中接收Context参数。在常规的Android应用中，通常有Activity和Application两种Context。通常使用第一种传递到需要Context的类和方法：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void <span class="keyword">on</span>Create(Bundle <span class="keyword">state</span>) &#123;</span><br><span class="line">  super.<span class="keyword">on</span>Create(<span class="keyword">state</span>);</span><br><span class="line"></span><br><span class="line">  TextView <span class="keyword">label</span> = new TextView(this);</span><br><span class="line">  <span class="keyword">label</span>.<span class="built_in">set</span>Text(<span class="string">"Leaks are bad"</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">set</span>ContentView(<span class="keyword">label</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这意味着Views持有整个Activity的引用，因此包括Activity整个View层级和它所有的资源。如果你泄露了Context（泄露意意味着你持有它的引用从而阻止GC回收它），会导致大量的内存泄露。如果你不注意的话会很容易导致Activity的泄露。</p>
+<p>当手机屏幕方向改变，默认为销毁当前Activity保存它的状态并创建一个新的。这样Android将重新从资源中加载应用的UI。假设你写了一个应用包含一个很大的bitmap，你不想每次旋转时加载它。这有一个很容易的方式把保存它在静态域中：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">private static Drawable sBackground;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void <span class="keyword">on</span>Create(Bundle <span class="keyword">state</span>) &#123;</span><br><span class="line">  super.<span class="keyword">on</span>Create(<span class="keyword">state</span>);</span><br><span class="line"></span><br><span class="line">  TextView <span class="keyword">label</span> = new TextView(this);</span><br><span class="line">  <span class="keyword">label</span>.<span class="built_in">set</span>Text(<span class="string">"Leaks are bad"</span>);</span><br><span class="line"></span><br><span class="line">  if (sBackground == null) &#123;</span><br><span class="line">    sBackground = getDrawable(R.drawable.large_bitmap);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">label</span>.<span class="built_in">set</span>BackgroundDrawable(sBackground);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">set</span>ContentView(<span class="keyword">label</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码很简单但严重错误，它泄露了屏幕方向改变时第一次创建的Activity。当Drawable attached到View上，view在Drawable上设置作为回调。在上面的代码片段中，Drawable持有TextView的引用而TextView持有Activity的引用，这样就会导致有相当多的引用（取决于你的代码）。</p>
+<p>这个例子是泄露Context的一种情况，你可以看看Home屏幕的源码（找到unbindDrawables()方法）是怎样处理的，当Activity被销毁存储Drawable的回调设置为null。如果你很有兴趣，可以创建一个泄露Context链，这会使你很快得到内存溢出的错误。</p>
+<p>这有两种简单的方法避免Context相关的内存泄露。最明显的一种是避免在Context的范围之外使用。上面的例子说明的是静态引用的情况，但内部类和它隐式引用外部类同样危险。第二种解决方案是使用Application Context。只要应用存活这个Context就会存在并且不依赖于Activity的生命周期。如果长时间存活的对象需要Context，记住使用Application对象。你可以很容易的得到它通过调用Context.getApplicationContext() 或 Activity.getApplication()。</p>
+<p>总之，为了避免Context相关的内存泄露，请记住下面：</p>
+<ul>
+<li>不要长时间持有Context-Activity的引用</li>
+<li>尝试使用Application Context而不是Activity Context</li>
+<li>如果你不控制内部类的生命周期，避免在Activity中使用非静态内部类，应该使用静态内部类并对Activity作弱引用（WeakReference）处理</li>
+<li>垃圾回收器无法处理内存泄露</li>
+</ul>
+<p><a href="http://yuweiguocn.github.io/android-interview-peformance/" target="_blank" rel="external">Android中使用Handler造成的内存泄露解决方案</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/mac-hexo-github-blog-tech-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mac下Hexo+GitHub搭建博客（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-avoiding-memory-leaks" data-title="（译）Android性能优化——避免内存泄露" data-url="http://yoursite.com/android-avoiding-memory-leaks/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

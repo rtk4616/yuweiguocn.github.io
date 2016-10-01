@@ -17,7 +17,7 @@
 <meta property="og:description" content="原文链接：Bound Service    墙内链接：Bound Service
 绑定的service是在客户端-服务器模型中的服务器。绑定service允许组件（如activity）绑定到service，发送请求，接收结果，甚至执行进程间通信（IPC）。一个绑定service通常只在它服务于其它应用组件时运行并且它不会一直在后台运行。">
 <meta property="og:image" content="http://yoursite.com/assets/img/service_binding_tree_lifecycle.png">
-<meta property="og:updated_time" content="2016-05-06T07:49:31.000Z">
+<meta property="og:updated_time" content="2016-10-01T08:34:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发指南——绑定Service">
 <meta name="twitter:description" content="原文链接：Bound Service    墙内链接：Bound Service
@@ -123,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17.78px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/lint/" style="font-size: 10px;">lint</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/peformance/" style="font-size: 10px;">peformance</a> <a href="/tags/perfermance/" style="font-size: 10px;">perfermance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 19px;">support</a> <a href="/tags/teach/" style="font-size: 11px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18px;">translate</a>
 					</div>
 				</section>
 				
@@ -249,7 +249,7 @@
 <li>Service有哪些启动方法，有什么区别，怎样停用Service？</li>
 </ul>
 <p>这个文档介绍了怎样创建一个绑定service，包括怎样从其它应用组件绑定到service。然而，你也应该参考Services文档关于Service的信息，例如怎样从service分发通知，设置service运行在前台等等。</p>
-<p><a href="http://yuweiguocn.github.io/2016/04/02/android-guide-service/" target="_blank" rel="external">Android开发指南——Service</a></p>
+<p><a href="/android-guide-service/">Android开发指南——Service</a></p>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>绑定的service是Service类的实现允许其它应用绑定到它并和它交互。为了实现一个可绑定的service，你必须实现onBind()回调方法。这个方法返回一个IBinder对象定义了客户端可以用来和service进行交互的编程接口。</p>
 <p>客户端可以调用bindService()绑定到service。当通过这种方式处理时，客户端必须提供一个ServiceConnection的实现，用来监视和service的连接。bindService()方法没有返回一个值，但当Android系统创建了客户端和service的连接，它会调用ServiceConnection中的onServiceConnected()方法，用于传递客户端可以用来和service进行通信的IBinder对象。</p>
 <p>多个客户端可以连接到service。然而，系统只会在第一个客户端绑定时调用service的onBind()方法获取IBinder对象。然后系统会返回同一个IBinder给其它绑定的客户端，不会再调用onBind()方法。</p>
@@ -273,7 +273,7 @@
 <blockquote>
 <p><strong>注意：</strong> 大多数应用不应该使用AIDL创建绑定Service，因此它可能需要多线程功能并且会导致更复杂的实现。例如，AIDL不适用于多数应用并且本文不会讨论怎样使用它。如果你确实需要直接使用AIDL，请查看AIDL文档。</p>
 </blockquote>
-<p><a href="http://yuweiguocn.github.io/2016/03/31/android-guide-aidl/" target="_blank" rel="external">Android开发指南——进程间通信AIDL</a></p>
+<p><a href="/android-guide-aidl/">Android开发指南——进程间通信AIDL</a></p>
 <h3 id="继承Binder类"><a href="#继承Binder类" class="headerlink" title="继承Binder类"></a>继承Binder类</h3><p>如果你的service仅仅用于本应用并且不需要跨进程使用，那你可以实现自己的Binder类在service中提供给客户端可以直接访问的公有方法。</p>
 <blockquote>
 <p><strong>注意：</strong> 这个仅用于客户端和service是同一个应用程序和进程，这也是最常见的。例如，这个对于音乐类应用将很有用，绑定activity到在后台播放音乐的service。</p>
@@ -353,7 +353,7 @@
 <p><img src="/assets/img/service_binding_tree_lifecycle.png" alt=""></p>
 <p>图1 混合启动的service的生命周期。</p>
 <p>对于启动service生命周期的更多信息，请查看Services文档。</p>
-<p><a href="http://yuweiguocn.github.io/2016/04/02/android-guide-service/" target="_blank" rel="external">Android开发指南——Service</a></p>
+<p><a href="/android-guide-service/">Android开发指南——Service</a></p>
 
       
     </div>

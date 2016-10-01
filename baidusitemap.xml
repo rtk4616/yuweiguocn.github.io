@@ -4,8 +4,199 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-avoiding-memory-leaks/</loc>
+    <lastmod>2016-10-01T08:36:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android性能优化——避免内存泄露</title>
+        <pubTime>2016-10-01T08:17:08.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>performance</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——进程间通信AIDL</title>
+        <pubTime>2016-03-31T02:37:33.000Z</pubTime>
+        
+        <tag>aidl</tag>
+         
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-interview-java/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试——Java相关</title>
+        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-interview-list/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试题集合</title>
+        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/interview-2016-big-company/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>2016Android某公司面试题</title>
+        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
+        
+        <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——绑定Service</title>
+        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+        <tag>service</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-interview-peformance/</loc>
+    <lastmod>2016-10-01T08:22:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试——APP性能优化</title>
+        <pubTime>2016-04-10T01:22:08.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+        <tag>performance</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/mac-hexo-github-blog-tech-2/</loc>
-    <lastmod>2016-09-26T10:35:42.000Z</lastmod>
+    <lastmod>2016-09-26T11:53:27.000Z</lastmod>
     <data>
         <display>
         <title>Mac下Hexo+GitHub搭建博客（二）</title>
@@ -68,25 +259,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    <lastmod>2016-09-16T01:05:37.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试题集合</title>
-        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-summary-event-dispath/</loc>
     <lastmod>2016-09-13T12:32:39.000Z</lastmod>
     <data>
@@ -99,27 +271,6 @@
         <tag>source</tag>
          
         <tag>summary</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-lint/</loc>
-    <lastmod>2016-08-28T08:36:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Lint提示的错误及解决方案</title>
-        <pubTime>2016-08-16T10:21:16.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>lint</tag>
-         
-        <tag>perfermance</tag>
          
          
            
@@ -171,12 +322,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（二）</title>
-        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（三）</title>
+        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -192,12 +343,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（三）</title>
-        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（二）</title>
+        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -240,27 +391,6 @@
         <display>
         <title>Android Support V4官方Demo概览（三）</title>
         <pubTime>2016-05-18T10:39:31.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-08-09T02:43:01.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -337,27 +467,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    <lastmod>2016-07-05T07:56:21.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>data binding</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-interview-basic-1/</loc>
     <lastmod>2016-06-24T05:31:08.000Z</lastmod>
     <data>
@@ -389,56 +498,6 @@
         <tag>android ux</tag>
          
         <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
-    <lastmod>2016-05-12T09:18:52.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发指南——进程间通信AIDL</title>
-        <pubTime>2016-03-31T02:37:33.000Z</pubTime>
-        
-        <tag>aidl</tag>
-         
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
-    <lastmod>2016-05-06T07:49:31.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发指南——绑定Service</title>
-        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-        <tag>service</tag>
          
          
            
@@ -540,82 +599,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/interview-2016-big-company/</loc>
-    <lastmod>2016-04-15T00:02:59.000Z</lastmod>
-    <data>
-        <display>
-        <title>2016Android某公司面试题</title>
-        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
-        
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-interview-java/</loc>
-    <lastmod>2016-04-14T00:03:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试——Java相关</title>
-        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
-         
-        <tag>java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-interview-peformance/</loc>
-    <lastmod>2016-04-12T03:06:40.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试——APP性能优化</title>
-        <pubTime>2016-04-10T01:22:08.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
-         
-        <tag>peformance</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/note/</loc>
-    <lastmod>2016-04-09T01:19:13.000Z</lastmod>
-    <data>
-        <display>
-        <title>技术笔记集合</title>
-        <pubTime>2016-03-23T13:23:33.000Z</pubTime>
-        
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-basic-support-fileprovider/</loc>
     <lastmod>2016-04-09T01:18:01.000Z</lastmod>
     <data>
@@ -700,58 +683,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（一）</title>
-        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（六）</title>
-        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（五）</title>
-        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（三）</title>
+        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -792,12 +729,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（三）</title>
-        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（六）</title>
+        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -821,6 +758,52 @@
         <display>
         <title>（译）Android Studio使用技巧系列教程（二）</title>
         <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（五）</title>
+        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（一）</title>
+        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
