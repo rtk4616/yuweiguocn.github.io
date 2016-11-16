@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android基础——Shape Drawable | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android中的Shape的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础——Shape Drawable">
+<meta property="og:url" content="http://yoursite.com/android-basic-shape-drawable/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android中的Shape的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/res/demo-shape-drawable.gif">
+<meta property="og:updated_time" content="2016-11-16T12:37:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础——Shape Drawable">
+<meta name="twitter:description" content="本文介绍了Android中的Shape的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11.11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11.11px;">resources</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-basic-shape-drawable" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-basic-shape-drawable/" class="article-date">
+  	<time datetime="2016-11-16T12:37:35.000Z" itemprop="datePublished">2016-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android基础——Shape Drawable
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resources/">resources</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android中的Shape的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="https://developer.android.com/guide/topics/resources/drawable-resource.html#Shape" target="_blank" rel="external">Shape Drawable</a></p>
+<ul>
+<li>文件存放位置：res/drawable/filename.xml</li>
+<li>在JAVA中引用：R.drawable.filename</li>
+<li>在XML中引用: @[package:]drawable/filename</li>
+</ul>
+<p>Shape Drawable的语法：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">shape</span></span><br><span class="line">    <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:shape</span>=<span class="value">["rectangle"</span> | "<span class="attribute">oval</span>" | "<span class="attribute">line</span>" | "<span class="attribute">ring</span>"] &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">corners</span></span><br><span class="line">        <span class="attribute">android:radius</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:topLeftRadius</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:topRightRadius</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:bottomLeftRadius</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:bottomRightRadius</span>=<span class="value">"integer"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">gradient</span></span><br><span class="line">        <span class="attribute">android:angle</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:centerX</span>=<span class="value">"float"</span></span><br><span class="line">        <span class="attribute">android:centerY</span>=<span class="value">"float"</span></span><br><span class="line">        <span class="attribute">android:centerColor</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:endColor</span>=<span class="value">"color"</span></span><br><span class="line">        <span class="attribute">android:gradientRadius</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:startColor</span>=<span class="value">"color"</span></span><br><span class="line">        <span class="attribute">android:type</span>=<span class="value">["linear"</span> | "<span class="attribute">radial</span>" | "<span class="attribute">sweep</span>"]</span><br><span class="line">        <span class="attribute">android:useLevel</span>=<span class="value">["true"</span> | "<span class="attribute">false</span>"] /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">padding</span></span><br><span class="line">        <span class="attribute">android:left</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:top</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:right</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:bottom</span>=<span class="value">"integer"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">size</span></span><br><span class="line">        <span class="attribute">android:width</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:height</span>=<span class="value">"integer"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">solid</span></span><br><span class="line">        <span class="attribute">android:color</span>=<span class="value">"color"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">stroke</span></span><br><span class="line">        <span class="attribute">android:width</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:color</span>=<span class="value">"color"</span></span><br><span class="line">        <span class="attribute">android:dashWidth</span>=<span class="value">"integer"</span></span><br><span class="line">        <span class="attribute">android:dashGap</span>=<span class="value">"integer"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">shape</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>下表为android:shape的类型：</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Desciption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“rectangle”</td>
+<td>矩形，也是默认的图形</td>
+</tr>
+<tr>
+<td>“oval”</td>
+<td>椭圆形</td>
+</tr>
+<tr>
+<td>“line”</td>
+<td>线条，需要使用<code>&lt;stroke&gt;</code>定义线宽</td>
+</tr>
+<tr>
+<td>“ring”</td>
+<td>环形</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：当引用虚线时，需要将android:layerType属性设置为“software”，否则无法显示为虚线。详见：<a href="https://code.google.com/p/android/issues/detail?id=29944" target="_blank" rel="external">issues 29944</a></p>
+</blockquote>
+<p>当android:shape=”ring”时：</p>
+<ul>
+<li>android:innerRadius：Dimension，环形内部半径。</li>
+<li>android:innerRadiusRatio：Float，环形直径的内半径比例。例如，android:innerRadiusRatio=”5”，那么内半径等于环形直径除以5。这个值会被android:innerRadius覆盖。默认值为9。</li>
+<li>android:thickness：Dimension，环形的厚度。</li>
+<li>android:thicknessRatio：Float，环形直径的厚度比例。例如，android:thicknessRatio=”2”，那么厚度等于环形直径除以2。这个值会被android:innerRadius覆盖。默认值为3。</li>
+<li>android:useLevel：Boolean，如果使用它作为LevelListDrawable值为true。通常为false。</li>
+</ul>
+<p>当android:shape=”rectangle”时，使用<code>&lt;corners&gt;</code>为图形创建圆角：</p>
+<ul>
+<li>android:radius：Dimension，所有角圆角的半径，会被下面的属性覆盖。</li>
+<li>android:topLeftRadius：Dimension，左上角圆角的半径。</li>
+<li>android:topRightRadius：Dimension，右上角圆角的半径。</li>
+<li>android:bottomLeftRadius：Dimension，左下角圆角的半径。</li>
+<li>android:bottomRightRadius：Dimension，右下角圆角的半径。</li>
+</ul>
+<p>使用<code>&lt;gradient&gt;</code>为图形指定渐变颜色：</p>
+<ul>
+<li>android:angle：Integer，渐变的角度，0为从左到右，90为从下到上。必须为45的倍数。默认为0。</li>
+<li>android:centerX：Float，渐变中心的X相对位置（0-1.0）。</li>
+<li>android:centerY：Float，渐变中心的Y相对位置（0-1.0）。</li>
+<li>android:centerColor：Color，渐变中心的颜色。</li>
+<li>android:endColor：Color，结尾的颜色。</li>
+<li>android:gradientRadius：Float，渐变的半径。只有当android:type=”radial”才会起作用。</li>
+<li>android:startColor：Color，开头的颜色。</li>
+<li>android:type：渐变的类型，”linear”：线性渐变，默认值。”radial”：放射渐变，开始的颜色为中心的颜色。”sweep”：扫描渐变。</li>
+<li>android:useLevel：Boolean，如果使用它作为LevelListDrawable值为true。</li>
+</ul>
+<p>使用<code>&lt;padding&gt;</code>添加内边距：</p>
+<ul>
+<li>android:left</li>
+<li>android:top</li>
+<li>android:right</li>
+<li>android:bottom</li>
+</ul>
+<p>使用<code>&lt;size&gt;</code>指定图片的大小：</p>
+<ul>
+<li>android:height：Dimension，图形的高度</li>
+<li>android:width：Dimension，图形的宽度</li>
+</ul>
+<p>使用<code>&lt;solid&gt;</code>指定图形的颜色：</p>
+<ul>
+<li>android:color：Color，图形的颜色</li>
+</ul>
+<p>使用<code>&lt;stroke&gt;</code>指定图形的描边：</p>
+<ul>
+<li>android:width：Dimension，线的宽度</li>
+<li>android:color：Color，线的颜色</li>
+<li>android:dashGap：Dimension，虚线之间的距离，只有当android:dashWidth被设置才有效</li>
+<li>android:dashWidth：Dimension，虚线的大小，只有当android:dashGap被设置才有效</li>
+</ul>
+<p>例如，文件存放在res/drawable/gradient_box.xml：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">shape</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:shape</span>=<span class="value">"rectangle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">gradient</span></span><br><span class="line">        <span class="attribute">android:startColor</span>=<span class="value">"#FFFF0000"</span></span><br><span class="line">        <span class="attribute">android:endColor</span>=<span class="value">"#80FF00FF"</span></span><br><span class="line">        <span class="attribute">android:angle</span>=<span class="value">"45"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">padding</span> <span class="attribute">android:left</span>=<span class="value">"7dp"</span></span><br><span class="line">        <span class="attribute">android:top</span>=<span class="value">"7dp"</span></span><br><span class="line">        <span class="attribute">android:right</span>=<span class="value">"7dp"</span></span><br><span class="line">        <span class="attribute">android:bottom</span>=<span class="value">"7dp"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">corners</span> <span class="attribute">android:radius</span>=<span class="value">"8dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">shape</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在XML文件中引用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">    <span class="attribute">android:background</span>=<span class="value">"@drawable/gradient_box"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>或在应用代码中使用：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Resources res = getResources()<span class="comment">;</span></span><br><span class="line">Drawable shape = res. getDrawable(R.drawable.gradient_box)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">TextView tv = (TextView)findViewByID(R.id.textview)<span class="comment">;</span></span><br><span class="line">tv.setBackground(shape)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/assets/img/basic/res/demo-shape-drawable.gif" alt=""></p>
+<p>Demo完整源码：<a href="https://github.com/yuweiguocn/AndroidDemo" target="_blank" rel="external">https://github.com/yuweiguocn/AndroidDemo</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/android-basic-animation-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础——动画（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-basic-shape-drawable" data-title="Android基础——Shape Drawable" data-url="http://yoursite.com/android-basic-shape-drawable/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -8,16 +8,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android基础——动画（一） | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文介绍了Android中的资源文件动画的使用。">
+  <meta name="description" content="本文介绍了Android中的资源文件属性动画、View动画、插值器及自定义插值器和帧动画的使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基础——动画（一）">
 <meta property="og:url" content="http://yoursite.com/android-basic-animation-1/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="本文介绍了Android中的资源文件动画的使用。">
-<meta property="og:updated_time" content="2016-11-13T14:11:43.000Z">
+<meta property="og:description" content="本文介绍了Android中的资源文件属性动画、View动画、插值器及自定义插值器和帧动画的使用。">
+<meta property="og:updated_time" content="2016-11-15T03:17:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基础——动画（一）">
-<meta name="twitter:description" content="本文介绍了Android中的资源文件动画的使用。">
+<meta name="twitter:description" content="本文介绍了Android中的资源文件属性动画、View动画、插值器及自定义插值器和帧动画的使用。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -119,7 +119,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 17.78px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11.11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11.11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11.11px;">resources</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18.89px;">support</a> <a href="/tags/teach/" style="font-size: 11.11px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
 					</div>
 				</section>
 				
@@ -223,7 +223,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/resources/">resources</a></li></ul>
 	</div>
 
         
@@ -234,7 +234,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍了Android中的资源文件动画的使用。</p>
+        <p>本文介绍了Android中的资源文件属性动画、View动画、插值器及自定义插值器和帧动画的使用。</p>
 <a id="more"></a>
 <p>原文链接：<a href="https://developer.android.com/guide/topics/resources/animation-resource.html" target="_blank" rel="external">Animation Resources</a></p>
 <p>Android中动画分为属性动画和View动画。View动画又分为补间动画和帧动画。</p>
@@ -248,8 +248,8 @@
 <li>动画集合set对应的类为AnimatorSet</li>
 <li>objectAnimator对应的类为ObjectAnimator</li>
 <li>animator对应的类为ValueAnimator</li>
-<li>ordering：sequentially表示依次播放动画，默认为together表示同时播放动画</li>
-<li>propertyName：属性名，例如：alpha或backgroundColor，必需值</li>
+<li>android:ordering：sequentially表示依次播放动画，默认为together表示同时播放动画</li>
+<li>android:propertyName：属性名，例如：alpha或backgroundColor，必需值</li>
 <li>android:valueTo：动画结束时的属性值，颜色是一个十六进制的六位数，例如：#333333，必需值</li>
 <li>android:valueFrom：动画开始时属性值，如果不指定，值为通过属性的get方法获取</li>
 <li>android:duration：持续时间，单位为毫秒，默认为300ms</li>
@@ -278,7 +278,7 @@
 <li>android:fromAlpha和android:toAlpha：动画开始和结束从透明度0.0透明到1.0不透明</li>
 <li>android:fromXScale、android:toXScale、android:fromYScale、tandroid:oYScale：缩放动画开始和结束缩放值，1.0为正常大小</li>
 <li>android:fromXDelta、android:toXDelta、android:fromYDelta、tandroid:oYDelta：平移动画开始和结束的位置，可取值有三种格式：相对位置的像素（例如：“5”），相对元素的百分比（例如：“5%”），相对父元素的宽(X)高(Y)比（例如：“5%p”）</li>
-<li>android:fromDegrees和android:toDegrees：缩放动画开始和结束旋转度数</li>
+<li>android:fromDegrees和android:toDegrees：旋转动画开始和结束旋转度数</li>
 <li>android:pivotX和android:pivotY：动画缩放或旋转时的中心点，可取值有三种格式：相对元素左边或上边的像素（例如：”5”），相对元素左边或上边的百分比（例如：“5%”），相对父元素左边或上边的百分比（例如：”5%p”）</li>
 </ul>
 <p>例如，文件存放在res/anim/hyperspace_jump.xml：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">set</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:shareInterpolator</span>=<span class="value">"false"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">scale</span></span><br><span class="line">        <span class="attribute">android:interpolator</span>=<span class="value">"@android:anim/accelerate_decelerate_interpolator"</span></span><br><span class="line">        <span class="attribute">android:fromXScale</span>=<span class="value">"1.0"</span></span><br><span class="line">        <span class="attribute">android:toXScale</span>=<span class="value">"1.4"</span></span><br><span class="line">        <span class="attribute">android:fromYScale</span>=<span class="value">"1.0"</span></span><br><span class="line">        <span class="attribute">android:toYScale</span>=<span class="value">"0.6"</span></span><br><span class="line">        <span class="attribute">android:pivotX</span>=<span class="value">"50%"</span></span><br><span class="line">        <span class="attribute">android:pivotY</span>=<span class="value">"50%"</span></span><br><span class="line">        <span class="attribute">android:fillAfter</span>=<span class="value">"false"</span></span><br><span class="line">        <span class="attribute">android:duration</span>=<span class="value">"700"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">set</span></span><br><span class="line">        <span class="attribute">android:interpolator</span>=<span class="value">"@android:anim/accelerate_interpolator"</span></span><br><span class="line">        <span class="attribute">android:startOffset</span>=<span class="value">"700"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">scale</span></span><br><span class="line">            <span class="attribute">android:fromXScale</span>=<span class="value">"1.4"</span></span><br><span class="line">            <span class="attribute">android:toXScale</span>=<span class="value">"0.0"</span></span><br><span class="line">            <span class="attribute">android:fromYScale</span>=<span class="value">"0.6"</span></span><br><span class="line">            <span class="attribute">android:toYScale</span>=<span class="value">"0.0"</span></span><br><span class="line">            <span class="attribute">android:pivotX</span>=<span class="value">"50%"</span></span><br><span class="line">            <span class="attribute">android:pivotY</span>=<span class="value">"50%"</span></span><br><span class="line">            <span class="attribute">android:duration</span>=<span class="value">"400"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">rotate</span></span><br><span class="line">            <span class="attribute">android:fromDegrees</span>=<span class="value">"0"</span></span><br><span class="line">            <span class="attribute">android:toDegrees</span>=<span class="value">"-45"</span></span><br><span class="line">            <span class="attribute">android:toYScale</span>=<span class="value">"0.0"</span></span><br><span class="line">            <span class="attribute">android:pivotX</span>=<span class="value">"50%"</span></span><br><span class="line">            <span class="attribute">android:pivotY</span>=<span class="value">"50%"</span></span><br><span class="line">            <span class="attribute">android:duration</span>=<span class="value">"400"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">set</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -376,6 +376,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/android-basic-shape-drawable/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Android基础——Shape Drawable
+        
+      </div>
+    </a>
   
   
     <a href="/android-avoiding-memory-leaks/" id="article-nav-older" class="article-nav-link-wrap">
