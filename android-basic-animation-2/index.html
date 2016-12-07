@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android基础——动画（二） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android中的属性动画的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础——动画（二）">
+<meta property="og:url" content="http://yoursite.com/android-basic-animation-2/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android中的属性动画的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/animation-linear.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/animation-nonlinear.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/valueanimator.png">
+<meta property="og:updated_time" content="2016-12-01T10:49:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础——动画（二）">
+<meta name="twitter:description" content="本文介绍了Android中的属性动画的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 11px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 19px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11px;">resources</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18px;">support</a> <a href="/tags/teach/" style="font-size: 12px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-basic-animation-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-basic-animation-2/" class="article-date">
+  	<time datetime="2016-12-01T10:49:28.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android基础——动画（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android中的属性动画的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html" target="_blank" rel="external">Property Animation</a></p>
+<p>属性动画在Android 3.0（API 11）引入，我们可以利用属性动画修改任何对象的属性值。</p>
+<p>属性动画所支持的特性：</p>
+<ul>
+<li>Duration：动画持续时间，默认为300ms。</li>
+<li>Time interpolation：时间插值器，用来控制动画的速度。</li>
+<li>Repeat count and behavior：重复次数和行为，行为代表是否翻转动画。</li>
+<li>Animator sets：动画集合，可以同时播放或顺序播放或延时播放。</li>
+<li>Frame refresh delay：动画帧刷新的频率，默认为10ms。</li>
+</ul>
+<h3 id="属性动画的工作原理"><a href="#属性动画的工作原理" class="headerlink" title="属性动画的工作原理"></a>属性动画的工作原理</h3><p>下图说明了假设对一个对象的X属性产生动画，代表了它在屏幕上的水平位置。持续时间设置为40ms，移动的距离为40px。默认帧刷新频率为10ms，对象水平移动10px。这是线性插值器动画的一个例子，表示对象匀速移动。</p>
+<p><img src="/assets/img/basic/anim/animation-linear.png" alt=""></p>
+<p>图1 线性动画的示例</p>
+<p>你也可以设置一个非线性插值器动画。下图说明了假设一个对象在动画开始加速，动画结束减速。对象仍然在40ms移动40px，但是是非线性的。</p>
+<p><img src="/assets/img/basic/anim/animation-nonlinear.png" alt=""></p>
+<p>图2 非线性动画的示例</p>
+<p>我们来详细看下属性动画是怎样计算的。</p>
+<p><img src="/assets/img/basic/anim/valueanimator.png" alt=""></p>
+<p>图3 动画计算流程</p>
+<p>ValueAnimator会追踪动画的时间，例如动画运行了多长时间及属性的当前值。</p>
+<p>ValueAnimator封装了TimeInterpolator用于定义动画插值器，和TypeEvaluator用于定义怎样计算属性值。例如在图2中， TimeInterpolator会是 AccelerateDecelerateInterpolator ，TypeEvaluator 会是 IntEvaluator。</p>
+<p>为了产生动画，创建一个ValueAnimator并给你想要动画的开始和结束的属性值，和动画的持续时间。调用start()方法开始动画。动画持续期间，ValueAnimator会计算出从0到1运行的部分，基于动画的持续时间和运行的时间。运行的部分代表动画完成时间的百分比，0表示0%，1表示100%。例如，在图1中，运行的部分在 t = 10 ms时，将会是0.25，因为持续时间为t = 40 ms。</p>
+<p>当ValueAnimator完成计算运行的部分，它会调用当前设置的TimeInterpolator，用于计算插值部分。插值部分映射运行部分到一个新的部分设置为时间插值。例如，在图2中，因为动画是慢加速，在t = 10 ms时，插值部分大约为0.15，比运行部分0.25少。在图1中，插值部分和运行部分相同。</p>
+<p>当计算完插值部分，为了计算动画的属性值，ValueAnimator 会调用合适的 TypeEvaluator，基于插值部分，开始值和动画的结束值。例如，当t = 10 ms时，插值部分为0.15，因此属性值为0.15*（40-0）为6.</p>
+<h3 id="属性动画和View动画的区别"><a href="#属性动画和View动画的区别" class="headerlink" title="属性动画和View动画的区别"></a>属性动画和View动画的区别</h3><p>View动画只能作用于View对象，并且只能实现缩放、旋转、透明度、移动的动画效果。<br>View动画的另一个缺点是View动画并不能真正改变View的位置。</p>
+<p>属性动画不存在View动画的限制，你可以对任何对象（Views and non-Views）的任何属性产生动画并且对象本身实际会被修改。属性动画也会用更健壮的方式进行动画。当熟练掌握属性动画的使用后，你可以为你想要产生动画的属性指定animators，例如，颜色，位置，或大小和可以定义动画的方面例如插值器和同步多个动画。</p>
+<p>View动画花费更少的时间设置和编写。如果View动画可以完成你的需求，或者原有代码已经实现你想要的效果，就没必要使用属性动画了。这也会让两种动画系统用在不同的情况更有意义。</p>
+<h3 id="API概览"><a href="#API概览" class="headerlink" title="API概览"></a>API概览</h3><p>表1 Animators</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ValueAnimator</td>
+<td>属性动画的主要的时间引擎也计算动画的属性值。它有计算动画值所有核心功能和包含每个动画的时间细节，动画是否重复的信息，接收更新事件的监听，和设置自定义评估器类型的能力。属性动画包含两部分：计算动画值和设置这些值到对象上，属性才会产生动画。 ValueAnimator 不能执行第二部分，因此你必须通过ValueAnimator 设置计算值更新的监听，然后用你自己的逻辑修改要产生动画的对象。</td>
+</tr>
+<tr>
+<td>ObjectAnimator</td>
+<td>继承自 ValueAnimator 允许你设置一个目标对象和产生动画的对象属性。这个类会根据它为动画计算的新值更新属性。大多数情况下，我们会使用ObjectAnimator，因为它让在目标对象上的动画值的处理更容易。也有特殊情况，需要直接使用ValueAnimator，因为ObjectAnimator有几个限制，例如对目标对象需要特殊的访问方法。</td>
+</tr>
+<tr>
+<td>AnimatorSet</td>
+<td>动画集合，可以设置动画同时播放，按顺序或指定延时。</td>
+</tr>
+</tbody>
+</table>
+<p>评估器告诉属性动画应该怎么为所给属性计算值。</p>
+<p>表2 Evaluators</p>
+<table>
+<thead>
+<tr>
+<th>Class/Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IntEvaluator</td>
+<td>计算Int属性值的默认评估器</td>
+</tr>
+<tr>
+<td>FloatEvaluator</td>
+<td>计算Float属性值的默认评估器</td>
+</tr>
+<tr>
+<td>ArgbEvaluator</td>
+<td>计算Color属性值十六进制表示的默认评估器</td>
+</tr>
+<tr>
+<td>TypeEvaluator</td>
+<td>一个接口，用于自定义评估器</td>
+</tr>
+</tbody>
+</table>
+<p>下面为系统所提供的插值器Interpolators，通过实现TimeInterpolator接口可以自定义插值器。</p>
+<ul>
+<li>AccelerateDecelerateInterpolator</li>
+<li>AccelerateInterpolator</li>
+<li>AnticipateInterpolator</li>
+<li>AnticipateOvershootInterpolator</li>
+<li>BounceInterpolator</li>
+<li>CycleInterpolator</li>
+<li>DecelerateInterpolator</li>
+<li>LinearInterpolator</li>
+<li>OvershootInterpolator</li>
+<li>TimeInterpolator</li>
+</ul>
+<h3 id="使用ValueAnimator产生动画"><a href="#使用ValueAnimator产生动画" class="headerlink" title="使用ValueAnimator产生动画"></a>使用ValueAnimator产生动画</h3><p>通过ValueAnimator可以指定动画值的类型为int，float或color。通过调用它的ofInt(), ofFloat(), 或 ofObject()获取ValueAnimator。例如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animation = ValueAnimator.ofFloat(<span class="number">0f</span>, <span class="number">1f</span>);</span><br><span class="line">animation.setDuration(<span class="number">1000</span>);</span><br><span class="line">animation.start();</span><br></pre></td></tr></table></figure></p>
+<p>你也可以指定自定义类型：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animation = ValueAnimator.ofObject(new MyTypeEvaluator(), startPropertyValue, endPropertyValue)<span class="comment">;</span></span><br><span class="line">animation.setDuration(1000)<span class="comment">;</span></span><br><span class="line">animation.start()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的代码片段不会有任何效果，因为ValueAnimator没有在对象或属性上操作。在下面的动画监听部分我们会详细介绍。</p>
+<h3 id="使用ObjectAnimator产生动画"><a href="#使用ObjectAnimator产生动画" class="headerlink" title="使用ObjectAnimator产生动画"></a>使用ObjectAnimator产生动画</h3><p>实例化 ObjectAnimator和 ValueAnimator类似，但是还需要指定对象和对象的属性名称：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator anim = ObjectAnimator.ofFloat(foo, <span class="string">"alpha"</span>, <span class="number">0f</span>, <span class="number">1f</span>);</span><br><span class="line">anim.setDuration(<span class="number">1000</span>);</span><br><span class="line">anim.start();</span><br></pre></td></tr></table></figure></p>
+<p>为了ObjectAnimator可以正确更新属性，需要做下面的事情：</p>
+<ul>
+<li>作用动画对象的属性必须有setter方法（驼峰式大小写）set<propertyname>()的形式。因为在动画期间ObjectAnimator会自动更新属性，它必须通过这个setter方法访问属性。例如，如果属性名为foo，需要有一个setFoo()方法。如果这个setter方法不存在，你有三个选择：<ul>
+<li>如果可以修改的话，添加一个setter方法。</li>
+<li>如果可以修改的话，使用一个包装类用一个合法的setter方法接收值，传递到原始对象。</li>
+<li>使用ValueAnimator代替</li>
+</ul>
+</propertyname></li>
+<li>如果你只给ObjectAnimator的工厂方法的参数值只设置了一个值，那它将会是动画结束时的值。因此，要动画的对象属性必须还要提供getter方法用于获取动画开始值。getter方法必须是get<propertyname>()形式。例如，属性名为foo，需要有一个getFoo()方法。</propertyname></li>
+<li><p>属性的getter和setter方法必须要和ObjectAnimator指定的开始和结束值的类型一致。如果要构造下面的ObjectAnimator必须要有targetObject.setPropName(float)和targetObject.getPropName(float)：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator.<span class="function"><span class="title">ofFloat</span><span class="params">(targetObject, <span class="string">"propName"</span>, <span class="number">1</span>f)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依赖于要动画的属性或对象，在View上你可能需要调用invalidate()方法使用更新的动画值强制屏幕重新绘制它。你可以在 onAnimationUpdate()回调方法中做处理。例如，对一个Drawable对象产生颜色属性动画，只会当对象重新绘制才会更新到屏幕上。View的所有属性setter例如 setAlpha() 方法内部会调用invalidate()方法，因此不需要自己处理。</p>
+</li>
+</ul>
+<h3 id="动画集合"><a href="#动画集合" class="headerlink" title="动画集合"></a>动画集合</h3><p>下面的代码来自于API demos中的Bouncing Balls 示例代码（做了简单的修改），动画的播放顺序为：</p>
+<ul>
+<li>播放bounceAnim</li>
+<li>同时播放squashAnim1, squashAnim2, stretchAnim1, 和 stretchAnim2</li>
+<li>播放bounceBackAnim</li>
+<li>播放fadeAnim</li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">AnimatorSet bouncer = new AnimatorSet()<span class="comment">;</span></span><br><span class="line">bouncer.play(bounceAnim).before(squashAnim1)<span class="comment">;</span></span><br><span class="line">bouncer.play(squashAnim1).with(squashAnim2)<span class="comment">;</span></span><br><span class="line">bouncer.play(squashAnim1).with(stretchAnim1)<span class="comment">;</span></span><br><span class="line">bouncer.play(squashAnim1).with(stretchAnim2)<span class="comment">;</span></span><br><span class="line">bouncer.play(bounceBackAnim).after(stretchAnim2)<span class="comment">;</span></span><br><span class="line">ValueAnimator fadeAnim = ObjectAnimator.ofFloat(newBall, "alpha", 1f, 0f)<span class="comment">;</span></span><br><span class="line">fadeAnim.setDuration(250)<span class="comment">;</span></span><br><span class="line">AnimatorSet animatorSet = new AnimatorSet()<span class="comment">;</span></span><br><span class="line">animatorSet.play(bouncer).before(fadeAnim)<span class="comment">;</span></span><br><span class="line">animatorSet.start()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>调用play方法会返回一个AnimatorSet.Builder对象，AnimatorSet.Builder是一个实用类，用于帮助添加动画到集合中连同不同动画之间的关系。下面的代码表示当anim1结束同时开始anim2和anim3。anim2和anim3之间没有直接的关系：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AnimatorSet s = new AnimatorSet();</span><br><span class="line">s.play(anim1).<span class="keyword">before</span>(anim2).<span class="keyword">before</span>(anim3);</span><br></pre></td></tr></table></figure></p>
+<p>如果你想要当anim1结束开始anim2，当anim2结束再开始anim3，下面的代码正确的表达了这样的关系：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AnimatorSet s = new AnimatorSet()<span class="comment">;</span></span><br><span class="line">s.play(anim1).before(anim2)<span class="comment">;</span></span><br><span class="line">s.play(anim2).before(anim3)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="动画监听"><a href="#动画监听" class="headerlink" title="动画监听"></a>动画监听</h3><ul>
+<li><p>Animator.AnimatorListener</p>
+<ul>
+<li>onAnimationStart() - 动画开始被调用</li>
+<li>onAnimationEnd() - 动画结束被调用</li>
+<li>onAnimationRepeat() - 动画重复被调用</li>
+<li>onAnimationCancel() - 动画取消被调用，这也会调用onAnimationEnd()方法。</li>
+</ul>
+</li>
+<li><p>ValueAnimator.AnimatorUpdateListener</p>
+<ul>
+<li>onAnimationUpdate() 动画更新的每一帧都会被调用。当需要在动画期间使用通过ValueAnimator计算生成的值时监听这个事件。通过getAnimatedValue()方法获取当前动画的值。</li>
+</ul>
+</li>
+</ul>
+<p>如果你不想实现 Animator.AnimatorListener接口的所有方法，你可以使用AnimatorListenerAdapter类。</p>
+<p>例如，API demos中的Bouncing Balls示例代码创建了AnimatorListenerAdapter只重写了 onAnimationEnd()回调：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator fadeAnim = ObjectAnimator.ofFloat(newBall, <span class="string">"alpha"</span>, <span class="number">1f</span>, <span class="number">0f</span>);</span><br><span class="line">fadeAnim.setDuration(<span class="number">250</span>);</span><br><span class="line">fadeAnim.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">    balls.remove(((ObjectAnimator)animation).getTarget());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/publishing-lib-to-jcenter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          上传类库到jcenter
+        
+      </div>
+    </a>
+  
+  
+    <a href="/android-basic-shape-drawable/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础——Shape Drawable</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-basic-animation-2" data-title="Android基础——动画（二）" data-url="http://yoursite.com/android-basic-animation-2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

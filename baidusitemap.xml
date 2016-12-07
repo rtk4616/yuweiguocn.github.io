@@ -4,14 +4,56 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-basic-shape-drawable/</loc>
-    <lastmod>2016-11-16T12:37:35.000Z</lastmod>
+    <loc>http://yoursite.com/publishing-lib-to-jcenter/</loc>
+    <lastmod>2016-12-07T08:24:05.000Z</lastmod>
     <data>
         <display>
-        <title>Android基础——Shape Drawable</title>
-        <pubTime>2016-11-16T12:37:35.000Z</pubTime>
+        <title>上传类库到jcenter</title>
+        <pubTime>2016-12-07T08:21:21.000Z</pubTime>
         
         <tag>android</tag>
+         
+        <tag>teach</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-basic-animation-2/</loc>
+    <lastmod>2016-12-01T10:49:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础——动画（二）</title>
+        <pubTime>2016-12-01T10:49:28.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>animation</tag>
+         
+        <tag>basic</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-basic-animation-1/</loc>
+    <lastmod>2016-11-17T12:18:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础——动画（一）</title>
+        <pubTime>2016-11-13T14:11:43.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>animation</tag>
          
         <tag>basic</tag>
          
@@ -25,16 +67,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-basic-animation-1/</loc>
-    <lastmod>2016-11-15T03:17:12.000Z</lastmod>
+    <loc>http://yoursite.com/android-basic-shape-drawable/</loc>
+    <lastmod>2016-11-16T12:37:35.000Z</lastmod>
     <data>
         <display>
-        <title>Android基础——动画（一）</title>
-        <pubTime>2016-11-13T14:11:43.000Z</pubTime>
+        <title>Android基础——Shape Drawable</title>
+        <pubTime>2016-11-16T12:37:35.000Z</pubTime>
         
         <tag>android</tag>
-         
-        <tag>animation</tag>
          
         <tag>basic</tag>
          
@@ -69,18 +109,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-interview-java/</loc>
+    <loc>http://yoursite.com/interview-2016-big-company/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>Android面试——Java相关</title>
-        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
+        <title>2016Android某公司面试题</title>
+        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
         
-        <tag>android</tag>
-         
         <tag>interview</tag>
-         
-        <tag>java</tag>
          
          
            
@@ -109,23 +145,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/interview-2016-big-company/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>2016Android某公司面试题</title>
-        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
-        
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -138,6 +157,31 @@
         <tag>demo</tag>
          
         <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——绑定Service</title>
+        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+        <tag>service</tag>
          
          
            
@@ -193,22 +237,18 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <loc>http://yoursite.com/android-interview-java/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>Android开发指南——绑定Service</title>
-        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
+        <title>Android面试——Java相关</title>
+        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>basic</tag>
+        <tag>interview</tag>
          
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-        <tag>service</tag>
+        <tag>java</tag>
          
          
            
@@ -366,12 +406,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（二）</title>
-        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（三）</title>
+        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -387,12 +427,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（三）</title>
-        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（二）</title>
+        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -750,6 +790,29 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-studio-tips-3/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
@@ -796,29 +859,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（六）</title>
-        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-studio-tips-4/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
@@ -842,12 +882,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（六）</title>
+        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -856,29 +896,6 @@
         <tag>tips</tag>
          
         <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-basic-service/</loc>
-    <lastmod>2016-04-09T00:56:05.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android基础——Service</title>
-        <pubTime>2016-03-28T08:43:53.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>service</tag>
          
          
            
@@ -902,6 +919,29 @@
         <tag>doc</tag>
          
         <tag>intentservice</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-basic-service/</loc>
+    <lastmod>2016-04-09T00:56:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础——Service</title>
+        <pubTime>2016-03-28T08:43:53.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>service</tag>
          
          
            
