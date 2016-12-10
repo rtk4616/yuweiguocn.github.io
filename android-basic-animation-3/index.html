@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android基础——动画（三） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android的View动画中的旋转动画的应用及SquareLoading源码解析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础——动画（三）">
+<meta property="og:url" content="http://yoursite.com/android-basic-animation-3/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android的View动画中的旋转动画的应用及SquareLoading源码解析。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/square-loading.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/anim-index.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/square-loading-demo.gif">
+<meta property="og:updated_time" content="2016-12-10T10:18:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础——动画（三）">
+<meta name="twitter:description" content="本文介绍了Android的View动画中的旋转动画的应用及SquareLoading源码解析。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 12px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 19px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11px;">resources</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18px;">support</a> <a href="/tags/teach/" style="font-size: 12px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-basic-animation-3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-basic-animation-3/" class="article-date">
+  	<time datetime="2016-12-10T10:13:40.000Z" itemprop="datePublished">2016-12-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android基础——动画（三）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android的View动画中的旋转动画的应用及SquareLoading源码解析。</p>
+<a id="more"></a>
+<blockquote>
+<p>《冬夜读书示子聿》<br>古人学问无遗力，少壮工夫老始成。<br>纸上得来终觉浅，绝知此事要躬行。<br>–陆游</p>
+</blockquote>
+<p>在<a href="http://yuweiguocn.github.io/tags/animation/" target="_blank" rel="external">前面的文章</a>中，我们介绍了View动画、帧动画和属性动画的使用。</p>
+<p>既然动画的基本使用我们都会了，那就从网上找一个动画来试着实现一下吧。从<a href="https://material.uplabs.com/" target="_blank" rel="external">MaterialUp</a>上面还真找到一个简单一点的动画：<a href="https://material.uplabs.com/posts/animated-loader-after-effects-freebie" target="_blank" rel="external">Animated Loader</a></p>
+<p><img src="/assets/img/basic/anim/square-loading.gif" alt=""></p>
+<p>乍一看还挺惊艳的，我们先来分析一下这个动画，动画中为12个方块，很简单的旋转90度的动画，我们先来实现一个方块的动画，使用GradientDrawable创建方块：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GradientDrawable gradientDrawable = new GradientDrawable()<span class="comment">;</span></span><br><span class="line">gradientDrawable.setColor(mSquareColor)<span class="comment">;</span></span><br><span class="line">gradientDrawable.setSize(mSquareSize, mSquareSize)<span class="comment">;</span></span><br><span class="line">gradientDrawable.setCornerRadius(mSquareCorner)<span class="comment">;</span></span><br><span class="line">ImageView image = new ImageView(context)<span class="comment">;</span></span><br><span class="line">image.setImageDrawable(gradientDrawable)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>旋转中心点为左下角，旋转角度为90，持续时间为300ms，设置减速插值器，设置动画结束后延时300ms执行反转动画，同样反转动画结束后延时300ms重新开始执行动画：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">RotateAnimation startAnim = <span class="keyword">new</span> RotateAnimation(<span class="number">0</span>, -<span class="number">90</span>, <span class="number">0</span>, mSquareSize);</span><br><span class="line">startAnim.setDuration(<span class="number">300</span>);</span><br><span class="line">startAnim.setFillAfter(<span class="literal">true</span>);</span><br><span class="line">startAnim.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());</span><br><span class="line">startAnim.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">            startReverseAnim(<span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">RotateAnimation reverseAnim = <span class="keyword">new</span> RotateAnimation(-<span class="number">90</span>, <span class="number">0</span>, <span class="number">0</span>, mSquareSize);</span><br><span class="line">reverseAnim.setDuration(<span class="number">300</span>);</span><br><span class="line">reverseAnim.setFillAfter(<span class="literal">true</span>);</span><br><span class="line">reverseAnim.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());</span><br><span class="line">reverseAnim.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">            startRotateAnim(<span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @<span class="function">Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startRotateAnim</span><span class="params">(<span class="keyword">int</span> delayMillis)</span> </span>&#123;</span><br><span class="line">    postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        @<span class="function">Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            startRotateAnim();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, delayMillis);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startReverseAnim</span><span class="params">(<span class="keyword">int</span> delayMillis)</span> </span>&#123;</span><br><span class="line">    postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        @<span class="function">Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            startReverseAnim();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, delayMillis);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startRotateAnim</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    image.startAnimation(startAnim);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startReverseAnim</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    image.startAnimation(reverseAnim);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样当调用startRotateAnim方法就可以看到效果了，接下来我们在上面的基础上实现12个方块的动画，上面的图片需要添加12个，我们通过继承ViewGroup自定义View实现，这里我们设置默认X的个数为4，Y的个数为3：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SquareLoading</span> <span class="keyword">extends</span> <span class="title">ViewGroup</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_SQUARE_COLOR = Color.WHITE;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_SQUARE_SIZE = <span class="number">36</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_SQUARE_CORNER = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_DIVIDER_SIZE = <span class="number">8</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFUALT_X_COUNT=<span class="number">4</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFUALT_Y_COUNT=<span class="number">3</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_FIRST_INDEX = DEFUALT_X_COUNT * (DEFUALT_Y_COUNT - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_LAST_INDEX = DEFUALT_X_COUNT - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中DEFAULT_FIRST_INDEX和DEFAULT_LAST_INDEX分别表示第一个开始动画子View的index和最后一个开始动画子View的index。例如，当x=4，y=3时，第一个开始执行开始动画的子View的index为8，最后一个执行开始动画的子View的index为3，当然，这也对应反转动画的最后一个和第一个：</p>
+<p><img src="/assets/img/basic/anim/anim-index.png" alt=""></p>
+<p>一个完整的自定义View对应的属性肯定是可以配置的，比如方块的数量、大小和颜色等：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if (attrs != null) &#123;</span><br><span class="line">    TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.SquareLoading)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    mSquareColor = a.getColor(R.styleable.SquareLoading_squareColor, DEFAULT_SQUARE_COLOR)<span class="comment">;</span></span><br><span class="line">    mSquareSize = a.getDimensionPixelSize(R.styleable.SquareLoading_squareSize, DEFAULT_SQUARE_SIZE)<span class="comment">;</span></span><br><span class="line">    mSquareCorner = a.getDimensionPixelSize(R.styleable.SquareLoading_squareCorner, DEFAULT_SQUARE_CORNER)<span class="comment">;</span></span><br><span class="line">    mDividerSize = a.getDimensionPixelSize(R.styleable.SquareLoading_dividerSize, DEFAULT_DIVIDER_SIZE)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    int xCount = a.getInteger(R.styleable.SquareLoading_xCount, DEFUALT_X_COUNT)<span class="comment">;</span></span><br><span class="line">    int yCount = a.getInteger(R.styleable.SquareLoading_yCount, DEFUALT_Y_COUNT)<span class="comment">;</span></span><br><span class="line">    if (xCount &gt;= 2 &amp;&amp; xCount &lt;= 6) &#123;</span><br><span class="line">        mXCount = xCount<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    if (yCount &gt;= 2 &amp;&amp; yCount &lt;= 6) &#123;</span><br><span class="line">        mYCount = yCount<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    a.recycle()<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">    mFirstIndex = mXCount * (mYCount - 1)<span class="comment">;</span></span><br><span class="line">    mLastIndex = mXCount - 1<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加图片之前有一个细节需要处理，因为我们是继承ViewGroup自定义的View，所以要防止用户添加其它子View：<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="comment">(getChildCount()</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    removeAllViews<span class="comment">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来根据配置的方块的个数添加子View：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for <span class="list">(<span class="keyword">int</span> i = <span class="number">0</span><span class="comment">; i &lt; mXCount * mYCount; i++) &#123;</span></span><br><span class="line">    ImageView image = new ImageView<span class="list">(<span class="keyword">context</span>)</span><span class="comment">;</span></span><br><span class="line">    image.setImageDrawable<span class="list">(<span class="keyword">gradientDrawable</span>)</span><span class="comment">;</span></span><br><span class="line">    addView<span class="list">(<span class="keyword">image</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>因为每个子View都有对应的开始动画和反转动画，所以我们使用List来存储对应子View的动画，动画和只有一个方块时的区别是当第一个子View动画开始时需要延时执行下一个子View的动画，当所有子View开始动画结束后开始逆向执行反转动画，如此反复：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">private List&lt;RotateAnimation&gt; startAnims = new ArrayList&lt;&gt;<span class="list">()</span><span class="comment">;</span></span><br><span class="line">private List&lt;RotateAnimation&gt; reverseAnims = new ArrayList&lt;&gt;<span class="list">()</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">for <span class="list">(<span class="keyword">int</span> i = <span class="number">0</span><span class="comment">; i &lt; getChildCount(); i++) &#123;</span></span><br><span class="line">  RotateAnimation startAnim = new RotateAnimation<span class="list">(<span class="number">0</span>, <span class="number">-90</span>, <span class="number">0</span>, mSquareSize)</span><span class="comment">;</span></span><br><span class="line">  startAnim.setDuration<span class="list">(<span class="number">300</span>)</span><span class="comment">;</span></span><br><span class="line">  startAnim.setFillAfter<span class="list">(<span class="keyword">true</span>)</span><span class="comment">;</span></span><br><span class="line">  startAnim.setInterpolator<span class="list">(<span class="keyword">new</span> DecelerateInterpolator<span class="list">()</span>)</span><span class="comment">;</span></span><br><span class="line">  final int finalI = i<span class="comment">;</span></span><br><span class="line">  startAnim.setAnimationListener<span class="list">(<span class="keyword">new</span> Animation.AnimationListener<span class="list">()</span> &#123;</span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationStart<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">          if <span class="list">(<span class="keyword">finalI</span> != mLastIndex)</span> &#123;</span><br><span class="line">              int index = getNextAnimChild<span class="list">(<span class="keyword">true</span>, finalI)</span><span class="comment">;</span></span><br><span class="line">              int delayMillis = index &gt; mFirstIndex ? <span class="number">100</span> : <span class="number">50</span><span class="comment">;</span></span><br><span class="line">              startRotateAnim<span class="list">(<span class="keyword">index</span> , delayMillis)</span><span class="comment">;</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationEnd<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">          if <span class="list">(<span class="keyword">finalI</span> == mLastIndex)</span> &#123;</span><br><span class="line">              startReverseAnim<span class="list">(<span class="keyword">mLastIndex</span>, <span class="number">300</span>)</span><span class="comment">;</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationRepeat<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><span class="comment">;</span></span><br><span class="line">  startAnims.add<span class="list">(<span class="keyword">startAnim</span>)</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">  RotateAnimation reverseAnim = new RotateAnimation<span class="list">(<span class="keyword">-90</span>, <span class="number">0</span>, <span class="number">0</span>, mSquareSize)</span><span class="comment">;</span></span><br><span class="line">  reverseAnim.setDuration<span class="list">(<span class="number">300</span>)</span><span class="comment">;</span></span><br><span class="line">  reverseAnim.setFillAfter<span class="list">(<span class="keyword">true</span>)</span><span class="comment">;</span></span><br><span class="line">  reverseAnim.setInterpolator<span class="list">(<span class="keyword">new</span> DecelerateInterpolator<span class="list">()</span>)</span><span class="comment">;</span></span><br><span class="line">  final int finalI1 = i<span class="comment">;</span></span><br><span class="line">  reverseAnim.setAnimationListener<span class="list">(<span class="keyword">new</span> Animation.AnimationListener<span class="list">()</span> &#123;</span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationStart<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">          if <span class="list">(<span class="keyword">finalI1</span> != mFirstIndex)</span> &#123;</span><br><span class="line">              int index = getNextAnimChild<span class="list">(<span class="keyword">false</span>, finalI1)</span><span class="comment">;</span></span><br><span class="line">              int delayMillis = index &lt; mXCount ? <span class="number">100</span> : <span class="number">50</span><span class="comment">;</span></span><br><span class="line">              startReverseAnim<span class="list">(<span class="keyword">index</span>, delayMillis)</span><span class="comment">;</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationEnd<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">          if <span class="list">(<span class="keyword">finalI1</span> == mFirstIndex)</span> &#123;</span><br><span class="line">              startRotateAnim<span class="list">(<span class="keyword">mFirstIndex</span>, <span class="number">300</span>)</span><span class="comment">;</span></span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      @Override</span><br><span class="line">      public void onAnimationRepeat<span class="list">(<span class="keyword">Animation</span> animation)</span> &#123;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><span class="comment">;</span></span><br><span class="line">  reverseAnims.add<span class="list">(<span class="keyword">reverseAnim</span>)</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void startRotateAnim<span class="list">(<span class="keyword">final</span> int index)</span> &#123;</span><br><span class="line">   if <span class="list">(<span class="keyword">startAnims</span> != null <span class="keyword">&amp;&amp;</span> startAnims.size<span class="list">()</span> &gt; index)</span> &#123;</span><br><span class="line">       getChildAt<span class="list">(<span class="keyword">index</span>)</span>.startAnimation<span class="list">(<span class="keyword">startAnims</span>.get<span class="list">(<span class="keyword">index</span>)</span>)</span><span class="comment">;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void startReverseAnim<span class="list">(<span class="keyword">final</span> int index)</span> &#123;</span><br><span class="line">   if <span class="list">(<span class="keyword">reverseAnims</span> != null <span class="keyword">&amp;&amp;</span> reverseAnims.size<span class="list">()</span> &gt; index)</span> &#123;</span><br><span class="line">       getChildAt<span class="list">(<span class="keyword">index</span>)</span>.startAnimation<span class="list">(<span class="keyword">reverseAnims</span>.get<span class="list">(<span class="keyword">index</span>)</span>)</span><span class="comment">;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void startRotateAnim<span class="list">(<span class="keyword">final</span> int index, int delayMillis)</span> &#123;</span><br><span class="line">   postDelayed<span class="list">(<span class="keyword">new</span> Runnable<span class="list">()</span> &#123;</span><br><span class="line">       @Override</span><br><span class="line">       public void run<span class="list">()</span> &#123;</span><br><span class="line">           startRotateAnim<span class="list">(<span class="keyword">index</span>)</span><span class="comment">;</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;, delayMillis)</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void startReverseAnim<span class="list">(<span class="keyword">final</span> int index, int delayMillis)</span> &#123;</span><br><span class="line">   postDelayed<span class="list">(<span class="keyword">new</span> Runnable<span class="list">()</span> &#123;</span><br><span class="line">       @Override</span><br><span class="line">       public void run<span class="list">()</span> &#123;</span><br><span class="line">           startReverseAnim<span class="list">(<span class="keyword">index</span>)</span><span class="comment">;</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;, delayMillis)</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private int getNextAnimChild<span class="list">(<span class="keyword">boolean</span> isStart, int i)</span> &#123;</span><br><span class="line">    int index<span class="comment">;</span></span><br><span class="line">    if <span class="list">(<span class="keyword">isStart</span>)</span> &#123;</span><br><span class="line">        if <span class="list">(<span class="keyword">i</span> &lt; mXCount)</span> &#123;</span><br><span class="line">            i += mFirstIndex + <span class="number">1</span><span class="comment">;</span></span><br><span class="line">            return i<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        index = i - mXCount<span class="comment">;</span></span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        if <span class="list">(<span class="keyword">i</span> &gt; mFirstIndex)</span> &#123;</span><br><span class="line">            i -= mFirstIndex + <span class="number">1</span><span class="comment">;</span></span><br><span class="line">            return i<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        index = i + mXCount<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">    return index<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>其中getNextAnimChild方法为获取下一个要执行动画的子View的index。</p>
+<p>最后根据用户设置的宽高测量子View并布局：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">@<span class="function">Override</span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> widthMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line">    <span class="keyword">int</span> heightMode = MeasureSpec.getMode(heightMeasureSpec);</span><br><span class="line">    <span class="keyword">int</span> sizeWidth = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line">    <span class="keyword">int</span> sizeHeight = MeasureSpec.getSize(heightMeasureSpec);</span><br><span class="line">    measureChildren(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> minWidth = mSquareSize * (mXCount+<span class="number">1</span>) + (mXCount - <span class="number">1</span>) * mDividerSize;</span><br><span class="line">    <span class="keyword">int</span> minHeight = mSquareSize * (mYCount+<span class="number">1</span>) + (mYCount - <span class="number">1</span>) * mDividerSize;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (widthMode == MeasureSpec.AT_MOST || (widthMode == MeasureSpec.EXACTLY &amp;&amp; sizeWidth &lt; minWidth)) &#123;</span><br><span class="line">        sizeWidth = minWidth;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (heightMode == MeasureSpec.AT_MOST || (heightMode == MeasureSpec.EXACTLY &amp;&amp; sizeHeight &lt; minHeight)) &#123;</span><br><span class="line">        sizeHeight = minHeight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (sizeHeight &gt; minHeight) &#123;</span><br><span class="line">        mPaddingTop = (sizeHeight - minHeight) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sizeWidth &gt; minWidth) &#123;</span><br><span class="line">        mPaddingLeft = (sizeWidth - minWidth) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    childLayout();</span><br><span class="line">    setMeasuredDimension(sizeWidth, sizeHeight);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">childLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> l, t, r, b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; getChildCount(); i++) &#123;</span><br><span class="line">        View child = getChildAt(i);</span><br><span class="line">        l = (i % mXCount + <span class="number">1</span>) * mSquareSize + (i % mXCount) * mDividerSize + mPaddingLeft;</span><br><span class="line">        t = (i / mXCount + <span class="number">1</span>) * mSquareSize + (i / mXCount) * mDividerSize + mPaddingTop;</span><br><span class="line">        r = l + mSquareSize;</span><br><span class="line">        b = t + mSquareSize;</span><br><span class="line">        child.layout(l, t, r, b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最终效果：</p>
+<p><img src="/assets/img/basic/anim/square-loading-demo.gif" alt=""></p>
+<p>查看完整源码：<a href="https://github.com/yuweiguocn/SquareLoading" target="_blank" rel="external">https://github.com/yuweiguocn/SquareLoading</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/publishing-lib-to-jcenter/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">上传类库到jcenter</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-basic-animation-3" data-title="Android基础——动画（三）" data-url="http://yoursite.com/android-basic-animation-3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
