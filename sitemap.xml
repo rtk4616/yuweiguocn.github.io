@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/android-basic-custom-views-1/</loc>
+    
+    <lastmod>2016-12-19T08:30:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-basic-animation-3/</loc>
     
-    <lastmod>2016-12-10T10:18:53.000Z</lastmod>
+    <lastmod>2016-12-12T12:15:32.000Z</lastmod>
     
   </url>
   
@@ -44,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/interview-2016-big-company/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -58,7 +58,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-interview-list/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -72,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-interview-java/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -86,7 +86,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -268,7 +275,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -282,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -303,7 +310,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
