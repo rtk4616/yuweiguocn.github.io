@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android基础——自定义View（二） | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了如何自定义View中的后两个步骤：实现交互和优化View。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础——自定义View（二）">
+<meta property="og:url" content="http://yoursite.com/android-basic-custom-views-2/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了如何自定义View中的后两个步骤：实现交互和优化View。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/customview/custom-views.gif">
+<meta property="og:updated_time" content="2016-12-22T04:49:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础——自定义View（二）">
+<meta name="twitter:description" content="本文介绍了如何自定义View中的后两个步骤：实现交互和优化View。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 12px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 19px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 11px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 10px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11px;">resources</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 18px;">support</a> <a href="/tags/teach/" style="font-size: 12px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android-basic-custom-views-2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/android-basic-custom-views-2/" class="article-date">
+  	<time datetime="2016-12-22T04:33:31.000Z" itemprop="datePublished">2016-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android基础——自定义View（二）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/customviews/">customviews</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了如何自定义View中的后两个步骤：实现交互和优化View。</p>
+<a id="more"></a>
+<p>原文链接：<a href="https://developer.android.com/training/custom-views/index.html" target="_blank" rel="external">Creating Custom Views</a></p>
+<p>在<a href="/android-basic-custom-views-1/">上一篇文章</a>中我们介绍了自定义View的前两个步骤：创建一个View类和自定义绘制。接下来我们继续学习自定义View的后两个步骤：实现交互和优化View。</p>
+<h1 id="实现交互"><a href="#实现交互" class="headerlink" title="实现交互"></a>实现交互</h1><h3 id="处理输入手势"><a href="#处理输入手势" class="headerlink" title="处理输入手势"></a>处理输入手势</h3><p>Android中最常见的输入事件就是触摸，重写onTouchEvent方法处理事件：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onTouchEvent</span><span class="params">(event)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它们自己的触摸事件不是特别有用。现代触摸UI定义了一系列手势，例如：轻敲、拉、推、滑动和缩放。为了将原始触摸事件转换为手势，Android提供了GestureDetector。</p>
+<p>使用一个实现 GestureDetector.OnGestureListener类的实例构造GestureDetector。如果你只想处理几个手势，你可以继承 GestureDetector.SimpleOnGestureListener而不是实现GestureDetector.OnGestureListener接口。例如，下面的代码创建了一个继承GestureDetector.SimpleOnGestureListener的类并且重写了 onDown(MotionEvent)。<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">mListener</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">GestureDetector</span>.<span class="title">SimpleOnGestureListener</span> &#123;</span></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   public boolean onDown(<span class="type">MotionEvent</span> e) &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">mDetector = <span class="keyword">new</span> <span class="type">GestureDetector</span>(<span class="type">PieChart</span>.<span class="keyword">this</span>.getContext(), <span class="keyword">new</span> mListener());</span><br></pre></td></tr></table></figure></p>
+<p>不管你使不使用GestureDetector.SimpleOnGestureListener，你必须实现onDown()方法返回true。这一步是必须的因为所有的手势都从onDown()消息开始。如果你返回false，那么就不会接收到后续事件。除非你想忽略整个手势。当你实现了GestureDetector.OnGestureListener并且创建了GestureDetector实例，你可以使用GestureDetector在onTouchEvent()方法中处理接收到的事件。<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Override</span></span><br><span class="line">public boolean onTouchEvent(<span class="type">MotionEvent</span> event) &#123;</span><br><span class="line">   boolean <span class="literal">result</span> = mDetector.onTouchEvent(event);</span><br><span class="line">   <span class="keyword">if</span> (!<span class="literal">result</span>) &#123;</span><br><span class="line">       <span class="keyword">if</span> (event.getAction() == <span class="type">MotionEvent</span>.<span class="type">ACTION_UP</span>) &#123;</span><br><span class="line">           stopScrolling();</span><br><span class="line">           <span class="literal">result</span> = <span class="literal">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">result</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当你传递到onTouchEvent()一个触摸事件，如果它没能识别作为手势的一部分，它会返回false。你可以实现自己的自定义手势检测代码。</p>
+<h3 id="创建物理动作"><a href="#创建物理动作" class="headerlink" title="创建物理动作"></a>创建物理动作</h3><p>手势是一个很强大的控制触摸屏设备的方式，除非符合物理逻辑否则将变得违反直觉并且很难记忆。这有一个很好的例子就是fling手势，用户用手指快速滑动屏幕。这个手势让UI根据快速滑动的方向响应，然后慢下来，就像用户旋转大转盘。</p>
+<p>然而，模拟大转盘的旋转并不是简单的。让大转盘正确的旋转需要大量的物理和数学知识。幸运的是，Android提供了帮助类去模拟这个和其它行为。Scroller是一个基础类对于处理大转盘滑动手势。</p>
+<p>使用开始速度和滑动的x和y的最大最值调用fling()方法进行滑动。对于速度值，你可以使用GestureDetector计算的值。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> velocityX, <span class="keyword">float</span> velocityY)</span> </span>&#123;</span><br><span class="line">   mScroller.fling(currentX, currentY, velocityX / SCALE, velocityY / SCALE, minX, minY, maxX, maxY);</span><br><span class="line">   postInvalidate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：尽管使用GestureDetector计算出的速度值是精确的物理值，但很多开发者会感觉到使用这个值会让滑动动画太快。常见的x和y速度值是除以4到8。</p>
+</blockquote>
+<p>调用fling()会给滑动手势设置物理模型。之后需要通过固定的时间间隔调用Scroller.computeScrollOffset()更新Scroller。 computeScrollOffset()会通过读取当前时间更新 Scroller对象内部状态和使用物理模型计算那一时刻x和y的位置。调用getCurrX()和getCurrY()获取这些值。</p>
+<p>大多数View可以直接传递Scroller对象的x和y的位置到scrollTo()。PieChart示例有一点不同：它使用当前y的位置设置图表的旋转角度。<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!mScroller.isFinished<span class="literal">()</span>) &#123;</span><br><span class="line">    mScroller.computeScrollOffset<span class="literal">()</span>;</span><br><span class="line">    setPieRotation(mScroller.getCurrY<span class="literal">()</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Scroller类会帮你计算滚动位置，但它不会自动应用这些位置到你的view上。你应该确保不断获取并应用新的坐标让滚动动画看起来很流畅。这有两种方法：</p>
+<ul>
+<li>调用fling()之后调用postInvalidate()，为了强制重新绘制。这个技术需要你在onDraw()计算滚动偏移并且每次当滚动偏移变化时调用postInvalidate()。</li>
+<li>当fling滑动时设置ValueAnimator动画，通过调用addUpdateListener()添加监听处理动画更新。</li>
+</ul>
+<p>PieChart示例使用了第二种方法，这个技术对设置来说稍微有点复杂，但它的工作原理和动画系统关联更紧密并且不需要潜在的不必要的view刷新。ValueAnimator的缺点是API level 11(Android 3.0)之前是不可用的，因此它不能运行在Android 3.0之前的设备上。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mScroller = <span class="keyword">new</span> Scroller(getContext(), <span class="keyword">null</span>, <span class="keyword">true</span>);</span><br><span class="line">mScrollAnimator = ValueAnimator.ofFloat(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">mScrollAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator valueAnimator)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (!mScroller.isFinished()) &#123;</span><br><span class="line">           mScroller.computeScrollOffset();</span><br><span class="line">           setPieRotation(mScroller.getCurrY());</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           mScrollAnimator.cancel();</span><br><span class="line">           onScrollFinished();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="确保过渡流畅"><a href="#确保过渡流畅" class="headerlink" title="确保过渡流畅"></a>确保过渡流畅</h3><p>用户期望UI过渡是流畅的。UI元素逐渐出现和消失而不是出现和消失。动作流畅开始和结束而不是突然开始和结束。<a href="/android-basic-animation-2/">Android属性动画框</a>架，Android 3.0引入，让过渡流畅更容易。</p>
+<p>对于动画系统，属性的变化将会影响View的外观，不要直接修改属性。而是使用ValueAnimator作修改。在下面的示例中，在PieChart中修改当前选择的饼片将引起整个饼图的旋转，选择指针指向选择的饼片。ValueAnimator会在一段时间内修改旋转角度，而不是直接设置新的旋转角度。<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mAutoCenterAnimator = ObjectAnimator.ofInt(PieChart.this, "PieRotation", 0)<span class="comment">;</span></span><br><span class="line">mAutoCenterAnimator.setIntValues(targetAngle)<span class="comment">;</span></span><br><span class="line">mAutoCenterAnimator.setDuration(AUTOCENTER_ANIM_DURATION)<span class="comment">;</span></span><br><span class="line">mAutoCenterAnimator.start()<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你想修改的值是View的基本属性，这个动画更容易实现，因为View内置了一个ViewPropertyAnimator，它是对于同时对多个属性动画最优的。例如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">animate</span>()<span class="class">.rotation</span>(<span class="tag">targetAngle</span>)<span class="class">.setDuration</span>(<span class="tag">ANIM_DURATION</span>)<span class="class">.start</span>();</span><br></pre></td></tr></table></figure></p>
+<h1 id="优化View"><a href="#优化View" class="headerlink" title="优化View"></a>优化View</h1><p>现在你已经可以设计一个响应手势和状态之间过渡的View，确保View运行很快。为了避免UI卡顿，确保动画每秒运行60帧。</p>
+<h3 id="少操作，少频率"><a href="#少操作，少频率" class="headerlink" title="少操作，少频率"></a>少操作，少频率</h3><p>为了让View更流畅，从经常被调用的方法删除不必要的代码。先从onDraw()方法开始，将会看到明显的效果。尤其应该删除 onDraw()中的对象分配，因为分配将导致垃圾回收将会引起卡顿。在初始化的时候分配对象，或动画之间。不要在动画运行的时候分配对象。</p>
+<p>除了让onDraw()精简，还要确保它尽可能少地被调用。onDraw()最多的调用是invalidate()引起的，所以删除不必要的invalidate()。</p>
+<p>其它昂贵的操作是遍历布局。任何时候View调用requestLayout()方法，Android UI系统都需要遍历整个view层级找出每个view需要多大。如果发现测量冲突，它可能需要多次遍历层级。UI设计师有时为了得到想要的效果会创建嵌套深层级ViewGroup对象。这些深层级View会导致性能问题。<strong>让你的View层级尽可能的少</strong>。</p>
+<p>如果你有一个复杂的UI，考虑写一个自定义的ViewGroup执行它的布局。和内置View不同，自定义View可以指定子View的图形和大小，并且因此可以避免遍历子View计算测量。PieChart示例演示了怎样继承ViewGroup作为自定义View的一部分。PieChart有子View，但它从不测量它们。它根据它的自定义布局算法直接设置子View的大小。</p>
+<p><img src="/assets/img/basic/customview/custom-views.gif" alt=""></p>
+<p>查看PieChart示例完整源码：<a href="https://github.com/yuweiguocn/AndroidDemo" target="_blank" rel="external">https://github.com/yuweiguocn/AndroidDemo</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/android-basic-custom-views-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础——自定义View（一）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="android-basic-custom-views-2" data-title="Android基础——自定义View（二）" data-url="http://yoursite.com/android-basic-custom-views-2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

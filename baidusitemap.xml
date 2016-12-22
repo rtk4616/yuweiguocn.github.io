@@ -4,8 +4,29 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-basic-custom-views-2/</loc>
+    <lastmod>2016-12-22T04:49:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android基础——自定义View（二）</title>
+        <pubTime>2016-12-22T04:33:31.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>customviews</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-basic-custom-views-1/</loc>
-    <lastmod>2016-12-19T08:30:58.000Z</lastmod>
+    <lastmod>2016-12-22T04:32:54.000Z</lastmod>
     <data>
         <display>
         <title>Android基础——自定义View（一）</title>
@@ -170,31 +191,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发指南——进程间通信AIDL</title>
-        <pubTime>2016-03-31T02:37:33.000Z</pubTime>
-        
-        <tag>aidl</tag>
-         
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-interview-list/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -205,27 +201,6 @@
         <tag>android</tag>
          
         <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
          
          
            
@@ -256,18 +231,18 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>data binding</tag>
+        <tag>demo</tag>
          
-        <tag>translate</tag>
+        <tag>support</tag>
          
          
            
@@ -293,6 +268,52 @@
         <tag>guide</tag>
          
         <tag>service</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——进程间通信AIDL</title>
+        <pubTime>2016-03-31T02:37:33.000Z</pubTime>
+        
+        <tag>aidl</tag>
+         
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
          
          
            
@@ -811,12 +832,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（六）</title>
-        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -834,12 +855,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（六）</title>
+        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -903,12 +924,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（五）</title>
-        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（一）</title>
+        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -926,12 +947,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（一）</title>
-        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（五）</title>
+        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
