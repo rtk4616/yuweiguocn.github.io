@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/interview-2016-big-company/</loc>
+    <lastmod>2016-12-27T06:46:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>2016Android某公司面试题</title>
+        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
+        
+        <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-basic-custom-views-2/</loc>
     <lastmod>2016-12-22T04:49:31.000Z</lastmod>
     <data>
@@ -174,23 +191,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/interview-2016-big-company/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>2016Android某公司面试题</title>
-        <pubTime>2016-04-13T14:09:12.000Z</pubTime>
-        
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-interview-list/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -222,27 +222,6 @@
         <tag>interview</tag>
          
         <tag>java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
          
          
            
@@ -314,6 +293,27 @@
         <tag>data binding</tag>
          
         <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
          
          
            
