@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://yoursite.com/shared-element-activity-transition/</loc>
+    <lastmod>2017-02-28T12:04:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>(译)Android 5.0 页面共享元素过渡</title>
+        <pubTime>2017-02-28T12:04:30.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>animation</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/interview-2016-big-company/</loc>
     <lastmod>2016-12-27T06:46:37.000Z</lastmod>
     <data>
@@ -471,12 +494,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（三）</title>
-        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（二）</title>
+        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -492,12 +515,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（二）</title>
-        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（三）</title>
+        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -832,12 +855,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（三）</title>
+        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -878,12 +901,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（三）</title>
-        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
         
         <tag>android studio</tag>
          

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>(译)Android 5.0 页面共享元素过渡 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android 5.0 新特性页面过渡共享元素的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(译)Android 5.0 页面共享元素过渡">
+<meta property="og:url" content="http://yoursite.com/shared-element-activity-transition/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android 5.0 新特性页面过渡共享元素的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/transition-1.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/transition-2.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/transition-3.gif">
+<meta property="og:updated_time" content="2017-02-28T12:04:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(译)Android 5.0 页面共享元素过渡">
+<meta name="twitter:description" content="本文介绍了Android 5.0 新特性页面过渡共享元素的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 13.33px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 11.11px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 11.11px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11.11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11.11px;">resources</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 11.11px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17.78px;">support</a> <a href="/tags/teach/" style="font-size: 12.22px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 17.78px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-shared-element-activity-transition" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/shared-element-activity-transition/" class="article-date">
+  	<time datetime="2017-02-28T12:04:30.000Z" itemprop="datePublished">2017-02-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      (译)Android 5.0 页面共享元素过渡
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android 5.0 新特性页面过渡共享元素的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/shared-element-activity-transition#references" target="_blank" rel="external">Shared Element Activity Transition</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>不同activity或fragment之间传统的过渡涉及到整个View层级相互独立的进入和退出过渡动画。例如，渐入过渡，滑动过渡，或新引入的爆炸过渡。</p>
+<p>默认的Activity过渡：</p>
+<p><img src="/assets/img/basic/anim/transition-1.gif" alt=""></p>
+<p>然而，大多数情况下页面之间有共用元素，并且在页面切换时有能力提供这些共享元素分别强调连续性的过渡作为用户操作App。</p>
+<p><img src="/assets/img/basic/anim/transition-2.png" alt=""></p>
+<p>这个过渡特性使得人们更能专注在内容上和新页面的表现上。</p>
+<p><img src="/assets/img/basic/anim/transition-3.gif" alt=""></p>
+<h3 id="Activity共享元素过渡"><a href="#Activity共享元素过渡" class="headerlink" title="Activity共享元素过渡"></a>Activity共享元素过渡</h3><p>注意共享元素过渡需要Android 5.0（API 21）及以上并且将会忽略低版本。使用API 21指定特性之前确保在<a href="https://developer.android.com/training/material/compatibility.html#CheckVersion" target="_blank" rel="external">运行时检查版本</a>。</p>
+<h4 id="1-开启窗口内容过渡"><a href="#1-开启窗口内容过渡" class="headerlink" title="1.开启窗口内容过渡"></a>1.开启窗口内容过渡</h4><p>在styles.xml文件中开启窗口内容过渡：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Base application theme. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;!<span class="tag">--</span> <span class="tag">Customize</span> <span class="tag">your</span> <span class="tag">theme</span> <span class="tag">here</span>. <span class="tag">--</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowContentTransitions"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    ...</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-指定共用过渡名称"><a href="#2-指定共用过渡名称" class="headerlink" title="2.指定共用过渡名称"></a>2.指定共用过渡名称</h4><p>在使用共享元素的布局中指定共用过渡名称。使用<code>android:transitionName</code>属性。<br>例如在<code>MainActivity.xml</code>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span></span><br><span class="line">  ...&gt;</span><br><span class="line">      &lt;ImageView</span><br><span class="line">          android:id=<span class="string">"@+id/ivProfile"</span></span><br><span class="line">          android:transitionName=<span class="string">"profile"</span></span><br><span class="line">          android:scaleType=<span class="string">"centerCrop"</span></span><br><span class="line">          android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">          android:layout_height=<span class="string">"160dp"</span> /&gt;</span><br><span class="line">      ...</span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>DetailActivity.xml</code>：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">  <span class="attribute">...</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">ImageView</span></span><br><span class="line">          <span class="attribute">android:id</span>=<span class="value">"@+id/ivProfile"</span></span><br><span class="line">          <span class="attribute">android:transitionName</span>=<span class="value">"profile"</span></span><br><span class="line">          <span class="attribute">android:scaleType</span>=<span class="value">"centerCrop"</span></span><br><span class="line">          <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">          <span class="attribute">android:layout_height</span>=<span class="value">"380dp"</span> /&gt;</span></span><br><span class="line">      ...</span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意<code>android:id</code>是可以不一样的或所在布局层级位置也是可以不同的。</p>
+<h4 id="3-开启Activity"><a href="#3-开启Activity" class="headerlink" title="3.开启Activity"></a>3.开启Activity</h4><p>通过从源处指定这些共享元素和view的bundle开启目标Activity。<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="type">intent</span> = new <span class="type">Intent</span>(this, DetailsActivity.<span class="keyword">class</span>);</span><br><span class="line">// <span class="keyword">Pass</span> <span class="type">data</span> object <span class="type">in</span> the bundle and populate details activity.</span><br><span class="line"><span class="type">intent</span>.putExtra(DetailsActivity.EXTRA_CONTACT, contact);</span><br><span class="line">ActivityOptionsCompat options = ActivityOptionsCompat.</span><br><span class="line">    makeSceneTransitionAnimation(this, (View)ivProfile, <span class="string">"profile"</span>);</span><br><span class="line">startActivity(<span class="type">intent</span>, options.toBundle());</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以了。指定源view和过渡名称即使在源层级有多个相同过渡名称的view，它基本上可以选择正确的view开启动画。</p>
+<p>当你销毁第二个Activity时为了反转情景过渡动画，调用<code>Activity.supportFinishAfterTransition()</code> 而不是 <code>Activity.finish()</code> 。还有，你需要重写ToolBar/ ActionBar中home按钮的行为：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">        <span class="comment">// Respond to the action bar's Up/Home button</span></span><br><span class="line">        <span class="keyword">case</span> android.R.id.home:</span><br><span class="line">            supportFinishAfterTransition();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onOptionsItemSelected</span><span class="params">(item)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-多个共享元素"><a href="#4-多个共享元素" class="headerlink" title="4.多个共享元素"></a>4.多个共享元素</h4><p>有时你可能想要从源view层级动画多个元素。这可以通过在源view和目标view使用不同的过渡名称实现。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="literal">new</span> Intent(context, DetailsActivity<span class="built_in">.</span>class);</span><br><span class="line">intent<span class="built_in">.</span>putExtra(DetailsActivity<span class="built_in">.</span>EXTRA_CONTACT, contact);</span><br><span class="line"><span class="built_in">Pair</span>&lt;View, <span class="built_in">String</span>&gt; p1 = <span class="built_in">Pair</span><span class="built_in">.</span>create((View)ivProfile, <span class="string">"profile"</span>);</span><br><span class="line"><span class="built_in">Pair</span>&lt;View, <span class="built_in">String</span>&gt; p2 = <span class="built_in">Pair</span><span class="built_in">.</span>create(vPalette, <span class="string">"palette"</span>);</span><br><span class="line"><span class="built_in">Pair</span>&lt;View, <span class="built_in">String</span>&gt; p3 = <span class="built_in">Pair</span><span class="built_in">.</span>create((View)tvName, <span class="string">"text"</span>);</span><br><span class="line">ActivityOptionsCompat options = ActivityOptionsCompat<span class="built_in">.</span><br><span class="line">    </span>makeSceneTransitionAnimation(this, p1, p2, p3);</span><br><span class="line">startActivity(intent, options<span class="built_in">.</span>toBundle());</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：默认会导入android.util.Pair，但我们应该选择android.support.v4.util.Pair来代替。</p>
+</blockquote>
+<p>注意不要使用过多的共享元素。它会使场景有一个粘性直到动画从一个屏幕到另一个屏幕（可能会包含多个共享元素），过多的共享元素会导致用户分心产生糟糕的体验。</p>
+<h4 id="5-自定义共享元素过渡"><a href="#5-自定义共享元素过渡" class="headerlink" title="5.自定义共享元素过渡"></a>5.自定义共享元素过渡</h4><p>在Android L中，共享元素过渡默认结合了 <a href="https://developer.android.com/reference/android/transition/ChangeBounds.html" target="_blank" rel="external">ChangeBounds</a>, <a href="https://developer.android.com/reference/android/transition/ChangeTransform.html" target="_blank" rel="external">ChangeTransform</a>, <a href="https://developer.android.com/reference/android/transition/ChangeImageTransform.html" target="_blank" rel="external">ChangeImageTransform</a>, 和 <a href="https://developer.android.com/reference/android/transition/ChangeClipBounds.html" target="_blank" rel="external">ChangeClipBounds</a>。这可以适用于大多数典型的场景。然而，你可能会自定义这个行为或者甚至定义你自己的自定义过渡。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="comment">-- Base application theme. --&gt;</span></span><br><span class="line">&lt;style <span class="property">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><br><span class="line">    &lt;!<span class="comment">-- enable window content transitions --&gt;</span></span><br><span class="line">    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;<span class="constant">true</span>&lt;/<span class="property">item</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!<span class="comment">-- specify enter and exit transitions --&gt;</span></span><br><span class="line">    &lt;!<span class="comment">-- options are: explode, slide, fade --&gt;</span></span><br><span class="line">    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;@transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line">    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;@transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!<span class="comment">-- specify shared element transitions --&gt;</span></span><br><span class="line">    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span><br><span class="line">      @transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line">    &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span><br><span class="line">      @transition/change_image_transform&lt;/<span class="property">item</span>&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>change_image_transform过渡在这个示例中是这么定义的：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/transition/change_image_transform.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">changeImageTransform</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在运行时开启窗口内容过渡，调用 <code>Window.requestFeature()</code> 方法：<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// inside your activity (if you did not enable transitions in your theme)</span></span><br><span class="line"><span class="function">getWindow</span>()<span class="class">.requestFeature</span>(Window<span class="class">.FEATURE_CONTENT_TRANSITIONS</span>);</span><br><span class="line"><span class="comment">// set an enter transition</span></span><br><span class="line"><span class="function">getWindow</span>()<span class="class">.setEnterTransition</span>(new <span class="function">Explode</span>());</span><br><span class="line"><span class="comment">// set an exit transition</span></span><br><span class="line"><span class="function">getWindow</span>()<span class="class">.setExitTransition</span>(new <span class="function">Explode</span>());</span><br></pre></td></tr></table></figure></p>
+<h5 id="去除窗口内容过渡"><a href="#去除窗口内容过渡" class="headerlink" title="去除窗口内容过渡"></a>去除窗口内容过渡</h5><p>有时候你想去掉状态栏，ActionBar和<a href="https://developer.android.com/training/system-ui/navigation.html" target="_blank" rel="external">导航栏</a>的动画序列的使用，尤其是如果共享元素绘制在它们的上面时（查看<a href="https://plus.google.com/+AlexLockwood/posts/RPtwZ5nNebb" target="_blank" rel="external">Google的这篇文章</a>了解更多细节）。你可以去除这些元素通过添加<code>&lt;targets&gt;</code>标签和指定去除元素的ID：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">slide</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:slideEdge</span>=<span class="value">"right"</span></span><br><span class="line">    <span class="attribute">android:duration</span>=<span class="value">"1000"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">targets</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- if using a custom Toolbar container, specify the ID of the AppBarLayout --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">target</span> <span class="attribute">android:excludeId</span>=<span class="value">"@id/app_bar_layout"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">target</span> <span class="attribute">android:excludeId</span>=<span class="value">"@android:id/statusBarBackground"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">target</span> <span class="attribute">android:excludeId</span>=<span class="value">"@android:id/navigationBarBackground"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">targets</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">slide</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>查看官方指南<a href="https://developer.android.com/training/material/animations.html#Transitions" target="_blank" rel="external">定义自定义动画</a>获取更多信息。</p>
+<h4 id="6-共享元素依赖于异步加载数据"><a href="#6-共享元素依赖于异步加载数据" class="headerlink" title="6. 共享元素依赖于异步加载数据"></a>6. 共享元素依赖于异步加载数据</h4><p>如果共享元素需要通过AsyncTask, a Loader, 或其它类似的进行数据加载在被调用的Activity决定它们最终的表现，数据被分发返回到主线程之前框架可以开始过渡。</p>
+<p>为了解决这个问题，Activity Transitions API提供了一个方法暂时推迟过渡直到我们确切地知道共享元素已经被适当的渲染和放置。</p>
+<p>为了从开始时暂时阻止共享元素过渡，调用<code>postponeEnterTransition()</code>（API &gt;= 21）或<code>supportPostponeEnterTransition()</code>（API &lt; 21）在你被调用的Activity中的onCreate()方法中。然后，当你知道所有共享元素已经被适当的摆放和大小时，调用<code>startPostponedEnterTransition()</code>（API &gt;= 21）或<code>supportStartPostponedEnterTransition()</code>（API &lt; 21）恢复过渡。</p>
+<p>你会找到一个常见的处理模式是在OnPreDrawListener中开启延迟过渡，它将会在共享元素被渲染和放置后调用。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ... load remote image with Glide/Picasso here</span></span><br><span class="line"></span><br><span class="line">supportPostponeEnterTransition();</span><br><span class="line">ivBackdrop.getViewTreeObserver().addOnPreDrawListener(</span><br><span class="line">    <span class="keyword">new</span> ViewTreeObserver.OnPreDrawListener() &#123;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onPreDraw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            ivBackdrop.getViewTreeObserver().removeOnPreDrawListener(<span class="keyword">this</span>);</span><br><span class="line">            supportStartPostponedEnterTransition();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h3 id="Fragment共享元素过渡"><a href="#Fragment共享元素过渡" class="headerlink" title="Fragment共享元素过渡"></a>Fragment共享元素过渡</h3><p>利用共享元素过渡也可以在fragment中使用和上面介绍的对Activity相同的方式显示。</p>
+<p>注意共享元素过渡需要Android5.0（API 21）及以上并且将会忽略低版本。使用API 21指定特性之前确保在<a href="https://developer.android.com/training/material/compatibility.html#CheckVersion" target="_blank" rel="external">运行时检查版本</a>。</p>
+<h4 id="指定共用过渡名称"><a href="#指定共用过渡名称" class="headerlink" title="指定共用过渡名称"></a>指定共用过渡名称</h4><p>在两个Fragment的布局中给共享元素指定共用过渡名称。使用<code>android:transitionName</code>属性并把view放置在FirstFragment和SecondFragment中：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span></span><br><span class="line">  ...&gt;</span><br><span class="line">      &lt;ImageView</span><br><span class="line">          android:id=<span class="string">"@+id/ivProfile"</span></span><br><span class="line">          android:transitionName=<span class="string">"profile"</span></span><br><span class="line">          android:scaleType=<span class="string">"centerCrop"</span></span><br><span class="line">          android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">          android:layout_height=<span class="string">"160dp"</span> /&gt;</span><br><span class="line">      ...</span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.CardView</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="定义过渡"><a href="#定义过渡" class="headerlink" title="定义过渡"></a>定义过渡</h4><p>在res/transition文件夹中添加一个名为change_image_transform.xml的过渡：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">changeImageTransform</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="使用FragmentTransaction过渡动画"><a href="#使用FragmentTransaction过渡动画" class="headerlink" title="使用FragmentTransaction过渡动画"></a>使用FragmentTransaction过渡动画</h4><p>在Activity中，我们可以触发过渡作为FragmentTransaction的一部分：<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// Get access <span class="keyword">to</span> or create instances <span class="keyword">to</span> each <span class="keyword">fragment</span></span><br><span class="line">FirstFragment <span class="keyword">fragment</span>One = ...;</span><br><span class="line">SecondFragment <span class="keyword">fragment</span>Two = ...;</span><br><span class="line">// Check that the device is running lollipop</span><br><span class="line">if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">    // Inflate transitions <span class="keyword">to</span> apply</span><br><span class="line">    Transition changeTransform = TransitionInflater.<span class="keyword">from</span>(this).</span><br><span class="line">          inflateTransition(R.transition.change_image_transform);</span><br><span class="line">    Transition explodeTransform = TransitionInflater.<span class="keyword">from</span>(this).</span><br><span class="line">          inflateTransition(android.R.transition.explode);</span><br><span class="line"></span><br><span class="line">    // Setup exit transition <span class="keyword">on</span> first <span class="keyword">fragment</span></span><br><span class="line">    <span class="keyword">fragment</span>One.<span class="built_in">set</span>SharedElementReturnTransition(changeTransform);</span><br><span class="line">    <span class="keyword">fragment</span>One.<span class="built_in">set</span>ExitTransition(explodeTransform);</span><br><span class="line"></span><br><span class="line">    // Setup enter transition <span class="keyword">on</span> second <span class="keyword">fragment</span></span><br><span class="line">    <span class="keyword">fragment</span>Two.<span class="built_in">set</span>SharedElementEnterTransition(changeTransform);</span><br><span class="line">    <span class="keyword">fragment</span>Two.<span class="built_in">set</span>EnterTransition(explodeTransform);</span><br><span class="line"></span><br><span class="line">    // Find the shared element (<span class="keyword">in</span> Fragment A)</span><br><span class="line">    ImageView ivProfile = (ImageView) findViewById(R.id.ivProfile);</span><br><span class="line"></span><br><span class="line">    // Add second <span class="keyword">fragment</span> by replacing first</span><br><span class="line">    FragmentTransaction ft = getFragmentManager().beginTransaction()</span><br><span class="line">            .replace(R.id.container, <span class="keyword">fragment</span>Two)</span><br><span class="line">            .addToBackStack(<span class="string">"transaction"</span>)</span><br><span class="line">            .addSharedElement(ivProfile, <span class="string">"profile"</span>);</span><br><span class="line">    // Apply the transaction</span><br><span class="line">    ft.commit();</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">    // Code <span class="keyword">to</span> run <span class="keyword">on</span> older devices</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意在fragment退出时我们需要使用setSharedElementReturnTransition和setExitTransition方法，在进入fragment时调用setSharedElementEnterTransition和setEnterTransition方法，最后我们需要找到共享元素实例然后调用<code>addSharedElement(view, transitionName)</code>作为构建FragmentTransaction的一部分。除此之外关于fragment共享元素的过渡的资源有：</p>
+<ul>
+<li><a href="https://medium.com/@bherbst/fragment-transitions-with-shared-elements-7c7d71d31cbb" target="_blank" rel="external">Fragment Transitions Detailed Tutorial</a></li>
+<li><a href="http://www.androidauthority.com/using-shared-element-transitions-activities-fragments-631996/" target="_blank" rel="external">Android Authority article</a> covering the basics</li>
+<li><a href="https://medium.com/@bherbst/fragment-transitions-with-shared-elements-7c7d71d31cbb#.gx3casxjb" target="_blank" rel="external">Medium article on fragment shared element transitions</a></li>
+<li><a href="http://stackoverflow.com/questions/26561579/how-to-start-shared-element-transition-using-fragments/27173907#27173907" target="_blank" rel="external">Useful stackoverflow post</a> for more details</li>
+<li><a href="https://github.com/bherbst/FragmentTransitionSample" target="_blank" rel="external">Sample repo with working code</a></li>
+<li><a href="http://stackoverflow.com/a/31800026/313399" target="_blank" rel="external">More useful sample code</a></li>
+</ul>
+<p>你可以应用这些过渡到fragment上和应用到Activity一样方便。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://developer.android.com/training/material/animations.html" target="_blank" rel="external">https://developer.android.com/training/material/animations.html</a></li>
+<li><a href="http://java.dzone.com/articles/material-design-activity" target="_blank" rel="external">http://java.dzone.com/articles/material-design-activity</a></li>
+<li><a href="https://www.youtube.com/watch?v=97SWYiRtF0Y&amp;t=1403" target="_blank" rel="external">https://www.youtube.com/watch?v=97SWYiRtF0Y&amp;t=1403</a></li>
+<li><a href="https://medium.com/@bherbst/fragment-transitions-with-shared-elements-7c7d71d31cbb#.x8pops1ap" target="_blank" rel="external">https://medium.com/@bherbst/fragment-transitions-with-shared-elements-7c7d71d31cbb#.x8pops1ap</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/android-basic-custom-views-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android基础——自定义View（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="shared-element-activity-transition" data-title="(译)Android 5.0 页面共享元素过渡" data-url="http://yoursite.com/shared-element-activity-transition/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

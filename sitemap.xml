@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/shared-element-activity-transition/</loc>
+    
+    <lastmod>2017-02-28T12:04:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/interview-2016-big-company/</loc>
     
     <lastmod>2016-12-27T06:46:37.000Z</lastmod>
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     
@@ -282,7 +289,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -296,7 +303,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
