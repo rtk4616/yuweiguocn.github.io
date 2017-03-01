@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android圆形揭露动画 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Android圆形揭露动画的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android圆形揭露动画">
+<meta property="og:url" content="http://yoursite.com/circular-reveal-animation/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Android圆形揭露动画的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/reveal.gif">
+<meta property="og:updated_time" content="2017-03-01T11:46:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android圆形揭露动画">
+<meta name="twitter:description" content="本文介绍了Android圆形揭露动画的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.55px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 13.64px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 19.09px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.55px;">demo</a> <a href="/tags/design/" style="font-size: 10.91px;">design</a> <a href="/tags/doc/" style="font-size: 16.36px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.55px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 14.55px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17.27px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 15.45px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.18px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-circular-reveal-animation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/circular-reveal-animation/" class="article-date">
+  	<time datetime="2017-03-01T11:46:01.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android圆形揭露动画
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/animation/">animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android圆形揭露动画的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Circular-Reveal-Animation" target="_blank" rel="external">Circular Reveal Animation</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>揭露动画是Android L中新引入的动画，裁剪View的边界的动画。当显示或隐藏一组UI元素时揭露动画可以给用户提供视觉连续性。这个动画经常用在悬浮按钮上。</p>
+<p><img src="/assets/img/basic/anim/reveal.gif" alt=""></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>使用<code>ViewAnimationUtils.createCircularReveal()</code>方法可以创建揭露动画。</p>
+<p>对于未显示的View使用下面的代码产生揭露动画：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">enterReveal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// previously invisible view</span></span><br><span class="line">    final View myView = findViewById(R.id.my_view);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the center for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> cx = myView.getMeasuredWidth() / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> cy = myView.getMeasuredHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the final radius for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> finalRadius = Math.max(myView.getWidth(), myView.getHeight()) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create the animator for this view (the start radius is zero)</span></span><br><span class="line">    Animator anim =</span><br><span class="line">        ViewAnimationUtils.createCircularReveal(myView, cx, cy, <span class="number">0</span>, finalRadius);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// make the view visible and start the animation</span></span><br><span class="line">    myView.setVisibility(View.VISIBLE);</span><br><span class="line">    anim.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>隐藏已显示的View使用下面的代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exitReveal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// previously visible view</span></span><br><span class="line">    final View myView = findViewById(R.id.my_view);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the center for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> cx = myView.getMeasuredWidth() / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> cy = myView.getMeasuredHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the initial radius for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> initialRadius = myView.getWidth() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create the animation (the final radius is zero)</span></span><br><span class="line">    Animator anim =</span><br><span class="line">        ViewAnimationUtils.createCircularReveal(myView, cx, cy, initialRadius, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// make the view invisible when the animation is done</span></span><br><span class="line">    anim.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</span><br><span class="line">        @<span class="function">Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">            super.onAnimationEnd(animation);</span><br><span class="line">            myView.setVisibility(View.INVISIBLE);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// start the animation</span></span><br><span class="line">    anim.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="View过渡"><a href="#View过渡" class="headerlink" title="View过渡"></a>View过渡</h3><p>在Activity进入过渡完成之后调用<code>enterReveal()</code>：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Transition.TransitionListener mEnterTransitionListener;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  mEnterTransitionListener = <span class="keyword">new</span> Transition.TransitionListener() &#123;</span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTransitionStart</span><span class="params">(Transition transition)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTransitionEnd</span><span class="params">(Transition transition)</span> </span>&#123;</span><br><span class="line">          enterReveal();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTransitionCancel</span><span class="params">(Transition transition)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTransitionPause</span><span class="params">(Transition transition)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTransitionResume</span><span class="params">(Transition transition)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  getWindow().getEnterTransition().addListener(mEnterTransitionListener);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改<code>enterReveal()</code>方法当动画结束后移除监听。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">enterReveal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// previously invisible view</span></span><br><span class="line">    <span class="keyword">final</span> View myView = findViewById(R.id.my_view);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the center for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> cx = myView.getMeasuredWidth() / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> cy = myView.getMeasuredHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// get the final radius for the clipping circle</span></span><br><span class="line">    <span class="keyword">int</span> finalRadius = Math.max(myView.getWidth(), myView.getHeight()) / <span class="number">2</span>;</span><br><span class="line">    Animator anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, <span class="number">0</span>, finalRadius);</span><br><span class="line">    myView.setVisibility(View.VISIBLE);</span><br><span class="line">    anim.addListener(<span class="keyword">new</span> Animator.AnimatorListener() &#123;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">            getWindow().getEnterTransition().removeListener(mEnterTransitionListener);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    anim.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>退出揭露动画完成之后销毁Activity：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">anim.addListener(<span class="keyword">new</span> AnimatorListenerAdapter() &#123;</span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.onAnimationEnd(animation);</span><br><span class="line">            myView.setVisibility(View.INVISIBLE);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Finish the activity after the exit transition completes.</span></span><br><span class="line">            supportFinishAfterTransition();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>为了开启ActionBar的向上或返回按钮的退出揭露过渡，分别在onOptionsItemSelected()和onBackPressed()调用exitReveal()。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">        <span class="comment">// Respond to the action bar's Up/Home button</span></span><br><span class="line">        <span class="keyword">case</span> android.R.id.home:</span><br><span class="line">            exitReveal();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onOptionsItemSelected</span><span class="params">(item)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    exitReveal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>如果你直接在View上使用揭露动画，它可能看起来有些奇怪，因此图形的一部分边也被揭露了。为了解决这个问题，你可以把View嵌入到用描边作为背景的FrameLayout中。通过这样处理，揭露动画的View和背景部分保持一致，因此它看起来只有颜色部分被揭露。</p>
+<p><em>circular_button.xml:</em></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">shape</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span> <span class="attribute">android:shape</span>=<span class="value">"oval"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">solid</span> <span class="attribute">android:color</span>=<span class="value">"@android:color/white"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">stroke</span> <span class="attribute">android:width</span>=<span class="value">"1dp"</span> <span class="attribute">android:color</span>=<span class="value">"#AAA"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">FrameLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"@dimen/button_size"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"@dimen/button_size"</span></span><br><span class="line">    <span class="attribute">android:background</span>=<span class="value">"@drawable/circular_button"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">Button</span></span><br><span class="line">		<span class="attribute">android:id:</span>@"+<span class="attribute">id</span>/<span class="attribute">my_view</span>"</span><br><span class="line">		<span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">	    <span class="attribute">...</span></span><br><span class="line">	&lt;/<span class="attribute">Button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">FrameLayout</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="高级"><a href="#高级" class="headerlink" title="高级"></a>高级</h3><p>为了当用户轻击View让揭露动画开始时看起来更自然，你可以从MotionEvent获取x和y的坐标，使用它开启揭露效果。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (motionEvent.getAction() == MotionEvent.ACTION_UP) &#123;</span><br><span class="line">      <span class="comment">// get the final radius for the clipping circle</span></span><br><span class="line">      <span class="keyword">int</span> finalRadius = Math.max(myView.getWidth(), myView.getHeight()) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// create the animator for this view (the start radius is zero)</span></span><br><span class="line">      Animator anim =</span><br><span class="line">          ViewAnimationUtils.createCircularReveal(myView, (<span class="keyword">int</span>) motionEvent.getX(), (<span class="keyword">int</span>) motionEvent.getY(), <span class="number">0</span>, finalRadius);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// make the view visible and start the animation</span></span><br><span class="line">      myView.setVisibility(View.VISIBLE);</span><br><span class="line">      anim.start();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://developer.android.com/training/material/animations.html" target="_blank" rel="external">https://developer.android.com/training/material/animations.html</a></li>
+<li><a href="http://trickyandroid.com/simple-ripple-reveal-elevation-tutorial/" target="_blank" rel="external">http://trickyandroid.com/simple-ripple-reveal-elevation-tutorial/</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/shared-element-activity-transition/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Android 5.0 页面共享元素过渡</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="circular-reveal-animation" data-title="（译）Android圆形揭露动画" data-url="http://yoursite.com/circular-reveal-animation/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

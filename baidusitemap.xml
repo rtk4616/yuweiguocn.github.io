@@ -4,11 +4,32 @@
 
     
   <url>
-    <loc>http://yoursite.com/shared-element-activity-transition/</loc>
-    <lastmod>2017-02-28T12:04:30.000Z</lastmod>
+    <loc>http://yoursite.com/circular-reveal-animation/</loc>
+    <lastmod>2017-03-01T11:46:01.000Z</lastmod>
     <data>
         <display>
-        <title>(译)Android 5.0 页面共享元素过渡</title>
+        <title>（译）Android圆形揭露动画</title>
+        <pubTime>2017-03-01T11:46:01.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>animation</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/shared-element-activity-transition/</loc>
+    <lastmod>2017-02-28T12:06:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android 5.0 页面共享元素过渡</title>
         <pubTime>2017-02-28T12:04:30.000Z</pubTime>
         
         <tag>android</tag>
