@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/view-hierarchy-animations/</loc>
+    
+    <lastmod>2017-03-03T10:08:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/ripple-animation/</loc>
     
     <lastmod>2017-03-02T09:07:15.000Z</lastmod>
@@ -86,14 +93,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-java/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -107,14 +107,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-interview-java/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-interview-list/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     
@@ -303,7 +310,21 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -325,20 +346,6 @@
   
   <url>
     <loc>http://yoursite.com/android-studio-tips-3/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
