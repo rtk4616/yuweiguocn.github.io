@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）Android材料设计支持库 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Design Support Library的使用及包含的组件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）Android材料设计支持库">
+<meta property="og:url" content="http://yoursite.com/design-support-library/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Design Support Library的使用及包含的组件。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-1.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-2.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-3.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-4.png">
+<meta property="og:updated_time" content="2017-03-08T06:47:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）Android材料设计支持库">
+<meta name="twitter:description" content="本文介绍了Design Support Library的使用及包含的组件。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14.44px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 15.56px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.89px;">basic</a> <a href="/tags/blog/" style="font-size: 11.11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 11.11px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 13.33px;">data binding</a> <a href="/tags/demo/" style="font-size: 14.44px;">demo</a> <a href="/tags/design/" style="font-size: 14.44px;">design</a> <a href="/tags/doc/" style="font-size: 16.67px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12.22px;">guide</a> <a href="/tags/hexo/" style="font-size: 12.22px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14.44px;">interview</a> <a href="/tags/java/" style="font-size: 12.22px;">java</a> <a href="/tags/mac/" style="font-size: 11.11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11.11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11.11px;">resources</a> <a href="/tags/series/" style="font-size: 14.44px;">series</a> <a href="/tags/service/" style="font-size: 12.22px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 11.11px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17.78px;">support</a> <a href="/tags/teach/" style="font-size: 12.22px;">teach</a> <a href="/tags/tips/" style="font-size: 15.56px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 18.89px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-design-support-library" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/design-support-library/" class="article-date">
+  	<time datetime="2017-03-08T05:06:57.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）Android材料设计支持库
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Design Support Library的使用及包含的组件。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Design-Support-Library" target="_blank" rel="external">Design Support Library</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>在Google I/O 2015大会上，谷歌发布了新的 <a href="http://android-developers.blogspot.com/2015/05/android-design-support-library.html" target="_blank" rel="external">design support library</a>，带来了很多材料设计组件包括抽屉导航，悬浮标签，悬浮按钮，snackbars和配合动作和滚动事件的新框架。类库支持Android 2.3及以上。</p>
+<p><img src="/assets/img/support/design/design-1.png" alt=""> <img src="/assets/img/support/design/design-2.png" alt=""> <img src="/assets/img/support/design/design-3.png" alt=""></p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>材料设计支持库包含以下关键特性：<br>1.<a href="http://guides.codepath.com/android/Floating-Action-Buttons" target="_blank" rel="external">FloatingActionButton</a>——右下角圆形按钮表示界面的主要动作。<br>2.<a href="http://guides.codepath.com/android/Google-Play-Style-Tabs-using-TabLayout" target="_blank" rel="external">TabLayout</a>——一种简单的方法把tabs放到<code>ViewPager</code>周围用作在Fragment之间滑动tabs。<br>3.<a href="http://guides.codepath.com/android/Fragment-Navigation-Drawer" target="_blank" rel="external">NavigationView</a>——提供一个从左滑出的导航抽屉带有一个头和一些导航Items。<br>4.<a href="http://guides.codepath.com/android/Displaying-the-Snackbar" target="_blank" rel="external">SnackBar</a>——显示在屏幕底部并且包含文本和可选的一个动作。在给定的时间自动滑出屏幕。<br>5.<a href="http://guides.codepath.com/android/Working-with-the-EditText#displaying-floating-label-feedback" target="_blank" rel="external">TextInputLayout</a>——在任何文本域上面悬浮提示用户输入的信息和添加字符计数。<br>6.<a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout" target="_blank" rel="external">CoordinatorLayout</a> 在子View之间的滚动和触摸事件提供额外的控制级别。</p>
+<ul>
+<li><a href="http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html" target="_blank" rel="external">AppBarLayout</a> ——对于滚动事件允许toolbar和其它View相互作用。</li>
+<li><a href="http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html" target="_blank" rel="external">CollapsingToolbarLayout</a> ——用户通过View滚动时可以折叠toolbar。</li>
+<li><a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#bottom-sheets" target="_blank" rel="external">Bottom Sheets</a>——从屏幕底部向上滑出材料设计的表。</li>
+</ul>
+<p>7.<a href="http://guides.codepath.com/android/Constructing-View-Layouts#percentrelativelayout" target="_blank" rel="external">PercentRelativeLayout</a>和<a href="https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html" target="_blank" rel="external">PercentFrameLayout</a>可以让View占据<a href="http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html" target="_blank" rel="external">百分比尺寸</a>。<br>8.<a href="http://guides.codepath.com/android/Drawables#vector-drawables" target="_blank" rel="external">Vector Drawables</a>为了减少需要包含每个密度大小的图片。</p>
+<ul>
+<li>Vector drawables向后兼容到 Android 2.1 (API 7)，但动画的animated vector drawables只能向后兼容到 Android 3.0 (API 11)。</li>
+</ul>
+<p>9.<a href="/view-hierarchy-animations/">Android View层级动画</a>使用<a href="https://developer.android.com/training/transitions/overview.html" target="_blank" rel="external">过渡(Transitions)框架</a>向下兼容至Android 4.0(API 14)<br>10.<a href="http://guides.codepath.com/android/Bottom-Navigation-Views" target="_blank" rel="external">Bottom Navigation Views</a>——方便切换在3到5个Tab Item之间。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a><a name="setup"></a>配置</h3><p>支持Android Gradle v2.1.0及以上版本。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.2.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是新的材料设计库必须引入的。这个类库也依赖于引入的<a href="http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html" target="_blank" rel="external">AppCompat</a>的版本。如果你没有使用这个类库，查看<a href="http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library" target="_blank" rel="external">合并指南</a>。除此之外，确保这些版本也已更新。</p>
+<p>修改根目录下的<code>build.gradle</code>文件：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">android </span>&#123;</span><br><span class="line">   compileSdkVersion <span class="number">25</span>  // usually needs to <span class="keyword">be </span>consistent with major support libs used, <span class="keyword">but </span>not necessary</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="label">ext</span> &#123;</span><br><span class="line">  supportLibVersion = <span class="string">'25.2.0'</span>  // variable that can <span class="keyword">be </span>referenced to <span class="preprocessor">keep</span> support libs consistent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>app/build.gradle</code>文件中添加依赖：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">compile</span> <span class="string">"com.android.support:appcompat-v7:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">    compile <span class="string">"com.android.support:design:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你使用了<a href="http://guides.codepath.com/android/Using-the-RecyclerView" target="_blank" rel="external">RecyclerView</a>，<a href="http://guides.codepath.com/android/Using-the-CardView" target="_blank" rel="external">CardView</a>，或其它<a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="external">support v7相关的类库</a>你也需要更新这些版本。例如RecyclerView有特性使用了最新的材料设计支持库。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">compile</span> <span class="string">"com.android.support:recyclerview-v7:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加百分比类库"><a href="#添加百分比类库" class="headerlink" title="添加百分比类库"></a>添加百分比类库</h3><p>添加百分比类库依赖：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">compile</span> <span class="string">"com.android.support:percent:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加Vector-Drawable类库"><a href="#添加Vector-Drawable类库" class="headerlink" title="添加Vector Drawable类库"></a>添加Vector Drawable类库</h3><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// This config <span class="keyword">only</span> works <span class="keyword">for</span> Android Gradle Plugin v2.<span class="number">1.0</span> or higher:</span><br><span class="line">android &#123;  </span><br><span class="line">   defaultConfig &#123;  </span><br><span class="line">     vectorDrawables.useSupportLibrary = true  </span><br><span class="line">    &#125;  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>最后，添加依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.android.support:support-vector-drawable:$&#123;supportLibVersion&#125;"</span> <span class="comment">// VectorDrawableCompat</span></span><br><span class="line">    <span class="keyword">compile</span> <span class="string">"com.android.support:animated-vector-drawable:$&#123;supportLibVersion&#125;"</span> <span class="comment">// AnimatedVectorDrawableCompat</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>详细用法请查看<a href="http://guides.codepath.com/android/Drawables#vector-drawables" target="_blank" rel="external">vector drawables指南</a>。</p>
+<h3 id="添加过渡类库"><a href="#添加过渡类库" class="headerlink" title="添加过渡类库"></a>添加过渡类库</h3><p>过渡（Transitions）API最先在Android 4.4 (KitKat) 中引入，现在为支持View层级动画兼容到Android 4.0。但是，对于activity/fragment的过渡是不支持的。为了使用这个类库，需要添加依赖：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">compile</span> <span class="string">"com.android.support:transition:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加注解类库"><a href="#添加注解类库" class="headerlink" title="添加注解类库"></a>添加注解类库</h3><p>为了利用<a href="http://tools.android.com/tech-docs/support-annotations" target="_blank" rel="external">注解（Annotations）类库</a>，你也可以在gradle文件中明确指定添加它。添加<a href="http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library" target="_blank" rel="external">AppCompat</a>或指定添加它：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">compile</span> <span class="string">"com.android.support:support-annotations:<span class="variable">$&#123;supportLibVersion&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="安装类库"><a href="#安装类库" class="headerlink" title="安装类库"></a>安装类库</h3><p>你通常需要打开<a href="https://developer.android.com/tools/support-library/setup.html" target="_blank" rel="external">SDK Manager</a>确保已经下载了最新的<code>Android Support Repository</code>和<code>Android Support Library</code>。当有类库缺失时Android Studio会在下面提示，你可以点击<code>Install repository and sync project</code>。只有当指定了有效的类库和版本才会处理成功，它会开始升级不需要打开SDK Manager。<br><img src="/assets/img/support/design/design-4.png" alt=""></p>
+<p>如果你使用了任何类型的连续构建系统并且需要自动下载和更新support类库，你可以使用<a href="http://guides.codepath.com/android/Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way" target="_blank" rel="external">Jake Wharton’s SDK Manager</a>下载安装包。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p>如果你想查看不同组件如何使用，可以查看<a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">示例代码</a> 及 <a href="https://github.com/JulienGenoud/android-percent-support-lib-sample" target="_blank" rel="external">百分比类库示例代码</a>。</p>
+<h3 id="官方源码"><a href="#官方源码" class="headerlink" title="官方源码"></a>官方源码</h3><p>Android开源工程(AOSP) 为这个类库挂载了主要发布版本，可以从<a href="https://android.googlesource.com/platform/frameworks/support.git/+/master/design/" target="_blank" rel="external">这里找到</a>。例如，如果你好奇对于不同的组件什么的样式可以被重写，查看<a href="https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml" target="_blank" rel="external">这个链接</a>。</p>
+<p>从v23.1.0版本开始support类库的修改会包含在SDK目录中（例如：Mac OS X系统中目录为<code>Library/Android/sdk/extras/android/m2repository/com/android/support/design</code>）</p>
+<h3 id="修改日志"><a href="#修改日志" class="headerlink" title="修改日志"></a>修改日志</h3><h4 id="Support-Library-v23"><a href="#Support-Library-v23" class="headerlink" title="Support Library v23"></a>Support Library v23</h4><ul>
+<li><code>Resources.getColor()</code>被弃用。现在使用<code>ContextCompat.getColor()</code>代替。查看<a href="http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23" target="_blank" rel="external">Stack Overflow 的文章</a>或官方<a href="http://developer.android.com/reference/android/content/res/Resources.html" target="_blank" rel="external">API文档</a>。</li>
+</ul>
+<h4 id="Support-Library-v23-1"><a href="#Support-Library-v23-1" class="headerlink" title="Support Library v23.1"></a>Support Library v23.1</h4><ul>
+<li><code>TextInputLayout</code>和<code>EditText</code>现在可以添加一个字符计数。（<a href="http://guides.codepath.com/android/Working-with-the-EditText#adding-character-counting" target="_blank" rel="external">使用介绍</a>）</li>
+<li><code>snap</code>标志也被添加到滚动列表中影响AppBarLayout。（<a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events" target="_blank" rel="external">使用介绍</a>）</li>
+<li><code>AppBarLayout</code>中添加<code>setOnDragListener()</code>方法。（<a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#embedding-google-maps-in-appbarlayout" target="_blank" rel="external">使用介绍</a>）</li>
+<li><code>PercentRelativeLayout</code>现在支持<code>aspectRatio</code>属性。（<a href="http://guides.codepath.com/android/Constructing-View-Layouts#aspect-ratio" target="_blank" rel="external">使用介绍</a>）</li>
+<li><code>RecyclerView</code>新的item动画接口。（<a href="http://guides.codepath.com/android/Using-the-RecyclerView#new-itemanimator-interface" target="_blank" rel="external">使用介绍</a>）</li>
+<li><code>NavigationView</code>支持自定义View行。（<a href="http://guides.codepath.com/android/Fragment-Navigation-Drawer#adding-custom-views-to-navigation-drawer" target="_blank" rel="external">使用介绍</a>）</li>
+</ul>
+<h4 id="Support-Library-v23-1-1"><a href="#Support-Library-v23-1-1" class="headerlink" title="Support Library v23.1.1"></a>Support Library v23.1.1</h4><ul>
+<li>NavigationView添加<code>getHeaderView()</code>方法。（<a href="http://guides.codepath.com/android/Fragment-Navigation-Drawer#getting-references-to-the-header" target="_blank" rel="external">使用介绍</a>）<h4 id="Support-Library-v23-2"><a href="#Support-Library-v23-2" class="headerlink" title="Support Library v23.2"></a>Support Library v23.2</h4></li>
+<li>添加对bottom sheets的支持。（<a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#bottom-sheets" target="_blank" rel="external">使用介绍</a>）</li>
+<li>为vector drawables添加配置说明。（<a href="http://guides.codepath.com/android/Drawables#vector-drawables" target="_blank" rel="external">使用介绍</a>）<h4 id="Support-Library-v24-2-0"><a href="#Support-Library-v24-2-0" class="headerlink" title="Support Library v24.2.0"></a>Support Library v24.2.0</h4></li>
+<li><code>TextInputLayout</code>和<code>EditText</code>现在包含切换密码可见性的开关。（<a href="http://guides.codepath.com/android/Working-with-the-EditText#adding-password-visibility-toggles" target="_blank" rel="external">使用介绍</a>）</li>
+<li>为RecyclerView添加了DiffUtil类。（<a href="http://guides.codepath.com/android/Using-the-RecyclerView#diffing-larger-changes" target="_blank" rel="external">使用介绍</a>）</li>
+<li>Support v4类库模块已经分离出来，但这并不能减少APK的大小，因为fragment类库还依赖于所有其它相关模块。（<a href="http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library#overview" target="_blank" rel="external">使用介绍</a>）</li>
+<li>过渡（Transitions）API向后兼容到Android 4.0，但不包括对activity/fragment过渡的支持。（<a href="/view-hierarchy-animations/">使用介绍——（译）View层级动画</a>）<h4 id="Support-Library-v25-0-0"><a href="#Support-Library-v25-0-0" class="headerlink" title="Support Library v25.0.0"></a>Support Library v25.0.0</h4></li>
+<li>添加底部导航支持-BottomNavigationView（<a href="http://guides.codepath.com/android/Bottom-Navigation-Views" target="_blank" rel="external">使用介绍</a>）</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd" target="_blank" rel="external">https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd</a></li>
+<li><a href="http://android-developers.blogspot.com/2015/05/android-design-support-library.html" target="_blank" rel="external">http://android-developers.blogspot.com/2015/05/android-design-support-library.html</a></li>
+<li><a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">https://github.com/chrisbanes/cheesesquare</a></li>
+<li><a href="http://hmkcode.com/material-design-app-android-design-support-library-appcompat/" target="_blank" rel="external">http://hmkcode.com/material-design-app-android-design-support-library-appcompat/</a></li>
+<li><a href="https://medium.com/ribot-labs/exploring-the-new-android-design-support-library-b7cda56d2c32" target="_blank" rel="external">https://medium.com/ribot-labs/exploring-the-new-android-design-support-library-b7cda56d2c32</a></li>
+<li><a href="https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj" target="_blank" rel="external">https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj</a></li>
+<li><a href="https://code.google.com/p/android/issues/list?can=1&amp;q=label%3AVersion-22.2.1" target="_blank" rel="external">https://code.google.com/p/android/issues/list?can=1&amp;q=label%3AVersion-22.2.1</a></li>
+<li><a href="https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076" target="_blank" rel="external">https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076</a></li>
+<li><a href="https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.dvbsz7sts" target="_blank" rel="external">https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.dvbsz7sts</a></li>
+<li><a href="https://plus.google.com/+AndroidDevelopers/posts/iTDmFiGrVne" target="_blank" rel="external">https://plus.google.com/+AndroidDevelopers/posts/iTDmFiGrVne</a></li>
+<li><a href="https://www.reddit.com/r/androiddev/comments/4y70e7/android_support_library_v242_released/" target="_blank" rel="external">https://www.reddit.com/r/androiddev/comments/4y70e7/android_support_library_v242_released/</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/view-hierarchy-animations/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）View层级动画</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="design-support-library" data-title="（译）Android材料设计支持库" data-url="http://yoursite.com/design-support-library/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
