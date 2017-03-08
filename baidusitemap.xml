@@ -4,14 +4,16 @@
 
     
   <url>
-    <loc>http://yoursite.com/design-support-library/</loc>
-    <lastmod>2017-03-08T06:47:13.000Z</lastmod>
+    <loc>http://yoursite.com/view-hierarchy-animations/</loc>
+    <lastmod>2017-03-08T06:56:47.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android材料设计支持库</title>
-        <pubTime>2017-03-08T05:06:57.000Z</pubTime>
+        <title>（译）View层级动画</title>
+        <pubTime>2017-03-03T09:56:35.000Z</pubTime>
         
         <tag>android</tag>
+         
+        <tag>animation</tag>
          
         <tag>design</tag>
          
@@ -25,16 +27,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/view-hierarchy-animations/</loc>
-    <lastmod>2017-03-03T10:08:42.000Z</lastmod>
+    <loc>http://yoursite.com/design-support-library/</loc>
+    <lastmod>2017-03-08T06:52:24.000Z</lastmod>
     <data>
         <display>
-        <title>（译）View层级动画</title>
-        <pubTime>2017-03-03T09:56:35.000Z</pubTime>
+        <title>（译）Android材料设计支持库</title>
+        <pubTime>2017-03-08T05:06:57.000Z</pubTime>
         
         <tag>android</tag>
-         
-        <tag>animation</tag>
          
         <tag>design</tag>
          

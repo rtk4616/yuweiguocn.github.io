@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/view-hierarchy-anim2.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/view-hierarchy-anim3.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/view-hierarchy-anim4.png">
-<meta property="og:updated_time" content="2017-03-03T10:08:42.000Z">
+<meta property="og:updated_time" content="2017-03-08T06:56:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（译）View层级动画">
 <meta name="twitter:description" content="本文介绍了Android View层级动画的使用。">
@@ -249,7 +249,7 @@
 <p><img src="/assets/img/basic/anim/view-hierarchy-anim1.gif" alt=""></p>
 <p>Transitions API通过引入的场景（scene）的概念来工作，场景反映了一个View层级（一个容器布局例如LinearLayout，RelativeLayout等等）的快照。框架解决了场景之间出现的改变和执行一个默认的动画序列集合。</p>
 <p><img src="/assets/img/basic/anim/view-hierarchy-anim2.png" alt=""></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>如果你想支持Android 4.0的设备，确保在Gradle配置中引入了<a href="http://guides.codepath.com/android/Design-Support-Library#setup" target="_blank" rel="external">design support library</a>。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>如果你想支持Android 4.0的设备，确保在Gradle配置中引入了<a href="/design-support-library/#setup">design support library</a>。</p>
 <h3 id="布局修改动画"><a href="#布局修改动画" class="headerlink" title="布局修改动画"></a>布局修改动画</h3><p><img src="/assets/img/basic/anim/view-hierarchy-anim3.png" alt=""></p>
 <p>简单地调用<code>TransitionManager</code>：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">TransitionManager</span><span class="class">.beginDelayedTransition</span>(<span class="tag">viewRoot</span>);</span><br></pre></td></tr></table></figure>
