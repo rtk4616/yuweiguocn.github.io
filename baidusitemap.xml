@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/dynamic-color-using-palettes/</loc>
+    <lastmod>2017-03-10T08:35:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）使用Palettes提取颜色</title>
+        <pubTime>2017-03-10T08:16:15.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/view-hierarchy-animations/</loc>
     <lastmod>2017-03-08T06:56:47.000Z</lastmod>
     <data>
@@ -304,6 +325,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-interview-list/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试题集合</title>
+        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -387,46 +448,6 @@
         <tag>interview</tag>
          
         <tag>java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试题集合</title>
-        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
          
          
            
