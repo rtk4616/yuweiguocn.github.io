@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/material-design-primer/</loc>
+    
+    <lastmod>2017-03-11T09:55:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/design-support-library/</loc>
+    
+    <lastmod>2017-03-11T09:37:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/dynamic-color-using-palettes/</loc>
     
     <lastmod>2017-03-10T08:35:47.000Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/view-hierarchy-animations/</loc>
     
     <lastmod>2017-03-08T06:56:47.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/design-support-library/</loc>
-    
-    <lastmod>2017-03-08T06:52:24.000Z</lastmod>
     
   </url>
   
@@ -331,14 +338,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -359,7 +366,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     

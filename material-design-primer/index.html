@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）初识Material Design | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了Material Design设计规范，包含的组件和示例应用等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）初识Material Design">
+<meta property="og:url" content="http://yoursite.com/material-design-primer/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了Material Design设计规范，包含的组件和示例应用等。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-5.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-6.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-7.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-8.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-9.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-10.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-11.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-12.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-13.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-14.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-15.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-16.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/ripple-anim1.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/transition-3.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/basic/anim/reveal.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-17.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-18.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-19.png">
+<meta property="og:updated_time" content="2017-03-11T09:55:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）初识Material Design">
+<meta name="twitter:description" content="本文介绍了Material Design设计规范，包含的组件和示例应用等。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 14px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 15px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18px;">basic</a> <a href="/tags/blog/" style="font-size: 11px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 11px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 13px;">data binding</a> <a href="/tags/demo/" style="font-size: 14px;">demo</a> <a href="/tags/design/" style="font-size: 16px;">design</a> <a href="/tags/doc/" style="font-size: 16px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 12px;">guide</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 14px;">interview</a> <a href="/tags/java/" style="font-size: 12px;">java</a> <a href="/tags/mac/" style="font-size: 11px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 11px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 11px;">resources</a> <a href="/tags/series/" style="font-size: 14px;">series</a> <a href="/tags/service/" style="font-size: 12px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 11px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17px;">support</a> <a href="/tags/teach/" style="font-size: 12px;">teach</a> <a href="/tags/tips/" style="font-size: 15px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-material-design-primer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/material-design-primer/" class="article-date">
+  	<time datetime="2017-03-11T08:47:23.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）初识Material Design
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Material Design设计规范，包含的组件和示例应用等。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Material-Design-Primer" target="_blank" rel="external">Material Design Primer</a></p>
+<p>随着Android 5.0的发布，带来了新的Android UI设计规范。这些规范称为“material design”。本文专门讲解材料设计。</p>
+<p><img src="/assets/img/support/design/design-5.png" alt=""> <img src="/assets/img/support/design/design-6.png" alt=""> <img src="/assets/img/support/design/design-7.png" alt=""></p>
+<h3 id="什么是Material-Design？"><a href="#什么是Material-Design？" class="headerlink" title="什么是Material Design？"></a>什么是Material Design？</h3><p>什么是完全地”Material Design”？这很难有一个答案因为更新的范围太广了。一个具体的突出材料设计的应用将包括下面的元素：</p>
+<p>1.<a href="https://www.materialpalette.com/" target="_blank" rel="external">充满活力的配色方案</a><br>2.<a href="#material-design-icons">更新过的图标</a><br>3.列表使用<a href="/using-the-recyclerview">RecyclerView</a>并且item使用<a href="/using-the-cardview">CardViews</a><br>4.使用新的<a href="/using-the-app-toolbar">App Toolbar</a><br>5.<a href="/handling-scrolls-with-coordinatorlayout">使用CoordinatorLayout处理滚动行为</a><br>6.<a href="/floating-action-buttons">Floating Action Buttons</a><br>7.<a href="/ripple-animation/">为触摸反馈添加水波纹动画</a><br>8.<a href="/shared-element-activity-transition/">页面切换时使用共享元素变形过渡</a><br>9.<a href="#elevation-and-shadows">View 的高度和阴影</a><br>10.<a href="#dialog-styles">更新过的对话框样式</a></p>
+<p>这些只是实现材料设计中突出的几点。想要更深入的了解，请观看Yash Prabhu的 <a href="https://realm.io/news/360andev-yash-prabhu-practical-guide-material-design-android-ui/" target="_blank" rel="external">Material Design Primer</a>或Nidhi Shah的<a href="https://www.youtube.com/watch?v=-SxPDFnCmF0" target="_blank" rel="external">Living in a Material World</a>。</p>
+<h3 id="设计规范"><a href="#设计规范" class="headerlink" title="设计规范"></a>设计规范</h3><p>这个新的框架对于Android应用界面包含几个改变并且Google强烈鼓励采用下面这些新的原则:</p>
+<ul>
+<li><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="external">Material Design Guidelines</a> - 材料设计规范指南</li>
+<li><a href="https://developer.android.com/design/material/index.html" target="_blank" rel="external">Material Design Docs</a> - 材料设计概览</li>
+<li><a href="http://www.materialdoc.com/components/" target="_blank" rel="external">Highly Simplified Material Design For Developers </a>- 为开发者简化了规范</li>
+<li><a href="https://developer.android.com/training/material/index.html" target="_blank" rel="external">Material Design for Developers</a> - 材料设计开发指南</li>
+<li><a href="http://www.materialup.com/" target="_blank" rel="external">Material Design Examples</a> - 材料设计示例</li>
+<li><a href="http://www.materialpalette.com/" target="_blank" rel="external">Material Palette</a> - 很方便地获取材料设计规范颜色</li>
+<li><a href="http://materialdesignicons.com/" target="_blank" rel="external">Material Design Icons</a> - 标准的材料设计ICONs</li>
+</ul>
+<p>使用这些材料，你能理解并在你自己的应用坚持这些规范。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p>这有一些不同种类的材料设计最佳实践的应用包括：</p>
+<ul>
+<li><a href="https://github.com/nickbutcher/plaid" target="_blank" rel="external">Plaid</a> - 展示了Google的材料设计和动画</li>
+<li><a href="https://github.com/googlesamples/android-topeka" target="_blank" rel="external">Topeka</a> - Google出品材料设计示例应用</li>
+<li><a href="https://github.com/google/iosched" target="_blank" rel="external">Google IO Schedule</a> - Google出品现代Android UI示例应用</li>
+<li><a href="https://github.com/naman14/Timber" target="_blank" rel="external">Timber</a> - 现代音乐播放器展示了很漂亮的材料设计</li>
+<li><a href="https://github.com/Kennyc1012/Opengur" target="_blank" rel="external">Opengur</a> - Android imgur viewer 展示了现代UI模型</li>
+<li><a href="https://github.com/ccrama/Slide" target="_blank" rel="external">Slide</a> - 材料设计的Reddit Android应用</li>
+<li><a href="https://github.com/lightSky/Awesome-MaterialDesign" target="_blank" rel="external">Awesome-MaterialDesign</a> - 列出了受欢迎的材料设计类库和示例应用</li>
+</ul>
+<p>希望这些示例应用能给你探索材料设计一个坚实的起点。</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>当切换到新的材料设计主题，你并不能支持很多不能升级到Android 5.0的老设备。这就是<a href="https://developer.android.com/training/material/compatibility.html#SupportLib" target="_blank" rel="external">Material Support Library</a>存在的原因。</p>
+<p>Google发布了一个方便的<a href="http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html" target="_blank" rel="external">Material Design Checklist</a>来确保你已经应用了必要的步骤符合材料设计规范。</p>
+<h4 id="引入Support-Library"><a href="#引入Support-Library" class="headerlink" title="引入Support Library"></a>引入Support Library</h4><p>默认情况下，使用Android Studio创建的应用自动开启材料设计的支持。然而，我们之前的应用怎么办？我们应该怎样让它们支持材料设计？查看这个<a href="http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library" target="_blank" rel="external">迁移指南</a>。</p>
+<h4 id="Design-Support-Library"><a href="#Design-Support-Library" class="headerlink" title="Design Support Library"></a>Design Support Library</h4><p>在2015年6月，Google发布了<a href="/design-support-library">Design Support Library</a>帮助简化使用大量的材料设计组件，包括抽屉导航，悬浮标签，悬浮按钮，snackbars和配合动作和滚动事件的新框架。跟随<a href="/design-support-library#setup">配置指南</a>利用好这些新的UI组件。</p>
+<h4 id="修改应用主题"><a href="#修改应用主题" class="headerlink" title="修改应用主题"></a>修改应用主题</h4><p>在<code>values/styles.xml</code>文件中修改应用主题继承自<code>Theme.AppCompat</code>并且应用<a href="https://developer.android.com/training/material/theme.html#ColorPalette" target="_blank" rel="external">材料设计颜色属性</a>：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="property">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- colorPrimary is used for the default action bar background --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorPrimary"</span>&gt;@color/primary&lt;/<span class="property">item</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- colorPrimaryDark is used for the status bar --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;@color/primary_dark&lt;/<span class="property">item</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- colorAccent is used as the default value for widgets --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorAccent"</span>&gt;@color/accent&lt;/<span class="property">item</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- Default color of the text in your views  --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:textColorPrimary"</span>&gt;@color/textPrimary&lt;/<span class="property">item</span>&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>这些颜色和下图一一对应：</p>
+<p><img src="/assets/img/support/design/design-8.png" alt=""></p>
+<p>如果需要进一步自定义你也可以重写这些属性：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;style <span class="property">name</span>=<span class="string">"AppTheme"</span> parent=<span class="string">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- ... styles above ... --&gt;</span></span><br><span class="line">  &lt;!<span class="comment">-- Applies to views in their activated state (i.e checked or switches) --&gt;   </span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorControlActivated"</span>&gt;@color/colorActivated&lt;/<span class="property">item</span>&gt;      </span><br><span class="line">  &lt;!<span class="comment">-- Applied to framework control highlights (i.e ripples or list selectors) --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"colorControlHighlight"</span>&gt;@color/colorHighlight&lt;/<span class="property">item</span>&gt;  </span><br><span class="line">  &lt;!<span class="comment">-- Default color of the status bar at the top of your device  --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:statusBarColor"</span>&gt;@color/primaryDark&lt;/<span class="property">item</span>&gt;</span><br><span class="line">  &lt;!<span class="comment">-- Default color of the navigation bar at the bottom of your device  --&gt;</span></span><br><span class="line">  &lt;<span class="property">item</span> <span class="property">name</span>=<span class="string">"android:navigationBarColor"</span>&gt;@color/primary&lt;/<span class="property">item</span>&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>支持材料设计可用的Theme.Appcompat包括：Theme.AppCompat, Theme.AppCompat.Light, Theme.AppCompat.Light.DarkActionBar, Theme.AppCompat.DeviceDefault, Theme.AppCompat.DeviceDefault.Light, Theme.AppCompat.DeviceDefault.Light.DarkActionBar。</p>
+<h4 id="继承AppCompatActivity"><a href="#继承AppCompatActivity" class="headerlink" title="继承AppCompatActivity"></a>继承AppCompatActivity</h4><p><code>AppCompatActivity</code>是<code>FragmentActivity</code>的一个子类，因此从之前的支持库使用<code>FragmentActivity</code>应该没什么问题：<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">HomeActivity</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AppCompatActivity</span> &#123;</span></span><br><span class="line">    <span class="comment">// Implementation</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="使用ActionBar"><a href="#使用ActionBar" class="headerlink" title="使用ActionBar"></a>使用ActionBar</h4><p>关于怎样使用<code>AppCompatActivity</code>配置ActionBar的兼容的更多细节请查看我们的<a href="http://guides.codepath.com/android/Extended-ActionBar-Guide#setting-up-actionbaractivity" target="_blank" rel="external">ActionBar使用指南</a>，包括修改所有的<code>menu</code>文件使用<code>app:showAsAction</code>而不是<code>android:showAsAction</code>。</p>
+<p>一旦你切换到<code>AppCompatActivity</code>，你需要<code>getSupportActionBar</code>访问ActionBar而不是<code>getActionBar</code>：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getSupportActionBar.show(); <span class="comment">// 正确</span></span><br><span class="line">getActionBar.<span class="keyword">hide</span>(); <span class="comment">// 错误</span></span><br></pre></td></tr></table></figure></p>
+<p>除此之外，ActionBar的样式需要使用<a href="http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-styles" target="_blank" rel="external">材料设计支持的样式</a>修改而不是传统的ActionBar样式。</p>
+<h4 id="图标"><a href="#图标" class="headerlink" title="图标"></a><a name="material-design-icons"></a>图标</h4><p>随着Android 5.0的发布，在现代Android应用中为icon提升了视觉设计样式。Google为开发者提供了一些<a href="https://github.com/google/material-design-icons/" target="_blank" rel="external">material design icons</a>。你应该<a href="https://github.com/google/material-design-icons/archive/master.zip" target="_blank" rel="external">下载这个仓库</a>并且获取有用的文件。</p>
+<p><img src="/assets/img/support/design/design-9.png" alt=""></p>
+<p>开源社区<a href="http://materialdesignicons.com/" target="_blank" rel="external">materialdesignicons</a> icon网站也有大量的material icons。感谢support design library<a href="http://android-developers.blogspot.com/2016/02/android-support-library-232.html" target="_blank" rel="external">最近的更新</a>，你可以导入这些icon作为可缩放的矢量图形（<code>.svg</code>）文件，解决了为不同分辨率需要导入不同的图片文件。</p>
+<p>对于Android 5.0之前的设备确保<a href="/design-support-library/#adding-vector-drawable-library">通过配置说明</a>添加了vector drawable support。Material Design icons在<a href="http://guides.codepath.com/android/Drawables#vector-drawables" target="_blank" rel="external">Vector Drawable</a> XML格式中已经可用，不同于.SVG文件。另外，你也可以下载.SVG文件，在<code>res/drawable</code>文件夹上右击，选择<code>Vector Asset</code>选项导入这些<code>.svg</code>文件为Vector Drawable XML，其它任何<a href="http://guides.codepath.com/android/Drawables" target="_blank" rel="external">drawable</a>也可以用。</p>
+<p><img src="/assets/img/support/design/design-10.png" alt=""></p>
+<h4 id="导航抽屉"><a href="#导航抽屉" class="headerlink" title="导航抽屉"></a>导航抽屉</h4><p>看看<a href="http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html" target="_blank" rel="external">Material Design Checklist</a>你可能会发现需要修改抽屉为在toolbar之上状态条之下。这有一篇<a href="http://stackoverflow.com/a/26440880/313399" target="_blank" rel="external">StackOverflow post</a>说明了怎样实现这个。</p>
+<p><img src="/assets/img/support/design/design-11.gif" alt=""></p>
+<p>查看<a href="http://guides.codepath.com/android/Fragment-Navigation-Drawer#usage" target="_blank" rel="external">导航抽屉指南</a>教你一步一步实现导航抽屉。注意为了实现这个效果，你需要<a href="http://guides.codepath.com/android/Using-the-App-Toolbar#using-toolbar-as-actionbar" target="_blank" rel="external">使用Toolbar替换ActionBar</a>。</p>
+<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><h4 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h4><p>随着材料设计主题的到来，这有一个很灵活的方式显示item的列表叫<a href="/using-the-recyclerview">RecyclerView</a>，<code>ListView</code>的精神继承者。</p>
+<p><img src="/assets/img/support/design/design-12.png" alt=""><br>理论上我们仍可以使用这些组件，但Google推荐我们使用<code>RecyclerView</code>。在<a href="/using-the-recyclerview#compared-to-listview">RecyclerView vs. ListView</a> 部分查看之间的区别。</p>
+<h4 id="CardView"><a href="#CardView" class="headerlink" title="CardView"></a>CardView</h4><p>Android 5.0引入了新的组件<a href="/using-the-cardview">CardView</a>很方便使用新的样式应用到list中的item。</p>
+<p><img src="/assets/img/support/design/design-13.png" alt=""></p>
+<p><code>CardView</code>可以被认为是一个圆角的带有基于设置高度的阴影的FrameLayout。最佳应用是当显示均匀的内容时作为<code>ListView</code>或<code>RecyclerView</code>的一部分。</p>
+<h4 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h4><p>随着材料设计主题的到来，ActionBar现在的精神继承者叫<a href="/using-the-app-toolbar">Toolbar</a>。</p>
+<p><img src="/assets/img/support/design/design-14.png" alt=""></p>
+<p>Toolbar的操作替换原先的ActionBar，但它是直接被添加到布局文件并且可以在布局中被其它View替换。</p>
+<h4 id="Floating-Action-Buttons"><a href="#Floating-Action-Buttons" class="headerlink" title="Floating Action Buttons"></a>Floating Action Buttons</h4><p><a href="/floating-action-buttons">Floating action buttons</a>(or FAB)在activity或fragment中一个特殊的主要动作，可以跟随ActionBar移动在右下角悬浮在UI之上的圆形ICON。</p>
+<p><img src="/assets/img/support/design/design-15.gif" alt=""></p>
+<p><img src="/assets/img/support/design/design-16.gif" alt=""></p>
+<p>FAB应该代表一个屏幕的主要动作。更多信息和FAB的使用情况可以在Google官方的<a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button" target="_blank" rel="external">设计规范</a>中找到。</p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>注意材料设计动画是不兼容Android 5.0(API 21)之前的版本。更多细节查看<a href="https://developer.android.com/training/material/compatibility.html#CheckVersion" target="_blank" rel="external">兼容指南</a>。</p>
+<h4 id="Ripple-Animations"><a href="#Ripple-Animations" class="headerlink" title="Ripple Animations"></a>Ripple Animations</h4><p>水波纹动画在用户和UI元素交互的点提供瞬时视觉确认。注意水波纹效果只会在Android 5.0及以上显示，之前的版本会高亮显示。</p>
+<p><img src="/assets/img/basic/anim/ripple-anim1.png" alt=""></p>
+<p>对于怎样在View和按钮上开启这个效果请查看我们的更详细的<a href="/ripple-animation/">水波纹动画指南</a>。</p>
+<h4 id="Shared-Element-Transitions"><a href="#Shared-Element-Transitions" class="headerlink" title="Shared Element Transitions"></a>Shared Element Transitions</h4><p>很多情况下从一个列表的item进入详情页面，在两个页面都有相同的元素。随着新的共享元素过渡系统的到来，我们可以过渡这些共享元素从一个Activity或Fragment到另一个创建更多连续性的视觉效果。</p>
+<p><img src="/assets/img/basic/anim/transition-3.gif" alt=""></p>
+<p>对于怎样开启这些漂亮的过渡查看我们的更详细的<a href="/shared-element-activity-transition/">共享元素过渡指南</a>。</p>
+<h4 id="Circular-Reveal"><a href="#Circular-Reveal" class="headerlink" title="Circular Reveal"></a>Circular Reveal</h4><p><a href="/circular-reveal-animation/">揭露动画</a>是Android L中新引入的动画，裁剪View的边界的动画。当显示或隐藏一组UI元素时揭露动画可以给用户提供视觉连续性。<br><img src="/assets/img/basic/anim/reveal.gif" alt=""><br>这个动画经常用在悬浮按钮上，使用这个过渡出现在屏幕上。</p>
+<h4 id="Scrolling-Animations"><a href="#Scrolling-Animations" class="headerlink" title="Scrolling Animations"></a>Scrolling Animations</h4><p><a href="/handling-scrolls-with-coordinatorlayout">滚动效果</a>也可以实现折叠或展开Toolbar或Header让主要内容区域作为用户滚动的空间。</p>
+<p><img src="/assets/img/support/design/design-17.gif" alt=""></p>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><h4 id="Elevation-and-Shadows"><a href="#Elevation-and-Shadows" class="headerlink" title="Elevation and Shadows"></a><a name="elevation-and-shadows"></a>Elevation and Shadows</h4><p>材料设计为UI元素引入了高度（elevation）的概念。高度（控制Z轴）决定了每个View投射的阴影。你可以在布局中声明设置高度，单位为<code>dp</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ImageView</span> …</span><br><span class="line">    <span class="attribute">android:elevation</span>=<span class="value">"8dp"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这是效果：</p>
+<p><img src="/assets/img/support/design/design-18.png" alt=""><br>你也可以在代码中使用<code>getElevation()</code>或<code>setElevation()</code>。对于自定义阴影或View的高度轮廓，查看<a href="https://developer.android.com/training/material/shadows-clipping.html#Shadows" target="_blank" rel="external">阴影的官方指南</a>。</p>
+<h4 id="动态配色"><a href="#动态配色" class="headerlink" title="动态配色"></a>动态配色</h4><p>材料设计鼓励动态地使用颜色，尤其是当你应用含有丰富的图片时。新的<a href="/dynamic-color-using-palettes/">Palette support library</a>可以让你从一个图片中抽取一些颜色应用到UI样式为了看起来更搭。</p>
+<p><img src="/assets/img/support/design/design-19.png" alt=""></p>
+<h4 id="对话框样式"><a href="#对话框样式" class="headerlink" title="对话框样式"></a><a name="dialog-styles"></a>对话框样式</h4><p>如果你想让你的对话框看起来更Material化并且应用到Android的所有版本，你可以利用<a href="/migrating-to-the-appCompat-library">AppCompat</a>库并且使用 alert dialogs。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html" target="_blank" rel="external">http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html</a></li>
+<li><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank" rel="external">http://www.google.com/design/spec/material-design/introduction.html</a></li>
+<li><a href="http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/" target="_blank" rel="external">http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/</a></li>
+<li><a href="http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/" target="_blank" rel="external">http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/</a></li>
+<li><a href="http://android-developers.blogspot.com/2015/06/more-material-design-with-topeka-for_16.html" target="_blank" rel="external">http://android-developers.blogspot.com/2015/06/more-material-design-with-topeka-for_16.html</a></li>
+<li><a href="https://github.com/lightSky/Awesome-MaterialDesign" target="_blank" rel="external">https://github.com/lightSky/Awesome-MaterialDesign</a></li>
+<li><a href="https://realm.io/news/360andev-yash-prabhu-practical-guide-material-design-android-ui/" target="_blank" rel="external">https://realm.io/news/360andev-yash-prabhu-practical-guide-material-design-android-ui/</a></li>
+<li><a href="https://www.youtube.com/watch?v=-SxPDFnCmF0" target="_blank" rel="external">https://www.youtube.com/watch?v=-SxPDFnCmF0</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/dynamic-color-using-palettes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）使用Palettes提取颜色</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="material-design-primer" data-title="（译）初识Material Design" data-url="http://yoursite.com/material-design-primer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

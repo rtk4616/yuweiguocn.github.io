@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/material-design-primer/</loc>
+    <lastmod>2017-03-11T09:55:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）初识Material Design</title>
+        <pubTime>2017-03-11T08:47:23.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/design-support-library/</loc>
+    <lastmod>2017-03-11T09:37:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android材料设计支持库</title>
+        <pubTime>2017-03-08T05:06:57.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/dynamic-color-using-palettes/</loc>
     <lastmod>2017-03-10T08:35:47.000Z</lastmod>
     <data>
@@ -35,27 +77,6 @@
         <tag>android</tag>
          
         <tag>animation</tag>
-         
-        <tag>design</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/design-support-library/</loc>
-    <lastmod>2017-03-08T06:52:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android材料设计支持库</title>
-        <pubTime>2017-03-08T05:06:57.000Z</pubTime>
-        
-        <tag>android</tag>
          
         <tag>design</tag>
          
@@ -989,12 +1010,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（五）</title>
+        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1012,12 +1033,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（六）</title>
-        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1081,12 +1102,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（五）</title>
-        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（六）</title>
+        <pubTime>2015-08-10T11:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
