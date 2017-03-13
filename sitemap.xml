@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/handling-scrolls-with-coordinatorlayout/</loc>
+    
+    <lastmod>2017-03-13T09:10:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/material-design-primer/</loc>
     
-    <lastmod>2017-03-11T09:55:41.000Z</lastmod>
+    <lastmod>2017-03-13T08:38:50.000Z</lastmod>
     
   </url>
   
@@ -114,14 +121,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <loc>http://yoursite.com/android-interview-list/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -135,7 +142,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    <loc>http://yoursite.com/android-interview-java/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -149,7 +156,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-java/</loc>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     

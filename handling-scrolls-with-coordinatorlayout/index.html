@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）使用CoordinatorLayout处理滚动 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了CoordinatorLayout配合滚动标志的效果和创建视差效果及Bottom Sheet的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）使用CoordinatorLayout处理滚动">
+<meta property="og:url" content="http://yoursite.com/handling-scrolls-with-coordinatorlayout/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了CoordinatorLayout配合滚动标志的效果和创建视差效果及Bottom Sheet的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-20.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-21.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-22.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-23.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-20.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-21.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-24.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-25.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-26.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-27.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-28.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-29.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-30.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-31.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-21.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-32.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-36.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-37.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-33.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-34.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-35.gif">
+<meta property="og:updated_time" content="2017-03-13T09:10:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）使用CoordinatorLayout处理滚动">
+<meta name="twitter:description" content="本文介绍了CoordinatorLayout配合滚动标志的效果和创建视差效果及Bottom Sheet的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 13.64px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 14.55px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.18px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 13.64px;">demo</a> <a href="/tags/design/" style="font-size: 16.36px;">design</a> <a href="/tags/doc/" style="font-size: 15.45px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.64px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 13.64px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17.27px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 14.55px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19.09px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-handling-scrolls-with-coordinatorlayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/handling-scrolls-with-coordinatorlayout/" class="article-date">
+  	<time datetime="2017-03-13T09:10:07.000Z" itemprop="datePublished">2017-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）使用CoordinatorLayout处理滚动
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了CoordinatorLayout配合滚动标志的效果和创建视差效果及Bottom Sheet的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout" target="_blank" rel="external">Handling Scrolls with CoordinatorLayout</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html" target="_blank" rel="external">CoordinatorLayout</a>可以完成很多Google的 Material Design<a href="http://www.google.com/design/spec/patterns/scrolling-techniques.html" target="_blank" rel="external">滚动效果</a>。目前，框架中提供了几种方法让它工作并且你不需要自己写动画代码。</p>
+<p>这些效果包括：</p>
+<ul>
+<li>为Snackbar提供空间向上和向下滑动Floating Action Button。</li>
+</ul>
+<p><img src="/assets/img/support/design/design-20.gif" alt=""></p>
+<ul>
+<li>扩大或收缩Toolbar或header的空间为主要内容提供空间。</li>
+</ul>
+<p><img src="/assets/img/support/design/design-21.gif" alt=""></p>
+<ul>
+<li>控制View应该以什么样的速率扩展或收缩，包括<a href="https://ihatetomatoes.net/demos/parallax-scroll-effect/" target="_blank" rel="external">视差滚动效果</a>动画。</li>
+</ul>
+<p><img src="/assets/img/support/design/design-22.gif" alt=""></p>
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><p>来自Google的Chris Banes已经做出了<code>CoordinatorLayout</code>的漂亮的demo和<a href="/design-support-library/">design support library</a>的其它特性。</p>
+<p><img src="/assets/img/support/design/design-23.png" alt=""></p>
+<p><a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">完整源码可以从github</a>上找到。这个工程可以很容易理解<code>CoordinatorLayout</code>。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>确保根据<a href="/design-support-library/">Design Support Library</a>说明进行配置。</p>
+<h3 id="Floating-Action-Buttons-和-Snackbars"><a href="#Floating-Action-Buttons-和-Snackbars" class="headerlink" title="Floating Action Buttons 和 Snackbars"></a>Floating Action Buttons 和 Snackbars</h3><p>CoordinatorLayout可以通过<code>layout_anchor</code>和<code>layout_gravity</code>属性创建浮动效果。查看<a href="/floating-action-buttons">Floating Action Buttons使用指南</a>获取更多信息。</p>
+<p>当Snackbar被渲染，它通常出现在屏幕底部。为了显示，FAB必须向上移动提供空间。<br><img src="/assets/img/support/design/design-20.gif" alt=""></p>
+<p>只要CoordinatorLayout作为布局的根节点，这个动画效果会自动出现。FAB有一个<a href="https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.Behavior.html" target="_blank" rel="external">默认的行为</a>会检查Snackbar被添加并且动画向上移动Snackbar的高度。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CoordinatorLayout</span></span><br><span class="line">       android:id=<span class="string">"@+id/main_content"</span></span><br><span class="line">       xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">       xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">       android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">       android:layout_height=<span class="string">"match_parent"</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.RecyclerView</span></span><br><span class="line">        android:id=<span class="string">"@+id/rvToDoList"</span></span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"match_parent"</span>&gt;&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.RecyclerView</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.FloatingActionButton</span></span><br><span class="line">       android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">       android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">       android:layout_gravity=<span class="string">"bottom|right"</span></span><br><span class="line">       android:layout_margin=<span class="string">"16dp"</span></span><br><span class="line">       android:src=<span class="string">"@mipmap/ic_launcher"</span></span><br><span class="line">       app:layout_anchor=<span class="string">"@id/rvToDoList"</span></span><br><span class="line">       app:layout_anchorGravity=<span class="string">"bottom|right|end"</span>/&gt;</span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CoordinatorLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="扩展或收缩Toolbars"><a href="#扩展或收缩Toolbars" class="headerlink" title="扩展或收缩Toolbars"></a>扩展或收缩Toolbars</h3><p><img src="/assets/img/support/design/design-21.gif" alt=""></p>
+<p>首先需要确保没有使用被弃用的ActionBar。确保根据<a href="/using-the-app-toolbar#using-toolbar-as-actionbar">使用Toolbar作为ActionBar</a>进行配置。也确保CoordinatorLayout作为主要布局容器。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CoordinatorLayout</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line"> xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    android:id=<span class="string">"@+id/main_content"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">    android:fitsSystemWindows=<span class="string">"true"</span>&gt;</span><br><span class="line"></span><br><span class="line">      &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span></span><br><span class="line">                android:id=<span class="string">"@+id/toolbar"</span></span><br><span class="line">                android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">                android:layout_height=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">                app:popupTheme=<span class="string">"@style/ThemeOverlay.AppCompat.Light"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CoordinatorLayout</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="响应滚动事件"><a href="#响应滚动事件" class="headerlink" title="响应滚动事件"></a>响应滚动事件</h4><p>下一步，我们必须使用一个名为<a href="http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html" target="_blank" rel="external">AppBarLayout</a>的容器布局让Toolbar响应滚动事件：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span></span><br><span class="line">        android:id=<span class="string">"@+id/appbar"</span></span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"@dimen/detail_backdrop_height"</span></span><br><span class="line">        android:theme=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span></span><br><span class="line">        android:fitsSystemWindows=<span class="string">"true"</span>&gt;</span><br><span class="line"></span><br><span class="line">  &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span></span><br><span class="line">                android:id=<span class="string">"@+id/toolbar"</span></span><br><span class="line">                android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">                android:layout_height=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">                app:popupTheme=<span class="string">"@style/ThemeOverlay.AppCompat.Light"</span> /&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：根据<a href="http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html" target="_blank" rel="external">Google官方文档</a>AppBarLayout应该作为嵌套在CoordinatorLayout中的直接子View。</p>
+<p>然后，我们需要定义AppBarLayout和可以滚动的View之间的关系。给RecyclerView或其它可以嵌套滚动的View例如<a href="http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l" target="_blank" rel="external">NestedScrollView</a>添加一个<code>app:layout_behavior</code>属性。support library包含一个特殊的字符串资源<code>@string/appbar_scrolling_view_behavior</code>对应<a href="https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html" target="_blank" rel="external">AppBarLayout.ScrollingViewBehavior</a>，用于在指定View上发生滚动事件时通知<code>AppBarLayout</code>。这个行为（behavior）必须放在触发事件的View上。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.RecyclerView</span></span><br><span class="line">       android:id=<span class="string">"@+id/rvToDoList"</span></span><br><span class="line">       android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">       android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">       app:layout_behavior=<span class="string">"@string/appbar_scrolling_view_behavior"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>当CoordinatorLayout注意到这个属性声明在RecyclerView上，它会根据behavior搜索被包含的任何有关系的其它View。在这种情况下，<code>AppBarLayout.ScrollingViewBehavior</code>描述了RecyclerView和AppBarLayout之间的依赖。RecyclerView的任何滚动事件都会触发AppBarLayout或包含在它之内的布局改变。</p>
+<p>RecyclerView的滚动事件会触发在AppBarLayout内声明了<code>app:layout_scrollFlags</code>属性的View改变：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:fitsSystemWindows=<span class="string">"true"</span></span><br><span class="line">    android:theme=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span>&gt;</span><br><span class="line"></span><br><span class="line">        &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span></span><br><span class="line">            android:id=<span class="string">"@+id/toolbar"</span></span><br><span class="line">            android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">            android:layout_height=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">            app:layout_scrollFlags=<span class="string">"scroll|enterAlways"</span>/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>对于任何由滚动效果引起的效果必须在<code>app:layout_scrollFlags</code>属性中使用<code>scroll</code>标志。这个标志必须和<code>enterAlways</code> ，<code>enterAlwaysCollapsed</code>，<code>exitUntilCollapsed</code>，或<code>snap</code>配合使用：</p>
+<ul>
+<li><p><code>enterAlways</code>：当向上滚动时View将可见。这个标志对于从列表底部滚动并且想当向上滚动时尽快显示<code>Toolbar</code>这种情况是非常有用的。<br><img src="/assets/img/support/design/design-24.png" alt=""><br>正常情况下，<code>Toolbar</code>只会在列表滑动到顶部才会出现正如下图所示：<br><img src="/assets/img/support/design/design-25.png" alt=""></p>
+</li>
+<li><p><code>enterAlwaysCollapsed</code>：正常情况下，当只使用了<code>enterAlways</code>，当向下滑动<code>Toolbar</code>会继续展开：<br><img src="/assets/img/support/design/design-26.png" alt=""></p>
+</li>
+</ul>
+<p>假设声明了<code>enterAlways</code>并且指定了<code>minHeight</code>，你也可以指定<code>enterAlwaysCollapsed</code>。当配置了这个，View只会在最小高度出现。当滑动到顶部View会展开完整高度：<br><img src="/assets/img/support/design/design-27.png" alt=""></p>
+<ul>
+<li><code>exitUntilCollapsed</code>：当设置了<code>scroll</code>标志，向下滚动将导致整个内容的移动：</li>
+</ul>
+<p><img src="/assets/img/support/design/design-28.png" alt=""></p>
+<p>通过指定<code>minHeight</code>和<code>exitUntilCollapsed</code>，到达<code>Toolbar</code>的最小高度之前剩下的内容开始滚动并退出屏幕：<br><img src="/assets/img/support/design/design-29.png" alt=""></p>
+<ul>
+<li><code>snap</code>：使用这个选项将决定当一个View只减少一部分时做什么。当滚动结束并且减少的View的大小比它原先大小的50%小，这个View会返回到它原先的大小，如果比它大小的50%大，它会完全消失。</li>
+</ul>
+<p><img src="/assets/img/support/design/design-30.png" alt=""></p>
+<p>注意：记住首先给所有的View设置<code>scroll</code>标志。这样的话，View退出前产生视差在顶部留下固定元素。</p>
+<p>这时候，你应该注意到了Toolbar响应了滚动事件。<br><img src="/assets/img/support/design/design-31.gif" alt=""></p>
+<h4 id="创建收缩效果"><a href="#创建收缩效果" class="headerlink" title="创建收缩效果"></a>创建收缩效果</h4><p>如果我们想创建toolbar收缩效果，我们必须把Toolbar放到CollapsingToolbarLayout中：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span></span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">        android:fitsSystemWindows=<span class="string">"true"</span></span><br><span class="line">        android:theme=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span>&gt;</span><br><span class="line">    &lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CollapsingToolbarLayout</span></span><br><span class="line">            android:id=<span class="string">"@+id/collapsing_toolbar"</span></span><br><span class="line">            android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">            android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">            android:fitsSystemWindows=<span class="string">"true"</span></span><br><span class="line">            app:contentScrim=<span class="string">"?attr/colorPrimary"</span></span><br><span class="line">            app:expandedTitleMarginEnd=<span class="string">"64dp"</span></span><br><span class="line">            app:expandedTitleMarginStart=<span class="string">"48dp"</span></span><br><span class="line">            app:layout_scrollFlags=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</span><br><span class="line"></span><br><span class="line">            &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span></span><br><span class="line">                android:id=<span class="string">"@+id/toolbar"</span></span><br><span class="line">                android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">                android:layout_height=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">                app:layout_scrollFlags=<span class="string">"scroll|enterAlways"</span>&gt;&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CollapsingToolbarLayout</span>&gt;</span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.AppBarLayout</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>出现的结果将会是：<br><img src="/assets/img/support/design/design-21.gif" alt=""></p>
+<p>正常情况下，我们给Toolbar设置title。现在我们需要给CollapsingToolBarLayout设置title而不是Toolbar。<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CollapsingToolbarLayout collapsingToolbar =</span><br><span class="line">             (CollapsingToolbarLayout) findViewById(R.<span class="property">id</span>.collapsing_toolbar);</span><br><span class="line">collapsingToolbar.setTitle(<span class="string">"Title"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>注意当使用<code>CollapsingToolbarLayout</code>时，状态栏应该设置为translucent (API 19) 或 transparent (API 21) 正如<a href="https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/values-v21/styles.xml" target="_blank" rel="external">这个文件所示</a>。特别是，应该在<code>res/values-xx/styles.xml</code>设置为下面的样式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- res/values-v19/styles.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"Base.AppTheme"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowTranslucentStatus"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- res/values-v21/styles.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"Base.AppTheme"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowDrawsSystemBarBackgrounds"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:statusBarColor"</span>&gt;<span class="at_rule">@<span class="keyword">android:color/transparent&lt;/item&gt;</span></span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过如上所示开启透明系统条，布局将会填充系统条后面的区域，因此你也必须为不应该被系统条覆盖的部分布局开启<code>android:fitsSystemWindow</code>。对于API 19还可以通过添加padding去避免状态条裁剪View，<a href="http://blog.raffaeu.com/archive/2015/04/11/android-and-the-transparent-status-bar.aspx" target="_blank" rel="external">可以从这找到</a>。</p>
+<h4 id="创建视差动画"><a href="#创建视差动画" class="headerlink" title="创建视差动画"></a>创建视差动画</h4><p>CollapsingToolbarLayout也可以为我们做更高级的动画，例如当它折叠时使一个图片逐渐消失。Title也可以随着用户的滑动改变高度。</p>
+<p><img src="/assets/img/support/design/design-32.gif" alt=""></p>
+<p>为了创建这个效果，我们添加一个ImageView并声明一个<code>app:layout_collapseMode=&quot;parallax&quot;</code>属性。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CollapsingToolbarLayout</span></span><br><span class="line">    android:id=<span class="string">"@+id/collapsing_toolbar"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">    android:fitsSystemWindows=<span class="string">"true"</span></span><br><span class="line">    app:contentScrim=<span class="string">"?attr/colorPrimary"</span></span><br><span class="line">    app:expandedTitleMarginEnd=<span class="string">"64dp"</span></span><br><span class="line">    app:expandedTitleMarginStart=<span class="string">"48dp"</span></span><br><span class="line">    app:layout_scrollFlags=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</span><br><span class="line"></span><br><span class="line">            &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span></span><br><span class="line">                android:id=<span class="string">"@+id/toolbar"</span></span><br><span class="line">                android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">                android:layout_height=<span class="string">"?attr/actionBarSize"</span></span><br><span class="line">                app:layout_scrollFlags=<span class="string">"scroll|enterAlways"</span>&gt;&lt;/android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.Toolbar</span>&gt;</span><br><span class="line">            &lt;ImageView</span><br><span class="line">                android:src=<span class="string">"@drawable/cheese_1"</span></span><br><span class="line">                app:layout_scrollFlags=<span class="string">"scroll|enterAlways|enterAlwaysCollapsed"</span></span><br><span class="line">                android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">                android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">                android:scaleType=<span class="string">"centerCrop"</span></span><br><span class="line">                app:layout_collapseMode=<span class="string">"parallax"</span></span><br><span class="line">                android:minHeight=<span class="string">"100dp"</span>/&gt;</span><br><span class="line"></span><br><span class="line">&lt;/android<span class="class">.support</span><span class="class">.design</span><span class="class">.widget</span><span class="class">.CollapsingToolbarLayout</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Bottom-Sheets"><a href="#Bottom-Sheets" class="headerlink" title="Bottom Sheets"></a>Bottom Sheets</h3><p>Bottom Sheets 在 support design library v23.2 中提供支持。支持两种类型的bottom sheets：<a href="https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-persistent-bottom-sheets" target="_blank" rel="external">固定（persistent）</a> 和 <a href="https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-modal-bottom-sheets" target="_blank" rel="external">模态（modal）</a>。固定的bottom sheets显示应用中的内容，modal sheets显示一个菜单或简单的对话框。</p>
+<p><img src="/assets/img/support/design/design-36.png" alt=""><br>图 Persistent Modal Sheets（译者加）</p>
+<p><img src="/assets/img/support/design/design-37.png" alt=""><br>图 Modal Sheets（译者加）</p>
+<p><img src="/assets/img/support/design/design-33.png" alt=""></p>
+<h4 id="Persistent-Modal-Sheets"><a href="#Persistent-Modal-Sheets" class="headerlink" title="Persistent Modal Sheets"></a>Persistent Modal Sheets</h4><p>这有两种方法创建persistent modal sheets。第一种方法是使用一个<code>NestedScrollView</code>，然后把内容放到这个View中。第二种方法是使用一个<a href="http://guides.codepath.com/android/Using-the-RecyclerView" target="_blank" rel="external">RecyclerView</a>嵌入到<code>CoordinatorLayout</code>中。如果<code>layout_behavior</code>使用的是预定义的<code>@string/bottom_sheet_behavior</code>值，那<code>RecyclerView</code>默认会隐藏。注意<code>RecyclerView</code>应该使用<code>wrap_content</code>而不是<code>match_parent</code>，这可以让bottom sheet只出现在必要的空间而不是整个页面：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;CoordinatorLayout&gt;</span><br><span class="line"></span><br><span class="line">    &lt;android<span class="class">.support</span><span class="class">.v7</span><span class="class">.widget</span><span class="class">.RecyclerView</span></span><br><span class="line">        android:id=<span class="string">"@+id/design_bottom_sheet"</span></span><br><span class="line">        android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">        android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">        app:layout_behavior=<span class="string">"@string/bottom_sheet_behavior"</span>&gt;</span><br><span class="line">&lt;/CoordinatorLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>然后创建RecyclerView的元素。我们创建一个简单的<code>Item</code>包含一张图片和一个文本。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Item</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mDrawableRes;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String mTitle;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Item</span>(<span class="params">@DrawableRes <span class="keyword">int</span> drawable, String title</span>) </span>&#123;</span><br><span class="line">        mDrawableRes = drawable;</span><br><span class="line">        mTitle = title;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDrawableResource</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDrawableRes;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTitle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mTitle;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后创建adapter：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ItemAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Item&gt; mItems;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ItemAdapter</span><span class="params">(List&lt;Item&gt; items, ItemListener listener)</span> </span>&#123;</span><br><span class="line">        mItems = items;</span><br><span class="line">        mListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setListener</span><span class="params">(ItemListener listener)</span> </span>&#123;</span><br><span class="line">        mListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(LayoutInflater.from(parent.getContext())</span><br><span class="line">                .inflate(R.layout.adapter, parent, <span class="keyword">false</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        holder.setData(mItems.get(position));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mItems.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> ImageView imageView;</span><br><span class="line">        <span class="keyword">public</span> TextView textView;</span><br><span class="line">        <span class="keyword">public</span> Item item;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            itemView.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">            imageView = (ImageView) itemView.findViewById(R.id.imageView);</span><br><span class="line">            textView = (TextView) itemView.findViewById(R.id.textView);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(Item item)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.item = item;</span><br><span class="line">            imageView.setImageResource(item.getDrawableResource());</span><br><span class="line">            textView.setText(item.getTitle());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (mListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mListener.onItemClick(item);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ItemListener</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(Item item)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>bottom sheet默认情况下应该是隐藏的。我们需要点击事件触发显示和隐藏。<strong>注意：</strong> 不要尝试在<code>OnCreate()</code>方法展开bottom sheet因为这个<a href="https://code.google.com/p/android/issues/detail?id=202174" target="_blank" rel="external">已知问题</a>。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">RecyclerView</span> recyclerView = (RecyclerView) findViewById(R.id.design_bottom_sheet)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">// Create your <span class="keyword">items</span><br><span class="line"></span><span class="label">ArrayList</span>&lt;<span class="keyword">Item&gt; </span><span class="keyword">items </span>= new ArrayList&lt;&gt;()<span class="comment">;</span></span><br><span class="line"><span class="keyword">items.add(new </span><span class="keyword">Item(R.drawable.cheese_1, </span><span class="string">"Cheese 1"</span>))<span class="comment">;</span></span><br><span class="line"><span class="keyword">items.add(new </span><span class="keyword">Item(R.drawable.cheese_2, </span><span class="string">"Cheese 2"</span>))<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">// Instantiate adapter</span><br><span class="line"><span class="keyword">ItemAdapter </span><span class="keyword">itemAdapter </span>= new <span class="keyword">ItemAdapter(items, </span>null)<span class="comment">;</span></span><br><span class="line"><span class="label">recyclerView.setAdapter</span>(<span class="keyword">itemAdapter);</span><br><span class="line"></span></span><br><span class="line">// Set the layout manager</span><br><span class="line"><span class="label">recyclerView.setLayoutManager</span>(new LinearLayoutManager(this))<span class="comment">;</span></span><br><span class="line"></span><br><span class="line"><span class="label">CoordinatorLayout</span> coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content)<span class="comment">;</span></span><br><span class="line"><span class="label">final</span> <span class="keyword">BottomSheetBehavior </span><span class="keyword">behavior </span>= <span class="keyword">BottomSheetBehavior.from(recyclerView);</span><br><span class="line"></span></span><br><span class="line"><span class="label">fab.setOnClickListener</span>(new View.OnClickListener() &#123;</span><br><span class="line">    <span class="comment">@Override</span></span><br><span class="line">    public void onClick(View view) &#123;</span><br><span class="line">       <span class="preprocessor">if</span>(<span class="keyword">behavior.getState() </span>== <span class="keyword">BottomSheetBehavior.STATE_COLLAPSED) </span>&#123;</span><br><span class="line">         <span class="keyword">behavior.setState(BottomSheetBehavior.STATE_EXPANDED);</span><br><span class="line"></span>       &#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">         <span class="keyword">behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);</span><br><span class="line"></span>       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>你可以设置一个<code>app:behavior_hideable=true</code>布局属性允许用户滑动bottom sheet隐藏。这还有其它的状态包括：<code>STATE_DRAGGING</code>，<code>STATE_SETTLING</code>和<code>STATE_HIDDEN</code>。想要扩展阅读，你也可以看看<a href="http://code.tutsplus.com/articles/how-to-use-bottom-sheets-with-the-design-support-library--cms-26031" target="_blank" rel="external">另一篇bottom sheet教程</a>。</p>
+<h4 id="Modal-Sheets"><a href="#Modal-Sheets" class="headerlink" title="Modal Sheets"></a>Modal Sheets</h4><p>Modal sheets基于Dialog Fragments可以从底部滑动。查看<a href="http://guides.codepath.com/android/Using-DialogFragment" target="_blank" rel="external">这篇指南</a>学习怎样创建这些类型的fragments。不是继承自<code>DialogFragment</code>，应该继承<code>BottomSheetDialogFragment</code>。</p>
+<h4 id="高级Bottom-Sheet示例"><a href="#高级Bottom-Sheet示例" class="headerlink" title="高级Bottom Sheet示例"></a>高级Bottom Sheet示例</h4><p>这有很多带有一个FAB复杂的bottom sheets的例子，可以跟随用户的滑动展开或收缩或状态过渡。最知名的例子就是Google地图的多相sheet：</p>
+<p><img src="/assets/img/support/design/design-34.gif" alt=""><br>下面的教程和示例应该可以帮助实现更复杂的效果：</p>
+<ul>
+<li><a href="https://github.com/miguelhincapie/CustomBottomSheetBehavior" target="_blank" rel="external">CustomBottomSheetBehavior Sample</a>——演示了滑动bottom sheet时三态的改变。详细说明参考<a href="http://stackoverflow.com/a/37443680" target="_blank" rel="external">related stackoverflow post</a>。</li>
+<li><a href="http://blog.grafixartist.com/bottom-sheet-android-design-support-library/" target="_blank" rel="external">Grafixartist Bottom Sheet Tutorial</a>——关于bottom sheet滑动时怎样移动FAB的位置的教程。</li>
+<li>你可以看看<a href="http://stackoverflow.com/questions/34160423/how-to-mimic-google-maps-bottom-sheet-3-phases-behavior" target="_blank" rel="external">stackoverflow post</a>关于怎样实现Google地图滚动时修改状态。</li>
+</ul>
+<p>多多实验才能获取预期的效果。对于特定用例，你可以从下面列出的第三方类库中选择。</p>
+<h4 id="可选择的第三方Bottom-Sheet"><a href="#可选择的第三方Bottom-Sheet" class="headerlink" title="可选择的第三方Bottom Sheet"></a>可选择的第三方Bottom Sheet</h4><p>除了官方在design support library中提供的bottom sheet，这有几个非常受欢迎的可选择的第三方的类库，对于特定用例很方便使用和配置：</p>
+<p><img src="/assets/img/support/design/design-35.gif" alt=""></p>
+<p>下面为最常见的选择和相关例子：</p>
+<ul>
+<li><a href="https://github.com/umano/AndroidSlidingUpPanel" target="_blank" rel="external">AndroidSlidingUpPanel</a>——广受欢迎的实现bottom sheet的方法被认为是最接近官方方法的选择。</li>
+<li><a href="https://github.com/Flipboard/bottomsheet" target="_blank" rel="external">Flipboard/bottomsheet</a>——除官方bottom sheet外另一个非常受欢迎的类库，在官方解决方案发布之前被广泛使用。</li>
+<li><a href="https://github.com/AndroidDeveloperLB/ThreePhasesBottomSheet" target="_blank" rel="external">ThreePhasesBottomSheet</a>——利用第三方类库创建多相bottom sheet的示例代码。</li>
+<li><a href="http://android.amberfog.com/?p=915" target="_blank" rel="external">Foursquare BottomSheet Tutorial</a>——概述了怎样使用第三方bottom sheets在Foursquare老版本中实现对应效果。</li>
+</ul>
+<p>学习官方persistent modal sheets和第三方类库的实现，通过足够的实验你应该能实现任何你想要的效果。</p>
+<h3 id="Coordinated-Layouts常见问题"><a href="#Coordinated-Layouts常见问题" class="headerlink" title="Coordinated Layouts常见问题"></a>Coordinated Layouts常见问题</h3><p><code>CoordinatorLayout</code>很强大但刚开始很容易出错。如果你在使用过程中出现了问题，请查看下面的提示：</p>
+<ul>
+<li>怎样有效地使用coordinator layout最好的例子是参考<a href="https://github.com/chrisbanes/cheesesquare" target="_blank" rel="external">cheesesquare源码</a>。这个仓库是Google保持更新的示例仓库代表coordinating behaviors的最佳实践。尤其是查看<a href="https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml" target="_blank" rel="external">ViewPager list布局</a>和<a href="https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml" target="_blank" rel="external">详情页布局</a>。拿你的源码和cheesesquare源码进行比较。</li>
+<li>确保<code>app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior&quot;</code>属性应用到了<code>CoordinatorLayout</code>的 <strong>直接子View</strong>。例如，这有一个下拉刷新布局<code>SwipeRefreshLayout</code>中包含一个<code>RecyclerView</code>，这个属性应该应用到<code>SwipeRefreshLayout</code>而不是第二级子View<code>RecyclerView</code>。</li>
+<li>当coordinating发生在一个<code>ViewPager</code>包含fragment作为item的list和parent activity之间，你应该把<code>app:layout_behavior</code>属性放在<code>ViewPager</code>上（<a href="https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml#L49" target="_blank" rel="external">正如这个文件所示</a>），因此pager内的滚动是向上突出的并且可以通过<code>CoordinatorLayout</code>进行管理。注意你 <strong>不应该</strong> 把<code>app:layout_behavior</code>属性放到fragment或list中的任何地方。</li>
+<li>注意<code>ScrollView</code>无法和<code>CoordinatorLayout</code>配合使用。你需要使用<code>NestedScrollView</code>代替<a href="https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml#L61" target="_blank" rel="external">就像这个例子所示</a>。把你的内容放到<code>NestedScrollView</code>中并且应用<code>app:layout_behavior</code>属性可以得到预期的效果。</li>
+<li>确保你的activity或fragment的根布局是<code>CoordinatorLayout</code>。滚动不会响应到其它任何布局。</li>
+</ul>
+<p>导致coordinating layouts出错的原因有很多种。当你遇到了请添加提示到这里。</p>
+<h3 id="自定义Behaviors"><a href="#自定义Behaviors" class="headerlink" title="自定义Behaviors"></a>自定义Behaviors</h3><p>我们已经在<a href="http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout" target="_blank" rel="external">CoordinatorLayout with Floating Action Buttons</a>中讨论过一个自定义Behaviors的例子。</p>
+<p>CoordinatorLayout是通过搜索在XML中定义了<code>app:layout_behavior</code>属性或者在View类中添加<code>@DefaultBehavior</code>注解包含<a href="http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html" target="_blank" rel="external">CoordinatorLayout Behavior</a>工作的。当发生滚动事件，CoordinatorLayout会尝试触发作为依赖声明的其它子View。</p>
+<p>对于自定义CoordinatorLayout Behavior，应该实现layoutDependsOn() 和 onDependentViewChanged()。例如，<a href="http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html" target="_blank" rel="external">AppBarLayout.Behavior</a>定义了两个关键方法。这个behavior用于当滚动事件发生时触发AppBarLayout的改变。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">layoutDependsOn</span><span class="params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> dependency <span class="keyword">instanceof</span> AppBarLayout;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onDependentViewChanged</span><span class="params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">          <span class="comment">// check the behavior triggered</span></span><br><span class="line">          android.support.design.widget.CoordinatorLayout.Behavior behavior = ((android.support.design.widget.CoordinatorLayout.LayoutParams)dependency.getLayoutParams()).getBehavior();</span><br><span class="line">          <span class="keyword">if</span>(behavior <span class="keyword">instanceof</span> AppBarLayout.Behavior) &#123;</span><br><span class="line">          <span class="comment">// do stuff here</span></span><br><span class="line">          &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>理解怎样实现这些自定义行为最好的办法就是学习<a href="https://github.com/android/platform_frameworks_support/blob/master/design/src/android/support/design/widget/AppBarLayout.java#L738" target="_blank" rel="external">AppBarLayout.Behavior</a>和<a href="https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java#L554" target="_blank" rel="external">FloatingActionButtion.Behavior</a>的例子。</p>
+<h3 id="第三方滚动和视差"><a href="#第三方滚动和视差" class="headerlink" title="第三方滚动和视差"></a>第三方滚动和视差</h3><p>除了向上面所说使用<code>CoordinatorLayout</code>，你也可以看看<a href="http://guides.codepath.com/android/Must-Have-Libraries#scrolling-and-parallax" target="_blank" rel="external">这些受欢迎的第三方类库</a>对<code>ScrollView</code>，<code>ListView</code>，<code>ViewPager</code>和<code>RecyclerView</code>的滚动视差效果。</p>
+<h3 id="在AppBarLayout中引入Google地图"><a href="#在AppBarLayout中引入Google地图" class="headerlink" title="在AppBarLayout中引入Google地图"></a>在AppBarLayout中引入Google地图</h3><p>在这个<a href="https://code.google.com/p/android/issues/detail?id=188487" target="_blank" rel="external">issue</a>已经明确目前无法在<code>AppBarLayout</code>中支持Google Maps fragment。support design library v23.1.0中提供了<code>setOnDragListener()</code>方法，如果在布局中需要拖拽效果这将会很有用。然而，正如<a href="http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963" target="_blank" rel="external">这篇文章</a>所说它并不会影响滚动。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://android-developers.blogspot.com/2015/05/android-design-support-library.html" target="_blank" rel="external">http://android-developers.blogspot.com/2015/05/android-design-support-library.html</a></li>
+<li><a href="http://android-developers.blogspot.com/2016/02/android-support-library-232.html" target="_blank" rel="external">http://android-developers.blogspot.com/2016/02/android-support-library-232.html</a></li>
+<li><a href="http://code.tutsplus.com/articles/how-to-use-bottom-sheets-with-the-design-support-library--cms-26031" target="_blank" rel="external">http://code.tutsplus.com/articles/how-to-use-bottom-sheets-with-the-design-support-library--cms-26031</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/material-design-primer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）初识Material Design</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="handling-scrolls-with-coordinatorlayout" data-title="（译）使用CoordinatorLayout处理滚动" data-url="http://yoursite.com/handling-scrolls-with-coordinatorlayout/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
