@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）FloatingActionButton的使用 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了FloatingActionButton的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）FloatingActionButton的使用">
+<meta property="og:url" content="http://yoursite.com/floating-action-buttons/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了FloatingActionButton的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-15.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-38.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-39.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-40.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-41.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-42.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-17.gif">
+<meta property="og:updated_time" content="2017-03-18T04:02:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）FloatingActionButton的使用">
+<meta name="twitter:description" content="本文介绍了FloatingActionButton的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 13.64px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 14.55px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.18px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 13.64px;">demo</a> <a href="/tags/design/" style="font-size: 16.36px;">design</a> <a href="/tags/doc/" style="font-size: 15.45px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.64px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 13.64px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 17.27px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 14.55px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19.09px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-floating-action-buttons" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/floating-action-buttons/" class="article-date">
+  	<time datetime="2017-03-18T03:37:32.000Z" itemprop="datePublished">2017-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）FloatingActionButton的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了FloatingActionButton的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Floating-Action-Buttons" target="_blank" rel="external">Floating Action Buttons</a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button" target="_blank" rel="external">Floating action buttons</a> (or <strong>FAB</strong>)是：“一个提升动作的特例。通过一个悬浮在UI之上的圆形图标并且有指定的动作行为，与变形，启动，锚点转换相关进行区分。”</p>
+<p>例如，如果你使用一个邮箱应用，列出了收件箱文件夹，那么提升动作可能是写一封新邮件。</p>
+<p> <img src="/assets/img/support/design/design-15.gif" alt=""> <img src="/assets/img/support/design/design-38.gif" alt=""></p>
+<p>FAB代表一个屏幕中的 <strong>主要动作</strong>。更多信息和FAB按钮的用例可以从<a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button" target="_blank" rel="external">Google官方设计规范</a>找到。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>Google在I/O 2015大会上发布了可以创建FAB的支持库。在过去，使用第三方类库例如<a href="https://github.com/makovkastar/FloatingActionButton" target="_blank" rel="external">makovkastar/FloatingActionButton</a> 和 <a href="https://github.com/futuresimple/android-floating-action-button" target="_blank" rel="external">futuresimple/android-floating-action-button</a> 。</p>
+<h3 id="悬浮动作图标"><a href="#悬浮动作图标" class="headerlink" title="悬浮动作图标"></a>悬浮动作图标</h3><p>FAB使用和屏幕顶部的App Bar <strong>相同的菜单图标</strong>。这意味着图片应该是单一颜色并且符合材料设计规范。可以从<a href="https://materialdesignicons.com/" target="_blank" rel="external">material design icons site</a> 或官方的 <a href="https://www.google.com/design/icons/" target="_blank" rel="external">google material icons</a>找到这些图标:</p>
+<p><img src="/assets/img/support/design/design-39.png" alt=""> <img src="/assets/img/support/design/design-40.png" alt=""></p>
+<p>如果选择好了需要的图标，可以通过选择图标然后”Icon Package”然后选择”Android”包。注意Mac用户可能需要使用<a href="http://wakaba.c3.cx/s/apps/unarchiver.html" target="_blank" rel="external">Unarchiver</a>进行解压。在Android应用中把不同的图片放到对应 <code>drawable</code> 文件夹。</p>
+<h3 id="Design-Support-Library"><a href="#Design-Support-Library" class="headerlink" title="Design Support Library"></a>Design Support Library</h3><p>确保首先进行了<a href="/design-support-library/">Design Support Library</a>的配置。 然后需要在<code>build.gradle</code> 文件中添加依赖 <code>compile &#39;com.android.support:design:X.X.X&#39;</code>，X代表支持库的版本。</p>
+<p>现在就可以在布局中添加<code>android.support.design.widget.FloatingActionButton</code> View。<code>src</code>属性用于指定显示的图标。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.FloatingActionButton</span></span><br><span class="line">   <span class="attribute">android:src</span>=<span class="value">"@drawable/ic_done"</span></span><br><span class="line">   <span class="attribute">app:fabSize</span>=<span class="value">"normal"</span></span><br><span class="line">   <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">   <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>除此之外，假设你在布局顶部声明了<code>xmlns:app=&quot;http://schemas.android.com/apk/res-auto</code>命名空间，你也可以定义自定义属性<a href="http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize" target="_blank" rel="external"><code>fabSize</code></a> 可以指定按钮<code>normal</code> 或 <code>mini</code>。</p>
+<p>为了放置FAB，我们需要使用<a href="http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html" target="_blank" rel="external">CoordinatorLayout</a>。CoordinatorLayout可以帮助子View进行交互，用于描述滚动改变时按钮怎样动画。现在我们可以利用CoordinatorLayout的特性把一个元素放到另一个之上。我们只需要在 <code>CoordinatorLayout</code> 中包含<code>ListView</code>和<code>FloatingActionButton</code>并且使用<code>layout_anchor</code>和 <code>layout_anchorGravity</code>属性.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.CoordinatorLayout</span></span><br><span class="line">    <span class="attribute">android:id</span>=<span class="value">"@+id/main_content"</span></span><br><span class="line">    <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="title">ListView</span></span><br><span class="line">              <span class="attribute">android:id</span>=<span class="value">"@+id/lvToDoList"</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span><span class="tag">&lt;/<span class="title">ListView</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="title">android.support.design.widget.FloatingActionButton</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:layout_gravity</span>=<span class="value">"bottom|right"</span></span><br><span class="line">              <span class="attribute">android:layout_margin</span>=<span class="value">"16dp"</span></span><br><span class="line">              <span class="attribute">android:src</span>=<span class="value">"@drawable/ic_done"</span></span><br><span class="line">              <span class="attribute">app:layout_anchor</span>=<span class="value">"@id/lvToDoList"</span></span><br><span class="line">              <span class="attribute">app:layout_anchorGravity</span>=<span class="value">"bottom|right|end"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>按钮应该放在屏幕的右下角。推荐的底部margin为 <strong>手机为16d，平板为24dp</strong>。上面的例子，使用了16dp。<br>根据Google设计规范实际图片大小应该是 <strong>24dp</strong>。</p>
+<p><img src="/assets/img/support/design/design-41.png" alt=""></p>
+<p><a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button" target="_blank" rel="external">FAB</a></p>
+<h3 id="FAB的动画"><a href="#FAB的动画" class="headerlink" title="FAB的动画"></a>FAB的动画</h3><p>当用户向下滚动，FAB应该消失。当滚动到顶部，它应该重新出现。</p>
+<p><img src="/assets/img/support/design/design-42.gif" alt=""></p>
+<p>为了使FAB产生动画，需要利用<a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html" target="_blank" rel="external">CoordinatorLayout</a>，可以帮助子View编排动画。</p>
+<h4 id="替换ListView-为-RecyclerView"><a href="#替换ListView-为-RecyclerView" class="headerlink" title="替换ListView 为 RecyclerView"></a>替换ListView 为 RecyclerView</h4><p>目前，你需要替换ListView使用<a href="http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">RecyclerView</a>它是ListView的继承者并且<a href="/using-the-recyclerView#compared-to-listview">在这部分中</a>描述过。根据<a href="https://plus.google.com/101784949561498190574/posts/KPbsTY4NANx" target="_blank" rel="external">this Google post</a> CoordinatorLayout不支持ListView内置其中。你可以再看看<a href="/using-the-recyclerview">RecyclerView的使用</a>帮助你过渡。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.v7.widget.RecyclerView</span></span><br><span class="line">         <span class="attribute">android:id</span>=<span class="value">"@+id/lvToDoList"</span></span><br><span class="line">         <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">         <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你必须升级到RecyclerView v22版本。CoordinatorLayout不支持之前的v21版本。确保在<code>build.gradle</code> 文件中添加依赖：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:22.2.1'</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用CoordinatorLayout"><a href="#使用CoordinatorLayout" class="headerlink" title="使用CoordinatorLayout"></a>使用CoordinatorLayout</h4><p>然后，你需要为FAB实现一个<a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html" target="_blank" rel="external">CoordinatorLayout Behavior</a>。这个类定义了按钮应该怎样响应包含在同一CoordinatorLayout中的其它View。</p>
+<p>创建一个继承自<a href="https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.Behavior.html" target="_blank" rel="external">FloatingActionButton.Behavior</a>名为<code>ScrollAwareFABBehavior.java</code>的文件。目前FAB的默认行为用于为Snackbar而移动正如<a href="http://material-design.storage.googleapis.com/publish/material_v_3/material_ext_publish/0B6Okdz75tqQsLWFucDNlYWEyeW8/components_snackbar_usage_fabdo_002.webm" target="_blank" rel="external">this video</a>所显示的。我们想继承这个行为用于处理垂直方向的滚动事件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollAwareFABBehavior</span> <span class="keyword">extends</span> <span class="title">FloatingActionButton</span>.<span class="title">Behavior</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onStartNestedScroll</span><span class="params">(CoordinatorLayout coordinatorLayout,</span><br><span class="line">            FloatingActionButton child, View directTargetChild, View target, <span class="keyword">int</span> nestedScrollAxes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL ||</span><br><span class="line">            <span class="keyword">super</span>.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,</span><br><span class="line">            nestedScrollAxes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为通过这个类处理滚动，<a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int, int" target="_blank" rel="external">onNestedScroll()</a>)方法会被调用。我们可以检查Y的位置决定是否淡入淡出按钮。</p>
+<p>多亏support v4 library <a href="https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj" target="_blank" rel="external">最近的更新</a> ，show() 和 hide()方法可以为FAB执行淡入淡出动画。之前，很多动画代码已经被实现<a href="https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c" target="_blank" rel="external">动画代码已经被实现</a>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollAwareFABBehavior</span> <span class="keyword">extends</span> <span class="title">FloatingActionButton</span>.<span class="title">Behavior</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNestedScroll</span><span class="params">(CoordinatorLayout coordinatorLayout, FloatingActionButton child,</span><br><span class="line">            View target, <span class="keyword">int</span> dxConsumed, <span class="keyword">int</span> dyConsumed, <span class="keyword">int</span> dxUnconsumed, <span class="keyword">int</span> dyUnconsumed)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed,</span><br><span class="line">                dyUnconsumed);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (dyConsumed &gt; <span class="number">0</span> &amp;&amp; child.getVisibility() == View.VISIBLE) &#123;</span><br><span class="line">            child.hide();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dyConsumed &lt; <span class="number">0</span> &amp;&amp; child.getVisibility() != View.VISIBLE) &#123;</span><br><span class="line">            child.show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后一步是关联CoordinatorLayout行为到FAB上。我们可以在XML中定义声明它作为<code>app:layout_behavior</code>自定义属性：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.FloatingActionButton</span>    </span><br><span class="line">    <span class="attribute">app:layout_behavior</span>=<span class="value">"com.codepath.floatingactionbuttontest.ScrollAwareFABBehavior"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用Coordinator Layout替换布局文件的根元素。这可以确保我们的ScrollAwareFABBehavior类中的onNestedScroll()方法被调用。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.CoordinatorLayout</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> &gt;</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>因为我们在XML中静态定义了这个行为，我们也必须实现可以让布局填充正确工作的构造方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScrollAwareFABBehavior</span> <span class="keyword">extends</span> <span class="title">FloatingActionButton</span>.<span class="title">Behavior</span> </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ScrollAwareFABBehavior</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你忘了做最后一步，你会看到<code>Could not inflate Behavior subclass</code>错误信息。所有修改请查看<a href="https://github.com/ianhanniballake/cheesesquare/blob/92bcf7c8b57459051424cd512a032c12d24a41b3/app/src/main/java/com/support/android/designlibdemo/ScrollAwareFABBehavior.java" target="_blank" rel="external">示例代码</a>。</p>
+<p><strong>注意</strong>：正常情况下实现<code>CoordinatorLayout</code>的行为，我们需要实现<a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View" target="_blank" rel="external">layoutDependsOn()</a>) 和 <a href="https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View" target="_blank" rel="external">onDependentViewChanged()</a>)，用于追踪CoordinatorLayout中其它View的改变。因为我们只需要监听滚动事件，我们使用了已有的FAB的行为，在<a href="http://android-developers.blogspot.com/2015/05/android-design-support-library.html" target="_blank" rel="external">blog post</a>讨论了实现追踪Snackbars 和 AppBarLayout的改变。</p>
+<h3 id="在Header中嵌入FAB"><a href="#在Header中嵌入FAB" class="headerlink" title="在Header中嵌入FAB"></a>在Header中嵌入FAB</h3><p>一个常见的效果是在header旁边嵌入FAB就像这样：</p>
+<p><img src="/assets/img/support/design/design-17.gif" alt=""></p>
+<p>这可以通过使用CoordinatorLayout作为根元素实现。我们需要为FAB指定<code>layout_anchor</code>到顶部View和<code>layout_anchorGravity</code>为<code>bottom|right|end</code>就像这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.CoordinatorLayout</span></span><br><span class="line">    <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">              <span class="attribute">android:orientation</span>=<span class="value">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">            <span class="attribute">android:id</span>=<span class="value">"@+id/viewA"</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_weight</span>=<span class="value">"0.6"</span></span><br><span class="line">            <span class="attribute">android:background</span>=<span class="value">"@android:color/holo_purple"</span></span><br><span class="line">            <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">            <span class="attribute">android:id</span>=<span class="value">"@+id/viewB"</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_weight</span>=<span class="value">"0.4"</span></span><br><span class="line">            <span class="attribute">android:background</span>=<span class="value">"@android:color/holo_orange_light"</span></span><br><span class="line">            <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">android.support.design.widget.FloatingActionButton</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/fab"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_margin</span>=<span class="value">"16dp"</span></span><br><span class="line">        <span class="attribute">android:clickable</span>=<span class="value">"true"</span></span><br><span class="line">        <span class="attribute">android:src</span>=<span class="value">"@drawable/ic_done"</span></span><br><span class="line">        <span class="attribute">app:layout_anchor</span>=<span class="value">"@id/viewA"</span></span><br><span class="line">        <span class="attribute">app:layout_anchorGravity</span>=<span class="value">"bottom|right|end"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更多细节请查看<a href="http://stackoverflow.com/questions/24459352/how-can-i-add-the-new-floating-action-button-between-two-widgets-layouts" target="_blank" rel="external">this stackoverflow post</a>。关于那个布局的更多细节请查看<a href="/handling-scrolls-with-coordinatorlayout/">使用CoordinatorLayout处理滚动</a>。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button" target="_blank" rel="external">http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button</a></li>
+<li><a href="http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/" target="_blank" rel="external">http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/</a></li>
+<li><a href="http://prolificinteractive.com/blog/2014/07/24/android-floating-action-button-aka-fab/" target="_blank" rel="external">http://prolificinteractive.com/blog/2014/07/24/android-floating-action-button-aka-fab/</a></li>
+<li><a href="http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html" target="_blank" rel="external">http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/FloatingActionButton.java" target="_blank" rel="external">https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/FloatingActionButton.java</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml" target="_blank" rel="external">https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/using-the-app-toolbar/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）App Toolbar的使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="floating-action-buttons" data-title="（译）FloatingActionButton的使用" data-url="http://yoursite.com/floating-action-buttons/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

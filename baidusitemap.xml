@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/floating-action-buttons/</loc>
+    <lastmod>2017-03-18T04:02:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）FloatingActionButton的使用</title>
+        <pubTime>2017-03-18T03:37:32.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/using-the-app-toolbar/</loc>
     <lastmod>2017-03-15T02:54:41.000Z</lastmod>
     <data>
@@ -409,27 +430,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -511,6 +511,27 @@
         <tag>android</tag>
          
         <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
          
          
            

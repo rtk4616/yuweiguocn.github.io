@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/floating-action-buttons/</loc>
+    
+    <lastmod>2017-03-18T04:02:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/using-the-app-toolbar/</loc>
     
     <lastmod>2017-03-15T02:54:41.000Z</lastmod>
@@ -135,13 +142,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -164,6 +164,13 @@
   
   <url>
     <loc>http://yoursite.com/android-interview-list/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
