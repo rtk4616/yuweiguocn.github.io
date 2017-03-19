@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/migrating-to-the-appcompat-library/</loc>
+    
+    <lastmod>2017-03-19T04:12:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/displaying-the-snackbar/</loc>
     
     <lastmod>2017-03-19T03:01:44.000Z</lastmod>
@@ -149,7 +156,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-interview-list/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -177,14 +191,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -366,6 +373,27 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-studio-tips-2/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
@@ -380,13 +408,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-studio-tips-4/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
@@ -394,28 +415,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-basic-intentservice/</loc>
+    <loc>http://yoursite.com/android-basic-service/</loc>
     
     <lastmod>2016-04-09T00:56:05.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-basic-service/</loc>
+    <loc>http://yoursite.com/android-basic-intentservice/</loc>
     
     <lastmod>2016-04-09T00:56:05.000Z</lastmod>
     

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>迁移到AppCompat Library | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了如何迁移到AppCompat类库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迁移到AppCompat Library">
+<meta property="og:url" content="http://yoursite.com/migrating-to-the-appcompat-library/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了如何迁移到AppCompat类库。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-54.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-55.png">
+<meta property="og:updated_time" content="2017-03-19T04:12:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="迁移到AppCompat Library">
+<meta name="twitter:description" content="本文介绍了如何迁移到AppCompat类库。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 13.64px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 14.55px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.18px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 13.64px;">demo</a> <a href="/tags/design/" style="font-size: 17.27px;">design</a> <a href="/tags/doc/" style="font-size: 15.45px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.64px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 13.64px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 16.36px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 14.55px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19.09px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-migrating-to-the-appcompat-library" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/migrating-to-the-appcompat-library/" class="article-date">
+  	<time datetime="2017-03-19T04:03:41.000Z" itemprop="datePublished">2017-03-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      迁移到AppCompat Library
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了如何迁移到AppCompat类库。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library" target="_blank" rel="external">Migrating to the AppCompat Library</a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://developer.android.com/tools/support-library/features.html#v7" target="_blank" rel="external">AppCompat</a> support library可以使用ActionBar和材料设计中特殊实现例如<a href="https://developer.android.com/reference/android/support/v7/widget/Toolbar.html" target="_blank" rel="external">Toolbar</a>向下兼容到Android 2.1。目前，通过Android Studio创建的新工程默认会引入这个类库。你可以查看<code>build.gradle</code>文件确认AppCompat类库是否被引入：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">25</span></span><br><span class="line">    buildToolsVersion <span class="string">"25.0.2"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:25.2.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意AppCompat类库隐式依赖support-v4类库。support-v4不是必须要声明的。自从support-v4 24.2.0版本的发布，类库已经被<a href="https://developer.android.com/topic/libraries/support-library/revisions.html" target="_blank" rel="external">分离为单一的模块</a>：<code>support-compat</code>，<code>support-core-utils</code>，<code>support-core-ui</code>，<code>support-media-compat</code>和<code>support-fragment</code>。然而，因为AppCompat类库通常依赖<code>support-fragment</code>，它仍然包含对其它所有模块的依赖，所以目前不需要利用这个改变去减少过度依赖的数量。</p>
+<p>还有就是升级到AppCompat v7 v24版本，也会强制升级Build Tools和<code>compileSDKVersion</code>到API 24。</p>
+<p>这是目前的<a href="https://code.google.com/p/android/issues/detail?id=183149" target="_blank" rel="external">bug</a>排除了低版本的编译。一旦你使用这个API version 23或更高，注意Apache HTTP Client library已经被<a href="https://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client" target="_blank" rel="external">移除</a>。这里讨论了<a href="http://guides.codepath.com/android/Using-Android-Async-Http-Client#resolving-android-marshmallow-compatibility-issues" target="_blank" rel="external">解决办法</a>。</p>
+<h4 id="降低AppCompat版本"><a href="#降低AppCompat版本" class="headerlink" title="降低AppCompat版本"></a>降低AppCompat版本</h4><p>如果你希望降低版本（例：从API 23到API 22），你需要按照下面的步骤卸载SDK正如这个<a href="https://code.google.com/p/android/issues/detail?id=183149#c7" target="_blank" rel="external">bug report</a>中的文档：</p>
+<p>1.从SDK Manager移除Build Tools 23。<br>2.找到appcompat-v7 SDK文件夹并删除整个23.0.0.0文件夹。</p>
+<p>   Mac OS :<br>   <code>/Users/[username]/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7</code></p>
+<p>   PC :<br>   <code>C:\Documents and Settings\&lt;user&gt;\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\appcompat-v7</code><br>3.编辑<code>maven-metadata.xml</code>文件并删除<code>&lt;version&gt;23.0.0&lt;/version&gt;</code>这一行：</p>
+<p><img src="/assets/img/support/design/design-54.png" alt=""></p>
+<p>4.在<code>app/build.gradle</code>文件中降低Build Tools和AppCompat Library版本：<br>  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">22</span></span><br><span class="line">    buildToolsVersion <span class="string">"22.2.1"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:22.2.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>5.Clean工程并rebuild。</p>
+<h2 id="查找并替换改变"><a href="#查找并替换改变" class="headerlink" title="查找并替换改变"></a>查找并替换改变</h2><p>老工程可能没包含这个类库，因此迁移需要修改主题引用和在这<a href="http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html" target="_blank" rel="external">blog post</a>所描述的很多引用。因为support类声明不兼容标准的Android类库，你需要确保完全使用support library中的引用。否则应用可能会崩溃。</p>
+<p>为了开始使用support类库最简单的是经常搜索和替换下面的语句。</p>
+<h4 id="Activities的替换"><a href="#Activities的替换" class="headerlink" title="Activities的替换"></a>Activities的替换</h4><ul>
+<li><code>import android.app.Activity</code> -&gt; <code>import android.support.v7.app.AppCompatActivity</code></li>
+<li><code>extends Activity</code> -&gt; <code>extends AppCompatActivity</code></li>
+</ul>
+<h4 id="Fragment的替换"><a href="#Fragment的替换" class="headerlink" title="Fragment的替换"></a>Fragment的替换</h4><ul>
+<li><code>extends FragmentActivity</code> -&gt; <code>extends AppCompatActivity</code></li>
+<li><code>import android.support.v4.app.FragmentActivity</code> -&gt; <code>import android.support.v7.app.AppCompatActivity</code></li>
+<li><code>import android.app.Fragment</code> -&gt; <code>import android.support.v4.app.Fragment</code></li>
+<li><code>getFragmentManager()</code> -&gt; <code>getSupportFragmentManager()</code></li>
+</ul>
+<h4 id="ActionBar的替换"><a href="#ActionBar的替换" class="headerlink" title="ActionBar的替换"></a>ActionBar的替换</h4><ul>
+<li><code>import android.app.ActionBar</code> -&gt; <code>import android.support.v7.app.ActionBar</code></li>
+<li><code>getActionBar()</code> -&gt; <code>getSupportActionBar()</code></li>
+</ul>
+<h4 id="AlertDialog的替换"><a href="#AlertDialog的替换" class="headerlink" title="AlertDialog的替换"></a>AlertDialog的替换</h4><p>AlertDialogs应该从AppCompat类库中引入，为了利用新的材料设计主题。</p>
+<p><img src="/assets/img/support/design/design-55.png" alt=""></p>
+<ul>
+<li><code>import android.app.AlertDialog</code> -&gt; <code>import android.support.v7.app.AlertDialog</code></li>
+</ul>
+<h4 id="Theme-XML的替换"><a href="#Theme-XML的替换" class="headerlink" title="Theme XML的替换"></a>Theme XML的替换</h4><p>如果从Holo theme迁移，新的主题将继承<code>Theme.AppCompat</code>而不是<code>android:Theme.Holo.Light</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"Theme.AppCompat.Light.DarkActionBar"</span>&gt;</span><span class="css"></span></span><br></pre></td></tr></table></figure>
+<p>如果你希望在某些Activity的屏幕禁用ActionBar但在其它很多页面希望使用自定义，你可以从<code>AppTheme</code>继承并在<code>Theme.AppCompat.NoActionBar</code>应用同样的样式声明：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme.NoActionBar"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">windowActionBar</span>"&gt;<span class="tag">false</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">windowNoTitle</span>"&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果你看到<code>AppCompat does not support the current theme features</code>，可能是<code>windowNoTitle</code>没有设置或设置为false。在新的AppCompat类库必须严格执行设置这些值。更多信息请查看<a href="http://stackoverflow.com/questions/29790070/upgraded-to-appcompat-v22-1-0-and-now-getting-illegalargumentexception-appcompa" target="_blank" rel="external">Stack Overflow</a>。</p>
+<h4 id="Menu-XML的替换"><a href="#Menu-XML的替换" class="headerlink" title="Menu XML的替换"></a>Menu XML的替换</h4><p>对于菜单或布局文件，添加<code>app:</code>命名空间。对于菜单选项，<code>showAsAction</code>必须使用<code>app</code>命名空间而不是<code>android</code>。它被认为是support library的自定义属性并且不这么修改没法正确处理。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">menu</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span> <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:id</span>=<span class="value">"@+id/myMenuItem"</span></span><br><span class="line">       <span class="attribute">android:title</span>=<span class="value">"@string/select"</span></span><br><span class="line">       <span class="attribute">android:showAsAction</span>=<span class="value">"ifRoom"</span></span><br><span class="line">       <span class="attribute">app:showAsAction</span>=<span class="value">"ifRoom"</span></span></span><br></pre></td></tr></table></figure>
+<p>如果你使用了例如SearchView的部件，你也必须使用<code>android.support.v7.widget.SearchView</code>而不是<code>android.widget.SearchView</code>。注意也必须使用<code>app</code>命名空间。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="tag">&lt;<span class="title">menu</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span> <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="tag">&lt;<span class="title">item</span> <span class="attribute">android:id</span>=<span class="value">"@+id/contentSearch"</span></span><br><span class="line">           <span class="attribute">android:orderInCategory</span>=<span class="value">"2"</span></span><br><span class="line">           <span class="attribute">android:title</span>=<span class="value">"@string/search"</span></span><br><span class="line">           <span class="attribute">app:showAsAction</span>=<span class="value">"ifRoom"</span></span><br><span class="line">           <span class="attribute">app:actionViewClass</span>=<span class="value">"android.support.v7.widget.SearchView"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="修改菜单选项"><a href="#修改菜单选项" class="headerlink" title="修改菜单选项"></a>修改菜单选项</h4><p>在<code>MenuItem</code>中应该使用<code>MenuItemCompat</code>帮助类的几个静态方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</span><br><span class="line">      inflater.inflate(R.menu.my_menu, menu);</span><br><span class="line">      mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.contentSearch));</span><br></pre></td></tr></table></figure>
+<h4 id="修改targetSDKVersion"><a href="#修改targetSDKVersion" class="headerlink" title="修改targetSDKVersion"></a>修改targetSDKVersion</h4><p>In addition, setting the <code>targetSdkVersion</code> to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.</p>
+<p>除此之外，设置<code>targetSdkVersion</code>到最新的SDK版本确保AppCompat尝试应用材料设计假设设备本身可以支持它。support library仍会检查在设备上使用的最小SDK版本。</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    targetSdkVersion <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<h3 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h3><p>AppCompat library在Samsung v4.2.2设备上有问题。更多细节请查看<a href="https://code.google.com/p/android/issues/detail?id=78377" target="_blank" rel="external">this issue</a>。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.androidauthority.com/goodbye-menu-button-hello-action-bar-48312/" target="_blank" rel="external">http://www.androidauthority.com/goodbye-menu-button-hello-action-bar-48312/</a></li>
+<li><a href="http://android-developers.blogspot.in/2013/08/actionbarcompat-and-io-2013-app-source.html" target="_blank" rel="external">http://android-developers.blogspot.in/2013/08/actionbarcompat-and-io-2013-app-source.html</a></li>
+<li><a href="http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html" target="_blank" rel="external">http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html</a></li>
+<li><a href="https://chris.banes.me/2015/04/22/support-libraries-v22-1-0/" target="_blank" rel="external">https://chris.banes.me/2015/04/22/support-libraries-v22-1-0/</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/displaying-the-snackbar/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">（译）Snackbar的使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="migrating-to-the-appcompat-library" data-title="迁移到AppCompat Library" data-url="http://yoursite.com/migrating-to-the-appcompat-library/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
