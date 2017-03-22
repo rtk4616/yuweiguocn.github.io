@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ConstraintLayout的使用 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了ConstraintLayout的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ConstraintLayout的使用">
+<meta property="og:url" content="http://yoursite.com/using-the-constraintlayout/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了ConstraintLayout的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-2.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-3.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-4.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-5.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-7.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-8.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-23.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-9.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-10.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-6.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-11.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-12.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-13.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-14.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-15.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-16.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-17.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-18.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-21.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-19.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-20.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/constraint/c-22.png">
+<meta property="og:updated_time" content="2017-03-22T06:04:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ConstraintLayout的使用">
+<meta name="twitter:description" content="本文介绍了ConstraintLayout的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 13.64px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 14.55px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.18px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 13.64px;">demo</a> <a href="/tags/design/" style="font-size: 17.27px;">design</a> <a href="/tags/doc/" style="font-size: 15.45px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.64px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 13.64px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 16.36px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 14.55px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19.09px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-using-the-constraintlayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/using-the-constraintlayout/" class="article-date">
+  	<time datetime="2017-03-22T05:44:09.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ConstraintLayout的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/support/">support</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了ConstraintLayout的使用。</p>
+<a id="more"></a>
+<p>使用ConstraintLayout可以创建复杂的扁平化View层级的布局。它和RelativeLayout很相似都是通过View之间和父布局的关系摆放所有View的。它比RelativeLayout更灵活并且使用Android Studio的布局编辑器更方便。</p>
+<p>ConstraintLayout兼容至Android 2.3 (API level 9)。本文基于Android Studio 2.3环境。</p>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>1.下载类库，打开SDK Manager下载ContraintLayout类库，选择<code>ConstraintLayout for Android</code>和<code>Solver for ConstraintLayout</code>。</p>
+<p>2.在<code>build.gradle</code>文件中添加依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support.constraint:constraint-layout:1.0.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建布局"><a href="#创建布局" class="headerlink" title="创建布局"></a>创建布局</h3><p>1.对原有布局我们可以在设计视图右击组件树或预览图，选择转换为ConstraintLayout：<br><img src="/assets/img/support/constraint/c-2.png" alt=""></p>
+<p>选择转换为ConstraintLayout后Android Studio会有一个如下提示：</p>
+<p><img src="/assets/img/support/constraint/c-3.png" alt=""></p>
+<p>提示说明Android Studio会按照现有View位置自动添加约束，你可能还需要调整约束。选择第一个选项，它会移除所有的嵌套布局。第二个选项是不移除带有ID属性的嵌套布局，因为有可能会在Java代码中引用。</p>
+<p>2.创建新布局根元素选择<code>android.support.constraint.ConstraintLayout</code>。</p>
+<h3 id="添加约束"><a href="#添加约束" class="headerlink" title="添加约束"></a>添加约束</h3><p>从控件面板拖出一个IamgeView到蓝图预览图，View的四个角的小方块用于控制View的大小。</p>
+<p><img src="/assets/img/support/constraint/c-4.png" alt=""></p>
+<p>添加一个约束，会有一个默认的margin，可以在工具栏设置。</p>
+<p><img src="/assets/img/support/constraint/c-5.gif" alt=""></p>
+<p>创建约束，请记住以下规则：</p>
+<ul>
+<li>每个View至少需要一个水平约束和一个垂直约束，但通常需要更多约束。</li>
+<li>垂直面（左边和右边）的约束只能与垂直面创建约束，水平面（上边和下边）的约束只能与水平面创建约束；基线只能约束到别的基线。</li>
+<li>每个约束柄只能约束一次，同一个锚点可以创建多个约束（来自多个View）。</li>
+</ul>
+<p>对于删除约束我们可以点击View四边的约束柄，或者左下角的图标删除当前View的所有约束。</p>
+<h4 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h4><p>一个View的边可以对齐到另一个View的边，使用菜单进行对齐：</p>
+<p><img src="/assets/img/support/constraint/c-7.gif" alt=""></p>
+<p>使用约束柄进行对齐：</p>
+<p><img src="/assets/img/support/constraint/c-8.gif" alt=""></p>
+<h4 id="基线对齐"><a href="#基线对齐" class="headerlink" title="基线对齐"></a>基线对齐</h4><p>一个 <strong>文本View</strong> 的基线可以与另一个 <strong>文本View</strong> 的基线对齐。点击 <img src="/assets/img/support/constraint/c-23.png" alt=""> 可以调出基线约束柄。<br><img src="/assets/img/support/constraint/c-9.gif" alt=""></p>
+<h4 id="Guidelines对齐"><a href="#Guidelines对齐" class="headerlink" title="Guidelines对齐"></a>Guidelines对齐</h4><p>我们可以添加一个垂直或水平guideline约束View，并且guideline对用户是不可见的。Guideline相对于布局边界的单位可以是dp或百分比。点击Guideline边上的圆点可以切换测量模式。</p>
+<p><img src="/assets/img/support/constraint/c-10.gif" alt=""></p>
+<h3 id="调整约束偏移"><a href="#调整约束偏移" class="headerlink" title="调整约束偏移"></a>调整约束偏移</h3><p><img src="/assets/img/support/constraint/c-6.gif" alt=""></p>
+<h3 id="调整View大小"><a href="#调整View大小" class="headerlink" title="调整View大小"></a>调整View大小</h3><p>我们可以利用View的四个角的小方块用于调整View的大小，但这样调整的View大小是固定的。打开右上角的<code>Properties</code>窗口，我们可以看到如下图所示（这个只对约束布局中的View可用）：</p>
+<p><img src="/assets/img/support/constraint/c-11.png" alt=""><br>图 <strong>Properties</strong> 窗口包含的功能：1大小比例，2删除约束，3高度/宽度模式，4margins，5约束偏移。</p>
+<p>你可以点击图中符号3所对应的位置来切换高度或宽度计算的方式。这些符号代表的模式大小如下所示：</p>
+<ul>
+<li><img src="/assets/img/support/constraint/c-12.png" alt=""> Wrap Content: View的大小为内容的大小.</li>
+<li><img src="/assets/img/support/constraint/c-13.png" alt=""> Match Constraints: 除去margin后View会根据需要扩展到约束的地方。但是，如果所给尺寸只有一个约束，那么View会扩展为它内容的大小。在高度或宽度上使用这个模式允许你设置一个大小比例。</li>
+<li><img src="/assets/img/support/constraint/c-14.png" alt=""> Fixed: View的大小为指定的大小。</li>
+</ul>
+<blockquote>
+<p>注意：ConstraintLayout中的所有View不应该使用<code>match_parent</code>，应该使用”match constraints” (0dp).</p>
+</blockquote>
+<h4 id="设置大小比例"><a href="#设置大小比例" class="headerlink" title="设置大小比例"></a>设置大小比例</h4><p>如果View的尺寸至少设置了一个”match constraints” (0dp)那你可以给View的大小设置一个比例。</p>
+<p><img src="/assets/img/support/constraint/c-15.gif" alt=""></p>
+<h4 id="调整View-margins"><a href="#调整View-margins" class="headerlink" title="调整View margins"></a>调整View margins</h4><p>我们可以通过工具栏设置默认的margin，这只对后面添加的View生效。我们也可以在 <strong>Properties</strong> 窗口设置margin。</p>
+<p><img src="/assets/img/support/constraint/c-16.png" alt=""><br>图 工具栏 <strong>Margin</strong> 按钮</p>
+<h4 id="用链控制线性组"><a href="#用链控制线性组" class="headerlink" title="用链控制线性组"></a>用链控制线性组</h4><p>一个链是一组View互相链接双向约束。例如，下图说明了两个View互相约束，因此创建了一个水平链。</p>
+<p><img src="/assets/img/support/constraint/c-17.png" alt=""></p>
+<p>一个链可以使用下面的样式水平或垂直分散一组View，如下图所示：</p>
+<p><img src="/assets/img/support/constraint/c-18.png" alt=""></p>
+<ol>
+<li><strong>Spread</strong>：View会均匀分布。这是也默认的。</li>
+<li><strong>Spread inside</strong>：链两端的第一个和最后一个View靠着约束，其余均匀分布。</li>
+<li><strong>Weighted</strong>：当链设置为 <strong>spread</strong> 或 <strong>spread inside</strong> ，你可以在一个或多个View上设置”match constraints” (0dp)填充剩余空间。默认情况下，设置”match constraints”的每个View之间是均匀分布的，但你也可以使用<code>layout_constraintHorizontal_weight</code>和<code>layout_constraintVertical_weight</code>属性设置权重。</li>
+<li><strong>Packed</strong>：View会打包到一起（除去margin）。然后你可以调整个链的偏移（上下或左右）通过修改链head View的偏移。</li>
+</ol>
+<p>链的”head” View（水平链为最左边的View，垂直链为最上边的View） 在XML中定义了链的样式。点击 <img src="/assets/img/support/constraint/c-21.png" alt=""> 可以切换样式。</p>
+<p><img src="/assets/img/support/constraint/c-19.gif" alt=""></p>
+<p>注意事项：</p>
+<ul>
+<li>一个View可以同时是水平和垂直链的一部分，这可以很方便创建表格布局。</li>
+<li>只有当链的两端约束到同一轴的其它对象时链才可以正常工作。</li>
+<li>虽然链的方向可以是水平或垂直，但它并不会对齐View。</li>
+</ul>
+<h4 id="自动创建约束"><a href="#自动创建约束" class="headerlink" title="自动创建约束"></a>自动创建约束</h4><p>除了通过给布局中的每个View添加约束，你也可以移动View到期望的位置，然后点击<code>Infer Constraints</code></p>
+<p><img src="/assets/img/support/constraint/c-20.gif" alt=""></p>
+<p>自动连接是单独的特性可以打开或关闭。当打开后，它会自动为添加到布局的View创建两个或多个约束，但只有当View可以适当地约束到父布局。自动连接不会为布局中的其它View创建约束。</p>
+<p>自动连接默认是关闭的，你可以通过工具栏点击<code>Turn on Autoconnect</code> <img src="/assets/img/support/constraint/c-22.png" alt=""> 打开自动连接。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://developer.android.com/training/constraint-layout/index.html" target="_blank" rel="external">https://developer.android.com/training/constraint-layout/index.html</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/migrating-to-the-appcompat-library/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">迁移到AppCompat Library</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="using-the-constraintlayout" data-title="ConstraintLayout的使用" data-url="http://yoursite.com/using-the-constraintlayout/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
