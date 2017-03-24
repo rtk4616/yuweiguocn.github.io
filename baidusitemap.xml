@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/using-the-constraintlayout/</loc>
-    <lastmod>2017-03-22T06:04:22.000Z</lastmod>
+    <lastmod>2017-03-24T08:18:32.000Z</lastmod>
     <data>
         <display>
         <title>ConstraintLayout的使用</title>
@@ -24,10 +24,10 @@
     
   <url>
     <loc>http://yoursite.com/migrating-to-the-appcompat-library/</loc>
-    <lastmod>2017-03-19T04:12:32.000Z</lastmod>
+    <lastmod>2017-03-24T03:07:00.000Z</lastmod>
     <data>
         <display>
-        <title>迁移到AppCompat Library</title>
+        <title>（译）迁移到AppCompat Library</title>
         <pubTime>2017-03-19T04:03:41.000Z</pubTime>
         
         <tag>android</tag>
