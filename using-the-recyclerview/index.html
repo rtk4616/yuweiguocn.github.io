@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="baidu-site-verification" content="ATveXKozGc" />
+<meta name="google-site-verification" content="9Dtaw-SE4V3dRsy6DfbFYR9RQFubScbTof4pPtKEJkE" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>（译）RecyclerView的使用 | yuweiguo&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文介绍了RecyclerView的使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）RecyclerView的使用">
+<meta property="og:url" content="http://yoursite.com/using-the-recyclerview/index.html">
+<meta property="og:site_name" content="yuweiguo's blog">
+<meta property="og:description" content="本文介绍了RecyclerView的使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-57.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-44.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-45.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-46.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-47.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-48.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-49.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-50.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-51.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-52.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-53.gif">
+<meta property="og:updated_time" content="2017-04-01T10:26:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（译）RecyclerView的使用">
+<meta name="twitter:description" content="本文介绍了RecyclerView的使用。">
+  
+    <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">于卫国</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">和喜欢的一切在一起。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+					        
+								<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/android-studio/" style="font-size: 13.64px;">android studio</a> <a href="/tags/android-ux/" style="font-size: 10px;">android ux</a> <a href="/tags/animation/" style="font-size: 14.55px;">animation</a> <a href="/tags/asynctask/" style="font-size: 10px;">asynctask</a> <a href="/tags/basic/" style="font-size: 18.18px;">basic</a> <a href="/tags/blog/" style="font-size: 10.91px;">blog</a> <a href="/tags/broadcast/" style="font-size: 10px;">broadcast</a> <a href="/tags/bug/" style="font-size: 10px;">bug</a> <a href="/tags/customviews/" style="font-size: 10.91px;">customviews</a> <a href="/tags/data-binding/" style="font-size: 12.73px;">data binding</a> <a href="/tags/demo/" style="font-size: 13.64px;">demo</a> <a href="/tags/design/" style="font-size: 17.27px;">design</a> <a href="/tags/doc/" style="font-size: 15.45px;">doc</a> <a href="/tags/error/" style="font-size: 10px;">error</a> <a href="/tags/guide/" style="font-size: 11.82px;">guide</a> <a href="/tags/hexo/" style="font-size: 11.82px;">hexo</a> <a href="/tags/intentservice/" style="font-size: 10px;">intentservice</a> <a href="/tags/interview/" style="font-size: 13.64px;">interview</a> <a href="/tags/java/" style="font-size: 11.82px;">java</a> <a href="/tags/mac/" style="font-size: 10.91px;">mac</a> <a href="/tags/notification/" style="font-size: 10px;">notification</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/performance/" style="font-size: 10.91px;">performance</a> <a href="/tags/program/" style="font-size: 10px;">program</a> <a href="/tags/resources/" style="font-size: 10.91px;">resources</a> <a href="/tags/series/" style="font-size: 13.64px;">series</a> <a href="/tags/service/" style="font-size: 11.82px;">service</a> <a href="/tags/software/" style="font-size: 10px;">software</a> <a href="/tags/solution/" style="font-size: 10px;">solution</a> <a href="/tags/source/" style="font-size: 10.91px;">source</a> <a href="/tags/summary/" style="font-size: 10px;">summary</a> <a href="/tags/support/" style="font-size: 16.36px;">support</a> <a href="/tags/teach/" style="font-size: 11.82px;">teach</a> <a href="/tags/tips/" style="font-size: 14.55px;">tips</a> <a href="/tags/toolbar/" style="font-size: 10px;">toolbar</a> <a href="/tags/translate/" style="font-size: 19.09px;">translate</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.liaohuqiu.net/">秋百万</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://stormzhang.com/">stormzhang</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.github.io/">Litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com">Github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/growth58">CSDN</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">于卫国</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://yuweiguocn.github.io/assets/img/yuweiguo.jpg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">于卫国</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">和喜欢的一切在一起。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yuweiguocn" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/weiguo58" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:yuweiguocn@gmail.com" title="mail">mail</a>
+			        
+						<a class="dashang" target="_blank" href="http://yuweiguocn.github.io/dashang/" title="dashang">dashang</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-using-the-recyclerview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/using-the-recyclerview/" class="article-date">
+  	<time datetime="2017-04-01T10:26:12.000Z" itemprop="datePublished">2017-04-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）RecyclerView的使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/translate/">translate</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了RecyclerView的使用。</p>
+<a id="more"></a>
+<p>原文链接：<a href="http://guides.codepath.com/android/Using-the-RecyclerView" target="_blank" rel="external">Using the RecyclerView</a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>RecyclerView</code>是一个新的<code>ViewGroup</code>用于渲染所有基于adapter的View用类似的方式。它应该是[[ListView|Using-an-ArrayAdapter-with-ListView]] 和 <a href="http://developer.android.com/guide/topics/ui/layout/gridview.html" target="_blank" rel="external">GridView</a>的继承者，可以从<a href="https://developer.android.com/reference/android/support/v7/app/package-summary.html" target="_blank" rel="external">latest support-v7 version</a>找到。其中一个原因是RecyclerView有更多的可扩展框架，尤其是因为它可以实现水平和垂直的布局。当你的数据集合元素在运行时基于用户动作或网络事件改变时使用<code>RecyclerView</code>控件。</p>
+<p>如果你想使用<code>RecyclerView</code>，需要和下面的类配合使用：</p>
+<ul>
+<li><code>RecyclerView.Adapter</code> - 用于处理数据集合并且和View绑定</li>
+<li><code>LayoutManager</code> - 用于帮助摆放Items的位置</li>
+<li><code>ItemAnimator</code> - 用于处理常见操作例如item的添加或移除时产生动画</li>
+</ul>
+<p><img src="/assets/img/support/design/design-57.png" alt=""></p>
+<p>此外，它还对<code>ListView</code>的items的添加或移除时提供动画支持，在目前的实现中很难做此处理。<code>RecyclerView</code>也开始执行[[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]，这是推荐做法并且已和新的框架深入结合。</p>
+<p>更多细节，请查看<a href="http://www.grokkingandroid.com/first-glance-androids-recyclerview/" target="_blank" rel="external">this detailed overview</a>。</p>
+<h3 id="比较ListView"><a href="#比较ListView" class="headerlink" title="比较ListView"></a>比较ListView</h3><p><code>RecyclerView</code>不同于<code>ListView</code>主要是由于以下特性：</p>
+<ul>
+<li><strong>Required ViewHolder in Adapters</strong> - <code>ListView</code> adapters 不需要使用ViewHolder pattern提升性能。对比而言，<code>RecyclerView</code>实现的adapter需要使用ViewHolder pattern。</li>
+<li><strong>Customizable Item Layouts</strong> - <code>ListView</code>只能垂直线性排列并且不能自定义。对比而言， <code>RecyclerView</code>有一个<code>RecyclerView.LayoutManager</code>允许任何item布局包括水平列表或交错网格。</li>
+<li><strong>Easy Item Animations</strong> - <code>ListView</code>不支持item的添加或移除时产生动画。对比而言，<code>RecyclerView</code>有<code>RecyclerView.ItemAnimator</code>类处理item动画。</li>
+<li><strong>Manual Data Source</strong> - 对于不同数据源<code>ListView</code>有adapters例如<code>ArrayAdapter</code> 和 <code>CursorAdapter</code>分别对应数组和数据库的结果。对比而言，<code>RecyclerView.Adapter</code>需要自定义实现adapter提供数据。</li>
+<li><strong>Manual Item Decoration</strong> - <code>ListView</code>有<code>android:divider</code>属性可以方便地在list的item之间设置分隔线。对比而言，<code>RecyclerView</code>需要使用<code>RecyclerView.ItemDecoration</code>对象设置分隔线。</li>
+<li><strong>Manual Click Detection</strong> - <code>ListView</code>有一个<code>AdapterView.OnItemClickListener</code>接口绑定list中item点击事件。对比而言，<code>RecyclerView</code>只支持<code>RecyclerView.OnItemTouchListener</code>处理触摸事件并没有内置点击处理。</li>
+</ul>
+<h2 id="RecyclerView的组件"><a href="#RecyclerView的组件" class="headerlink" title="RecyclerView的组件"></a><code>RecyclerView</code>的组件</h2><h3 id="LayoutManagers"><a href="#LayoutManagers" class="headerlink" title="LayoutManagers"></a><code>LayoutManagers</code></h3><p><code>RecyclerView</code>需要一个布局管理器和一个adapter进行初始化。布局管理器摆放<code>RecyclerView</code>中的item views并且决定何时重用不再显示的item views。</p>
+<p><a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">RecyclerView</a>提供了这些内置布局管理器：</p>
+<ul>
+<li><code>LinearLayoutManager</code> 垂直或水平滚动列表显示items。</li>
+<li><code>GridLayoutManager</code> 网格显示items。</li>
+<li><code>StaggeredGridLayoutManager</code> 交错网格显示items。</li>
+</ul>
+<p>对于创建自定义布局管理器，继承<a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html" target="_blank" rel="external">RecyclerView.LayoutManager</a>类。</p>
+<p>这有<a href="https://www.youtube.com/watch?v=gs_C1E8HwvE&amp;index=22&amp;list=WL" target="_blank" rel="external">Dave Smith’s 讲解</a>的自定义布局管理器。</p>
+<h3 id="RecyclerView-Adapter"><a href="#RecyclerView-Adapter" class="headerlink" title="RecyclerView.Adapter"></a><code>RecyclerView.Adapter</code></h3><p><code>RecyclerView</code>包含一个新的adapter种类。跟你已经使用adapter方法类似，但有一些特性，例如需要<code>ViewHolder</code>。你需要重写两个主要方法：一个是填充view和它的view holder，另一个绑定数据到view。使用这个的好处第一个方法只会在真正需要创建新的View时调用。不需要检查是否被回收。</p>
+<h3 id="ItemAnimator"><a href="#ItemAnimator" class="headerlink" title="ItemAnimator"></a><code>ItemAnimator</code></h3><p><code>RecyclerView.ItemAnimator</code>会对通知了adapter的<code>ViewGroup</code>的修改例如添加/删除/选择产生动画。基本默认动画可以使用<code>DefaultItemAnimator</code>并且工作的相当好。更多信息请查看<a href="#animators">这部分</a>。</p>
+<h2 id="使用RecyclerView"><a href="#使用RecyclerView" class="headerlink" title="使用RecyclerView"></a>使用RecyclerView</h2><p>使用RecyclerView有几个关键步骤：<br>1.在gradle文件中添加<code>RecyclerView</code> support library<br>2.定义一个model类作为数据源<br>3.在activity中添加<code>RecyclerView</code>用于显示items<br>4.创建一个自定义行布局作为可视化item<br>5.创建<code>RecyclerView.Adapter</code> 和 <code>ViewHolder</code>渲染item<br>6.绑定adapter到数据源填充<code>RecyclerView</code></p>
+<p>下面会详细介绍这些步骤。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>确保在<code>app/build.gradle</code>文件添加了依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:25.2.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>点击”Sync Project with Gradle files”让IDE下载合适的资源。</p>
+<h3 id="定义Model"><a href="#定义Model" class="headerlink" title="定义Model"></a>定义Model</h3><p>RecyclerView支持源数据。在本例中，我们定义一个<code>Contact</code>类代表数据模型通过RecyclerView显示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Contact</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String mName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mOnline;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Contact</span><span class="params">(String name, <span class="keyword">boolean</span> online)</span> </span>&#123;</span><br><span class="line">        mName = name;</span><br><span class="line">        mOnline = online;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOnline</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mOnline;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> lastContactId = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ArrayList&lt;Contact&gt; <span class="title">createContactsList</span><span class="params">(<span class="keyword">int</span> numContacts)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Contact&gt; contacts = <span class="keyword">new</span> ArrayList&lt;Contact&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= numContacts; i++) &#123;</span><br><span class="line">            contacts.add(<span class="keyword">new</span> Contact(<span class="string">"Person "</span> + ++lastContactId, i &lt;= numContacts / <span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> contacts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在布局中创建RecyclerView"><a href="#在布局中创建RecyclerView" class="headerlink" title="在布局中创建RecyclerView"></a>在布局中创建RecyclerView</h3><p>在activity的布局文件<code>res/layout/activity_users.xml</code>中添加<code>RecyclerView</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">RelativeLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">android.support.v7.widget.RecyclerView</span></span><br><span class="line">      <span class="attribute">android:id</span>=<span class="value">"@+id/rvContacts"</span></span><br><span class="line">      <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">      <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们可以预览activity中的<code>RecyclerView</code>：<br><img src="/assets/img/support/design/design-44.png" alt=""></p>
+<p>现在<code>RecyclerView</code>嵌入到了activity的布局文件中。然后我们定义item布局文件。</p>
+<h3 id="创建自定义行布局"><a href="#创建自定义行布局" class="headerlink" title="创建自定义行布局"></a>创建自定义行布局</h3><p>创建adapter之前，我们先来定义下item布局。布局文件包含一个水平线性布局，包括一个textview和一个button：</p>
+<p><img src="/assets/img/support/design/design-45.png" alt=""><br><img src="/assets/img/support/design/design-46.png" alt=""></p>
+<p>在<code>res/layout/item_contact.xml</code>创建这个布局文件。注意：对于<code>layout_height</code>应该使用<code>wrap_content</code>因为<code>RecyclerView</code>版本<code>23.2.1</code>之前忽略了布局参数。点击<a href="http://android-developers.blogspot.com/2016/02/android-support-library-232.html" target="_blank" rel="external">这个链接</a>获取更多信息。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">        <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">        <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:paddingTop</span>=<span class="value">"10dp"</span></span><br><span class="line">        <span class="attribute">android:paddingBottom</span>=<span class="value">"10dp"</span></span><br><span class="line">        &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/contact_name"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"0dp"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_weight</span>=<span class="value">"1"</span></span><br><span class="line">        /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">Button</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/message_button"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:paddingLeft</span>=<span class="value">"16dp"</span></span><br><span class="line">        <span class="attribute">android:paddingRight</span>=<span class="value">"16dp"</span></span><br><span class="line">        <span class="attribute">android:textSize</span>=<span class="value">"10sp"</span></span><br><span class="line">        /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>完成了自定义item的布局，接下来创建adapter填充数据到recycler view。</p>
+<h3 id="创建RecyclerView-Adapter"><a href="#创建RecyclerView-Adapter" class="headerlink" title="创建RecyclerView.Adapter"></a>创建<code>RecyclerView.Adapter</code></h3><p>我们需要创建adapter填充数据到RecyclerView。adapter的角色是转换一个位置的对象到要插入到一个列表中的item。</p>
+<p>使用<code>RecyclerView</code>的adapter需要一个”ViewHolder”对象描述和提供访问每个item中所有的View。我们可以创建基本的adapter和holder在<code>ContactsAdapter.java</code>中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the basic adapter extending from RecyclerView.Adapter</span></span><br><span class="line"><span class="comment">// Note that we specify the custom ViewHolder which gives us access to our views</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span></span><br><span class="line">    <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Provide a direct reference to each of the views within a data item</span></span><br><span class="line">    <span class="comment">// Used to cache the views within the item layout for fast access</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Your holder should contain a member variable</span></span><br><span class="line">        <span class="comment">// for any view that will be set as you render a row</span></span><br><span class="line">        <span class="keyword">public</span> TextView nameTextView;</span><br><span class="line">        <span class="keyword">public</span> Button messageButton;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// We also create a constructor that accepts the entire item row</span></span><br><span class="line">        <span class="comment">// and does the view lookups to find each subview</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// Stores the itemView in a public final member variable that can be used</span></span><br><span class="line">            <span class="comment">// to access the context from any ViewHolder instance.</span></span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line"></span><br><span class="line">            nameTextView = (TextView) itemView.findViewById(R.id.contact_name);</span><br><span class="line">            messageButton = (Button) itemView.findViewById(R.id.message_button);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在我们定义了基本的adapter和<code>ViewHolder</code>，然后需要填充adapter。首先添加一个成员变量存放联系人列表并且从构造方法传递过来：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span></span><br><span class="line">    <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ... view holder defined above...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Store a member variable for the contacts</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Contact&gt; mContacts;</span><br><span class="line">    <span class="comment">// Store the context for easy access</span></span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Pass in the contact array into the constructor</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ContactsAdapter</span><span class="params">(Context context, List&lt;Contact&gt; contacts)</span> </span>&#123;</span><br><span class="line">        mContacts = contacts;</span><br><span class="line">        mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Easy access to the context object in the recyclerview</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Context <span class="title">getContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> mContext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每个adapter有三个主要方法：<code>onCreateViewHolder</code>用于填充item布局和创建holder，<code>onBindViewHolder</code>用于根据数据设置view属性，<code>getItemCount</code>决定了item的数量。我们需要实现这三个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span></span><br><span class="line">    <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ... constructor and member variables</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Usually involves inflating a layout from XML and returning the holder</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ContactsAdapter.<span class="function">ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</span><br><span class="line">        Context context = parent.getContext();</span><br><span class="line">        LayoutInflater inflater = LayoutInflater.from(context);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Inflate the custom layout</span></span><br><span class="line">        View contactView = inflater.inflate(R.layout.item_contact, parent, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Return a new holder instance</span></span><br><span class="line">        ViewHolder viewHolder = <span class="keyword">new</span> ViewHolder(contactView);</span><br><span class="line">        <span class="keyword">return</span> viewHolder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Involves populating data into the item through holder</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ContactsAdapter.ViewHolder viewHolder, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Get the data model based on position</span></span><br><span class="line">        Contact contact = mContacts.get(position);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Set item views based on your views and data model</span></span><br><span class="line">        TextView textView = viewHolder.nameTextView;</span><br><span class="line">        textView.setText(contact.getName());</span><br><span class="line">        Button button = viewHolder.messageButton;</span><br><span class="line">        button.setText(<span class="string">"Message"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns the total count of items in the list</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mContacts.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完成了adapter，剩下的就是绑定adapter到RecyclerView。</p>
+<h3 id="绑定adapter到RecyclerView"><a href="#绑定adapter到RecyclerView" class="headerlink" title="绑定adapter到RecyclerView"></a>绑定adapter到RecyclerView</h3><p>在Activity中，填充联系人集合将会显示在<code>RecyclerView</code>中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserListActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     ArrayList&lt;Contact&gt; contacts;</span><br><span class="line"></span><br><span class="line">     <span class="annotation">@Override</span></span><br><span class="line">     <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">         <span class="comment">// ...</span></span><br><span class="line">         <span class="comment">// Lookup the recyclerview in activity layout</span></span><br><span class="line">         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);</span><br><span class="line"></span><br><span class="line">         <span class="comment">// Initialize contacts</span></span><br><span class="line">         contacts = Contact.createContactsList(<span class="number">20</span>);</span><br><span class="line">         <span class="comment">// Create adapter passing in the sample user data</span></span><br><span class="line">         ContactsAdapter adapter = <span class="keyword">new</span> ContactsAdapter(<span class="keyword">this</span>, contacts);</span><br><span class="line">         <span class="comment">// Attach the adapter to the recyclerview to populate items</span></span><br><span class="line">         rvContacts.setAdapter(adapter);</span><br><span class="line">         <span class="comment">// Set layout manager to position the items</span></span><br><span class="line">         rvContacts.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>));</span><br><span class="line">         <span class="comment">// That's all!</span></span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，编译并运行应用会看到如下图所示效果。如果你创建了足够多的items然后滚动列表，views会被回收并且默认情况下比<code>ListView</code>更流畅：</p>
+<p><img src="/assets/img/support/design/design-47.gif" alt=""></p>
+<h3 id="通知Adapter"><a href="#通知Adapter" class="headerlink" title="通知Adapter"></a>通知Adapter</h3><p>Unlike ListView, there is no way to add or remove items directly through the <code>RecyclerView</code> adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the <strong>existing</strong> list.  For instance, reinitializing the list of Contacts such as the following will not affect the adapter, since it has a memory reference to the old list:</p>
+<p>不像ListView，通过<code>RecyclerView</code> adapter没办法直接添加或移除items。你需要改变数据源并且通知adapter改变。还有，无论何时添加或移除元素，总是修改 <strong>已存在</strong> 的列表。例如，重新初始化列表就像下面的代码是不会影响adapter，因为它持有老列表的内存引用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不要重新初始化被adapter使用的已存在的引用</span></span><br><span class="line">contacts = Contact.createContactsList(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>而是应该直接在已存在的引用上操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加到已存在的列表</span></span><br><span class="line">contacts.addAll(Contact.createContactsList(<span class="number">5</span>));</span><br></pre></td></tr></table></figure>
+<p>当通知adapter修改时有几个方法可以使用：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>notifyItemChanged(int pos)</code></td>
+<td>通知指定位置的item改变</td>
+</tr>
+<tr>
+<td><code>notifyItemInserted(int pos)</code></td>
+<td>通知指定位置的item被新插入</td>
+</tr>
+<tr>
+<td><code>notifyItemRemoved(int pos)</code></td>
+<td>通知指定位置的item被移除</td>
+</tr>
+<tr>
+<td><code>notifyDataSetChanged()</code></td>
+<td>通知数据集改变。仅当作最后的方法使用。</td>
+</tr>
+</tbody>
+</table>
+<p>我们可以在activity或fragment中使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Add a new contact</span></span><br><span class="line">contacts.add(<span class="number">0</span>, <span class="keyword">new</span> Contact(<span class="string">"Barney"</span>, <span class="keyword">true</span>));</span><br><span class="line"><span class="comment">// Notify the adapter that an item was inserted at position 0</span></span><br><span class="line">adapter.notifyItemInserted(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>每当我们想从RecyclerView添加或移除items时，我们需要显式通知给adapter事件。不像ListView的adapter，RecyclerView的adapter不应该依赖<code>notifyDataSetChanged()</code>因为应该使用更细致的动作。更多细节请查看<a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html" target="_blank" rel="external">API documentation</a>。</p>
+<p>还有，如果你想要更新已存在的列表，做修改之前确保拿到目前items的数量。例如，应该调用adapter的<code>getItemCount()</code>记录要修改的第一条索引。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// record this value before making any changes to the existing list</span></span><br><span class="line"><span class="keyword">int</span> curSize = adapter.getItemCount();</span><br><span class="line"></span><br><span class="line"><span class="comment">// replace this line with wherever you get new records</span></span><br><span class="line">ArrayList&lt;Contact&gt; newItems = Contact.createContactsList(<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// update the existing list</span></span><br><span class="line">contacts.addAll(newItems);</span><br><span class="line"><span class="comment">// curSize should represent the first element that got added</span></span><br><span class="line"><span class="comment">// newItems.size() represents the itemCount</span></span><br><span class="line">adapter.notifyItemRangeInserted(curSize, newItems.size());</span><br></pre></td></tr></table></figure>
+<h3 id="比较大的修改（Diffing-Larger-Changes）"><a href="#比较大的修改（Diffing-Larger-Changes）" class="headerlink" title="比较大的修改（Diffing Larger Changes）"></a>比较大的修改（Diffing Larger Changes）</h3><p>通常在某些情况下修改列表是很复杂的（例如列表排序）并且无法轻易确定每行是否被修改。在这种情况下，你将不得不在整个adapter上调用<code>notifyDataSetChanged()</code>去更新整个屏幕，这样就没办法在修改的地方显示执行动画序列。</p>
+<p>在support library v24.2.0添加了用于帮助计算老列表和新列表之间不同的类<code>DiffUtil</code>。这个在源码中使用了相同的算法来计算行的改变（<a href="https://en.wikipedia.org/wiki/Diff_utility" target="_blank" rel="external">diff 实用程序</a>），因此它通常相当快。对于大列表推荐在后台线程执行这个计算。</p>
+<p>对于使用<code>DiffUtil</code>类，首先需要添加一个类继承<code>DiffUtil.Callback</code>接收新老列表：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactDiffCallback</span> <span class="keyword">extends</span> <span class="title">DiffUtil</span>.<span class="title">Callback</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Contact&gt; mOldList;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Contact&gt; mNewList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ContactDiffCallback</span><span class="params">(List&lt;Contact&gt; oldList, List&lt;Contact&gt; newList)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mOldList = oldList;</span><br><span class="line">        <span class="keyword">this</span>.mNewList = newList;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOldListSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mOldList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNewListSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mNewList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">areItemsTheSame</span><span class="params">(<span class="keyword">int</span> oldItemPosition, <span class="keyword">int</span> newItemPosition)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// add a unique ID property on Contact and expose a getId() method</span></span><br><span class="line">        <span class="keyword">return</span> mOldList.get(oldItemPosition).getId() == mNewList.get(newItemPosition).getId();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">areContentsTheSame</span><span class="params">(<span class="keyword">int</span> oldItemPosition, <span class="keyword">int</span> newItemPosition)</span> </span>&#123;</span><br><span class="line">        Contact oldContact = mOldList.get(oldItemPosition);</span><br><span class="line">        Contact newContact = mNewList.get(newItemPosition);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (oldContact.getName() == newContact.getName() &amp;&amp; oldContact.isOnline() == newContact.isOnline()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Next, you would implement a <code>swapItems()</code> method on your adapter to perform the diff and then invoke <code>dispatchUpdates()</code> to notify the adapter whether the element was inserted, removed, moved, or changed:</p>
+<p>然后，你需要在adapter中实现<code>swapItems()</code>方法用于执行diff，然后调用<code>dispatchUpdates()</code>通知adapter元素是否被插入，移除，移动，或修改：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span></span><br><span class="line">        <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swapItems</span><span class="params">(List&lt;Contact&gt; contacts)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// compute diffs</span></span><br><span class="line">        <span class="keyword">final</span> ContactDiffCallback diffCallback = <span class="keyword">new</span> ContactDiffCallback(<span class="keyword">this</span>.mContacts, contacts);</span><br><span class="line">        <span class="keyword">final</span> DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// clear contacts and add</span></span><br><span class="line">        <span class="keyword">this</span>.mContacts.clear();</span><br><span class="line">        <span class="keyword">this</span>.mContacts.addAll(contacts);</span><br><span class="line"></span><br><span class="line">        diffResult.dispatchUpdatesTo(<span class="keyword">this</span>); <span class="comment">// calls adapter's notify methods after diff is computed</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>工作示例，请查看<a href="https://github.com/mrmike/DiffUtil-sample" target="_blank" rel="external">示例代码</a>。</p>
+<h3 id="滚动到新的item"><a href="#滚动到新的item" class="headerlink" title="滚动到新的item"></a>滚动到新的item</h3><p>如果在列表前插入元素并且希望保持位置在顶部，我们可以设置滚动位置到第一个元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adapter.notifyItemInserted(<span class="number">0</span>);</span><br><span class="line">rvContacts.scrollToPosition(<span class="number">0</span>);   <span class="comment">// index 0 position</span></span><br></pre></td></tr></table></figure>
+<p>如果我们添加item在末尾并且希望滚动到添加的位置，我们可以通知adapter元素被添加并且可以在RecyclerView调用<code>smoothScrollToPosition()</code>：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adapter.notifyItemInserted(contacts.size() - <span class="number">1</span>);  <span class="comment">// contacts.size() - 1 is the last element position</span></span><br><span class="line">rvContacts.scrollToPosition(mAdapter.getItemCount() - <span class="number">1</span>); <span class="comment">// update based on adapter</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="实现加载更多"><a href="#实现加载更多" class="headerlink" title="实现加载更多"></a>实现加载更多</h3><p>当用户滚动列表到末尾实现加载更多数据并追加到列表末尾，从<code>RecyclerView</code>使用<code>addOnScrollListener()</code>方法并且利用这篇文章的<a href="http://guides.codepath.com/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview" target="_blank" rel="external">EndlessScrollViewScrollListener</a>指导添加<code>onLoadMore</code>方法。</p>
+<h2 id="RecyclerView的配置"><a href="#RecyclerView的配置" class="headerlink" title="RecyclerView的配置"></a>RecyclerView的配置</h2><p><code>RecyclerView</code>有很强大的灵活性和高度可自定义化。下面介绍几个可用选项。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>对于明显地平滑滚动如果item是静态的并且不会改变我们也可以启用优化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recyclerView.setHasFixedSize(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Layouts"><a href="#Layouts" class="headerlink" title="Layouts"></a>Layouts</h3><p>The positioning of the items is configured using the layout manager. By default, we can choose between <code>LinearLayoutManager</code>, <code>GridLayoutManager</code>, and <code>StaggeredGridLayoutManager</code>. Linear displays items either vertically or horizontally:</p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p>使用布局管理器可以配置items的位置。默认情况下，我们可以使用<code>LinearLayoutManager</code>， <code>GridLayoutManager</code>，和 <code>StaggeredGridLayoutManager</code>。线性显示item可以是垂直或水平：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Setup layout manager for items with orientation</span></span><br><span class="line"><span class="comment">// Also supports `LinearLayoutManager.HORIZONTAL`</span></span><br><span class="line">LinearLayoutManager layoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>, LinearLayoutManager.VERTICAL, <span class="keyword">false</span>);</span><br><span class="line"><span class="comment">// Optionally customize the position you want to default scroll to</span></span><br><span class="line">layoutManager.scrollToPosition(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// Attach layout manager to the RecyclerView</span></span><br><span class="line">recyclerView.setLayoutManager(layoutManager);</span><br></pre></td></tr></table></figure>
+<p>用网格或错落网格显示items：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// First param is number of columns and second param is orientation i.e Vertical or Horizontal</span></span><br><span class="line">StaggeredGridLayoutManager gridLayoutManager =</span><br><span class="line">    <span class="keyword">new</span> StaggeredGridLayoutManager(<span class="number">2</span>, StaggeredGridLayoutManager.VERTICAL);</span><br><span class="line"><span class="comment">// Attach the layout manager to the recycler view</span></span><br><span class="line">recyclerView.setLayoutManager(gridLayoutManager);</span><br></pre></td></tr></table></figure>
+<p>例如，错落网格就像这样：</p>
+<p><img src="/assets/img/support/design/design-48.png" alt=""></p>
+<p>我们也可以创建<a href="http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/" target="_blank" rel="external">自己的自定义布局管理器</a>。</p>
+<h3 id="Decorations"><a href="#Decorations" class="headerlink" title="Decorations"></a>Decorations</h3><p>我们可以使用不同的decorators附加到recyclerview装饰items例如<a href="https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java" target="_blank" rel="external">DividerItemDecoration</a>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RecyclerView.ItemDecoration itemDecoration = <span class="keyword">new</span></span><br><span class="line">    DividerItemDecoration(<span class="keyword">this</span>, DividerItemDecoration.VERTICAL_LIST);</span><br><span class="line">recyclerView.addItemDecoration(itemDecoration);</span><br></pre></td></tr></table></figure>
+<p>这个decorator在列表中的每个item之间显示分隔线正如下图所示：</p>
+<p><img src="/assets/img/support/design/design-49.png" alt=""></p>
+<h4 id="网格空间装饰（Grid-Spacing-Decorations）"><a href="#网格空间装饰（Grid-Spacing-Decorations）" class="headerlink" title="网格空间装饰（Grid Spacing Decorations）"></a>网格空间装饰（Grid Spacing Decorations）</h4><p>Decorators也可以用于在网格布局或错落网格的items周围添加固定的空间。复制<a href="https://gist.github.com/nesquena/db922669798eba3e3661" target="_blank" rel="external">SpacesItemDecoration.java decorator</a>到你的工程并使用<code>addItemDecoration</code>方法应用到<code>RecyclerView</code>上。更多信息请参考<a href="http://blog.grafixartist.com/pinterest-masonry-layout-staggered-grid/" target="_blank" rel="external">这篇错落网格教程</a>。</p>
+<h3 id="Animators"><a href="#Animators" class="headerlink" title="Animators"></a>Animators</h3><p>RecyclerView支持使用<a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html" target="_blank" rel="external">ItemAnimator</a>自定义动画对于items的进入，移动，或删除。默认动画效果由<a href="https://developer.android.com/intl/ko/reference/android/support/v7/widget/DefaultItemAnimator.html" target="_blank" rel="external">DefaultItemAnimator</a>定义，复杂的实现（查看<a href="https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java" target="_blank" rel="external">源码</a>）说明了动画效果被执行在指定的顺序（移除，移动和添加）必要的逻辑。</p>
+<p>目前，在RecyclerView上使用动画的最快的方法是使用第三方类库。<a href="https://github.com/wasabeef/recyclerview-animators" target="_blank" rel="external">third-party recyclerview-animators library</a>包含了很多你可以直接使用的动画。在<code>app/build.gradle</code>文件中添加依赖：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repositories</span> &#123;</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//If you are using a RecyclerView 23.1.0 or higher.</span></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'jp.wasabeef:recyclerview-animators:2.2.3'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//If you are using a RecyclerView 23.0.1 or below.</span></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'jp.wasabeef:recyclerview-animators:1.3.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，我们可以使用所有已定义的动画在RecyclerView上：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recyclerView.setItemAnimator(<span class="keyword">new</span> SlideInUpAnimator());</span><br></pre></td></tr></table></figure>
+<p>例如，这有一个滚动列表的自定义动画：</p>
+<p><img src="/assets/img/support/design/design-50.gif" alt=""></p>
+<h4 id="新的ItemAnimator接口"><a href="#新的ItemAnimator接口" class="headerlink" title="新的ItemAnimator接口"></a>新的ItemAnimator接口</h4><p>从<a href="https://developer.android.com/intl/ko/tools/support-library/index.html#revisions" target="_blank" rel="external">support library v23.1.0</a> 版本开始，为<code>RecyclerView</code>的<a href="https://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html#pubmethods" target="_blank" rel="external">ItemAnimator</a>接口提供了新接口。老的接口已经被弃用为<code>SimpleItemAnimator</code>。这个类库添加了一个<a href="https://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.ItemAnimator.ItemHolderInfo.html" target="_blank" rel="external">ItemHolderInfo</a>类，和<code>DefaultItemAnimator</code>定义的<a href="https://github.com/android/platform_frameworks_support/blob/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java#L53-L63" target="_blank" rel="external">MoveInfo</a>类相似，但在动画过渡状态之间传递状态信息更通用。在<code>DefaultItemAnimator</code>下个版本可能会简化这个新类的使用和修改接口。</p>
+<h3 id="异构Views"><a href="#异构Views" class="headerlink" title="异构Views"></a>异构Views</h3><p>See [[this guide|Heterogenous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single <code>RecyclerView</code>:</p>
+<p>如果你想在<code>RecyclerView</code>使用多种类型的行查看<a href="http://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView" target="_blank" rel="external">这个指导</a>：</p>
+<p><img src="/assets/img/support/design/design-51.png" alt=""></p>
+<p>这对于在一个列表中包含多种类型的items很有用。</p>
+<h3 id="处理触摸事件"><a href="#处理触摸事件" class="headerlink" title="处理触摸事件"></a>处理触摸事件</h3><p>RecyclerView可以处理触摸事件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">recyclerView.addOnItemTouchListener(<span class="keyword">new</span> RecyclerView.OnItemTouchListener() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTouchEvent</span><span class="params">(RecyclerView recycler, MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Handle on touch events here</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(RecyclerView recycler, MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="对齐到中心"><a href="#对齐到中心" class="headerlink" title="对齐到中心"></a>对齐到中心</h3><p>在某些情况下，我们可能想要一个水平的<code>RecyclerView</code>可以让用户滚动列表。当用户滚动列表时，我们可以想要显示的items对齐到中心。例如：</p>
+<p><img src="/assets/img/support/design/design-52.gif" alt=""></p>
+<h4 id="LinearSnapHelper"><a href="#LinearSnapHelper" class="headerlink" title="LinearSnapHelper"></a>LinearSnapHelper</h4><p>为了实现这个对齐到中心的效果，从support library 24.2.0 版本开始，我们可以使用内置的<a href="https://developer.android.com/reference/android/support/v7/widget/LinearSnapHelper.html" target="_blank" rel="external">LinearSnapHelper</a>类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SnapHelper snapHelper = <span class="keyword">new</span> LinearSnapHelper();</span><br><span class="line">snapHelper.attachToRecyclerView(recyclerView);</span><br></pre></td></tr></table></figure>
+<p>对于更复杂的对齐效果，查看<a href="https://rubensousa.github.io/2016/08/recyclerviewsnap" target="_blank" rel="external">关于自定义这些帮助类</a>和<a href="https://github.com/rubensousa/RecyclerViewSnap/" target="_blank" rel="external">相关示例代码</a>。</p>
+<h4 id="SnappyRecyclerView"><a href="#SnappyRecyclerView" class="headerlink" title="SnappyRecyclerView"></a>SnappyRecyclerView</h4><p>对于手动实现，我们可以创建一个名为<code>SnappyRecyclerView</code>继承<code>RecyclerView</code>的类实现对齐效果：<br>1.复制<a href="https://gist.github.com/nesquena/b26f9a253bbbb6a2e4890891e8a57eb9" target="_blank" rel="external">SnappyRecyclerView.java</a>类到你的工程。<br>2.使用水平的<code>LinearLayoutManager</code>配置新的<code>SnappyRecyclerView</code>：</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LinearLayoutManager layoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>, LinearLayoutManager.HORIZONTAL, <span class="keyword">false</span>);</span><br><span class="line">snappyRecyclerView.setLayoutManager(layoutManager);</span><br></pre></td></tr></table></figure>
+<p>3.关联adapter到<code>RecyclerView</code>填充数据到水平列表。<br>4.你可以使用<code>snappyRecyclerView.getFirstVisibleItemPosition()</code>获取当前对齐item位置。</p>
+<p>这样就可以实现对齐到中心的水平滚动列表！</p>
+<h3 id="添加Items的点击处理"><a href="#添加Items的点击处理" class="headerlink" title="添加Items的点击处理"></a>添加Items的点击处理</h3><h4 id="使用Decorators添加点击监听"><a href="#使用Decorators添加点击监听" class="headerlink" title="使用Decorators添加点击监听"></a>使用Decorators添加点击监听</h4><p>给<code>RecyclerView</code>配置item点击处理简单的解决方案是使用decorator类管理item点击监听。使用这个<a href="https://gist.github.com/nesquena/231e356f372f214c4fe6" target="_blank" rel="external"><code>ItemClickSupport</code> decorator</a>，可以这样添加点击处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(</span><br><span class="line">  <span class="keyword">new</span> ItemClickSupport.OnItemClickListener() &#123;</span><br><span class="line">      <span class="annotation">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClicked</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> position, View v)</span> </span>&#123;</span><br><span class="line">          <span class="comment">// do it</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>这个类的实现包装了下面描述的接口模型。如果你使用了上面的代码，你 <strong>不需要手动处理item点击</strong> 。<a href="http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/" target="_blank" rel="external">这篇文章</a>概述了这个技术。</p>
+<h4 id="在ViewHolder中处理点击"><a href="#在ViewHolder中处理点击" class="headerlink" title="在ViewHolder中处理点击"></a>在ViewHolder中处理点击</h4><p>RecyclerView没有专门提供items的点击处理不像ListView有<code>setOnItemClickListener</code>方法。为了手动实现类似的效果（不是使用上面提到的decorator实现），我们可以在我们的adapter中<code>ViewHolder</code>添加点击事件：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Used to cache the views within the item layout for fast access</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> TextView tvName;</span><br><span class="line">        <span class="keyword">public</span> TextView tvHometown;</span><br><span class="line">        <span class="keyword">private</span> Context context;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(Context context, View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            <span class="keyword">this</span>.tvName = (TextView) itemView.findViewById(R.id.tvName);</span><br><span class="line">            <span class="keyword">this</span>.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);</span><br><span class="line">            <span class="comment">// Store the context</span></span><br><span class="line">            <span class="keyword">this</span>.context = context;</span><br><span class="line">            <span class="comment">// Attach a click listener to the entire row view</span></span><br><span class="line">            itemView.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Handles the row being being clicked</span></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> position = getAdapterPosition(); <span class="comment">// gets item position</span></span><br><span class="line">            <span class="keyword">if</span> (position != RecyclerView.NO_POSITION) &#123; <span class="comment">// Check if an item was deleted, but the user clicked it before the UI removed it</span></span><br><span class="line">                User user = users.get(position);</span><br><span class="line">                <span class="comment">// We can access the data within the views</span></span><br><span class="line">                Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你想在item被按下的时候添加选择的效果，我们可以在 <strong>行根布局</strong> 设置<code>android:background</code>为<code>?android:attr/selectableItemBackground</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span> <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:background</span>=<span class="value">"?android:attr/selectableItemBackground"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/assets/img/support/design/design-53.gif" alt=""></p>
+<h4 id="使用Listeners添加事件处理"><a href="#使用Listeners添加事件处理" class="headerlink" title="使用Listeners添加事件处理"></a>使用Listeners添加事件处理</h4><p>In certain cases, you’d want to setup click handlers for views within the <code>RecyclerView</code> but define the click logic within the containing <code>Activity</code> or <code>Fragment</code> (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:</p>
+<p>在某些情况下，你可能想要使用<code>RecyclerView</code>为view添加事件处理但在<code>Activity</code> 或 <code>Fragment</code>中定义点击逻辑（例如从adapter暴露事件）。为了实现这个，在adapter中<a href="http://guides.codepath.com/android/Creating-Custom-Listeners" target="_blank" rel="external">创建自定义监听</a>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactsAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactsAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/***** Creating OnItemClickListener *****/</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Define listener member variable</span></span><br><span class="line">    <span class="keyword">private</span> OnItemClickListener listener;</span><br><span class="line">    <span class="comment">// Define the listener interface</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnItemClickListener</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(View itemView, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Define the method that allows the parent activity or fragment to define the listener</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnItemClickListener</span><span class="params">(OnItemClickListener listener)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.listener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> TextView tvName;</span><br><span class="line">        <span class="keyword">public</span> TextView tvHometown;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(<span class="keyword">final</span> View itemView)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(itemView);</span><br><span class="line">            <span class="keyword">this</span>.tvName = (TextView) itemView.findViewById(R.id.tvName);</span><br><span class="line">            <span class="keyword">this</span>.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);</span><br><span class="line">            <span class="comment">// Setup the click listener</span></span><br><span class="line">            itemView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">                <span class="annotation">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                    <span class="comment">// Triggers click upwards to the adapter on click</span></span><br><span class="line">                    <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">int</span> position = getAdapterPosition();</span><br><span class="line">                        <span class="keyword">if</span> (position != RecyclerView.NO_POSITION) &#123;</span><br><span class="line">                            listener.onItemClick(itemView, position);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后使用adapter添加点击处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// In the activity or fragment</span></span><br><span class="line">ContactsAdapter adapter = ...;</span><br><span class="line">adapter.setOnItemClickListener(<span class="keyword">new</span> ContactsAdapter.OnItemClickListener() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(View view, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        String name = users.get(position).name;</span><br><span class="line">        Toast.makeText(UserListActivity.<span class="keyword">this</span>, name + <span class="string">" was clicked!"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>查看这个<a href="http://stackoverflow.com/a/24933117/313399" target="_blank" rel="external">detailed stackoverflow post</a>说明了怎样使用<code>RecyclerView</code>配置item点击处理。</p>
+<h2 id="实现下拉刷新"><a href="#实现下拉刷新" class="headerlink" title="实现下拉刷新"></a>实现下拉刷新</h2><p>The <code>SwipeRefreshLayout</code> should be used to refresh the contents of a <code>RecyclerView</code> via a vertical swipe gesture. See our detailed [[RecyclerView with SwipeRefreshLayout|Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout]] guide for a step-by-step tutorial on implementing pull to refresh.</p>
+<p><code>SwipeRefreshLayout</code>可以用于刷新<code>RecyclerView</code>的内容。查看<a href="http://guides.codepath.com/android/Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout" target="_blank" rel="external">RecyclerView with SwipeRefreshLayout</a>教程实现下拉刷新。</p>
+<h2 id="Swipe检测"><a href="#Swipe检测" class="headerlink" title="Swipe检测"></a>Swipe检测</h2><p>RecyclerView（从v24.2.0版本）现在有一个<code>OnFlingListener</code>方法可以用于实现自定义fling行为。下载<a href="https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8" target="_blank" rel="external">RecyclerViewSwipeListener</a>添加到RecyclerView你可以处理自定义swip检测：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">RecyclerView rvMyList;</span><br><span class="line"></span><br><span class="line">rvMyList.setOnFlingListener(<span class="keyword">new</span> RecyclerViewSwipeListener(<span class="keyword">true</span>) &#123;</span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSwipeDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"swipe down"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSwipeUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"swipe up"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html</a></li>
+<li><a href="http://www.grokkingandroid.com/first-glance-androids-recyclerview/" target="_blank" rel="external">http://www.grokkingandroid.com/first-glance-androids-recyclerview/</a></li>
+<li><a href="http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/" target="_blank" rel="external">http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/</a></li>
+<li><a href="http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/" target="_blank" rel="external">http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/</a></li>
+<li><a href="https://developer.android.com/training/material/lists-cards.html" target="_blank" rel="external">https://developer.android.com/training/material/lists-cards.html</a></li>
+<li><a href="http://antonioleiva.com/recyclerview/" target="_blank" rel="external">http://antonioleiva.com/recyclerview/</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465" target="_blank" rel="external">https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465</a></li>
+<li><a href="https://code.tutsplus.com/tutorials/introduction-to-the-new-lollipop-activity-transitions--cms-23711" target="_blank" rel="external">https://code.tutsplus.com/tutorials/introduction-to-the-new-lollipop-activity-transitions--cms-23711</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/using-the-constraintlayout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ConstraintLayout的使用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="using-the-recyclerview" data-title="（译）RecyclerView的使用" data-url="http://yoursite.com/using-the-recyclerview/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"yuweiguo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 于卫国
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
