@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/bottom-navigation-views/</loc>
+    <lastmod>2017-04-09T15:03:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）BottomNavigationView的使用</title>
+        <pubTime>2017-04-09T14:59:24.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>design</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/using-the-recyclerview/</loc>
     <lastmod>2017-04-02T03:09:23.000Z</lastmod>
     <data>
@@ -512,52 +533,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发指南——绑定Service</title>
-        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-        <tag>service</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -595,6 +570,52 @@
         <tag>data binding</tag>
          
         <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——绑定Service</title>
+        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+        <tag>service</tag>
          
          
            

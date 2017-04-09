@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/bottom-navigation-views/</loc>
+    
+    <lastmod>2017-04-09T15:03:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/using-the-recyclerview/</loc>
     
     <lastmod>2017-04-02T03:09:23.000Z</lastmod>
@@ -170,7 +177,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -184,14 +198,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
