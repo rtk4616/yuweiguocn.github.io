@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/android-studio-write-gradle-slow/</loc>
+    
+    <lastmod>2017-06-04T10:59:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/write-gradle-plugin/</loc>
+    
+    <lastmod>2017-06-04T10:58:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-interview-peformance/</loc>
+    
+    <lastmod>2017-05-14T10:47:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-support-data-binding-2/</loc>
+    
+    <lastmod>2017-05-06T03:21:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/bottom-navigation-views/</loc>
     
     <lastmod>2017-04-09T15:03:46.000Z</lastmod>
@@ -177,27 +205,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-guide-bound-service/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -219,9 +226,23 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-peformance/</loc>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
-    <lastmod>2016-10-01T08:22:18.000Z</lastmod>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
   </url>
   
@@ -257,13 +278,6 @@
     <loc>http://yoursite.com/android-summary-event-dispath/</loc>
     
     <lastmod>2016-09-13T12:32:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-support-data-binding-2/</loc>
-    
-    <lastmod>2016-08-21T08:49:01.000Z</lastmod>
     
   </url>
   
@@ -394,28 +408,14 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-studio-tips-2/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -429,7 +429,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
