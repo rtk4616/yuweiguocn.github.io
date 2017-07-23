@@ -9,17 +9,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | yuweiguo&#39;s blog</title>
+  <title>Gradle构建依赖配置说明 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="本文介绍了Android Studio中Gradle 构建依赖配置说明及如何查看依赖树等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle构建依赖配置说明">
+<meta property="og:url" content="http://yoursite.com/android-gradle-dependencies/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="本文介绍了Android Studio中Gradle 构建依赖配置说明及如何查看依赖树等。">
+<meta property="og:updated_time" content="2017-07-23T03:29:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="Gradle构建依赖配置说明">
+<meta name="twitter:description" content="本文介绍了Android Studio中Gradle 构建依赖配置说明及如何查看依赖树等。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,36 +175,113 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-android-gradle-dependencies" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gradle构建依赖配置说明
+    </h1>
+  
+
+        
+        <a href="/android-gradle-dependencies/" class="archive-article-date">
+  	<time datetime="2017-07-22T14:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android Studio中Gradle 构建依赖配置说明及如何查看依赖树等。</p>
+<a id="more"></a>
+<blockquote>
+<p>《白帝下江陵》<br>朝辞白帝彩云间，千里江陵一日还。<br>两岸猿声啼不住，轻舟已过万重山。<br>-唐，李白</p>
+</blockquote>
+<h2 id="依赖类型"><a href="#依赖类型" class="headerlink" title="依赖类型"></a>依赖类型</h2><p>1.本地module类库依赖</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="function"><span class="title">project</span><span class="params">(<span class="string">':mylibrary'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>2.本地二进制依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加libs文件夹下所有jar包作为依赖</span></span><br><span class="line">compile <span class="function"><span class="title">fileTree</span><span class="params">(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</span></span></span><br><span class="line"><span class="comment">//指定jar包作为依赖</span></span><br><span class="line">compile <span class="function"><span class="title">files</span><span class="params">(<span class="string">'libs/foo.jar'</span>, <span class="string">'libs/bar.jar'</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>3.远程二进制依赖<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.example.android:app-magic:12.3'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//or</span></span><br><span class="line"><span class="keyword">compile</span> <span class="keyword">group</span>: <span class="string">'com.example.android'</span>, name: <span class="string">'app-magic'</span>, version: <span class="string">'12.3'</span></span><br></pre></td></tr></table></figure></p>
+<p>注意远程依赖需要添加合适的远程仓库。</p>
+<h2 id="类库依赖配置"><a href="#类库依赖配置" class="headerlink" title="类库依赖配置"></a>类库依赖配置</h2><p>在依赖区域块你可以使用不同的依赖配置声明类库依赖。</p>
+<ul>
+<li>compile：gradle添加依赖到编译路径并打包到APK。</li>
+<li>apk：gradle添加依赖只打包到APK（不会添加到编译路径）。</li>
+<li>provided：gradle添加依赖到编译路径（不会打包到APK）。</li>
+</ul>
+<blockquote>
+<p>注意：在app module中，不能使用<code>provided</code>添加AAR依赖，只能添加JAR包。在library module中，你可以使用它添加AAR和JAR依赖。</p>
+</blockquote>
+<p>上面的配置应用到工程的main源码集，会被应用到所有的构建变种。如果你只想给指定的构建变种源码集或测试源码集声明依赖，你需要使用配置名和构建变种或测试源码集的名字作为前缀。</p>
+<p>例如，你只想添加compile依赖到“free”产品flavor上：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">dependencies</span> &#123;</span><br><span class="line">    <span class="title">freeCompile</span> <span class="string">'com.google.firebase:firebase-ads:9.8.0'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你想给产品flavor和构建类型的变种添加一个依赖，你需要在configurations块初始化配置名称。下面的例子说明了添加一个apk依赖到“freeDebug”构建变种上：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">configurations</span> &#123;</span><br><span class="line">    <span class="comment">// Initializes a placeholder for the freeDebugApk dependency configuration.</span></span><br><span class="line">    freeDebugApk &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    freeDebugApk <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为本地测试和设备测试添加compile依赖：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="comment">// Adds a remote binary dependency only for local tests.</span></span><br><span class="line">    testCompile <span class="string">'junit:junit:4.12'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Adds a remote binary dependency only for the instrumented test APK.</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test.espresso:espresso-core:2.2.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你的类库module提供多个变种，你可以添加不同的类库变种到不同的app变种：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  <span class="comment">// Adds the 'debug' varaint of the library to the debug varaint of the app</span></span><br><span class="line">  debugCompile project(<span class="string">path:</span> <span class="string">':my-library-module'</span>, <span class="string">configuration:</span> <span class="string">'debug'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Adds the 'release' varaint of the library to the release varaint of the app</span></span><br><span class="line">  releaseCompile project(<span class="string">path:</span> <span class="string">':my-library-module'</span>, <span class="string">configuration:</span> <span class="string">'release'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>默认情况下Android Studio在工程根目录下的build.gradle文件中声明JCenter作为仓库位置：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>添加mavenCentral、mavenLocal或指定的Maven仓库：<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">        mavenCentral()</span><br><span class="line">        mavenLocal()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"https://repo.example.com/maven2"</span></span><br><span class="line">        &#125;</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">"file://local/repo/"</span></span><br><span class="line">        &#125;</span><br><span class="line">        ivy &#123;</span><br><span class="line">            url <span class="string">"https://repo.example.com/ivy"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="谷歌的Maven仓库"><a href="#谷歌的Maven仓库" class="headerlink" title="谷歌的Maven仓库"></a>谷歌的Maven仓库</h2><p>下面的Android类库最新版本可以从Google的Maven仓库中获取：</p>
+<ul>
+<li><a href="https://developer.android.com/topic/libraries/support-library/index.html" target="_blank" rel="external">Android Support Library</a></li>
+<li><a href="https://developer.android.com/topic/libraries/architecture/index.html" target="_blank" rel="external">Architecture Components Library</a></li>
+<li><a href="https://developer.android.com/training/constraint-layout/index.html" target="_blank" rel="external">Constraint Layout Library</a></li>
+<li><a href="https://developer.android.com/topic/libraries/testing-support-library/index.html" target="_blank" rel="external">Android Test Support Library</a></li>
+<li><a href="https://developer.android.com/topic/libraries/data-binding/index.html" target="_blank" rel="external">Databinding Library</a></li>
+<li><a href="https://developer.android.com/topic/instant-apps/index.html" target="_blank" rel="external">Android Instant App Library</a></li>
+</ul>
+<p>添加google的Maven仓库到module下的build.gradle文件中：<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">repositories </span><span class="expression">&#123;</span><br><span class="line">    <span class="variable">maven</span> &#123;</span><br><span class="line">        <span class="variable">url</span> '<span class="variable">https</span>:/<span class="end-block">/maven.google.com</span>'</span><br><span class="line">        /<span class="end-block">/ </span>另外一个可用的<span class="variable">URL</span>是 '<span class="variable">https</span>:/<span class="end-block">/dl.google.com</span><span class="end-block">/dl</span><span class="end-block">/android</span><span class="end-block">/maven</span>2/'</span><br><span class="line">    &#125;</span><span class="xml"></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后添加你想要的类库到dependencies块：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:26.0.0-beta2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果你添加类库的老版本并且依赖失败了，那说明Maven仓库中不可用只能从离线仓库（SDK Manager）中获取。</p>
+<h2 id="依赖顺序"><a href="#依赖顺序" class="headerlink" title="依赖顺序"></a>依赖顺序</h2><p>在dependencies列表中的依赖顺序表示每个的优先级，第一个优先级最高，然后依次排之。类库的依赖顺序关系到<a href="https://developer.android.com/studio/write/add-resources.html#resource_merging" target="_blank" rel="external">资源合并</a>和<a href="https://developer.android.com/studio/build/manifest-merge.html" target="_blank" rel="external">清单文件元素的合并</a>。</p>
+<p>例如：添加了LIB_A和LIB_B依赖，LIB_A依赖于LIB_C和LIB_D，LIB_B依赖于LIB_C，那么依赖顺序将会是：</p>
+<p>1.LIB_A<br>2.LIB_D<br>3.LIB_B<br>4.LIB_C</p>
+<p>这会确保LIB_A和LIB_B都可以覆盖LIB_C，LIB_D比LIB_B的优先级高因为LIB_A比LIB_B优先级高。</p>
+<h2 id="查看依赖树"><a href="#查看依赖树" class="headerlink" title="查看依赖树"></a>查看依赖树</h2><p>一些直接依赖可能有它们自己的依赖。这称为依赖传递。我们可以通过从任务列表找到androidDependencies双击执行。<br>1.选择View &gt; Tool Windows &gt; Gradle。<br>2.展开 <strong>AppName</strong> &gt; Tasks &gt; android 并且双击androidDependencies。<br>3.查看报告，选择 View &gt; Tool Windows &gt; Gradle Console。</p>
+<p>下面为debug构建变种依赖树示例，包括本地module依赖和远程依赖：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Executing tasks: [androidDependencies]</span><br><span class="line">:app:androidDependencies</span><br><span class="line">debug</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Both the library module dependency and remote binary dependency are listed</span><br><span class="line"> * with their transitive dependencies.</span><br><span class="line"> */</span></span><br><span class="line">+--- MyApp:mylibrary:unspecified</span><br><span class="line">|    \--- com.android.support:appcompat-v7:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|         +--- com.android.support:animated-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|         |    \--- com.android.support:support-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|         |         \--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|         |              \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">|         +--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|         |    \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">|         \--- com.android.support:support-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|              \--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">|                   \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">\--- com.android.support:appcompat-v7:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">     +--- com.android.support:animated-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">     |    \--- com.android.support:support-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">     |         \--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">     |              \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">     +--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">     |    \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">     \--- com.android.support:support-<span class="built_in">vector</span>-drawable:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">          \--- com.android.support:support-v4:<span class="number">25.4</span><span class="number">.0</span></span><br><span class="line">               \--- LOCAL: internal_impl-<span class="number">25.4</span><span class="number">.0</span>.jar</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://developer.android.com/studio/build/dependencies.html" target="_blank" rel="external">https://developer.android.com/studio/build/dependencies.html</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-basic-broadcast-receiver/" class="archive-article-date">
-  	<time datetime="2016-04-02T14:24:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-basic-broadcast-receiver/">Android基础——广播接收者BroadcastReceiver</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,466 +291,110 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">broadcast</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gradle</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/android-gradle-dependencies/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-service/" class="archive-article-date">
-  	<time datetime="2016-04-02T02:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-02</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-service/">Android开发指南——Service</a>
-    </h1>
+  
+    <a href="/eventbus-3-new-feature/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EventBus 3.0 新特性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">service</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-aidl/" class="archive-article-date">
-  	<time datetime="2016-03-31T02:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-aidl/">Android开发指南——进程间通信AIDL</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">aidl</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-bound-service/" class="archive-article-date">
-  	<time datetime="2016-03-31T02:37:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-bound-service/">Android开发指南——绑定Service</a>
-    </h1>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">service</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-basic-intentservice/" class="archive-article-date">
-  	<time datetime="2016-03-31T01:51:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-basic-intentservice/">Android基础——IntentService</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">intentservice</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-basic-service/" class="archive-article-date">
-  	<time datetime="2016-03-28T08:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-basic-service/">Android基础——Service</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">service</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-interview-basic-1/" class="archive-article-date">
-  	<time datetime="2016-03-26T06:21:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-interview-basic-1/">Android面试基础知识总结（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-interview-list/" class="archive-article-date">
-  	<time datetime="2016-03-26T04:17:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-interview-list/">Android面试题集合</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-scrollview-nested-listview/" class="archive-article-date">
-  	<time datetime="2016-03-24T10:12:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-scrollview-nested-listview/">ScrollView嵌套ListView显示不全解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">solution</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/java-instance/" class="archive-article-date">
-  	<time datetime="2016-03-24T05:22:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/java-instance/">Java实现单例模式的正确姿势</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
-    </nav>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -696,8 +418,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
