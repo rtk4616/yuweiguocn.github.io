@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/java-annotation/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="本文介绍了如何自定义Java注解。">
-<meta property="og:updated_time" content="2017-07-23T09:01:16.000Z">
+<meta property="og:updated_time" content="2017-07-26T12:09:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java自定义注解">
 <meta name="twitter:description" content="本文介绍了如何自定义Java注解。">
@@ -205,25 +205,28 @@ var _hmt = _hmt || [];
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">import</span> <span class="tag">java</span><span class="class">.lang</span><span class="class">.annotation</span><span class="class">.Documented</span>;</span><br><span class="line"><span class="tag">import</span> <span class="tag">java</span><span class="class">.lang</span><span class="class">.annotation</span><span class="class">.ElementType</span>;</span><br><span class="line"><span class="tag">import</span> <span class="tag">java</span><span class="class">.lang</span><span class="class">.annotation</span><span class="class">.Retention</span>;</span><br><span class="line"><span class="tag">import</span> <span class="tag">java</span><span class="class">.lang</span><span class="class">.annotation</span><span class="class">.RetentionPolicy</span>;</span><br><span class="line"><span class="tag">import</span> <span class="tag">java</span><span class="class">.lang</span><span class="class">.annotation</span><span class="class">.Target</span>;</span><br><span class="line"></span><br><span class="line"><span class="at_rule">@<span class="keyword">Documented</span></span><br><span class="line">@<span class="function">Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line">@<span class="function">Target</span>(</span>&#123;<span class="tag">ElementType</span><span class="class">.METHOD</span>&#125;)</span><br><span class="line"><span class="tag">public</span> <span class="at_rule">@<span class="keyword">interface</span> MyAnnotation </span>&#123;</span><br><span class="line">    <span class="tag">int</span> <span class="tag">priority</span>() <span class="tag">default</span> 0;</span><br><span class="line">    <span class="tag">String</span> <span class="tag">value</span>() <span class="tag">default</span> "<span class="tag">default</span>";</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>定义注解的类型的为@interface，和定义接口很像，其中@Documented注解表示将此注解包含在Javadoc中。@Retention表示注解保留策略，可选的值有：</p>
 <ul>
-<li>SOURCE：注解会被编译器移除</li>
-<li>CLASS：注解会被编译器记录在类文件中但在运行时会被VM移除，这也是默认的策略</li>
-<li>RUNTIME：注解会被编译器记录在类文件中并且在运行时会被VM保留，因此我们可以通过反射读取。</li>
+<li>RetentionPolicy.SOURCE：注解会被编译器移除</li>
+<li>RetentionPolicy.CLASS：注解会被编译器记录在类文件中但在运行时会被VM移除，这也是默认的策略</li>
+<li>RetentionPolicy.RUNTIME：注解会被编译器记录在类文件中并且在运行时会被VM保留，因此我们可以通过反射读取。</li>
 </ul>
 <p>@Target的值为一个ElementType枚举类型，可选的值有：</p>
 <ul>
-<li>TYPE：表示注解可以用在类，接口（包括注解类型），或枚举声明上。</li>
-<li>FIELD：域声明上（包括枚举常量上）。</li>
-<li>METHOD：方法声明上。</li>
-<li>PARAMETER：参数声明上。</li>
-<li>CONSTRUCTOR：构造函数声明上。</li>
-<li>LOCAL_VARIABLE：本地变量上。</li>
-<li>ANNOTATION_TYPE：注解类型声明上。</li>
-<li>PACKAGE：包声明上。</li>
+<li>ElementType.TYPE：表示注解可以用在类，接口（包括注解类型），或枚举声明上。</li>
+<li>ElementType.FIELD：域声明上（包括枚举常量上）。</li>
+<li>ElementType.METHOD：方法声明上。</li>
+<li>ElementType.PARAMETER：参数声明上。</li>
+<li>ElementType.CONSTRUCTOR：构造函数声明上。</li>
+<li>ElementType.LOCAL_VARIABLE：本地变量上。</li>
+<li>ElementType.ANNOTATION_TYPE：注解类型声明上。</li>
+<li>ElementType.PACKAGE：包声明上。</li>
 </ul>
+<p>@Inherited注解表示该注解可以从父类继承，默认为false。只能应用于类声明。</p>
+<p>@Repeatable注解，Java 8中引入，表示被标记的注解可以应用多次。更多信息请查看<a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">Repeating Annotations</a>。</p>
 <p>我们可以使用default关键字指定默认值，这样我们在使用注解的时候可以不指定参数值,如果不使用default关键字，则需要指定参数值：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@MyAnnotation</span></span><br><span class="line">public void <span class="function">test</span>() &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"></span><br><span class="line"><span class="variable">@MyAnnotation</span>(priority = <span class="number">3</span>,value = <span class="string">"myvalue"</span>)</span><br><span class="line">public void <span class="function">test</span>() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>关于自定义Java注解就先介绍到这里，后续会继续学习Java注解处理器的使用，敬请关注。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://blog.csdn.net/lifetragedy/article/details/7394910" target="_blank" rel="external">http://blog.csdn.net/lifetragedy/article/details/7394910</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/annotations/index.html" target="_blank" rel="external">https://docs.oracle.com/javase/tutorial/java/annotations/index.html</a></li>
 </ul>
 
       
@@ -342,6 +345,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/android-app-install-type/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          利用PackageInfo判断应用首次安装还是覆盖安装
+        
+      </div>
+    </a>
   
   
     <a href="/android-gradle-dependencies/" id="article-nav-older" class="article-nav-link-wrap">
