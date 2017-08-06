@@ -9,17 +9,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>yuweiguo&#39;s blog</title>
+  <title>自定义Java注解处理器 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+  <meta name="description" content="本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义Java注解处理器">
+<meta property="og:url" content="http://yoursite.com/java-annotation-processor/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/teach/anno-1.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/teach/anno-2.png">
+<meta property="og:updated_time" content="2017-08-06T03:57:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="自定义Java注解处理器">
+<meta name="twitter:description" content="本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,32 +177,401 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-publishing-lib-to-jcenter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-java-annotation-processor" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/publishing-lib-to-jcenter/">上传类库到jcenter</a>
+    <h1 class="article-title" itemprop="name">
+      自定义Java注解处理器
     </h1>
   
 
         
-        <a href="/publishing-lib-to-jcenter/" class="archive-article-date">
-  	<time datetime="2016-12-07T08:21:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-07</time>
+        <a href="/java-annotation-processor/" class="archive-article-date">
+  	<time datetime="2017-08-06T03:57:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍了如何上传类库到jcenter。</p>
-        
+        <p>本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。</p>
+<a id="more"></a>
+<blockquote>
+<p>《游园不值》<br>应怜屐齿印苍苔 ，小扣柴扉久不开 。<br>春色满园关不住 ，一枝红杏出墙来 。<br>-宋，叶绍翁</p>
+</blockquote>
+<p>关于自定义Java注解请查看<a href="/java-annotation/">自定义注解</a>。</p>
+<h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p>实现一个自定义注解处理器需要有两个步骤，第一是实现Processor接口处理注解，第二是注册注解处理器。</p>
+<h3 id="实现Processor接口"><a href="#实现Processor接口" class="headerlink" title="实现Processor接口"></a>实现Processor接口</h3><p>通过实现Processor接口可以自定义注解处理器，这里我们采用更简单的方法通过继承AbstractProcessor类实现自定义注解处理器。实现抽象方法process处理我们想要的功能。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CustomProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public boolean process(<span class="type">Set</span>&lt;? <span class="keyword">extends</span> <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> roundEnvironment) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>除此之外，我们还需要指定支持的注解类型以及支持的Java版本通过重写getSupportedAnnotationTypes方法和getSupportedSourceVersion方法：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CustomProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public boolean process(<span class="type">Set</span>&lt;? <span class="keyword">extends</span> <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> roundEnvironment) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public <span class="type">Set</span>&lt;<span class="type">String</span>&gt; getSupportedAnnotationTypes() &#123;</span><br><span class="line">        <span class="type">Set</span>&lt;<span class="type">String</span>&gt; annotataions = <span class="keyword">new</span> <span class="type">LinkedHashSet</span>&lt;<span class="type">String</span>&gt;();</span><br><span class="line">        annotataions.add(<span class="type">CustomAnnotation</span>.<span class="keyword">class</span>.getCanonicalName());</span><br><span class="line">        <span class="keyword">return</span> annotataions;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public <span class="type">SourceVersion</span> getSupportedSourceVersion() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">SourceVersion</span>.latestSupported();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于指定支持的注解类型，我们还可以通过注解的方式进行指定：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@SupportedAnnotationTypes</span>(&#123;<span class="string">"io.github.yuweiguocn.annotation.CustomAnnotation"</span>&#125;)</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CustomProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public boolean process(<span class="type">Set</span>&lt;? <span class="keyword">extends</span> <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> roundEnvironment) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public <span class="type">SourceVersion</span> getSupportedSourceVersion() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">SourceVersion</span>.latestSupported();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>因为Android平台可能会有兼容问题，建议使用重写getSupportedAnnotationTypes方法指定支持的注解类型。</p>
+</blockquote>
+<h3 id="注册注解处理器"><a href="#注册注解处理器" class="headerlink" title="注册注解处理器"></a>注册注解处理器</h3><p>最后我们还需要将我们自定义的注解处理器进行注册。新建res文件夹，目录下新建META-INF文件夹，目录下新建services文件夹，目录下新建javax.annotation.processing.Processor文件，然后将我们自定义注解处理器的全类名写到此文件：<br><img src="/assets/img/teach/anno-1.png" alt=""></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">io<span class="class">.github</span><span class="class">.yuweiguocn</span><span class="class">.processor</span><span class="class">.CustomProcessor</span></span><br></pre></td></tr></table></figure>
+<p>上面这种注册的方式太麻烦了，谷歌帮我们写了一个注解处理器来生成这个文件。<br>github地址：<a href="https://github.com/google/auto" target="_blank" rel="external">https://github.com/google/auto</a><br>添加依赖：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.google.auto.service:auto-service:1.0-rc2'</span></span><br></pre></td></tr></table></figure>
+<p>添加注解：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@AutoService</span>(<span class="type">Processor</span>.<span class="keyword">class</span>)</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CustomProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>搞定，体会到注解处理器的强大木有。后面我们只需关注注解处理器中的处理逻辑即可。</p>
+<p>我们来看一下最终的项目结构：</p>
+<p><img src="/assets/img/teach/anno-2.png" alt=""></p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>抽象类中还有一个init方法，这是Processor接口中提供的一个方法，当我们编译程序时注解处理器工具会调用此方法并且提供实现ProcessingEnvironment接口的对象作为参数。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(ProcessingEnvironment processingEnvironment)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.init(processingEnvironment);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以使用ProcessingEnvironment获取一些实用类以及获取选项参数等：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elements getElementUtils()</td>
+<td>返回实现Elements接口的对象，用于操作元素的工具类。</td>
+</tr>
+<tr>
+<td>Filer getFiler()</td>
+<td>返回实现Filer接口的对象，用于创建文件、类和辅助文件。</td>
+</tr>
+<tr>
+<td>Messager getMessager()</td>
+<td>返回实现Messager接口的对象，用于报告错误信息、警告提醒。</td>
+</tr>
+<tr>
+<td>Map<string,string> getOptions()</string,string></td>
+<td>返回指定的参数选项。</td>
+</tr>
+<tr>
+<td>Types getTypeUtils()</td>
+<td>返回实现Types接口的对象，用于操作类型的工具类。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><p>Element元素是一个接口，表示一个程序元素，比如包、类或者方法。以下元素类型接口全部继承自Element接口：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExecutableElement</td>
+<td>表示某个类或接口的方法、构造方法或初始化程序（静态或实例），包括注解类型元素。</td>
+</tr>
+<tr>
+<td>PackageElement</td>
+<td>表示一个包程序元素。提供对有关包及其成员的信息的访问。</td>
+</tr>
+<tr>
+<td>TypeElement</td>
+<td>表示一个类或接口程序元素。提供对有关类型及其成员的信息的访问。注意，枚举类型是一种类，而注解类型是一种接口。</td>
+</tr>
+<tr>
+<td>TypeParameterElement</td>
+<td>表示一般类、接口、方法或构造方法元素的形式类型参数。</td>
+</tr>
+<tr>
+<td>VariableElement</td>
+<td>表示一个字段、enum 常量、方法或构造方法参数、局部变量或异常参数。</td>
+</tr>
+</tbody>
+</table>
+<p>如果我们要判断一个元素的类型，应该使用Element.getKind()方法配合ElementKind枚举类进行判断。尽量<strong>避免使用instanceof进行判断</strong>，因为比如TypeElement既表示类又表示一个接口，这样判断的结果可能不是你想要的。例如我们判断一个元素是不是一个类：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (element <span class="keyword">instanceof</span> TypeElement) &#123; <span class="comment">//错误，也有可能是一个接口</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (element.getKind() == ElementKind.<span class="keyword">CLASS</span>) &#123; <span class="comment">//正确</span></span><br><span class="line">    <span class="comment">//doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下表为ElementKind枚举类中的部分常量，详细信息请查看官方文档。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PACKAGE</td>
+<td>一个包。</td>
+</tr>
+<tr>
+<td>ENUM</td>
+<td>一个枚举类型。</td>
+</tr>
+<tr>
+<td>CLASS</td>
+<td>没有用更特殊的种类（如 ENUM）描述的类。</td>
+</tr>
+<tr>
+<td>ANNOTATION_TYPE</td>
+<td>一个注解类型。</td>
+</tr>
+<tr>
+<td>INTERFACE</td>
+<td>没有用更特殊的种类（如 ANNOTATION_TYPE）描述的接口。</td>
+</tr>
+<tr>
+<td>ENUM_CONSTANT</td>
+<td>一个枚举常量。</td>
+</tr>
+<tr>
+<td>FIELD</td>
+<td>没有用更特殊的种类（如 ENUM_CONSTANT）描述的字段。</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>方法或构造方法的参数。</td>
+</tr>
+<tr>
+<td>LOCAL_VARIABLE</td>
+<td>局部变量。</td>
+</tr>
+<tr>
+<td>METHOD</td>
+<td>一个方法。</td>
+</tr>
+<tr>
+<td>CONSTRUCTOR</td>
+<td>一个构造方法。</td>
+</tr>
+<tr>
+<td>TYPE_PARAMETER</td>
+<td>一个类型参数。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>TypeMirror是一个接口，表示 Java 编程语言中的类型。这些类型包括基本类型、声明类型（类和接口类型）、数组类型、类型变量和 null 类型。还可以表示通配符类型参数、executable 的签名和返回类型，以及对应于包和关键字 void 的伪类型。以下类型接口全部继承自TypeMirror接口：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ArrayType</td>
+<td>表示一个数组类型。多维数组类型被表示为组件类型也是数组类型的数组类型。</td>
+</tr>
+<tr>
+<td>DeclaredType</td>
+<td>表示某一声明类型，是一个类 (class) 类型或接口 (interface) 类型。这包括参数化的类型（比如 java.util.Set<string>）和原始类型。TypeElement 表示一个类或接口元素，而 DeclaredType 表示一个类或接口类型，后者将成为前者的一种使用（或调用）。</string></td>
+</tr>
+<tr>
+<td>ErrorType</td>
+<td>表示无法正常建模的类或接口类型。</td>
+</tr>
+<tr>
+<td>ExecutableType</td>
+<td>表示 executable 的类型。executable 是一个方法、构造方法或初始化程序。</td>
+</tr>
+<tr>
+<td>NoType</td>
+<td>在实际类型不适合的地方使用的伪类型。</td>
+</tr>
+<tr>
+<td>NullType</td>
+<td>表示 null 类型。</td>
+</tr>
+<tr>
+<td>PrimitiveType</td>
+<td>表示一个基本类型。这些类型包括 boolean、byte、short、int、long、char、float 和 double。</td>
+</tr>
+<tr>
+<td>ReferenceType</td>
+<td>表示一个引用类型。这些类型包括类和接口类型、数组类型、类型变量和 null 类型。</td>
+</tr>
+<tr>
+<td>TypeVariable</td>
+<td>表示一个类型变量。</td>
+</tr>
+<tr>
+<td>WildcardType</td>
+<td>表示通配符类型参数。</td>
+</tr>
+</tbody>
+</table>
+<p>同样，如果我们想判断一个TypeMirror的类型，应该使用TypeMirror.getKind()方法配合TypeKind枚举类进行判断。尽量<strong>避免使用instanceof进行判断</strong>，因为比如DeclaredType既表示类 (class) 类型又表示接口 (interface) 类型，这样判断的结果可能不是你想要的。</p>
+<p>TypeKind枚举类中的部分常量，详细信息请查看官方文档。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOOLEAN</td>
+<td>基本类型 boolean。</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>基本类型 int。</td>
+</tr>
+<tr>
+<td>LONG</td>
+<td>基本类型 long。</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>基本类型 float。</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>基本类型 double。</td>
+</tr>
+<tr>
+<td>VOID</td>
+<td>对应于关键字 void 的伪类型。</td>
+</tr>
+<tr>
+<td>NULL</td>
+<td>null 类型。</td>
+</tr>
+<tr>
+<td>ARRAY</td>
+<td>数组类型。</td>
+</tr>
+<tr>
+<td>PACKAGE</td>
+<td>对应于包元素的伪类型。</td>
+</tr>
+<tr>
+<td>EXECUTABLE</td>
+<td>方法、构造方法或初始化程序。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>Filer接口支持通过注解处理器创建新文件。可以创建三种文件类型：源文件、类文件和辅助资源文件。</p>
+<p>1.创建源文件</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaFileObject createSourceFile<span class="list">(<span class="keyword">CharSequence</span> name,</span><br><span class="line">                                Element... originatingElements)</span></span><br><span class="line">                                throws IOException</span><br></pre></td></tr></table></figure>
+<p>创建一个新的源文件，并返回一个对象以允许写入它。文件的名称和路径（相对于源文件的根目录输出位置）基于该文件中声明的类型。如果声明的类型不止一个，则应该使用主要顶层类型的名称（例如，声明为 public 的那个）。还可以创建源文件来保存有关某个包的信息，包括包注解。要为指定包创建源文件，可以用 name 作为包名称，后跟 “.package-info”；要为未指定的包创建源文件，可以使用 “package-info”。</p>
+<p>2.创建类文件</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JavaFileObject createClassFile<span class="list">(<span class="keyword">CharSequence</span> name,</span><br><span class="line">                               Element... originatingElements)</span></span><br><span class="line">                               throws IOException</span><br></pre></td></tr></table></figure>
+<p>创建一个新的类文件，并返回一个对象以允许写入它。文件的名称和路径（相对于类文件的根目录输出位置）基于将写入的类型名称。还可以创建类文件来保存有关某个包的信息，包括包注解。要为指定包创建类文件，可以用 name 作为包名称，后跟 “.package-info”；为未指定的包创建类文件不受支持。</p>
+<p>3.创建辅助资源文件<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FileObject createResource(JavaFileManager.<span class="keyword">Location</span> <span class="title">location</span>,</span><br><span class="line">                          CharSequence pkg,</span><br><span class="line">                          CharSequence relativeName,</span><br><span class="line">                          Element... originatingElements)</span><br><span class="line">                          throws IOException</span><br></pre></td></tr></table></figure></p>
+<p>创建一个用于写入操作的新辅助资源文件，并为它返回一个文件对象。该文件可以与新创建的源文件、新创建的二进制文件或者其他受支持的位置一起被查找。位置 CLASS_OUTPUT 和 SOURCE_OUTPUT 必须受支持。资源可以是相对于某个包（该包是源文件和类文件）指定的，并通过相对路径名从中取出。从不太严格的角度说，新文件的完全路径名将是 location、 pkg 和 relativeName 的串联。</p>
+<p>对于生成Java文件，还可以使用Square公司的开源类库<a href="https://github.com/square/javapoet" target="_blank" rel="external">JavaPoet</a>，感兴趣的同学可以了解下。</p>
+<h3 id="打印错误信息"><a href="#打印错误信息" class="headerlink" title="打印错误信息"></a>打印错误信息</h3><p>Messager接口提供注解处理器用来报告错误消息、警告和其他通知的方式。</p>
+<blockquote>
+<p>注意：我们应该<strong>对在处理过程中可能发生的异常进行捕获</strong>，通过Messager接口提供的方法通知用户。此外，使用带有Element参数的方法连接到出错的元素，用户可以直接点击错误信息跳到出错源文件的相应行。如果你在process()中抛出一个异常，那么运行注解处理器的JVM将会崩溃（就像其他Java应用一样），这样用户会从javac中得到一个非常难懂出错信息。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void printMessage(Diagnostic.Kind kind, CharSequence msg)</td>
+<td>打印指定种类的消息。</td>
+</tr>
+<tr>
+<td>void printMessage(Diagnostic.Kind kind, CharSequence msg, Element e)</td>
+<td>在元素的位置上打印指定种类的消息。</td>
+</tr>
+<tr>
+<td>void printMessage(Diagnostic.Kind kind, CharSequence msg, Element e, AnnotationMirror a)</td>
+<td>在已注解元素的注解镜像位置上打印指定种类的消息。</td>
+</tr>
+<tr>
+<td>void printMessage(Diagnostic.Kind kind, CharSequence msg, Element e, AnnotationMirror a, AnnotationValue v)</td>
+<td>在已注解元素的注解镜像内部注解值的位置上打印指定种类的消息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="配置选项参数"><a href="#配置选项参数" class="headerlink" title="配置选项参数"></a>配置选项参数</h3><p>我们可以通过getOptions()方法获取选项参数，在gradle文件中配置选项参数值。例如我们配置了一个名为yuweiguoCustomAnnotation的参数值。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">android</span> &#123;</span><br><span class="line">    <span class="title">defaultConfig</span> &#123;</span><br><span class="line">        <span class="title">javaCompileOptions</span> &#123;</span><br><span class="line">            <span class="title">annotationProcessorOptions</span> &#123;</span><br><span class="line">                <span class="title">arguments</span> = [ yuweiguoCustomAnnotation : <span class="string">'io.github.yuweiguocn.customannotation.MyCustomAnnotation'</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在注解处理器中重写getSupportedOptions方法指定支持的选项参数名称。通过getOptions方法获取选项参数值。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public <span class="literal">static</span> <span class="keyword">final</span> <span class="built_in">String</span> CUSTOM_ANNOTATION = <span class="string">"yuweiguoCustomAnnotation"</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">public boolean process(<span class="built_in">Set</span>&lt;? <span class="keyword">extends</span> TypeElement&gt; annotations, RoundEnvironment roundEnv) &#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="built_in">String</span> resultPath = processingEnv.getOptions().<span class="literal">get</span>(CUSTOM_ANNOTATION);</span><br><span class="line">       <span class="keyword">if</span> (resultPath == <span class="keyword">null</span>) &#123;</span><br><span class="line">           ...</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       ...</span><br><span class="line">   &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">       ...</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line">public <span class="built_in">Set</span>&lt;<span class="built_in">String</span>&gt; getSupportedOptions() &#123;</span><br><span class="line">   <span class="built_in">Set</span>&lt;<span class="built_in">String</span>&gt; options = <span class="keyword">new</span> LinkedHashSet&lt;<span class="built_in">String</span>&gt;();</span><br><span class="line">   options.add(CUSTOM_ANNOTATION);</span><br><span class="line">   <span class="keyword">return</span> options;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h3><p>Java官方文档给出的注解处理过程的定义：注解处理过程是一个有序的循环过程。在每次循环中，一个处理器可能被要求去处理那些在上一次循环中产生的源文件和类文件中的注解。第一次循环的输入是运行此工具的初始输入。这些初始输入，可以看成是虚拟的第0次的循环的输出。这也就是说我们实现的process方法有可能会被调用多次，因为我们生成的文件也有可能会包含相应的注解。例如，我们的源文件为SourceActivity.class，生成的文件为Generated.class，这样就会有三次循环，第一次输入为SourceActivity.class，输出为Generated.class；第二次输入为Generated.class，输出并没有产生新文件；第三次输入为空，输出为空。</p>
+<p>每次循环都会调用process方法，process方法提供了两个参数，第一个是我们请求处理注解类型的集合（也就是我们通过重写getSupportedAnnotationTypes方法所指定的注解类型），第二个是有关当前和上一次 循环的信息的环境。返回值表示这些注解是否由此 Processor 声明，如果返回 true，则这些注解已声明并且不要求后续 Processor 处理它们；如果返回 false，则这些注解未声明并且可能要求后续 Processor 处理它们。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">boolean</span> process(Set&lt;? <span class="keyword">extends</span> TypeElement&gt; annotations,</span><br><span class="line">                                RoundEnvironment roundEnv)</span><br></pre></td></tr></table></figure>
+<h3 id="获取注解元素"><a href="#获取注解元素" class="headerlink" title="获取注解元素"></a>获取注解元素</h3><p>我们可以通过RoundEnvironment接口获取注解元素。process方法会提供一个实现RoundEnvironment接口的对象。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set&lt;? extends Element&gt; getElementsAnnotatedWith(Class&lt;? extends Annotation&gt; a)</td>
+<td>返回被指定注解类型注解的元素集合。</td>
+</tr>
+<tr>
+<td>Set&lt;? extends Element&gt; getElementsAnnotatedWith(TypeElement a)</td>
+<td>返回被指定注解类型注解的元素集合。</td>
+</tr>
+<tr>
+<td>processingOver()</td>
+<td>如果循环处理完成返回true，否则返回false。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>了解完了相关的基本概念，接下来我们来看一个示例，<strong>本示例只为演示无实际意义</strong>。主要功能为自定义一个注解，此注解只能用在public的方法上，我们通过注解处理器拿到类名和方法名存储到List集合中，然后生成通过参数选项指定的文件，通过此文件可以获取List集合。</p>
+<p>自定义注解：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Documented</span></span><br><span class="line"><span class="variable">@Target</span>(&#123;ElementType.METHOD&#125;)</span><br><span class="line"><span class="variable">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line">public <span class="variable">@interface</span> CustomAnnotation &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注解处理器中关键代码：<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">@<span class="type">Override</span></span><br><span class="line">public boolean process(<span class="type">Set</span>&lt;? extends <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> roundEnv) &#123;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="type">String</span> resultPath = processingEnv.getOptions().get(<span class="type">CUSTOM_ANNOTATION</span>);</span><br><span class="line">       <span class="keyword">if</span> (resultPath == null) &#123;</span><br><span class="line">           messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">ERROR</span>, <span class="string">"No option "</span> + <span class="type">CUSTOM_ANNOTATION</span> +</span><br><span class="line">                   <span class="string">" passed to annotation processor"</span>);</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       round++;</span><br><span class="line">       messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">NOTE</span>, <span class="string">"round "</span> + round + <span class="string">" process over "</span> + roundEnv.processingOver());</span><br><span class="line">       <span class="type">Iterator</span>&lt;? extends <span class="type">TypeElement</span>&gt; <span class="keyword">iterator</span> = annotations.<span class="keyword">iterator</span>();</span><br><span class="line">       <span class="keyword">while</span> (<span class="keyword">iterator</span>.hasNext()) &#123;</span><br><span class="line">           messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">NOTE</span>, <span class="string">"name is "</span> + <span class="keyword">iterator</span>.next().getSimpleName().toString());</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (roundEnv.processingOver()) &#123;</span><br><span class="line">           <span class="keyword">if</span> (!annotations.isEmpty()) &#123;</span><br><span class="line">               messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">ERROR</span>,</span><br><span class="line">                       <span class="string">"Unexpected processing state: annotations still available after processing over"</span>);</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (annotations.isEmpty()) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span> (<span class="type">Element</span> element : roundEnv.getElementsAnnotatedWith(<span class="type">CustomAnnotation</span>.class)) &#123;</span><br><span class="line">           <span class="keyword">if</span> (element.getKind() != <span class="type">ElementKind</span>.<span class="type">METHOD</span>) &#123;</span><br><span class="line">               messager.printMessage(</span><br><span class="line">                       <span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">ERROR</span>,</span><br><span class="line">                       <span class="type">String</span>.format(<span class="string">"Only methods can be annotated with @%s"</span>, <span class="type">CustomAnnotation</span>.class.getSimpleName()),</span><br><span class="line">                       element);</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>; // 退出处理</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (!element.getModifiers().contains(<span class="type">Modifier</span>.<span class="type">PUBLIC</span>)) &#123;</span><br><span class="line">               messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">ERROR</span>, <span class="string">"Subscriber method must be public"</span>, element);</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="type">ExecutableElement</span> execElement = (<span class="type">ExecutableElement</span>) element;</span><br><span class="line">           <span class="type">TypeElement</span> classElement = (<span class="type">TypeElement</span>) execElement.getEnclosingElement();</span><br><span class="line">           <span class="literal">result</span>.add(classElement.getSimpleName().toString() + <span class="string">"#"</span> + execElement.getSimpleName().toString());</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (!<span class="literal">result</span>.isEmpty()) &#123;</span><br><span class="line">           generateFile(resultPath);</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">WARNING</span>, <span class="string">"No @CustomAnnotation annotations found"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="literal">result</span>.clear();</span><br><span class="line">   &#125; catch (<span class="type">Exception</span> e) &#123;</span><br><span class="line">       e.printStackTrace();</span><br><span class="line">       messager.printMessage(<span class="type">Diagnostic</span>.<span class="type">Kind</span>.<span class="type">ERROR</span>, <span class="string">"Unexpected error in CustomProcessor: "</span> + e);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private <span class="type">void</span> generateFile(<span class="type">String</span> path) &#123;</span><br><span class="line">   <span class="type">BufferedWriter</span> writer = null;</span><br><span class="line">   <span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="type">JavaFileObject</span> sourceFile = filer.createSourceFile(path);</span><br><span class="line">       <span class="type">int</span> period = path.lastIndexOf('.');</span><br><span class="line">       <span class="type">String</span> myPackage = period &gt; <span class="number">0</span> ? path.substring(<span class="number">0</span>, period) : null;</span><br><span class="line">       <span class="type">String</span> clazz = path.substring(period + <span class="number">1</span>);</span><br><span class="line">       writer = new <span class="type">BufferedWriter</span>(sourceFile.openWriter());</span><br><span class="line">       <span class="keyword">if</span> (myPackage != null) &#123;</span><br><span class="line">           writer.write(<span class="string">"package "</span> + myPackage + <span class="string">";\n\n"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       writer.write(<span class="string">"import java.util.ArrayList;\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"import java.util.List;\n\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"/** This class is generated by CustomProcessor, do not edit. */\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"public class "</span> + clazz + <span class="string">" &#123;\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"    private static final List&lt;String&gt; ANNOTATIONS;\n\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"    static &#123;\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"        ANNOTATIONS = new ArrayList&lt;&gt;();\n\n"</span>);</span><br><span class="line">       writeMethodLines(writer);</span><br><span class="line">       writer.write(<span class="string">"    &#125;\n\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"    public static List&lt;String&gt; getAnnotations() &#123;\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"        return ANNOTATIONS;\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"    &#125;\n\n"</span>);</span><br><span class="line">       writer.write(<span class="string">"&#125;\n"</span>);</span><br><span class="line">   &#125; catch (<span class="type">IOException</span> e) &#123;</span><br><span class="line">       throw new <span class="type">RuntimeException</span>(<span class="string">"Could not write source for "</span> + path, e);</span><br><span class="line">   &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">       <span class="keyword">if</span> (writer != null) &#123;</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               writer.close();</span><br><span class="line">           &#125; catch (<span class="type">IOException</span> e) &#123;</span><br><span class="line">               //<span class="type">Silent</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private <span class="type">void</span> writeMethodLines(<span class="type">BufferedWriter</span> writer) throws <span class="type">IOException</span> &#123;</span><br><span class="line">   <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="literal">result</span>.size(); i++) &#123;</span><br><span class="line">       writer.write(<span class="string">"        ANNOTATIONS.add(\""</span> + <span class="literal">result</span>.get(i) + <span class="string">"\");\n"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译输出：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Note: <span class="command">round</span> <span class="number">1</span> process <span class="keyword">over</span> <span class="constant">false</span></span><br><span class="line">Note: <span class="property">name</span> <span class="keyword">is</span> CustomAnnotation</span><br><span class="line">Note: <span class="command">round</span> <span class="number">2</span> process <span class="keyword">over</span> <span class="constant">false</span></span><br><span class="line">Note: <span class="command">round</span> <span class="number">3</span> process <span class="keyword">over</span> <span class="constant">true</span></span><br></pre></td></tr></table></figure></p>
+<p>获取完整代码：<a href="https://github.com/yuweiguocn/CustomAnnotation" target="_blank" rel="external">https://github.com/yuweiguocn/CustomAnnotation</a></p>
+<p>关于上传自定义注解处理器到jcenter中，请查看<a href="/publishing-lib-to-jcenter/">上传类库到jcenter</a>。</p>
+<p>很高兴你能阅读到这里，此时再去看EventBus 3.0中的注解处理器的源码，相信你可以很轻松地理解它的原理。</p>
+<blockquote>
+<p>注意：如果你clone了工程代码，你可能会发现<strong>注解和注解处理器是单独的module</strong>。有一点可以肯定的是我们的注解处理器只需要在编译的时候使用，并不需要打包到APK中。因此为了用户考虑，我们需要将注解处理器分离为单独的module。</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.race604.com/annotation-processing/" target="_blank" rel="external">https://www.race604.com/annotation-processing/</a></li>
+<li><a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/processing/package-summary.html" target="_blank" rel="external">http://docs.oracle.com/javase/7/docs/api/javax/annotation/processing/package-summary.html</a></li>
+<li><a href="http://tool.oschina.net/uploads/apidocs/jdk-zh/" target="_blank" rel="external">http://tool.oschina.net/uploads/apidocs/jdk-zh/</a></li>
+<li><a href="https://github.com/greenrobot/EventBus" target="_blank" rel="external">https://github.com/greenrobot/EventBus</a></li>
+<li><a href="http://hannesdorfmann.com/annotation-processing/annotationprocessing101" target="_blank" rel="external">http://hannesdorfmann.com/annotation-processing/annotationprocessing101</a></li>
+<li><a href="https://github.com/sockeqwe/annotationprocessing101" target="_blank" rel="external">https://github.com/sockeqwe/annotationprocessing101</a></li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -210,11 +582,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">teach</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -223,623 +595,74 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/publishing-lib-to-jcenter/">more >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/java-annotation-processor/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
   
-    <article id="post-android-basic-animation-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-basic-animation-2/">Android基础——动画（二）</a>
-    </h1>
   
-
-        
-        <a href="/android-basic-animation-2/" class="archive-article-date">
-  	<time datetime="2016-12-01T10:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Android中的属性动画的使用。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-basic-animation-2/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
+    <a href="/android-app-install-type/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用PackageInfo判断应用首次安装还是覆盖安装</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-    <article id="post-android-basic-shape-drawable" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-basic-shape-drawable/">Android基础——Shape Drawable</a>
-    </h1>
-  
-
-        
-        <a href="/android-basic-shape-drawable/" class="archive-article-date">
-  	<time datetime="2016-11-16T12:37:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Android中的Shape的使用。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">resources</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-basic-shape-drawable/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-basic-animation-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-basic-animation-1/">Android基础——动画（一）</a>
-    </h1>
-  
-
-        
-        <a href="/android-basic-animation-1/" class="archive-article-date">
-  	<time datetime="2016-11-13T14:11:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Android中的资源文件属性动画、View动画、插值器及自定义插值器和帧动画的使用。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">resources</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-basic-animation-1/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-avoiding-memory-leaks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-avoiding-memory-leaks/">（译）Android性能优化——避免内存泄露</a>
-    </h1>
-  
-
-        
-        <a href="/android-avoiding-memory-leaks/" class="archive-article-date">
-  	<time datetime="2016-10-01T08:17:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Android中如何避免常见的内存泄露。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-avoiding-memory-leaks/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-mac-hexo-github-blog-tech-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/mac-hexo-github-blog-tech-2/">Mac下Hexo+GitHub搭建博客（二）</a>
-    </h1>
-  
-
-        
-        <a href="/mac-hexo-github-blog-tech-2/" class="archive-article-date">
-  	<time datetime="2016-09-24T03:10:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Hexo草稿箱及模板的使用，如何修改URL生成格式，创建404页面及提交网站到搜索引擎。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/mac-hexo-github-blog-tech-2/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-basic-notification" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-basic-notification/">Android基础——Notification</a>
-    </h1>
-  
-
-        
-        <a href="/android-basic-notification/" class="archive-article-date">
-  	<time datetime="2016-09-16T01:01:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了通知的使用，包括大文本、大图片等扩展样式通知及在通知上显示进度指示器和浮动通知的触发条件。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">notification</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-basic-notification/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-summary-event-dispath" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-summary-event-dispath/">Android事件分发机制源码分析及总结</a>
-    </h1>
-  
-
-        
-        <a href="/android-summary-event-dispath/" class="archive-article-date">
-  	<time datetime="2016-09-13T12:22:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文分析了Android中的事件分发机制的源码并做了简单的总结。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">source</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">summary</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-summary-event-dispath/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-support-data-binding-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-support-data-binding-2/">Data Binding使用详解（二）</a>
-    </h1>
-  
-
-        
-        <a href="/android-support-data-binding-2/" class="archive-article-date">
-  	<time datetime="2016-07-14T05:52:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Data Binding表达式语言、观察者模式的高级应用、在RecylerView中的应用、属性Setters的详细使用等。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data binding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">support</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-support-data-binding-2/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-support-data-binding-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/android-support-data-binding-1/">Data Binding使用详解（一）</a>
-    </h1>
-  
-
-        
-        <a href="/android-support-data-binding-1/" class="archive-article-date">
-  	<time datetime="2016-07-12T11:28:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了Data Binding的基本用法，包括一些基本概念、事件的处理及观察者模式的简单应用。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data binding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">support</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/android-support-data-binding-1/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+</nav>
 
 
 
@@ -847,9 +670,26 @@ var _hmt = _hmt || [];
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -872,8 +712,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
