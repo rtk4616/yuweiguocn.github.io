@@ -19,7 +19,7 @@
 <meta property="og:description" content="本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。">
 <meta property="og:image" content="http://yoursite.com/assets/img/teach/anno-1.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/teach/anno-2.png">
-<meta property="og:updated_time" content="2017-08-06T03:57:51.000Z">
+<meta property="og:updated_time" content="2017-08-07T05:58:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Java注解处理器">
 <meta name="twitter:description" content="本文介绍了如何自定义Java注解处理器及涉及到的相关知识，看完本文可以很轻松看懂并理解各大开源框架的注解处理器的应用。">
@@ -203,6 +203,9 @@ var _hmt = _hmt || [];
 <p>《游园不值》<br>应怜屐齿印苍苔 ，小扣柴扉久不开 。<br>春色满园关不住 ，一枝红杏出墙来 。<br>-宋，叶绍翁</p>
 </blockquote>
 <p>关于自定义Java注解请查看<a href="/java-annotation/">自定义注解</a>。</p>
+<blockquote>
+<p>本文已授权微信公众号：鸿洋（hongyangAndroid）原创首发。</p>
+</blockquote>
 <h2 id="基本实现"><a href="#基本实现" class="headerlink" title="基本实现"></a>基本实现</h2><p>实现一个自定义注解处理器需要有两个步骤，第一是实现Processor接口处理注解，第二是注册注解处理器。</p>
 <h3 id="实现Processor接口"><a href="#实现Processor接口" class="headerlink" title="实现Processor接口"></a>实现Processor接口</h3><p>通过实现Processor接口可以自定义注解处理器，这里我们采用更简单的方法通过继承AbstractProcessor类实现自定义注解处理器。实现抽象方法process处理我们想要的功能。</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CustomProcessor</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AbstractProcessor</span> &#123;</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    public boolean process(<span class="type">Set</span>&lt;? <span class="keyword">extends</span> <span class="type">TypeElement</span>&gt; annotations, <span class="type">RoundEnvironment</span> roundEnvironment) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
