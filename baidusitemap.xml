@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/the-performance-of-constraintlayout/</loc>
+    <lastmod>2017-09-01T04:24:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）理解ConstraintLayout性能上的好处</title>
+        <pubTime>2017-08-30T02:33:52.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>support</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/using-the-constraintlayout/</loc>
+    <lastmod>2017-08-11T08:25:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>ConstraintLayout的使用</title>
+        <pubTime>2017-03-22T05:44:09.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/java-annotation-processor/</loc>
     <lastmod>2017-08-07T05:58:56.000Z</lastmod>
     <data>
@@ -71,25 +111,6 @@
         <tag>android</tag>
          
         <tag>gradle</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/using-the-constraintlayout/</loc>
-    <lastmod>2017-07-23T03:23:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>ConstraintLayout的使用</title>
-        <pubTime>2017-03-22T05:44:09.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>support</tag>
          
          
            
@@ -792,6 +813,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -863,25 +905,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试题集合</title>
-        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -903,18 +926,16 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <loc>http://yoursite.com/android-interview-list/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        <title>Android面试题集合</title>
+        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>demo</tag>
-         
-        <tag>support</tag>
+        <tag>interview</tag>
          
          
            
@@ -1414,12 +1435,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（一）</title>
-        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（三）</title>
+        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1483,12 +1504,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（三）</title>
-        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（一）</title>
+        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          

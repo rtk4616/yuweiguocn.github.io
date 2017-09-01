@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/the-performance-of-constraintlayout/</loc>
+    
+    <lastmod>2017-09-01T04:24:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/using-the-constraintlayout/</loc>
+    
+    <lastmod>2017-08-11T08:25:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/java-annotation-processor/</loc>
     
     <lastmod>2017-08-07T05:58:56.000Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/android-gradle-dependencies/</loc>
     
     <lastmod>2017-07-23T03:29:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/using-the-constraintlayout/</loc>
-    
-    <lastmod>2017-07-23T03:23:43.000Z</lastmod>
     
   </url>
   
@@ -268,6 +275,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -289,13 +303,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
@@ -303,7 +310,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <loc>http://yoursite.com/android-interview-list/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -478,7 +485,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -499,7 +506,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     

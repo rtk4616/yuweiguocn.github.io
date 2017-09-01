@@ -9,17 +9,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | yuweiguo&#39;s blog</title>
+  <title>（译）理解ConstraintLayout性能上的好处 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="本文介绍了ConstraintLayout对于性能方面的好处并和传统布局做了比较。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）理解ConstraintLayout性能上的好处">
+<meta property="og:url" content="http://yoursite.com/the-performance-of-constraintlayout/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="本文介绍了ConstraintLayout对于性能方面的好处并和传统布局做了比较。">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons1.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons2.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons3.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons4.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons5.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons6.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/cons7.png">
+<meta property="og:updated_time" content="2017-09-01T04:24:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="（译）理解ConstraintLayout性能上的好处">
+<meta name="twitter:description" content="本文介绍了ConstraintLayout对于性能方面的好处并和传统布局做了比较。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,36 +182,137 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-the-performance-of-constraintlayout" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/the-performance-of-constraintlayout/" class="archive-article-date">
-  	<time datetime="2017-08-30T02:33:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/the-performance-of-constraintlayout/">（译）理解ConstraintLayout性能上的好处</a>
+    <h1 class="article-title" itemprop="name">
+      （译）理解ConstraintLayout性能上的好处
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/the-performance-of-constraintlayout/" class="archive-article-date">
+  	<time datetime="2017-08-30T02:33:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了ConstraintLayout对于性能方面的好处并和传统布局做了比较。</p>
+<a id="more"></a>
+<blockquote>
+<p>《钱塘湖春行》<br>孤山寺北贾亭西， 水面初平云脚低。<br>几处早莺争暖树， 谁家新燕啄春泥。<br>乱花渐欲迷人眼， 浅草才能没马蹄。<br>最爱湖东行不足， 绿杨阴里白沙堤。<br>-唐，白居易</p>
+</blockquote>
+<p>关于ConstraintLayout的使用介绍请查看<a href="/using-the-constraintlayout/">ConstraintLayout的使用</a>。</p>
+<p>原文链接：<a href="https://android-developers.googleblog.com/2017/08/understanding-performance-benefits-of.html" target="_blank" rel="external">Understanding the performance benefits of ConstraintLayout</a></p>
+<p>自从去年Google I/O大会发布了ConstraintLayout，我们一直在持续提升布局的稳定性及布局编辑器的支持。我们也添加了针对ConstraintLayout的新特性来帮助你构建不同类型的布局。例如约束链和设置大小比例。除了这些特性，使用ConstraintLayout有一个值得注意的性能上的好处。在这篇文章中，我们会看看ConstraintLayout带来哪些性能提升。</p>
+<h2 id="Android是怎样绘制View的？"><a href="#Android是怎样绘制View的？" class="headerlink" title="Android是怎样绘制View的？"></a>Android是怎样绘制View的？</h2><p>为了更好的理解ConstraintLayout的性能，我们来回顾一下Android是怎样绘制View的。</p>
+<p>当用户让一个Android view获得焦点，Android框架会指导View绘制它自己。这个处理过程包括3个阶段：</p>
+<h3 id="1-测量（Measure）"><a href="#1-测量（Measure）" class="headerlink" title="1.测量（Measure）"></a>1.测量（Measure）</h3><p>系统完成View树从上到下的遍历决定每个ViewGroup有多大和View元素是什么。当一个ViewGroup被测量，它也会测量它的子View。</p>
+<h3 id="2-布局（Layout）"><a href="#2-布局（Layout）" class="headerlink" title="2.布局（Layout）"></a>2.布局（Layout）</h3><p>另一个从上到下遍历的发生，每个ViewGroup使用在测量阶段决定的大小确定子View的位置。</p>
+<h3 id="3-绘制（Draw）"><a href="#3-绘制（Draw）" class="headerlink" title="3.绘制（Draw）"></a>3.绘制（Draw）</h3><p>没错，又一个从上到下的遍历。对于View树中的每个对象，创建的Canvas对象用于发送绘制命令列表到GPU。这些命令包括系统在前两个阶段确定的ViewGroup和View对象的大小和位置。</p>
+<p><img src="/assets/img/t/cons1.gif" alt=""></p>
+<p>图1 测量阶段遍历一个View树的示例</p>
+<p>绘制过程中的每个阶段需要从上到下遍历View树。因此，在View层级中互相嵌入的View越多，设备用于绘制View的所需时间和计算能力越多。通过在应用布局保持扁平层级，你可以创建一个快速响应用户界面的应用。</p>
+<h2 id="传统布局层级的消耗"><a href="#传统布局层级的消耗" class="headerlink" title="传统布局层级的消耗"></a>传统布局层级的消耗</h2><p>了解了View的绘制过程，我们使用LinearLayout和RelativeLayout创建一个传统布局层级。</p>
+<p><img src="/assets/img/t/cons2.png" alt=""></p>
+<p>图2 布局示例</p>
+<p>我们创建一个如上图所示的布局。如果使用传统布局，XML文件包含的元素和下面类似：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;RelativeLayout&gt;</span></span><br><span class="line">  <span class="tag">&lt;ImageView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;ImageView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;RelativeLayout&gt;</span></span><br><span class="line">    <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">    <span class="tag">&lt;LinearLayout&gt;</span></span><br><span class="line">      <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">      <span class="tag">&lt;RelativeLayout&gt;</span></span><br><span class="line">        <span class="tag">&lt;EditText /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/RelativeLayout&gt;</span></span><br><span class="line">    <span class="tag">&lt;/LinearLayout&gt;</span></span><br><span class="line">    <span class="tag">&lt;LinearLayout&gt;</span></span><br><span class="line">      <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">      <span class="tag">&lt;RelativeLayout&gt;</span></span><br><span class="line">        <span class="tag">&lt;EditText /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/RelativeLayout&gt;</span></span><br><span class="line">    <span class="tag">&lt;/LinearLayout&gt;</span></span><br><span class="line">    <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/RelativeLayout&gt;</span></span><br><span class="line">  <span class="tag">&lt;LinearLayout &gt;</span></span><br><span class="line">    <span class="tag">&lt;Button /&gt;</span></span><br><span class="line">    <span class="tag">&lt;Button /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/LinearLayout&gt;</span></span><br><span class="line"><span class="tag">&lt;/RelativeLayout&gt;</span></span><br></pre></td></tr></table></figure>
+<p>尽管在这种类型的View层级中有改进的余地，但你仍需要创建一些嵌套View层级。</p>
+<p>正如之前说过的，嵌套层级会影响性能。我们使用Android Studio的Systrace工具看看嵌套层级对UI性能有哪些实际影响。我们用编程的方式调用每个ViewGroup(ConstraintLayout 和 RelativeLayout)的测量和布局并且当测量和布局执行的时候触发Systrace。下面的命令会生成一个包含关键事件的概览文件，例如昂贵的测量/布局的传递，时间在20秒以内。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python <span class="variable">$ANDROID_HOME</span>/platform-tools/systrace/systrace<span class="class">.py</span> --time=<span class="number">20</span> -o ~/trace<span class="class">.html</span> gfx view res</span><br></pre></td></tr></table></figure>
+<p>关于可以怎样使用Systrace的详情，请查看<a href="https://developer.android.com/studio/profile/systrace.html" target="_blank" rel="external">Analyzing UI Performance with Systrace</a>指南。</p>
+<p>Systrace会自动高亮这个布局的性能问题，以及一些修改它们的建议。通过点击”Alerts”标签，你会发现绘制这个View层级在测量和布局阶段需要80多个昂贵的传递！</p>
+<p>在测量和布局阶段触发很多昂贵的传递并不是我们想要的，大量的绘制活动会导致掉帧引起用户的注意。我们可以得出结论由于嵌套层级会降低性能，正如RelativeLayout会测量它的子View两次。</p>
+<p><img src="/assets/img/t/cons3.png" alt=""></p>
+<p>图3 从Systrace查看使用RelativeLayout布局的警告</p>
+<p>可以从<a href="https://github.com/googlesamples/android-constraint-layout-performance" target="_blank" rel="external">GitHub</a>获取完整源码查看我们是怎样执行测量的。</p>
+<h2 id="ConstraintLayout的好处"><a href="#ConstraintLayout的好处" class="headerlink" title="ConstraintLayout的好处"></a>ConstraintLayout的好处</h2><p>如果你使用ConstraintLayout创建同样的布局，XML文件包含的元素层级就像下面这样：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;android.support.constraint.ConstraintLayout&gt;</span></span><br><span class="line">  <span class="tag">&lt;ImageView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;ImageView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;EditText /&gt;</span></span><br><span class="line">  <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line">  <span class="tag">&lt;EditText /&gt;</span></span><br><span class="line">  <span class="tag">&lt;Button /&gt;</span></span><br><span class="line">  <span class="tag">&lt;Button /&gt;</span></span><br><span class="line">  <span class="tag">&lt;TextView /&gt;</span></span><br><span class="line"><span class="tag">&lt;/android.support.constraint.ConstraintLayout&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如上所示，布局有一个完全扁平的层级。这是由于ConstraintLayout允许你创建复杂的布局不用嵌套View和ViewGroup元素。</p>
+<p>例如，我们来看下布局中间的TextView和EditText：</p>
+<p><img src="/assets/img/t/cons4.png" alt=""></p>
+<p>当使用RelativeLayout，你需要创建一个ViewGroup垂直对齐EditText和TextView：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span></span><br><span class="line">    <span class="attribute">android:id</span>=<span class="value">"@+id/camera_area"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">    <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span></span><br><span class="line">    <span class="attribute">android:layout_below</span>=<span class="value">"@id/title"</span> &gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:text</span>=<span class="value">"@string/camera"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_gravity</span>=<span class="value">"center_vertical"</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/cameraLabel"</span></span><br><span class="line">        <span class="attribute">android:labelFor</span>=<span class="value">"@+id/cameraType"</span></span><br><span class="line">        <span class="attribute">android:layout_marginStart</span>=<span class="value">"16dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">RelativeLayout</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">EditText</span></span><br><span class="line">            <span class="attribute">android:id</span>=<span class="value">"@+id/cameraType"</span></span><br><span class="line">            <span class="attribute">android:ems</span>=<span class="value">"10"</span></span><br><span class="line">            <span class="attribute">android:inputType</span>=<span class="value">"textPersonName"</span></span><br><span class="line">            <span class="attribute">android:text</span>=<span class="value">"@string/camera_value"</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">            <span class="attribute">android:layout_centerVertical</span>=<span class="value">"true"</span></span><br><span class="line">            <span class="attribute">android:layout_marginTop</span>=<span class="value">"8dp"</span></span><br><span class="line">            <span class="attribute">android:layout_marginStart</span>=<span class="value">"8dp"</span></span><br><span class="line">            <span class="attribute">android:layout_marginEnd</span>=<span class="value">"8dp"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">RelativeLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过使用ConstraintLayout，你可以实现同样的效果，只需要从TextView的基线添加一个约束到EditText的基线，不用创建其它ViewGroup：</p>
+<p><img src="/assets/img/t/cons5.png" alt=""><br>图4 EditText和TextView之间的约束</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">      android:layout_width=<span class="string">"wrap_content"</span></span><br><span class="line">      android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">      <span class="keyword">app</span>:layout_constraintLeft_creator=<span class="string">"1"</span></span><br><span class="line">      <span class="keyword">app</span>:layout_constraintBaseline_creator=<span class="string">"1"</span></span><br><span class="line">      <span class="keyword">app</span>:layout_constraintLeft_toLeftOf=<span class="string">"@+id/activity_main_done"</span></span><br><span class="line">      <span class="keyword">app</span>:layout_constraintBaseline_toBaselineOf=<span class="string">"@+id/cameraType"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>当对我们使用ConstraintLayout的布局运行Systrace工具，你可以看到在同样20秒内只有很少的昂贵测量/布局传递。这对于提升性能是有意义的，现在我们保持了View层级的扁平化。</p>
+<p><img src="/assets/img/t/cons6.png" alt=""></p>
+<p>图5 从Systrace查看使用ConstraintLayout布局的警告</p>
+<p>有一点需要注意，我们可以只使用布局编辑器构建ConstraintLayout布局而不用手动编辑XML文件。对于使用RelativeLayout实现同样的效果，我们可能需要手动编辑XML文件。</p>
+<h2 id="测量性能差异"><a href="#测量性能差异" class="headerlink" title="测量性能差异"></a>测量性能差异</h2><p>我们分析了两种类型的布局ConstraintLayout和RelativeLayout的测量和布局传递有多长，通过使用 <a href="https://developer.android.com/reference/android/view/Window.OnFrameMetricsAvailableListener.html" target="_blank" rel="external">OnFrameMetricsAvailableListener</a>，Android 7.0 (API level 24)引入。这个类可以收集应用的UI渲染帧与帧的时间信息。</p>
+<p>通过调用下面的代码，可以开始记录每帧的UI动作：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addOnFrameMetricsAvailableListener(</span><br><span class="line">        frameMetricsAvailableListener, frameMetricsHandler);</span><br></pre></td></tr></table></figure>
+<p>时间信息可用之后，应用会触发frameMetricsAvailableListener()回调。我们感兴趣的是测量/布局的性能，因此当我们接收到实际的帧时间调用<a href="https://developer.android.com/reference/android/view/FrameMetrics.html#LAYOUT_MEASURE_DURATION" target="_blank" rel="external">FrameMetrics.LAYOUT_MEASURE_DURATION</a>。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Window.OnFrameMetricsAvailableListener &#123;</span><br><span class="line">        _, frameMetrics, _ -&gt;</span><br><span class="line">        <span class="variable"><span class="keyword">val</span> frameMetricsCopy</span> = FrameMetrics(frameMetrics);</span><br><span class="line">        <span class="comment">// Layout measure duration in nanoseconds</span></span><br><span class="line">        <span class="variable"><span class="keyword">val</span> layoutMeasureDurationNs</span> = </span><br><span class="line">                frameMetricsCopy.getMetric(FrameMetrics.LAYOUT_MEASURE_DURATION);</span><br></pre></td></tr></table></figure>
+<p>关于FrameMetrics可以接收的其它类型的信息，请查看<a href="https://developer.android.com/reference/android/view/FrameMetrics.html" target="_blank" rel="external">FrameMetrics</a> API。</p>
+<h2 id="测量结果：ConstraintLayout更快"><a href="#测量结果：ConstraintLayout更快" class="headerlink" title="测量结果：ConstraintLayout更快"></a>测量结果：ConstraintLayout更快</h2><p>我们的性能比较显示ConstraintLayout在测量/布局阶段的执行要比RelativeLayout好40%：</p>
+<p><img src="/assets/img/t/cons7.png" alt=""></p>
+<p>图6 测量/布局（单位：毫秒，平均100帧）</p>
+<p>上面的结果显示，ConstraintLayout可能比传统布局有更好的性能。此外，ConstraintLayout有其它特性可以帮助你构建复杂和高性能布局，正如ConstraintLayout的好处部分所说。详情请查看<a href="/using-the-constraintlayout/">ConstraintLayout的使用</a>。我们推荐你使用ConstraintLayout构建你的布局。当之前你需要多层嵌套的布局，ConstraintLayout可以让你的布局有最优的性能和易用性。</p>
+<h2 id="附录：测量环境"><a href="#附录：测量环境" class="headerlink" title="附录：测量环境"></a>附录：测量环境</h2><p>上面所有的测量在以下环境执行。</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Android Version</th>
+<th>ConstraintLayout version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nexus 5X</td>
+<td>8.0</td>
+<td>1.0.2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next"></a>What’s next</h2><p>查看<a href="/using-the-constraintlayout/">ConstraintLayout的使用</a>，<a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout.html" target="_blank" rel="external">API文档</a>，<a href="https://medium.com/google-developers/building-interfaces-with-constraintlayout-3958fa38a9f7" target="_blank" rel="external">Medium上的文章</a>完全理解ConstraintLayout可以为你提供什么。再次感谢我们发布ConstraintLayout alpha版本以来提交反馈和问题的所有人。我们真心感激年初发布的ConstraintLayout 1.0版本。我们会继续提升ConstraintLayout，请继续使用<a href="http://b.android.com/" target="_blank" rel="external">Android issue tracker</a>给我们发送反馈。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -223,412 +332,104 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/the-performance-of-constraintlayout/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/java-annotation-processor/" class="archive-article-date">
-  	<time datetime="2017-08-06T03:57:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/java-annotation-processor/">自定义Java注解处理器</a>
-    </h1>
+  
+    <a href="/java-annotation-processor/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义Java注解处理器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-app-install-type/" class="archive-article-date">
-  	<time datetime="2017-07-28T02:04:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-app-install-type/">利用PackageInfo判断应用首次安装还是覆盖安装</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">solution</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/java-annotation/" class="archive-article-date">
-  	<time datetime="2017-07-23T08:58:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/java-annotation/">Java自定义注解</a>
-    </h1>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-gradle-dependencies/" class="archive-article-date">
-  	<time datetime="2017-07-22T14:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-gradle-dependencies/">Gradle构建依赖配置说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gradle</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/eventbus-3-new-feature/" class="archive-article-date">
-  	<time datetime="2017-07-21T06:03:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/eventbus-3-new-feature/">EventBus 3.0 新特性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">library</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-simulate-memory-recycle/" class="archive-article-date">
-  	<time datetime="2017-07-17T09:59:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-simulate-memory-recycle/">Android模拟系统内存回收</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-choice-resource/" class="archive-article-date">
-  	<time datetime="2017-07-13T02:47:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-choice-resource/">Android图片资源适配规范</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">res</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/convert-images-to-webp/" class="archive-article-date">
-  	<time datetime="2017-07-10T12:27:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/convert-images-to-webp/">使用Android Studio批量转换图片为Webp格式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">res</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">teach</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">webp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-support-data-binding-3/" class="archive-article-date">
-  	<time datetime="2017-07-08T14:07:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-support-data-binding-3/">（译）深入理解Data Binding原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data binding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -652,8 +453,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
