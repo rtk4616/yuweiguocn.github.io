@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-unit-test-1/</loc>
+    <lastmod>2017-09-27T06:09:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android单元测试（一）</title>
+        <pubTime>2017-09-26T09:15:12.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>unit test</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/java-annotation-processor/</loc>
+    <lastmod>2017-09-25T12:39:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义Java注解处理器</title>
+        <pubTime>2017-08-06T03:57:51.000Z</pubTime>
+        
+        <tag>annotation</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/the-performance-of-constraintlayout/</loc>
     <lastmod>2017-09-01T04:24:44.000Z</lastmod>
     <data>
@@ -35,25 +73,6 @@
         <tag>android</tag>
          
         <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/java-annotation-processor/</loc>
-    <lastmod>2017-08-07T05:58:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>自定义Java注解处理器</title>
-        <pubTime>2017-08-06T03:57:51.000Z</pubTime>
-        
-        <tag>annotation</tag>
-         
-        <tag>java</tag>
          
          
            
@@ -813,6 +832,71 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发指南——绑定Service</title>
+        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>basic</tag>
+         
+        <tag>doc</tag>
+         
+        <tag>guide</tag>
+         
+        <tag>service</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-interview-list/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试题集合</title>
+        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -859,31 +943,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发指南——绑定Service</title>
-        <pubTime>2016-03-31T02:37:24.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>basic</tag>
-         
-        <tag>doc</tag>
-         
-        <tag>guide</tag>
-         
-        <tag>service</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-interview-java/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -896,46 +955,6 @@
         <tag>interview</tag>
          
         <tag>java</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>data binding</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-interview-list/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android面试题集合</title>
-        <pubTime>2016-03-26T04:17:38.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>interview</tag>
          
          
            
@@ -1412,35 +1431,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（四）</title>
-        <pubTime>2015-07-28T12:42:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（三）</title>
-        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（五）</title>
+        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1481,12 +1477,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（三）</title>
+        <pubTime>2015-07-22T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1527,12 +1523,35 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（五）</title>
-        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（四）</title>
+        <pubTime>2015-07-28T12:42:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
