@@ -9,17 +9,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | yuweiguo&#39;s blog</title>
+  <title>Android单元测试（二） | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/6/index.html">
+  <meta name="description" content="在上一篇文章中我们介绍了Android单元测试入门所需了解的内容，本文接上文继续学习单元测试相关框架。本文介绍了AssertJ、AssertJ-Android、Hamcrest和Robolectric框架的使用，Robolectric生命周期及Robolectric和PowerMock配合使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android单元测试（二）">
+<meta property="og:url" content="http://yoursite.com/android-unit-test-2/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="在上一篇文章中我们介绍了Android单元测试入门所需了解的内容，本文接上文继续学习单元测试相关框架。本文介绍了AssertJ、AssertJ-Android、Hamcrest和Robolectric框架的使用，Robolectric生命周期及Robolectric和PowerMock配合使用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/teach/unit-4.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/teach/unit-5.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/teach/unit-6.png">
+<meta property="og:updated_time" content="2017-09-29T08:00:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="Android单元测试（二）">
+<meta name="twitter:description" content="在上一篇文章中我们介绍了Android单元测试入门所需了解的内容，本文接上文继续学习单元测试相关框架。本文介绍了AssertJ、AssertJ-Android、Hamcrest和Robolectric框架的使用，Robolectric生命周期及Robolectric和PowerMock配合使用。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,36 +178,161 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-android-unit-test-2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android单元测试（二）
+    </h1>
+  
+
+        
+        <a href="/android-unit-test-2/" class="archive-article-date">
+  	<time datetime="2017-09-29T06:42:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上一篇文章中我们介绍了Android单元测试入门所需了解的内容，本文接上文继续学习单元测试相关框架。本文介绍了AssertJ、AssertJ-Android、Hamcrest和Robolectric框架的使用，Robolectric生命周期及Robolectric和PowerMock配合使用。</p>
+<a id="more"></a>
+<blockquote>
+<p>《月下独酌》<br>花间一壶酒，独酌无相亲。<br>举杯邀明月，对影成三人。<br>月既不解饮，影徒随我身。<br>暂伴月将影，行乐须及春。<br>我歌月徘徊，我舞影零乱。<br>醒时同交欢，醉后各分散。<br>永结无情游，相期邈云汉。<br>-唐，李白</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文要介绍的框架：</p>
+<ul>
+<li>AssertJ：JAVA 流式断言器，支持一条断言语句对实际值同时断言多个校验点</li>
+<li>AssertJ-Android：扩展自Assert，旨在让它更容易测试Android</li>
+<li>Hamcrest：Matchers匹配器</li>
+<li>Robolectric：用于mock Android框架相关类</li>
+</ul>
+<h2 id="AssertJ"><a href="#AssertJ" class="headerlink" title="AssertJ"></a>AssertJ</h2><p>仓库地址：<a href="https://github.com/joel-costigliola/assertj-core" target="_blank" rel="external">https://github.com/joel-costigliola/assertj-core</a></p>
+<p>AseertJ：JAVA 流式断言器，什么是流式，常见的断言器一条断言语句只能对实际值断言一个校验点，而流式断言器，支持一条断言语句对实际值同时断言多个校验点。</p>
+<p>添加依赖：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span>Compile <span class="string">'org.assertj:assertj-core:3.8.0'</span></span><br><span class="line">  </span><br><span class="line">//or <span class="keyword">for</span> Java <span class="number">7</span> projects</span><br><span class="line"><span class="built_in">test</span>Compile <span class="string">'org.assertj:assertj-core:2.8.0'</span></span><br></pre></td></tr></table></figure></p>
+<p>添加静态导入：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.*;</span><br><span class="line">  </span><br><span class="line"><span class="pi">//或者如果你喜欢这样的话：</span><br><span class="line">import static org.assertj.core.api.Assertions.assertThat;  //</span> main one</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.atIndex; <span class="pi">// for List assertions</span><br><span class="line">import static org.assertj.core.api.Assertions.entry;  //</span> <span class="keyword">for</span> Map assertions</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.tuple; <span class="pi">// when extracting several properties at once</span><br><span class="line">import static org.assertj.core.api.Assertions.fail; //</span> use <span class="keyword">when</span> writing exception tests</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown; <span class="pi">// idem</span><br><span class="line">import static org.assertj.core.api.Assertions.filter; //</span> <span class="keyword">for</span> Iterable/Array assertions</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.offset; <span class="pi">// for floating number assertions</span><br><span class="line">import static org.assertj.core.api.Assertions.anyOf; //</span> use <span class="keyword">with</span> Condition</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Assertions.contentOf; <span class="pi">// use with File assertions</span><br><span class="line">  </span><br><span class="line">//</span>对于android使用这个静态导入</span><br><span class="line"><span class="keyword">import</span> static org.assertj.core.api.Java6Assertions.*;</span><br><span class="line"><span class="pi">// 静态导入所有assertThat和实用方法</span><br><span class="line">import static org.assertj.core.api.Assertions.*;</span><br><span class="line"> </span><br><span class="line">//</span> 基础断言</span><br><span class="line">assertThat(frodo.getName()).isEqualTo(<span class="string">"Frodo"</span>);</span><br><span class="line">assertThat(frodo).isNotEqualTo(sauron);</span><br><span class="line"> </span><br><span class="line"><span class="pi">// 指定字符串链式断言</span><br><span class="line">assertThat(frodo.getName()).startsWith("Fro")</span><br><span class="line">                           .endsWith("do")</span><br><span class="line">                           .isEqualToIgnoringCase("frodo");</span><br><span class="line"> </span><br><span class="line">//</span> 指定集合断言</span><br><span class="line"><span class="pi">// in the examples below fellowshipOfTheRing is a List&lt;TolkienCharacter&gt;</span><br><span class="line">assertThat(fellowshipOfTheRing).hasSize(9)</span><br><span class="line">                               .contains(frodo, sam)</span><br><span class="line">                               .doesNotContain(sauron);</span><br><span class="line"> </span><br><span class="line">//</span> as() 用于指定错误信息</span><br><span class="line">assertThat(frodo.getAge()).as(<span class="string">"check %s's age"</span>, frodo.getName()).isEqualTo(<span class="number">33</span>);</span><br><span class="line"> </span><br><span class="line"><span class="pi">// Java 8 异常断言</span><br><span class="line">assertThatThrownBy(() -&gt; &#123; throw new Exception("boom!"); &#125;).hasMessage("boom!");</span><br><span class="line">//</span> ... <span class="keyword">or</span> BDD style</span><br><span class="line">Throwable thrown = catchThrowable<span class="function"><span class="params">(() -&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"boom!"</span>); &#125;)</span>;</span><br><span class="line"><span class="title">assertThat</span><span class="params">(thrown)</span>.<span class="title">hasMessageContaining</span><span class="params">(<span class="string">"boom"</span>)</span>;</span><br><span class="line"> </span><br><span class="line">// <span class="title">using</span> <span class="title">the</span> '<span class="title">extracting</span>' <span class="title">feature</span> <span class="title">to</span> <span class="title">check</span> <span class="title">fellowshipOfTheRing</span> <span class="title">character</span>'<span class="title">s</span> <span class="title">names</span> <span class="params">(Java <span class="number">7</span>)</span></span><br><span class="line">// 使用提取特性检查字符串的名称</span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">extracting</span><span class="params">(<span class="string">"name"</span>)</span></span><br><span class="line">                               .<span class="title">contains</span><span class="params">(<span class="string">"Boromir"</span>, <span class="string">"Gandalf"</span>, <span class="string">"Frodo"</span>, <span class="string">"Legolas"</span>)</span></span><br><span class="line">// <span class="title">same</span> <span class="title">thing</span> <span class="title">using</span> <span class="title">a</span> <span class="title">Java</span> 8 <span class="title">method</span> <span class="title">reference</span></span><br><span class="line">//和<span class="title">java8</span>的方法引用一样</span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">extracting</span><span class="params">(TolkienCharacter::getName)</span></span><br><span class="line">                               .<span class="title">doesNotContain</span><span class="params">(<span class="string">"Sauron"</span>, <span class="string">"Elrond"</span>)</span>;</span><br><span class="line"> </span><br><span class="line">// 抽取多个值到一个组 <span class="title">in</span> <span class="title">tuples</span> <span class="params">(Java <span class="number">7</span>)</span></span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">extracting</span><span class="params">(<span class="string">"name"</span>, <span class="string">"age"</span>, <span class="string">"race.name"</span>)</span></span><br><span class="line">                               .<span class="title">contains</span><span class="params">(tuple(<span class="string">"Boromir"</span>, <span class="number">37</span>, <span class="string">"Man"</span>),</span><br><span class="line">                                         tuple(<span class="string">"Sam"</span>, <span class="number">38</span>, <span class="string">"Hobbit"</span>),</span><br><span class="line">                                         tuple(<span class="string">"Legolas"</span>, <span class="number">1000</span>, <span class="string">"Elf"</span>))</span>;</span><br><span class="line"> </span><br><span class="line">// 断言之前过滤一个集合 <span class="title">in</span> <span class="title">Java</span> 7 ...</span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">filteredOn</span><span class="params">(<span class="string">"race"</span>, HOBBIT)</span></span><br><span class="line">                               .<span class="title">containsOnly</span><span class="params">(sam, frodo, pippin, merry)</span>;</span><br><span class="line">// ... <span class="title">or</span> <span class="title">in</span> <span class="title">Java</span> 8</span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">filteredOn</span><span class="params">(character -&gt; character.getName().contains(<span class="string">"o"</span>))</span></span><br><span class="line">                               .<span class="title">containsOnly</span><span class="params">(aragorn, frodo, legolas, boromir)</span>;</span><br><span class="line"> </span><br><span class="line">// 结合过滤和抽取功能</span><br><span class="line"><span class="title">assertThat</span><span class="params">(fellowshipOfTheRing)</span>.<span class="title">filteredOn</span><span class="params">(character -&gt; character.getName().contains(<span class="string">"o"</span>))</span></span><br><span class="line">                               .<span class="title">containsOnly</span><span class="params">(aragorn, frodo, legolas, boromir)</span></span><br><span class="line">                               .<span class="title">extracting</span><span class="params">(character -&gt; character.getRace().getName())</span></span><br><span class="line">                               .<span class="title">contains</span><span class="params">(<span class="string">"Hobbit"</span>, <span class="string">"Elf"</span>, <span class="string">"Man"</span>)</span>;</span><br><span class="line"> </span><br><span class="line">// <span class="title">and</span> <span class="title">many</span> <span class="title">more</span> <span class="title">assertions</span> : <span class="title">iterable</span>, <span class="title">stream</span>, <span class="title">array</span>, <span class="title">map</span>, <span class="title">dates</span> <span class="params">(java <span class="number">7</span> <span class="keyword">and</span> java <span class="number">8</span>)</span>, <span class="title">path</span>, <span class="title">file</span>, <span class="title">numbers</span>, <span class="title">predicate</span>, <span class="title">optional</span> ...</span></span><br></pre></td></tr></table></figure></p>
+<p>对要断言的对象输入一个点会显示所有可用的断言。</p>
+<p><img src="/assets/img/teach/unit-4.png" alt=""></p>
+<h2 id="AssertJ-Android"><a href="#AssertJ-Android" class="headerlink" title="AssertJ-Android"></a>AssertJ-Android</h2><p>仓库地址：<a href="https://github.com/square/assertj-android" target="_blank" rel="external">https://github.com/square/assertj-android</a></p>
+<p>扩展自Assert，旨在让它更容易测试Android。</p>
+<p>Assertj-Android和Junit和AssertJ之间的对比：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ASSERTJ ANDROID</span></span><br><span class="line"><span class="function">assertThat</span>(view)<span class="class">.isGone</span>();</span><br><span class="line">  </span><br><span class="line"><span class="comment">//REGULAR JUNIT</span></span><br><span class="line"><span class="function">assertEquals</span>(View<span class="class">.GONE</span>, view<span class="class">.getVisibility</span>());</span><br><span class="line">  </span><br><span class="line"><span class="comment">//REGULAR ASSERTJ</span></span><br><span class="line"><span class="function">assertThat</span>(view<span class="class">.getVisibility</span>())<span class="class">.isEqualTo</span>(View<span class="class">.GONE</span>);</span><br><span class="line">  </span><br><span class="line"><span class="comment">//当断言失败，你可以直接看到失败的原因</span></span><br><span class="line"><span class="comment">//Expected visibility &lt;gone&gt; but was &lt;invisible&gt;.</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//ASSERTJ ANDROID</span></span><br><span class="line"><span class="function">assertThat</span>(layout)<span class="class">.isVisible</span>()</span><br><span class="line">    <span class="class">.isVertical</span>()</span><br><span class="line">    <span class="class">.hasChildCount</span>(4)</span><br><span class="line">    <span class="class">.hasShowDividers</span>(SHOW_DIVIDERS_MIDDLE);</span><br><span class="line">  </span><br><span class="line"><span class="comment">//REGULAR JUNIT</span></span><br><span class="line"><span class="function">assertEquals</span>(View<span class="class">.VISIBLE</span>, layout<span class="class">.getVisibility</span>());</span><br><span class="line"><span class="function">assertEquals</span>(VERTICAL, layout<span class="class">.getOrientation</span>());</span><br><span class="line"><span class="function">assertEquals</span>(4, layout<span class="class">.getChildCount</span>());</span><br><span class="line"><span class="function">assertEquals</span>(SHOW_DIVIDERS_MIDDLE, layout<span class="class">.getShowDividers</span>());</span><br><span class="line">  </span><br><span class="line"><span class="comment">//REGULAR ASSERTJ</span></span><br><span class="line"><span class="function">assertThat</span>(layout<span class="class">.getVisibility</span>())<span class="class">.isEqualTo</span>(View<span class="class">.VISIBLE</span>);</span><br><span class="line"><span class="function">assertThat</span>(layout<span class="class">.getOrientation</span>())<span class="class">.isEqualTo</span>(VERTICAL);</span><br><span class="line"><span class="function">assertThat</span>(layout<span class="class">.getChildCount</span>())<span class="class">.isEqualTo</span>(4);</span><br><span class="line"><span class="function">assertThat</span>(layout<span class="class">.getShowDividers</span>())<span class="class">.isEqualTo</span>(SHOW_DIVIDERS_MIDDLE);</span><br></pre></td></tr></table></figure>
+<p>断言包含几乎所有你想要测试的对象，从LinearLayout到ActionBar、Fragment及MenuItem。以及support类库所有东西。</p>
+<p>添加依赖：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Android module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//support-v4 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-support-v4:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//Google Play Services module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-play-services:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//appcompat-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-appcompat-v7:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//mediarouter-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-mediarouter-v7:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//gridlayout-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-gridlayout-v7:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//cardview-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-cardview-v7:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//recyclerview-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-recyclerview-v7:1.1.1'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//pallete-v7 module:</span></span><br><span class="line">androidTestCompile <span class="string">'com.squareup.assertj:assertj-android-pallete-v7:1.1.1'</span></span><br></pre></td></tr></table></figure></p>
+<p>静态导入：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//android</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.api.Assertions.assertThat;</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">//support-v4</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.support.v4.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//Google Play Services</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.playservices.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//appcompat-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.appcompat.v7.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//mediarouter-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.mediarouter.v7.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//gridlayout-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.gridlayout.v7.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//cardview-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.cardview.v7.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//recyclerview-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.recyclerview.v4.api.Assertions.assertThat;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//pallete-v7</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.assertj.android.pallete.v4.api.Assertions.assertThat;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Hamcrest"><a href="#Hamcrest" class="headerlink" title="Hamcrest"></a>Hamcrest</h2><p>仓库地址：<a href="https://github.com/hamcrest/JavaHamcrest" target="_blank" rel="external">https://github.com/hamcrest/JavaHamcrest</a></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加依赖</span></span><br><span class="line">testCompile <span class="string">"org.hamcrest:hamcrest-all:1.3"</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//静态导入</span></span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.hamcrest.MatcherAssert.assertThat;</span> </span><br><span class="line"><span class="preprocessor"><span class="keyword">import</span> static org.hamcrest.Matchers.*;</span></span><br></pre></td></tr></table></figure>
+<p>Hamcrest 是一个测试的框架，它提供了一套通用的匹配符 Matcher，灵活使用这些匹配符定义的规则，程序员可以更加精确的表达自己的测试思想，指定所想设定的测试条件。比如，有时候定义的测试数据范围太精 确，往往是若干个固定的确定值，这时会导致测试非常脆弱，因为接下来的测试数据只要稍稍有变化，就可能导致测试失败（比如 assertEquals( x, 10 ); 只能判断 x 是否等于 10，如果 x 不等于 10， 测试失败）；有时候指定的测试数据范围又不够太精确，这时有可能会造成某些本该会导致测试不通过的数据，仍然会通过接下来的测试，这样就会降低测试的价值。 Hamcrest 的出现，给程序员编写测试用例提供了一套规则和方法，使用其可以更加精确的表达程序员所期望的测试的行为。</p>
+<p>Hamcrest 常用的匹配器:</p>
+<p>核心</p>
+<ul>
+<li>anything - 总是匹配,如果你不关心测试下的对象是什么是有用的</li>
+<li>describedAs - 添加一个定制的失败表述装饰器</li>
+<li>is - 改进可读性装饰器 - 见下 “Sugar”</li>
+</ul>
+<p>逻辑</p>
+<ul>
+<li>allOf - 如果所有匹配器都匹配才匹配, short circuits (很难懂的一个词,意译是短路,感觉不对,就没有翻译)(像 Java &amp;&amp;)</li>
+<li>anyOf - 如果任何匹配器匹配就匹配, short circuits (像 Java ||)</li>
+<li>not - 如果包装的匹配器不匹配器时匹配,反之亦然</li>
+</ul>
+<p>对象</p>
+<ul>
+<li>equalTo - 测试对象相等使用Object.equals方法</li>
+<li>hasToString - 测试Object.toString方法</li>
+<li>instanceOf, isCompatibleType - 测试类型</li>
+<li>notNullValue, nullValue - 测试null</li>
+<li>sameInstance - 测试对象实例</li>
+</ul>
+<p>Beans</p>
+<ul>
+<li>hasProperty - 测试JavaBeans属性</li>
+</ul>
+<p>集合</p>
+<ul>
+<li>array - 测试一个数组元素test an array’s elements against an array of matchers</li>
+<li>hasEntry, hasKey, hasValue - 测试一个Map包含一个实体,键或者值</li>
+<li>hasItem, hasItems - 测试一个集合包含一个元素</li>
+<li>hasItemInArray - 测试一个数组包含一个元素</li>
+</ul>
+<p>数字</p>
+<ul>
+<li>closeTo - 测试浮点值接近给定的值</li>
+<li>greaterThan, greaterThanOrEqualTo, lessThan, lessThanOrEqualTo - 测试次序</li>
+</ul>
+<p>文本</p>
+<ul>
+<li>equalToIgnoringCase - 测试字符串相等忽略大小写</li>
+<li>equalToIgnoringWhiteSpace - 测试字符串忽略空白</li>
+<li>containsString, endsWith, startsWith - 测试字符串匹配</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比较50是否和50相等 </span></span><br><span class="line">assertThat(<span class="number">50</span>, equalTo(<span class="number">50</span>)); </span><br><span class="line"><span class="comment">// 50是否大于30并且小于60 </span></span><br><span class="line">assertThat(<span class="string">"错误"</span>,<span class="number">50</span>, allOf(greaterThan(<span class="number">30</span>), lessThan(<span class="number">60</span>))); </span><br><span class="line"><span class="comment">// 判断字符串是否以.txt结尾 </span></span><br><span class="line">assertThat(<span class="string">"错误"</span>, <span class="string">"abc.txt"</span>, endsWith(<span class="string">".txt"</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="Robolectric"><a href="#Robolectric" class="headerlink" title="Robolectric"></a>Robolectric</h2><p>仓库地址：<a href="https://github.com/robolectric/robolectric" target="_blank" rel="external">https://github.com/robolectric/robolectric</a></p>
+<p>添加依赖：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">testCompile</span> "<span class="tag">org</span><span class="class">.robolectric</span><span class="pseudo">:robolectric</span><span class="pseudo">:3</span><span class="class">.3</span><span class="class">.2</span>"</span><br></pre></td></tr></table></figure></p>
+<p>android的开发和编译环境是JVM，需要的依赖SDK中的android.jar包。而android.jar包底层的方法都是stub的，没有具体的实现。所以我们的项目编译打包之后运行在device上没问题，是因为device上有运行所需要的delvik环境，但是test运行的环境是JVM这时候如果用到了android.jar原生的方法就会导致异常java.lang.RuntimeException: Stub!<br>这时候就需要用到robolectric这个框架,这个框架通过对原生的类的替换，在调用到这些方法的时候拦截掉原有的调用，并用自己的实现替换被调用的方法。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(RobolectricTestRunner.<span class="keyword">class</span>)</span><br><span class="line"><span class="annotation">@Config</span>(constants = BuildConfig.<span class="keyword">class</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyActivityTest</span> &#123;</span></span><br><span class="line"> </span><br><span class="line">  <span class="annotation">@Test</span></span><br><span class="line">  <span class="keyword">public</span> <span class="typename">void</span> clickingButton_shouldChangeResultsViewText() <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    Activity activity = Robolectric.setupActivity(MyActivity.<span class="keyword">class</span>);</span><br><span class="line"> </span><br><span class="line">    Button button = (Button) activity.findViewById(R.id.press_me_button);</span><br><span class="line">    TextView results = (TextView) activity.findViewById(R.id.results_text_view);</span><br><span class="line"> </span><br><span class="line">    button.performClick();</span><br><span class="line">    assertThat(results.getText().toString(), equalTo(<span class="string">"Testing Android Rocks!"</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你使用的是Mac，你可能需要配置默认的Junit test runner，编辑Junit配置，修改working directory为$MODULE_DIR$，每个用到robolectric的junit都需要此配置。<br><img src="/assets/img/teach/unit-5.png" alt=""></p>
+<p><img src="/assets/img/teach/unit-6.png" alt=""></p>
+<h3 id="Robolectric生命周期"><a href="#Robolectric生命周期" class="headerlink" title="Robolectric生命周期"></a>Robolectric生命周期</h3><p>首先，robolectric默认会从AndroidManifest.xml找到指定的application用于加载：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">manifest</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">package</span>=<span class="value">"com.myapp"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">application</span> <span class="attribute">android:name</span>=<span class="value">".App"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这会加载com.myapp.App类，你可以在test目录下创建用于测试的AndroidManifest.xml，并创建用于测试的Application，你可以实现TestLifecycleApplication接口，监听重要事件的回调。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestApp</span> <span class="keyword">extends</span> <span class="title">Application</span> <span class="keyword">implements</span> <span class="title">TestLifecycleApplication</span>&#123;</span></span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="typename">void</span> beforeTest(Method method) &#123;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="typename">void</span> prepareTest(Object test) &#123;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="typename">void</span> afterTest(Method method) &#123;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// src/test/AndroidManifest.xml</span></span><br><span class="line">&lt;manifest <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="keyword">package</span>=<span class="string">"com.myapp"</span>&gt;</span><br><span class="line">  &lt;application <span class="string">android:</span>name=<span class="string">".TestApp"</span>/&gt;</span><br><span class="line">&lt;/manifest&gt;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment">//在注解上使用manifest指定测试清单文件</span></span><br><span class="line"><span class="annotation">@RunWith</span>(RobolectricTestRunner.<span class="keyword">class</span>)</span><br><span class="line"><span class="annotation">@Config</span>(constants = BuildConfig.<span class="keyword">class</span>,manifest = <span class="string">"src/test/AndroidManifest.xml"</span>)</span><br></pre></td></tr></table></figure>
+<p>当运行每个test时，其生命周期为：<br>1.创建application。<br>2.调用application.onCreate()。<br>3.调用application.beforeTest()。<br>4.调用application.prepareTest()。<br>5.运行测试用例。<br>6.调用application.onTerminate()。<br>7.调用application.afterTest()。</p>
+<p><strong>如果你打算在现有项目引入单元测试，建议添加用于测试的Application，这会你让少走很多弯路。</strong></p>
+<h2 id="Robolectric和PowerMock配合使用"><a href="#Robolectric和PowerMock配合使用" class="headerlink" title="Robolectric和PowerMock配合使用"></a>Robolectric和PowerMock配合使用</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加依赖</span></span><br><span class="line">testCompile <span class="string">"org.robolectric:robolectric:3.3"</span></span><br><span class="line">  </span><br><span class="line">testCompile <span class="string">"org.powermock:powermock-module-junit4:1.6.4"</span></span><br><span class="line">testCompile <span class="string">"org.powermock:powermock-module-junit4-rule:1.6.4"</span></span><br><span class="line">testCompile <span class="string">"org.powermock:powermock-api-mockito:1.6.4"</span></span><br><span class="line">testCompile <span class="string">"org.powermock:powermock-classloading-xstream:1.6.4"</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="annotation">@RunWith</span>(RobolectricTestRunner.<span class="keyword">class</span>)</span><br><span class="line"><span class="annotation">@Config</span>(constants = BuildConfig.<span class="keyword">class</span>)</span><br><span class="line"><span class="annotation">@PowerMockIgnore</span>(&#123; <span class="string">"org.mockito.*"</span>, <span class="string">"org.robolectric.*"</span>, <span class="string">"android.*"</span> &#125;)</span><br><span class="line"><span class="annotation">@PrepareForTest</span>(Static.<span class="keyword">class</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeckardActivityTest</span> &#123;</span></span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> PowerMockRule rule = <span class="keyword">new</span> PowerMockRule();</span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="typename">void</span> testStaticMocking() &#123;</span><br><span class="line">        PowerMockito.mockStatic(Static.<span class="keyword">class</span>);</span><br><span class="line">        Mockito.when(Static.staticMethod()).thenReturn(<span class="string">"hello mock"</span>);</span><br><span class="line"> </span><br><span class="line">        assertTrue(Static.staticMethod().equals(<span class="string">"hello mock"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/jayway/powermock/wiki/PowerMockRule" target="_blank" rel="external">PowerMockRule</a>是用于代替@RunWith注解开启PowerMock，因为我们已经使用RobolectricTestRunner指定了注解值。<br><a href="https://code.google.com/p/powermock/wiki/FAQ" target="_blank" rel="external">@PowerMockIgnore</a>用于忽略Mockito和Robolectric类库，因为我们不应该mock它们自己。还有android的类，因为我们已经使用Robolectric处理了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://robolectric.blogspot.sg/2013/04/the-test-lifecycle-in-20.html" target="_blank" rel="external">http://robolectric.blogspot.sg/2013/04/the-test-lifecycle-in-20.html</a></li>
+<li><a href="http://www.jianshu.com/p/3c6fae150346" target="_blank" rel="external">http://www.jianshu.com/p/3c6fae150346</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/junit/" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/junit/</a></li>
+<li><a href="http://chriszou.com/2016/04/29/android-unit-testing-mockito.html" target="_blank" rel="external">http://chriszou.com/2016/04/29/android-unit-testing-mockito.html</a></li>
+<li><a href="http://chriszou.com/2016/04/18/android-unit-testing-junit.html" target="_blank" rel="external">http://chriszou.com/2016/04/18/android-unit-testing-junit.html</a></li>
+<li><a href="http://static.javadoc.io/org.mockito/mockito-core/2.8.47/org/mockito/Mockito.html" target="_blank" rel="external">http://static.javadoc.io/org.mockito/mockito-core/2.8.47/org/mockito/Mockito.html</a></li>
+<li><a href="https://waylau.com/mockito-quick-start/" target="_blank" rel="external">https://waylau.com/mockito-quick-start/</a></li>
+<li><a href="https://my.oschina.net/jackieyeah/blog/157076" target="_blank" rel="external">https://my.oschina.net/jackieyeah/blog/157076</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-support-v4-3/" class="archive-article-date">
-  	<time datetime="2016-05-18T10:39:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-support-v4-3/">Android Support V4官方Demo概览（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,470 +342,110 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">demo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">support</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">unit test</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/android-unit-test-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/interview-2016-big-company/" class="archive-article-date">
-  	<time datetime="2016-04-13T14:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-13</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/interview-2016-big-company/">2016Android某公司面试题</a>
-    </h1>
+  
+    <a href="/android-unit-test-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android单元测试（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-basic-asynctask/" class="archive-article-date">
-  	<time datetime="2016-04-10T02:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-basic-asynctask/">Android基础——AsyncTask</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">asynctask</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-interview-peformance/" class="archive-article-date">
-  	<time datetime="2016-04-10T01:22:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-interview-peformance/">Android面试——APP性能优化</a>
-    </h1>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">performance</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-interview-java/" class="archive-article-date">
-  	<time datetime="2016-04-08T07:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-interview-java/">Android面试——Java相关</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-interview-program/" class="archive-article-date">
-  	<time datetime="2016-04-08T06:30:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-interview-program/">Android面试——编程算法题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">program</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-basic-broadcast-receiver/" class="archive-article-date">
-  	<time datetime="2016-04-02T14:24:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-basic-broadcast-receiver/">Android基础——广播接收者BroadcastReceiver</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">broadcast</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-service/" class="archive-article-date">
-  	<time datetime="2016-04-02T02:33:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-service/">Android开发指南——Service</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">service</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-aidl/" class="archive-article-date">
-  	<time datetime="2016-03-31T02:37:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-aidl/">Android开发指南——进程间通信AIDL</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">aidl</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/android-guide-bound-service/" class="archive-article-date">
-  	<time datetime="2016-03-31T02:37:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/android-guide-bound-service/">Android开发指南——绑定Service</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">doc</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">service</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/7/">Next &raquo;</a>
-    </nav>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -700,8 +469,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
