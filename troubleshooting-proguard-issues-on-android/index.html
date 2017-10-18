@@ -9,17 +9,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | yuweiguo&#39;s blog</title>
+  <title>（译）解决Android混淆常见问题 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/3/index.html">
+  <meta name="description" content="本文介绍了Android中开启混淆的好处，混淆的工作原理及如何解决开启混淆后遇到的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（译）解决Android混淆常见问题">
+<meta property="og:url" content="http://yoursite.com/troubleshooting-proguard-issues-on-android/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="本文介绍了Android中开启混淆的好处，混淆的工作原理及如何解决开启混淆后遇到的问题。">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-1.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-2.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-3.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-4.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-5.gif">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-6.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-7.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/t/proguard-8.png">
+<meta property="og:updated_time" content="2017-10-18T11:00:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="（译）解决Android混淆常见问题">
+<meta name="twitter:description" content="本文介绍了Android中开启混淆的好处，混淆的工作原理及如何解决开启混淆后遇到的问题。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,36 +183,145 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-troubleshooting-proguard-issues-on-android" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      （译）解决Android混淆常见问题
+    </h1>
+  
+
+        
+        <a href="/troubleshooting-proguard-issues-on-android/" class="archive-article-date">
+  	<time datetime="2017-10-18T11:00:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了Android中开启混淆的好处，混淆的工作原理及如何解决开启混淆后遇到的问题。</p>
+<a id="more"></a>
+<p>原文链接：<a href="https://medium.com/google-developers/troubleshooting-proguard-issues-on-android-bce9de4f8a74" target="_blank" rel="external">Troubleshooting ProGuard issues on Android</a></p>
+<blockquote>
+<p>《行路难》<br>金樽清酒斗十千，玉盘珍馐直万钱。<br>停杯投箸不能食，拔剑四顾心茫然。<br>欲渡黄河冰塞川，将登太行雪满山。<br>闲来垂钓坐溪上，忽复乘舟梦日边。<br>行路难，行路难，多歧路，今安在。<br>长风破浪会有时，直挂云帆济沧海。<br>—唐，李白</p>
+</blockquote>
+<h2 id="为什么混淆"><a href="#为什么混淆" class="headerlink" title="为什么混淆"></a>为什么混淆</h2><p>混淆器（ProGuard）是一个压缩、优化和混淆代码的工具。当然开发者也可以使用其它工具，混淆器作为 Android Gradle 构建处理的一部分并且附带在SDK中可以很方便使用。</p>
+<p>你开发的应用想要开启混淆的原因可能有多种。有些开发者可能关心混淆了多少代码，但对我来说最大的好处是可以删除所有未使用的代码，否则会作为 classes.dex 文件的一部分打包到 APK 中。</p>
+<p><img src="/assets/img/t/proguard-1.png" alt=""><br>图 Android 应用大小分布饼图的示例。数据来源：<a href="https://github.com/googlesamples/android-topeka" target="_blank" rel="external">Topeka sample app</a>。</p>
+<p>让你的代码大小更小可以带来很多实际好处，例如，提高用户留存率和满意度，更快的下载和安装时间，安装在用户的低端设备上，尤其是新兴市场。还有一些情况，当你需要限制应用的大小，例如 <a href="https://developer.android.com/topic/instant-apps/faqs.html#apk-size" target="_blank" rel="external">4MB limit for Instant Apps</a>，这种情况下混淆肯定是必不可少的。</p>
+<p>如果这对你还不够方便，考虑移除未使用的代码并且混淆所有的名称会有不错的效果，还可以开启更多优化：</p>
+<ul>
+<li>在一些 Android 版本上，DEX 代码会在安装时或运行时编译成机器码。原始的 DEX 和优化后的代码会一直保留在设备上，因此这是个很简单的数学问题，<strong>更少的代码代表在设备上更短的编译时间和更少的存储使用</strong>。</li>
+<li>混淆可以做的另一个事情是，在代码大小上有很大的影响，它会修改所有的标识符（包名，类名和成员变量）为短名称，例如 a.A 和 a.a.B。这个处理是众所周知的混淆。混淆通过两种方式减少代码大小：代表实际字符串的这些名称更短，此外如果它们共享了相同的签名，它们有更高的可能性被不同的方法和域重用，这会减少字符串池中 item 的总数量。</li>
+<li>使用混淆器需要开启<a href="https://developer.android.com/studio/build/shrink-code.html#shrink-resources" target="_blank" rel="external">资源压缩</a>。资源压缩会移除在你的工程中没有使用代码引用的资源（例如图片，通常是APK中占比最大的一部分）。</li>
+<li>移除代码也可以帮你避免 <a href="https://developer.android.com/studio/build/multidex.html" target="_blank" rel="external">dex 64k 方法数限制问题</a>。通过只打包代码中实际使用的方法到APK中，尤其是当你考虑做第三方类库时，你可以在应用中减少使用 Multidex 的需要。</li>
+</ul>
+<blockquote>
+<p>你觉得每个应用都应该开启代码压缩么？是的！</p>
+</blockquote>
+<p>开始使用之前，先学习下开启混淆后可能遇到的一些问题。构建应用时可能会出现一些错误，还有只能在运行时才能捕获到的错误，因此需要彻底测试你的应用。</p>
+<h2 id="怎样混淆"><a href="#怎样混淆" class="headerlink" title="怎样混淆"></a>怎样混淆</h2><p>在应用 module 的 build.gradle 文件中添加如下代码：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">buildTypes </span>&#123;</span><br><span class="line"><span class="comment">/* you will normally want to enable ProGuard only for your release builds, as it’s an additional step that makes the build slower and can make debugging more difficult */</span></span><br><span class="line">  </span><br><span class="line">  release &#123;</span><br><span class="line">    minifyEnabled true</span><br><span class="line">    proguardFiles getDefaultProguardFile(‘proguard-<span class="keyword">android.txt’), </span>‘proguard-rules.pro’</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过分别指定配置文件完成混淆配置。通过上面的代码可以看到我添加了 android gradle 插件提供的默认配置，并且在 <code>proguard-rules.pro</code> 文件中添加了一些工程相关的配置。在官网上你可以找到<a href="https://www.guardsquare.com/en/proguard/manual/usage#keepoptions" target="_blank" rel="external">可手动配置的所有选项</a>。在你深入研究配置选项之前，最好先理解混淆是怎样工作的以及我们为什么需要指定额外的选项。</p>
+<p><img src="/assets/img/t/proguard-2.gif" alt=""><br>图 你也可以观看 <a href="https://youtu.be/AdfKNgyT438?t=6m50s" target="_blank" rel="external">Google I/O 大会</a>上 Shai Barack’s 解释。 </p>
+<p>简而言之，混淆器会将工程中的类文件作为输入，搜索应用入口点的所有可能性并且从这些入口点计算出所有代码可达性的地图，然后移除剩下的代码（无用代码，或永远不会运行的代码，因为它从未被调用）。</p>
+<p>阅读混淆手册的时候，应当跳过输入/输出部分，Android gradle 插件会为你指定输入（你的类文件）和类库 jar 包。</p>
+<p>正确的配置混淆的部分是让它知道哪一部分代码是在运行时访问并且不应该被移除（当混淆打开后它们的名字会保持原样）。当类或方法是通过动态访问（使用反射），混淆器在构建被使用的代码的地图时有时并不知道这些代码是否被使用并且会错误地将这些类移除。这也会发生在只从xml资源中引用代码时（通常在底层使用反射的方式）。</p>
+<p>在 android 构建期间，AAPT（处理资源的工具）会生成一个额外的混淆规则文件。它为 android 应用的入口点添加显式 keep 规则，因此清单文件中所有的 Activities，Services，BroadcastReceivers 和 ContentProviders 会保持原样。这就是上面的动画中 <code>MyActivity</code> 类没有被移除或重命名的原因。</p>
+<p>AAPT 也会 <strong>keep</strong> 所有在 xml 布局中使用的 Views（以及它们的构造方法）和一些其它类，例如在动画过渡资源中引用的过渡类。你可以在执行构建之后检查 AAPT 生成的配置文件，通过打开 <code>&lt;your_project&gt;/&lt;app_module&gt;/build/intermediates/proguard-rules/&lt;variant&gt;/aapt_rules.txt</code> 文件：</p>
+<p><img src="/assets/img/t/proguard-3.png" alt=""><br>图 构建期间 AAPT 创建的混淆配置示例</p>
+<p>在后面的部分我们会讲到 <strong>keep</strong> 规则，在此之前我们最好先学习下它做了些什么。</p>
+<h2 id="当开启混淆后导致构建失败"><a href="#当开启混淆后导致构建失败" class="headerlink" title="当开启混淆后导致构建失败"></a>当开启混淆后导致构建失败</h2><p>测试应用开启混淆后是否可以正常工作之前，应该先构建应用。当混淆检查出你的代码有问题，它会在编译时发出警告并导致构建失败，例如引用不存在的类。</p>
+<p>解决构建失败的关键在于查看构建输出的日志，理解警告是关于什么的及它们的地址，通常通过修复依赖或在混淆配置中添加 <a href="https://www.guardsquare.com/en/proguard/manual/usage#dontwarn" target="_blank" rel="external">-dontwarn</a> 规则解决。</p>
+<p>警告出现的其中一个原因是利用 JARs 包编译的依赖但没有添加到编译路径，例如，当使用 <strong>provided</strong>（只在编译时使用）依赖。有时候，使用这些依赖的代码路径在 Android 上运行类库代码时不是实际被调用的。我们来看一个真实的例子。</p>
+<p>关于构建依赖的详细说明请查看 <a href="/android-gradle-dependencies/">Gradle 构建依赖配置说明</a>。</p>
+<p><img src="/assets/img/t/proguard-4.png" alt=""><br>图 构建依赖 OkHttp 3.8.0 工程的警告输出</p>
+<p>OkHttp 类库的3.8.0版本在类上添加了新的注解 (javax.annotation.Nullable)，因为它们使用了编译时依赖，注解本身不会打包到依赖 OkHttp 的应用（除非应用显式地添加了<code>com.google.code.findbugs:jsr305</code>）并且<a href="https://github.com/square/okhttp/issues/3355" target="_blank" rel="external">混淆器会输出找不到的类</a>信息。</p>
+<p>因为我们知道这些注解类在运行时不会被使用，我们可以在混淆配置中添加 <strong>-dontwarn</strong> 规则安全地忽略警告，正如 OkHttp 所建议的那样：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-dontwarn javax<span class="class">.annotation</span><span class="class">.Nullable</span></span><br><span class="line">-dontwarn javax<span class="class">.annotation</span><span class="class">.ParametersAreNonnullByDefault</span></span><br></pre></td></tr></table></figure></p>
+<p>你应该对所有的警告做同样的处理，然后重新构建直到构建成功。重要的是应该理解为什么会出现这些警告，忽略它可能是安全的，也有可能在构建时真的丢失了一些类。</p>
+<p>现在你可能会尝试使用 <a href="https://www.guardsquare.com/en/proguard/manual/usage#ignorewarnings" target="_blank" rel="external">ignorewarnings</a> 选项忽略所有的警告，但这并不是一个好主意。在某些情况下，混淆警告会让你了解让应用无法正常工作的错误，和<a href="https://www.guardsquare.com/en/proguard/manual/troubleshooting#dynamicalclass" target="_blank" rel="external">你配置的其它问题</a>。</p>
+<p>你也有可能会想要查看混淆日志，可以突出显示通过反射访问的类的问题。如果没有导致构建失败，这些会导致令人讨厌的运行时漰溃。</p>
+<h2 id="当混淆移除了有用的代码"><a href="#当混淆移除了有用的代码" class="headerlink" title="当混淆移除了有用的代码"></a>当混淆移除了有用的代码</h2><p>在某些情况下，混淆不知道一个类或方法是否被使用，例如它只被反射或从 XML 中引用。为了不让类被混淆或被移除，需要在混淆配置中指定额外 <a href="https://www.guardsquare.com/en/proguard/manual/usage#keepoptions" target="_blank" rel="external">keep 规则</a>。这需要你处理有问题的代码并添加必要的规则。</p>
+<p>在运行时得到 <code>ClassNotFoundException</code> 或 <code>MethodNotFoundException</code> 错误表示丢失了类或方法，可能由于混淆移除了类或由于错误的依赖配置导致。测试应用的 release 构建（开启混淆）并处理这些错误是很重要的。</p>
+<p>这有几个不同的 keep 选项，你可以用于配置混淆：</p>
+<ul>
+<li><strong>keep</strong>——保留所有匹配类规范的类和方法</li>
+<li><strong>keepclassmembers</strong>——指定被保留的成员，但前提是它们的父类由于某些原因（从入口点是可达的或被别的规则保留）被保留</li>
+<li><strong>keepclasseswithmembers</strong>——会保留类及它的成员，但前提是在类规范列出的所有成员</li>
+</ul>
+<p>我建议你好好看看<a href="https://www.guardsquare.com/en/proguard/manual/usage#classspecification" target="_blank" rel="external">类规范语法</a>，用于上面提到的所有 keep 规则以及前面部分提到的 <strong>-dontwarn</strong> 选项。这三条 keep 规则只会阻止混淆（重命名），不会阻止压缩。你可以在混淆网站上找到在一个<a href="https://www.guardsquare.com/en/proguard/manual/usage#keepoverview" target="_blank" rel="external">表格</a>中所有 keep 选项的概览。</p>
+<p>另一个代替编写复杂混淆规则的方法，只需要在不想要被混淆器移除或重命名的类/方法/域上添加 <a href="https://developer.android.com/reference/android/support/annotation/Keep.html" target="_blank" rel="external">@Keep</a> 注解。<strong>使用这个方法需要添加默认的Android混淆配置文件</strong>。</p>
+<h2 id="APK分析器和混淆"><a href="#APK分析器和混淆" class="headerlink" title="APK分析器和混淆"></a>APK分析器和混淆</h2><p>Android Studio 中的 <a href="https://developer.android.com/studio/build/apk-analyzer.html" target="_blank" rel="external">APK 分析器</a>可以帮助你看到被混淆器移除的类以及为它们生成 keep 规则。当你开启混淆构建 APK，会生成一个额外的输出文件 <code>&lt;app_module&gt;/build/outputs/mapping/</code>，包含移除代码的信息及混淆后的名称和原始名称之间的映射。</p>
+<p><img src="/assets/img/t/proguard-5.gif" alt=""><br>图 在 DEX 查看器中解锁更多信息通过在 APK 分析器中加载混淆映射文件</p>
+<blockquote>
+<p>注：此功能在Android Studio 3.0版本可用。</p>
+</blockquote>
+<p>当你加载映射文件到 APK 分析器中（使用 “Load Proguard mappings… ” 按钮），会在 DEX 树视图中得到一些额外功能：</p>
+<ul>
+<li>所有的名称被反混淆（你可以看到原始名称）</li>
+<li>被混淆配置规则保留的包、类、方法和域被加粗显示</li>
+<li>你可以使用 “Show removed nodes” 选项看到被混淆移除的类（加删除线显示）。在树的节点上右击可以生成 keep 规则，你可以粘贴到混淆配置文件中。</li>
+</ul>
+<h2 id="当混淆移除的太少"><a href="#当混淆移除的太少" class="headerlink" title="当混淆移除的太少"></a>当混淆移除的太少</h2><p>Android 混淆规则对每个 Android 应用包含了一些安全的默认值，例如确保 <code>View</code> 的 getters 和 setters——可以通过反射正常访问，以及更多常见方法和类不会被移除。这会保证你的应用在很多情况下不会漰溃，这个配置对你的应用来说可能不是最理想的。你可以移除默认的混淆文件使用你自己的。</p>
+<p>如果你想使用混淆移除所有未使用的代码，你应该避免 keep 规则太广泛，例如使用通配符匹配整个包。应该选择类规范规则或者使用之前提到的 <code>@Keep</code> 注解。</p>
+<p><img src="/assets/img/t/proguard-6.png" alt=""><br>图 使用 -whyareyoukeeping 选项查看为什么类没有被移除</p>
+<p>如果你不确定混淆为什么没有移除你期望移除的代码部分，你可以在混淆配置文件中添加 <a href="https://www.guardsquare.com/en/proguard/manual/usage#whyareyoukeeping" target="_blank" rel="external">-whyareyoukeeping</a> 选项，然后再次构建 APK。在构建输出中，你可以看到让混淆器决定保留代码的引用链。</p>
+<p><img src="/assets/img/t/proguard-7.png" alt=""><br>图 在 APK 分析器中查看类和方法的引用追踪代码被 keep 的原因</p>
+<p>还有一种不精确的方法，但不需要重新构建可以应用在任何 APK 上，在 APK 分析器中打开 DEX 文件，在你感兴趣的类或方法上右击。选择 “Find usages” 查看引用链，可以看到哪一部分代码使用了给定的类或方法，因此它没有被移除。</p>
+<h2 id="混淆器和混淆堆栈跟踪"><a href="#混淆器和混淆堆栈跟踪" class="headerlink" title="混淆器和混淆堆栈跟踪"></a>混淆器和混淆堆栈跟踪</h2><p>之前提到混淆器会在构建期间处理类文件时输出 mappings 和 logs。当你存储构建结果时应该和 APK 一起保存这些文件。映射文件不能用于不同构建之间并且和产生的 APK 一起才能正常工作。mappings 文件可以帮助你调试用户设备上的漰溃，否则由于被混淆的名称很难解决漰溃。</p>
+<p><img src="/assets/img/t/proguard-8.png" alt=""><br>图 上传混淆 mapping 文件和 APK 到 Google Play 控制台得到反混淆堆栈跟踪</p>
+<p>当你在 Play 控制台发布混淆后的 APK 记得为每个版本上传 mapping 文件。这样的话当你查看 ANRs &amp; crashes 页面，报告的堆栈跟踪会显示真实的类和方法名和行号，而不是被混淆后的名称。</p>
+<h2 id="混淆和第三方类库"><a href="#混淆和第三方类库" class="headerlink" title="混淆和第三方类库"></a>混淆和第三方类库</h2><p>为你自己的代码提供 keep 规则是你的职责所在，第三方类库的创建者的职责是为你提供必须的配置，因此当你开启混淆后构建不会失败或应用不会漰溃。</p>
+<p>一些工程在手册或 README 文件中简单地提到必须的规则，因此你可以复制和粘贴到你的混淆文件中。但这有一个更好的方法。对于类库 modules 和类库发布的 AARs，类库的维护者可以为 AAR 提供指定的规则并自动暴露给类库使用者的构建系统，通过在 <code>build.gradle</code> 文件中添加下面的代码：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">release</span> &#123; //<span class="keyword">or</span> your own <span class="keyword">build</span> <span class="keyword">type</span></span><br><span class="line">  consumerProguardFiles ‘consumer-proguard.txt’</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>在 <code>consumer-proguard.txt</code> 文件中添加的规则会被追加到主混淆配置并且在应用构建时被使用。</p>
+<blockquote>
+<p>关于代码和资源压缩的详细信息请参考我们的<a href="https://developer.android.com/studio/build/shrink-code.html" target="_blank" rel="external">文档</a>。</p>
+</blockquote>
+<p>起初开启混淆可能会让人觉得有点可怕，但我个人认为它的好处是有价值的，并且只需要花一点点时间，就可以得到更小更优化的应用。更重要的是，现在花时间配置你的应用意味着已经做好了引入叫做 R8 的<a href="https://r8.googlesource.com/r8" target="_blank" rel="external">混淆替换实验</a>，它将会和现有混淆规则文件一起工作。</p>
+<p>除了让你的代码更少，混淆和 R8 可以优化代码让它运行的更快，但这是另一篇文章的主题。</p>
+<p>注：ProGuard-android.txt 文件之前可以从 Sdk 文件夹中找到（<code>Sdk/tools/ProGuard/ProGuard-android.txt</code>），但在SDK的新版本和 Android Gradle plugin 2.2.0+，它会在构建期间从 Android 插件 jar 包中解压。你可以在构建之后在 <code>&lt;your_project&gt;/build/intermediates/ProGuard-files/</code> 找到配置文件。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/displaying-the-snackbar/" class="archive-article-date">
-  	<time datetime="2017-03-19T02:56:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/displaying-the-snackbar/">（译）Snackbar的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,454 +331,110 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">proguard</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/troubleshooting-proguard-issues-on-android/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/using-the-cardview/" class="archive-article-date">
-  	<time datetime="2017-03-18T07:21:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/using-the-cardview/">（译）CardView的使用</a>
-    </h1>
+  
+    <a href="/android-unit-test-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android单元测试（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/floating-action-buttons/" class="archive-article-date">
-  	<time datetime="2017-03-18T03:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/floating-action-buttons/">（译）FloatingActionButton的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/using-the-app-toolbar/" class="archive-article-date">
-  	<time datetime="2017-03-14T12:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/using-the-app-toolbar/">（译）App Toolbar的使用</a>
-    </h1>
-  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/handling-scrolls-with-coordinatorlayout/" class="archive-article-date">
-  	<time datetime="2017-03-13T09:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/handling-scrolls-with-coordinatorlayout/">（译）使用CoordinatorLayout处理滚动</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/material-design-primer/" class="archive-article-date">
-  	<time datetime="2017-03-11T08:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/material-design-primer/">（译）初识Material Design</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/dynamic-color-using-palettes/" class="archive-article-date">
-  	<time datetime="2017-03-10T08:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/dynamic-color-using-palettes/">（译）使用Palettes提取颜色</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/design-support-library/" class="archive-article-date">
-  	<time datetime="2017-03-08T05:06:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/design-support-library/">（译）Android材料设计支持库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/view-hierarchy-animations/" class="archive-article-date">
-  	<time datetime="2017-03-03T09:56:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/view-hierarchy-animations/">（译）View层级动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/ripple-animation/" class="archive-article-date">
-  	<time datetime="2017-03-02T08:54:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/ripple-animation/">（译）Android水波纹动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><a class="page-number" href="/archives/2017/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/4/">Next &raquo;</a>
-    </nav>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
 
@@ -684,8 +458,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
