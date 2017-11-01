@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/upgrade-android-studio-3-0/</loc>
+    
+    <lastmod>2017-11-01T07:25:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/troubleshooting-proguard-issues-on-android/</loc>
     
     <lastmod>2017-10-18T11:00:52.000Z</lastmod>
