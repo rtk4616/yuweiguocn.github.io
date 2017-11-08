@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/img/teach/as3-1.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/teach/as3-2.png">
 <meta property="og:image" content="http://yoursite.com/assets/img/teach/as3-3.png">
-<meta property="og:updated_time" content="2017-11-01T07:25:49.000Z">
+<meta property="og:updated_time" content="2017-11-04T12:01:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="踩坑Android Studio 3.0">
 <meta name="twitter:description" content="本文介绍了升级 Android Studio 3.0 之后遇到的一些问题及解决方案。">
@@ -220,7 +220,7 @@ var _hmt = _hmt || [];
 <h3 id="注解处理器必须显式声明"><a href="#注解处理器必须显式声明" class="headerlink" title="注解处理器必须显式声明"></a>注解处理器必须显式声明</h3><p>提示错误：</p>
 <figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Execution failed <span class="keyword">for</span> task <span class="string">':app:javaPreCompileDevDebug'</span>.</span><br><span class="line">&gt; Annotation processors must be explicitly declared now.  The following dependencies <span class="keyword">on</span> the compile classpath are found <span class="keyword">to</span> contain annotation processor.  Please <span class="keyword">add</span> them <span class="keyword">to</span> the annotationProcessor configuration.</span><br><span class="line">    - tinker-android-anno-<span class="number">1.7</span>.<span class="number">9</span>.jar (com.tencent.tinker:tinker-android-anno:<span class="number">1.7</span>.<span class="number">9</span>)</span><br><span class="line">  Alternatively, <span class="keyword">set</span> android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = <span class="keyword">true</span> <span class="keyword">to</span> <span class="keyword">continue</span> <span class="keyword">with</span> previous behavior.  Note that this option <span class="keyword">is</span> <span class="keyword">deprecated</span> <span class="keyword">and</span> will be removed <span class="keyword">in</span> the <span class="keyword">future</span>.</span><br><span class="line">  See https:<span class="comment">//developer.android.com/r/tools/annotation-processor-error-message.html for more details.</span></span><br></pre></td></tr></table></figure>
 <p><strong>解决方案，显示添加注解处理器依赖：</strong></p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">annotationProcessor</span> <span class="string">'com.tencent.tinker:tinker-android-anno:1.7.9'</span></span><br><span class="line">compileOnly <span class="string">'com.tencent.tinker:tinker-android-anno:1.7.9'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">annotationProcessor</span> <span class="string">'com.tencent.tinker:tinker-android-anno:1.9.0'</span></span><br><span class="line">compileOnly <span class="string">'com.tencent.tinker:tinker-android-anno:1.9.0'</span></span><br></pre></td></tr></table></figure>
 <p><img src="/assets/img/teach/as3-2.png" alt=""><br>图 官方网站提供的解决方案</p>
 <p><img src="/assets/img/teach/as3-3.png" alt=""><br>图 依赖配置说明</p>
 <p>参考链接：<a href="https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html?utm_source=android-studio#annotationProcessor_config" target="_blank" rel="external">https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html?utm_source=android-studio#annotationProcessor_config</a></p>
@@ -341,6 +341,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/open-source-analysis-block-canary/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          BlockCanary源码解析
+        
+      </div>
+    </a>
   
   
     <a href="/troubleshooting-proguard-issues-on-android/" id="article-nav-older" class="article-nav-link-wrap">
@@ -505,6 +514,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">teach</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">source analysis</a>
               </li>
              
               <li class="article-tag-list-item">
