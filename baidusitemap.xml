@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/gradle-summary/</loc>
+    <lastmod>2017-11-09T09:35:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Gradle脚本常用功能总结</title>
+        <pubTime>2017-11-09T09:32:32.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>gradle</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/open-source-analysis-block-canary/</loc>
     <lastmod>2017-11-08T03:04:20.000Z</lastmod>
     <data>
@@ -927,27 +946,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -964,6 +962,27 @@
         <tag>doc</tag>
          
         <tag>guide</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
          
          
            
@@ -1038,18 +1057,18 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>data binding</tag>
+        <tag>demo</tag>
          
-        <tag>translate</tag>
+        <tag>support</tag>
          
          
            
