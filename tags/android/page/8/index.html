@@ -9,21 +9,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>（译）BottomNavigationView的使用 | yuweiguo&#39;s blog</title>
+  <title>Tag: android | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文介绍了BottomNavigationView的使用。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="（译）BottomNavigationView的使用">
-<meta property="og:url" content="http://yoursite.com/bottom-navigation-views/index.html">
+  <meta name="description" content="hello world!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yuweiguo's blog">
+<meta property="og:url" content="http://yoursite.com/tags/android/page/8/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="本文介绍了BottomNavigationView的使用。">
-<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-58.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-59.png">
-<meta property="og:image" content="http://yoursite.com/assets/img/support/design/design-60.png">
-<meta property="og:updated_time" content="2017-04-09T15:03:46.000Z">
+<meta property="og:description" content="hello world!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="（译）BottomNavigationView的使用">
-<meta name="twitter:description" content="本文介绍了BottomNavigationView的使用。">
+<meta name="twitter:title" content="yuweiguo's blog">
+<meta name="twitter:description" content="hello world!">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -178,91 +174,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-bottom-navigation-views" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      （译）BottomNavigationView的使用
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/android-design-support-library/" class="archive-article-date">
+  	<time datetime="2015-08-25T14:03:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/android-design-support-library/">（译）Android Design Support Library概览</a>
     </h1>
   
 
-        
-        <a href="/bottom-navigation-views/" class="archive-article-date">
-  	<time datetime="2017-04-09T14:59:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍了BottomNavigationView的使用。</p>
-<a id="more"></a>
-<p>原文链接：<a href="http://guides.codepath.com/android/Bottom-Navigation-Views" target="_blank" rel="external">Bottom Navigation Views</a></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://material.google.com/components/bottom-navigation.html" target="_blank" rel="external">Bottom navigation</a>提供了方便的导航在三到五个不同View之间进行切换。它是最近添加到<a href="https://material.google.com/components/bottom-navigation.html" target="_blank" rel="external">Material Design spec</a>，在<a href="https://material.google.com/components/tabs.html" target="_blank" rel="external">tabs</a> 和 <a href="https://material.google.com/patterns/navigation-drawer.html" target="_blank" rel="external">navigation drawers</a>之间提供了另一个选择。</p>
-<p><img src="/assets/img/support/design/design-58.png" alt=""></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>查看<a href="/design-support-library#setup">design support library</a>配置说明添加依赖。尤其是确保更新到了v25版本，因为底部导航支持最近才被添加。</p>
-<p>然后，在布局文件中添加<code>BottomNavigationView</code>并确保设置<code>alignParentBottom=true</code>来保证view放置在布局底部：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.design.widget.BottomNavigationView</span></span><br><span class="line">     <span class="attribute">android:id</span>=<span class="value">"@+id/bottom_navigation"</span></span><br><span class="line">     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">     <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">     <span class="attribute">android:layout_alignParentBottom</span>=<span class="value">"true"</span></span><br><span class="line">     <span class="attribute">app:menu</span>=<span class="value">"@menu/menu_bottom_navigation"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后，像配置Toolbar一样设置菜单资源，在<code>res/menu/menu_bottom_navigation.xml</code>文件中声明tabbed items和图标：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">menu</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">item</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/action_favorites"</span></span><br><span class="line">        <span class="attribute">android:enabled</span>=<span class="value">"true"</span></span><br><span class="line">        <span class="attribute">android:icon</span>=<span class="value">"@drawable/ic_favorite_white_24dp"</span></span><br><span class="line">        <span class="attribute">android:title</span>=<span class="value">"@string/text_favorites"</span></span><br><span class="line">        <span class="attribute">app:showAsAction</span>=<span class="value">"ifRoom"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">item</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/action_schedules"</span></span><br><span class="line">        <span class="attribute">android:enabled</span>=<span class="value">"true"</span></span><br><span class="line">        <span class="attribute">android:icon</span>=<span class="value">"@drawable/ic_access_time_white_24dp"</span></span><br><span class="line">        <span class="attribute">android:title</span>=<span class="value">"@string/text_schedules"</span></span><br><span class="line">        <span class="attribute">app:showAsAction</span>=<span class="value">"ifRoom"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">item</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/action_music"</span></span><br><span class="line">        <span class="attribute">android:enabled</span>=<span class="value">"true"</span></span><br><span class="line">        <span class="attribute">android:icon</span>=<span class="value">"@drawable/ic_audiotrack_white_24dp"</span></span><br><span class="line">        <span class="attribute">android:title</span>=<span class="value">"@string/text_music"</span></span><br><span class="line">        <span class="attribute">app:showAsAction</span>=<span class="value">"ifRoom"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>你可以选择<code>New</code> -&gt; <code>Vector Asset</code>创建图标：</p>
-<p><img src="/assets/img/support/design/design-59.png" alt=""></p>
-<p>然后选择<code>Action</code>找到合适的图标：</p>
-<p><img src="/assets/img/support/design/design-60.png" alt=""></p>
-<p>保存文件为<code>ic_favorite_white_24dp.xml</code>。在导入vector drawable之后可以通过修改<code>fillColor</code>改变填充颜色：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- change fill color to white --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">path</span></span><br><span class="line">   <span class="attribute">android:fillColor</span>=<span class="value">"#FFFFFFFF"</span></span><br><span class="line">   <span class="attribute">android:pathData</span>=<span class="value">"M12,21.35l-1.45,-1.32C5.4,15.36 2,12.28 2,8.5 2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3 19.58,3 22,5.42 22,8.5c0,3.78 -3.4,6.86 -8.55,11.54L12,21.35z"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">path</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>你可以按照这个步骤处理其它图标。你也可以直接从<a href="https://github.com/hitherejoe/BottomNavigationViewSample/tree/master/app/src/main/res/drawable." target="_blank" rel="external">GitHub repo</a>下载。</p>
-<p>最后，你需要设置导航选择的手动处理：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);</span><br><span class="line"></span><br><span class="line">bottomNavigationView.setOnNavigationItemSelectedListener(<span class="keyword">new</span> BottomNavigationView.OnNavigationItemSelectedListener() &#123;</span><br><span class="line">  <span class="annotation">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">      <span class="keyword">case</span> R.id.action_favorites:</span><br><span class="line">        <span class="comment">// do something here</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      <span class="keyword">case</span> R.id.action_schedules:</span><br><span class="line">       <span class="comment">// do something here</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      <span class="keyword">case</span> R.id.action_music:</span><br><span class="line">        <span class="comment">// do something here</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;          </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="配合fragments使用"><a href="#配合fragments使用" class="headerlink" title="配合fragments使用"></a>配合fragments使用</h3><p>你可以使用底部导航切换fragments：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">   <span class="annotation">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">final</span> FragmentManager fragmentManager = getSupportFragmentManager();</span><br><span class="line"></span><br><span class="line">     <span class="comment">// define your fragments here</span></span><br><span class="line">     <span class="keyword">final</span> Fragment fragment1 = <span class="keyword">new</span> FirstFragment();</span><br><span class="line">     <span class="keyword">final</span> Fragment fragment2 = <span class="keyword">new</span> SecondFragment();</span><br><span class="line">     <span class="keyword">final</span> Fragment fragment3 = <span class="keyword">new</span> ThirdFragment();</span><br><span class="line"></span><br><span class="line">     <span class="comment">// handle navigation selection</span></span><br><span class="line">     bottomNavigationView.setOnNavigationItemSelectedListener(               </span><br><span class="line">        <span class="keyword">new</span> BottomNavigationView.OnNavigationItemSelectedListener() &#123;</span><br><span class="line">          <span class="annotation">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(@NonNull MenuItem item)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">              <span class="keyword">case</span> R.id.action_favorites:</span><br><span class="line">                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();</span><br><span class="line">                  fragmentTransaction.replace(R.id.flContainer, fragment1).commit();</span><br><span class="line">                  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">              <span class="keyword">case</span> R.id.action_schedules:</span><br><span class="line">                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();</span><br><span class="line">                  fragmentTransaction.replace(R.id.flContainer, fragment2).commit();</span><br><span class="line">                  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">              <span class="keyword">case</span> R.id.action_music:</span><br><span class="line">                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();</span><br><span class="line">                  fragmentTransaction.replace(R.id.flContainer, fragment3).commit();</span><br><span class="line">                  <span class="keyword">return</span> <span class="keyword">true</span>;     </span><br><span class="line">       &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h3><p>底部导航view也可以自定义几个不同的选项，包括<code>app:itemBackground</code>，<code>app:itemIcontint</code>，和 <code>app:ItemTextColor</code>：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;android.support.design.widget.BottomNavigationView</span><br><span class="line">  &lt;!-- should match top primary color --&gt;</span><br><span class="line">  app:itemBackground="@color/colorPrimary"</span><br><span class="line">  &lt;!-- tint color for bottom navigation icons --&gt;</span><br><span class="line">  app:itemIconTint="@color/white"</span><br><span class="line">  &lt;!-- text color for bottom navigation text --&gt;</span><br><span class="line">  app:itemTextColor="@color/white"&gt;</span><br><span class="line">&lt;/android.support.design.widget.BottomNavigationView&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x68;&#105;&#116;&#104;&#101;&#114;&#101;&#x6a;&#111;&#101;&#47;&#x65;&#x78;&#112;&#x6c;&#111;&#x72;&#105;&#110;&#x67;&#x2d;&#x74;&#x68;&#x65;&#x2d;&#x61;&#110;&#100;&#114;&#x6f;&#105;&#x64;&#x2d;&#100;&#x65;&#x73;&#105;&#103;&#x6e;&#x2d;&#115;&#117;&#x70;&#x70;&#x6f;&#x72;&#116;&#x2d;&#108;&#105;&#x62;&#114;&#97;&#x72;&#x79;&#x2d;&#98;&#111;&#x74;&#x74;&#111;&#x6d;&#45;&#x6e;&#x61;&#x76;&#x69;&#x67;&#x61;&#116;&#105;&#111;&#x6e;&#x2d;&#100;&#114;&#97;&#119;&#x65;&#114;&#x2d;&#53;&#52;&#56;&#100;&#x65;&#x36;&#x39;&#x39;&#x65;&#56;&#x65;&#48;">&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x68;&#105;&#116;&#104;&#101;&#114;&#101;&#x6a;&#111;&#101;&#47;&#x65;&#x78;&#112;&#x6c;&#111;&#x72;&#105;&#110;&#x67;&#x2d;&#x74;&#x68;&#x65;&#x2d;&#x61;&#110;&#100;&#114;&#x6f;&#105;&#x64;&#x2d;&#100;&#x65;&#x73;&#105;&#103;&#x6e;&#x2d;&#115;&#117;&#x70;&#x70;&#x6f;&#x72;&#116;&#x2d;&#108;&#105;&#x62;&#114;&#97;&#x72;&#x79;&#x2d;&#98;&#111;&#x74;&#x74;&#111;&#x6d;&#45;&#x6e;&#x61;&#x76;&#x69;&#x67;&#x61;&#116;&#105;&#111;&#x6e;&#x2d;&#100;&#114;&#97;&#119;&#x65;&#114;&#x2d;&#53;&#52;&#56;&#100;&#x65;&#x36;&#x39;&#x39;&#x65;&#56;&#x65;&#48;</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/wechat1.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -276,119 +217,32 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">support</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/bottom-navigation-views/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/android-studio-write-gradle-slow/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          解决Mac下Android Studio编写Gradle文件卡顿
-        
-      </div>
-    </a>
   
   
-    <a href="/using-the-recyclerview/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">（译）RecyclerView的使用</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-    <section id="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </section>
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/android/page/7/">&laquo; Prev</a><a class="page-number" href="/tags/android/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/android/page/6/">6</a><a class="page-number" href="/tags/android/page/7/">7</a><span class="page-number current">8</span>
+    </nav>
   
 
 
@@ -412,9 +266,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

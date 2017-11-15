@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/gradle-summary/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="本文介绍了Gradle脚本常用功能实现，包括任务的定义、添加依赖、指定任务执行顺序、复制文件、复制并重命名文件、从FTP下载文件、解压Zip文件、操作数据库文件等功能。">
-<meta property="og:updated_time" content="2017-11-09T09:35:43.000Z">
+<meta property="og:updated_time" content="2017-11-09T09:39:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle脚本常用功能总结">
 <meta name="twitter:description" content="本文介绍了Gradle脚本常用功能实现，包括任务的定义、添加依赖、指定任务执行顺序、复制文件、复制并重命名文件、从FTP下载文件、解压Zip文件、操作数据库文件等功能。">
@@ -196,6 +196,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文介绍了Gradle脚本常用功能实现，包括任务的定义、添加依赖、指定任务执行顺序、复制文件、复制并重命名文件、从FTP下载文件、解压Zip文件、操作数据库文件等功能。<br><a id="more"></a></p>
+<blockquote>
+<p>《望庐山瀑布》<br>日照香炉生紫烟，遥看瀑布挂前川。<br>飞流直下三千尺，疑是银河落九天。<br>—唐，李白</p>
+</blockquote>
 <h2 id="定义任务"><a href="#定义任务" class="headerlink" title="定义任务"></a>定义任务</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> myTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> myFirstTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my first task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">task</span> mySecondTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my second task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">task</span> myTask(dependsOn: [myFirstTask,mySecondTask]) &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="添加依赖2"><a href="#添加依赖2" class="headerlink" title="添加依赖2"></a>添加依赖2</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> myFirstTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my first task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">task</span> mySecondTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my second task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">task</span> myTask &#123;</span><br><span class="line">    <span class="keyword">doFirst</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">"my task is execuated"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myTask.dependsOn myFirstTask</span><br><span class="line">myTask.dependsOn mySecondTask</span><br></pre></td></tr></table></figure>
@@ -328,6 +331,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/gradle-new-dependency-configurations/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Gradle 依赖配置 api VS implementation
+        
+      </div>
+    </a>
   
   
     <a href="/open-source-analysis-block-canary/" id="article-nav-older" class="article-nav-link-wrap">

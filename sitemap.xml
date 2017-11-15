@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/gradle-new-dependency-configurations/</loc>
+    
+    <lastmod>2017-11-15T09:54:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/gradle-summary/</loc>
     
-    <lastmod>2017-11-09T09:35:43.000Z</lastmod>
+    <lastmod>2017-11-09T09:39:50.000Z</lastmod>
     
   </url>
   
@@ -527,7 +534,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-6/</loc>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -535,6 +542,13 @@
   
   <url>
     <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -555,14 +569,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
-    
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-6/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
