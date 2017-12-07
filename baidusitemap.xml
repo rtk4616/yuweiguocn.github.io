@@ -4,12 +4,31 @@
 
     
   <url>
-    <loc>http://yoursite.com/gradle-new-dependency-configurations/</loc>
-    <lastmod>2017-11-15T09:54:58.000Z</lastmod>
+    <loc>http://yoursite.com/kotlin-note-1/</loc>
+    <lastmod>2017-12-07T10:02:41.000Z</lastmod>
     <data>
         <display>
-        <title>Gradle 依赖配置 api VS implementation</title>
-        <pubTime>2017-11-14T12:57:14.000Z</pubTime>
+        <title>Kotlin学习笔记（一）</title>
+        <pubTime>2017-12-04T09:14:20.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>kotlin</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/gradle-summary/</loc>
+    <lastmod>2017-11-21T02:29:59.000Z</lastmod>
+    <data>
+        <display>
+        <title>Gradle脚本常用功能总结</title>
+        <pubTime>2017-11-09T09:32:32.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -23,12 +42,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/gradle-summary/</loc>
-    <lastmod>2017-11-09T09:39:50.000Z</lastmod>
+    <loc>http://yoursite.com/gradle-new-dependency-configurations/</loc>
+    <lastmod>2017-11-15T09:54:58.000Z</lastmod>
     <data>
         <display>
-        <title>Gradle脚本常用功能总结</title>
-        <pubTime>2017-11-09T09:32:32.000Z</pubTime>
+        <title>Gradle 依赖配置 api VS implementation</title>
+        <pubTime>2017-11-14T12:57:14.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -965,6 +984,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -981,27 +1021,6 @@
         <tag>doc</tag>
          
         <tag>guide</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>data binding</tag>
-         
-        <tag>translate</tag>
          
          
            
