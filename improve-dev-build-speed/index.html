@@ -9,19 +9,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>（译）Android Data Binding移除findViewById（一） | yuweiguo&#39;s blog</title>
+  <title>提升Android Studio开发过程的构建速度 | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用Android Studio开发Android应用程序鲜为人知的features是数据绑定（data binding）。在后面的文章将会介绍它所带来的优秀的features，但最基本的features是移除findViewById。">
+  <meta name="description" content="本文介绍了当minSdkVersion小于21并开启了MultiDex时如何使用productFlavors充分利用Instant Run在开发过程中提升构建速度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="（译）Android Data Binding移除findViewById（一）">
-<meta property="og:url" content="http://yoursite.com/no-more-findviewbyid/index.html">
+<meta property="og:title" content="提升Android Studio开发过程的构建速度">
+<meta property="og:url" content="http://yoursite.com/improve-dev-build-speed/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="使用Android Studio开发Android应用程序鲜为人知的features是数据绑定（data binding）。在后面的文章将会介绍它所带来的优秀的features，但最基本的features是移除findViewById。">
-<meta property="og:image" content="http://yoursite.com/assets/img/t/no-more-findviewbyid-example.png">
-<meta property="og:updated_time" content="2016-07-08T13:58:13.000Z">
+<meta property="og:description" content="本文介绍了当minSdkVersion小于21并开启了MultiDex时如何使用productFlavors充分利用Instant Run在开发过程中提升构建速度。">
+<meta property="og:updated_time" content="2017-12-30T11:08:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="（译）Android Data Binding移除findViewById（一）">
-<meta name="twitter:description" content="使用Android Studio开发Android应用程序鲜为人知的features是数据绑定（data binding）。在后面的文章将会介绍它所带来的优秀的features，但最基本的features是移除findViewById。">
+<meta name="twitter:title" content="提升Android Studio开发过程的构建速度">
+<meta name="twitter:description" content="本文介绍了当minSdkVersion小于21并开启了MultiDex时如何使用productFlavors充分利用Instant Run在开发过程中提升构建速度。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -176,50 +175,48 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-no-more-findviewbyid" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-improve-dev-build-speed" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      （译）Android Data Binding移除findViewById（一）
+      提升Android Studio开发过程的构建速度
     </h1>
   
 
         
-        <a href="/no-more-findviewbyid/" class="archive-article-date">
-  	<time datetime="2016-06-29T10:30:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-29</time>
+        <a href="/improve-dev-build-speed/" class="archive-article-date">
+  	<time datetime="2017-12-28T08:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用Android Studio开发Android应用程序鲜为人知的features是数据绑定（data binding）。在后面的文章将会介绍它所带来的优秀的features，但最基本的features是移除findViewById。</p>
+        <p>本文介绍了当minSdkVersion小于21并开启了MultiDex时如何使用productFlavors充分利用Instant Run在开发过程中提升构建速度。</p>
 <a id="more"></a>
-<p>原文链接：<a href="https://medium.com/google-developers/no-more-findviewbyid-457457644885#.guw4rf4gb" target="_blank" rel="external">https://medium.com/google-developers/no-more-findviewbyid-457457644885#.guw4rf4gb</a></p>
-<p>这个代码是不是很烦人？</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TextView hello = <span class="list">(<span class="keyword">TextView</span>)</span> findViewById<span class="list">(<span class="keyword">R</span>.id.hello)</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>有一些工具可以省去写这种代码的麻烦，但这有一种官方的方法是使用Android Studio 1.5+。</p>
-<p>首先，你需要在应用程序的build.gradle文件中添加如下代码：<br><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="name">android</span> &#123;</span><br><span class="line">    ....</span><br><span class="line">    dataBinding &#123;</span><br><span class="line">        <span class="literal">enabled</span> = <span class="keyword">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后修改布局文件的最外层标签为<code>&lt;layout&gt;</code>而不是无论你使用的什么ViewGroup：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">layout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">        <span class="attribute">xmlns:tools</span>=<span class="value">"http://schemas.android.com/tools"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">RelativeLayout</span></span><br><span class="line">            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">            <span class="attribute">android:paddingLeft</span>=<span class="value">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">            <span class="attribute">android:paddingRight</span>=<span class="value">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">            <span class="attribute">android:paddingTop</span>=<span class="value">"@dimen/activity_vertical_margin"</span></span><br><span class="line">            <span class="attribute">android:paddingBottom</span>=<span class="value">"@dimen/activity_vertical_margin"</span></span><br><span class="line">            <span class="attribute">tools:context</span>=<span class="value">".MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">                <span class="attribute">android:id</span>=<span class="value">"@+id/hello"</span></span><br><span class="line">                <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">                <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">RelativeLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>layout</strong> 标签会告诉Android Studio这个布局在编译的时候需要额外的处理找到所有需要的Views并且注意它们的下一步。所有外层没有使用 <strong>layout</strong> 标签的布局不会有额外处理这一步，因此你可以把这个运用到新的工程任何你喜欢的地方不用修改应用程序的其它地方。</p>
-<p>下一步需要做的是告诉它加载你的布局文件在运行的时候。因为这个方法的所有工作都会返回到Eclaire release，加载这些预处理布局文件没有依赖新框架。因此，你不得不对加载程序做一点修改。</p>
-<p>对于Activity，不是这样：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setContentView(R.<span class="keyword">layout</span>.hello_world);</span><br><span class="line">TextView hello = (TextView) findViewById(R.id.hello);</span><br><span class="line">hello.setText(<span class="string">"Hello World"</span>); <span class="comment">// for example, but you'd use</span></span><br><span class="line">                              <span class="comment">// resources, right?</span></span><br></pre></td></tr></table></figure></p>
-<p>就像这样加载它：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HelloWorldBinding binding =</span><br><span class="line">    DataBindingUtil.setContentView(<span class="keyword">this</span>, R.layout.hello_world);</span><br><span class="line">binding.hello.setText(<span class="string">"Hello World"</span>); <span class="comment">// you should use resources!</span></span><br></pre></td></tr></table></figure></p>
-<p>你可以看到这有一个类，<strong>HelloWorldBinding</strong> 是由 <strong>hello_world.xml</strong> 布局文件生成的并且你可以使用ID “@+id/hello”的View分配的final field <strong>hello</strong>。<strong>不需要强转，不需要findViewById</strong>。</p>
-<p>这个访问View的机制不仅比findViewById方便，而且还更快。绑定过程中，布局中的所有view都将分配给单一的字段。当你运行findViewById，View层级每次都会去找到它。</p>
-<p>你会看到的是它会以驼峰式命名变量（就像hello_world.xml会生成HelloWorldBinding类），因此如果你设置了一个“@+id/hello_text” ID字段名会是 <strong>helloText</strong>。</p>
-<p>当你使用RecyclerView，ViewPager或其它没有设置为Activity的内容填充你的布局时，你也想使用生成类中生成的类型安全的方法。这有几个方法对应LayoutInflater，选择最适合你的一个使用。例如：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ViewInflateTestBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.view_inflate_test, <span class="literal">null</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-<p>如果你还没有attaching填充的View到ViewGroup的容器，那你不得不访问填充View的层级。你可以使用binding的getRoot()方法实现这个：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">linearLayout</span><span class="class">.addView</span>(<span class="tag">binding</span><span class="class">.getRoot</span>());</span><br></pre></td></tr></table></figure>
-<p>现在你可能想知道，假如我有一个布局有不同的配置和不同的Views会怎样？布局预处理和运行时填充阶段会通过添加所有Views IDs到生成的类并且如果它们没有填充到布局会把它们设置为null。</p>
-<p>是不是很神奇，嗯哈？最厉害的地方在于这个在运行的时候没有用反射或其它高成本的技术。它很容易在你当前的应用中使用，让生活更简单并且加载你的布局可能会稍微快一点。</p>
-<p><img src="/assets/img/t/no-more-findviewbyid-example.png" alt=""></p>
-<p>你可以从这里下载完整代码：<a href="https://github.com/yuweiguocn/DataBindingDemo" target="_blank" rel="external">https://github.com/yuweiguocn/DataBindingDemo</a></p>
+<blockquote>
+<p>《夜宿山寺》<br>危楼高百尺，手可摘星辰。<br>不敢高声语，恐惊天上人。<br>—唐，李白</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于目前市面上大部分应用都会兼容Android 5.0之前的手机，所以会将minSdkVersion设置为小于21，并且为了规避65K方法数限制会启用MultiDex。Android 5.0之前的平台版本使用 Dalvik 运行时来执行应用代码。Android 5.0及更高版本使用名为 ART 的运行时，后者原生支持从 APK 文件加载多个 DEX 文件。Dalvik 可执行文件分包配置会大幅增加构建处理时间，因为构建系统必须就哪些类必须包括在主 DEX 文件中以及哪些类可以包括在辅助 DEX 文件中作出复杂的决策。这意味着使用 Dalvik 可执行文件分包的增量式构建通常耗时更长，可能会拖慢您的开发进度。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>为了缩短耗时更长的 Dalvik 可执行文件分包输出构建时间，我们可以利用 productFlavors（一个开发定制和一个发布定制，具有不同的 minSdkVersion 值）创建两个构建变型。<br>对于开发定制，将 minSdkVersion 设置为 21。该设置将启用一个名为 pre-dexing 的构建功能，此功能仅适用于 Android 5.0和更高版本的 ART 格式更快生成 Dalvik 可执行文件分包输出。对于发布定制，将 minSdkVersion 设置为适于您的实际最低支持级别。此设置生成的 Dalvik 可执行文件分包 APK 可兼容更多设备，但构建时间更长。</p>
+<p>以下构建配置示例展示了如何在 Gradle 构建文件中设置这些定制：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ...</span><br><span class="line">        multiDexEnabled true</span><br><span class="line">    &#125;</span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        dev &#123;</span><br><span class="line">            // 将启用 pre-dexing 功能构建 APK 可以直接在 Android <span class="number">5.0</span>+ 进行测试</span><br><span class="line">            minSdkVersion <span class="number">21</span></span><br><span class="line">        &#125;</span><br><span class="line">        prod &#123;</span><br><span class="line">            // 项目实际最低支持级别</span><br><span class="line">            minSdkVersion <span class="number">14</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled true</span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>),</span><br><span class="line">                                                 <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">'com.android.support:multidex:1.0.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这样的配置后，可以为增量式构建使用应用的 devDebug 变体，后者集 dev 产品定制与 debug 构建类型的属性于一身。这将创建已启用 Dalvik 可执行文件分包且禁用 proguard 的可调试应用（因为 minifyEnabled 默认为 false）。这些设置会使适用于 Gradle 的 Android 插件执行以下操作：</p>
+<ol>
+<li>执行 pre-dexing：将每个应用模块和每个依赖项构建为单独的 DEX 文件。</li>
+<li>将每个 DEX 文件加入 APK，并且不做任何修改（不执行代码压缩）。</li>
+<li>最重要的是，模块 DEX 文件不执行合并操作，因此可以避免为确定主 DEX 文件的内容而进行长时间的计算。</li>
+</ol>
+<p>这些设置的好处是，可以进行快速的增量式构建，因为只有修改过的模块的 DEX 文件才会在后续构建期间重新计算并重新打包。但是，这些构建的 APK 只能用于在 Android 5.0 设备上进行测试。不过，由于是以定制形式实现配置，保留了使用与发布相适的最低 API 级别和 ProGuard 代码压缩执行正常构建的能力。<br>您还可以构建其他变体，包括 prodDebug 变体构建，该变体虽然构建时间更长，但可用于开发以外的测试。在所示配置内，prodRelease 变体将是最终测试和发布版本。如需了解有关使用构建变体的详细信息，请参阅配置构建变体。</p>
+<blockquote>
+<p>提示：由于您有适用于不同 Dalvik 可执行文件分包需求的不同构建变体，因此也可以为不同变体提供不同清单文件（这样，只有适用于 API 级别 20 和更低版本的清单文件会更改 <application> 标记名称），或者为每个变体创建不同的 Application 子类（这样，只有适用于 API 级别 20 和更低版本的清单文件会扩展 MultiDexApplication 类或调用 MultiDex.install(this)）。</application></p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://developer.android.com/studio/build/multidex.html?hl=zh-cn" target="_blank" rel="external">https://developer.android.com/studio/build/multidex.html?hl=zh-cn</a></li>
+</ul>
 
       
 
@@ -268,11 +265,7 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data binding</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gradle</a>
         		</li>
       		
 		</ul>
@@ -328,7 +321,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/no-more-findviewbyid/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/improve-dev-build-speed/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +335,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/android-data-binding-that-include-thing/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          （译）Android Data Binding移除findViewById（二）
-        
-      </div>
-    </a>
   
-  
-    <a href="/splash-screens-the-right-way/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">（译）处理Splash Screens的正确姿势</div>
+    <a href="/kotlin-note-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin学习笔记（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   

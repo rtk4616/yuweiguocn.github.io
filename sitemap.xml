@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/improve-dev-build-speed/</loc>
+    
+    <lastmod>2017-12-30T11:08:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/kotlin-note-1/</loc>
     
     <lastmod>2017-12-08T11:27:36.000Z</lastmod>
@@ -338,7 +345,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -346,6 +353,13 @@
   
   <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -367,13 +381,6 @@
   
   <url>
     <loc>http://yoursite.com/android-interview-list/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     

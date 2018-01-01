@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/improve-dev-build-speed/</loc>
+    <lastmod>2017-12-30T11:08:08.000Z</lastmod>
+    <data>
+        <display>
+        <title>提升Android Studio开发过程的构建速度</title>
+        <pubTime>2017-12-28T08:29:15.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>gradle</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/kotlin-note-1/</loc>
     <lastmod>2017-12-08T11:27:36.000Z</lastmod>
     <data>
@@ -984,18 +1003,18 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>data binding</tag>
+        <tag>demo</tag>
          
-        <tag>translate</tag>
+        <tag>support</tag>
          
          
            
@@ -1021,6 +1040,27 @@
         <tag>doc</tag>
          
         <tag>guide</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
          
          
            
@@ -1086,27 +1126,6 @@
         <tag>android</tag>
          
         <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
          
          
            
