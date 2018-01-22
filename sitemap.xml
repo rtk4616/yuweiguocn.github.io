@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/react-native-note-2/</loc>
+    
+    <lastmod>2018-01-22T08:39:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/react-native-note-1/</loc>
     
-    <lastmod>2018-01-20T07:04:26.000Z</lastmod>
+    <lastmod>2018-01-20T09:20:43.000Z</lastmod>
     
   </url>
   
@@ -436,14 +443,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     

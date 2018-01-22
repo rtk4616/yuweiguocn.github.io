@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/react-native-note-2/</loc>
+    <lastmod>2018-01-22T08:39:40.000Z</lastmod>
+    <data>
+        <display>
+        <title>React Native学习笔记（二）</title>
+        <pubTime>2018-01-20T09:20:15.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/react-native-note-1/</loc>
-    <lastmod>2018-01-20T07:04:26.000Z</lastmod>
+    <lastmod>2018-01-20T09:20:43.000Z</lastmod>
     <data>
         <display>
         <title>React Native学习笔记（一）</title>
@@ -1258,12 +1275,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（二）</title>
-        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（三）</title>
+        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -1279,12 +1296,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（三）</title>
-        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（二）</title>
+        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
         
         <tag>android</tag>
          
