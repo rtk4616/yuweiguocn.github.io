@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/react-native-note-3/</loc>
+    <lastmod>2018-01-30T12:58:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>React Native学习笔记（三）</title>
+        <pubTime>2018-01-22T09:09:42.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/react-native-note-2/</loc>
-    <lastmod>2018-01-22T08:39:40.000Z</lastmod>
+    <lastmod>2018-01-30T09:41:31.000Z</lastmod>
     <data>
         <display>
         <title>React Native学习笔记（二）</title>
@@ -22,7 +39,7 @@
     
   <url>
     <loc>http://yoursite.com/react-native-note-1/</loc>
-    <lastmod>2018-01-20T09:20:43.000Z</lastmod>
+    <lastmod>2018-01-23T02:43:44.000Z</lastmod>
     <data>
         <display>
         <title>React Native学习笔记（一）</title>
