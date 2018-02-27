@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/react-native-note-4/</loc>
+    <lastmod>2018-02-27T08:37:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>React Native学习笔记（四）</title>
+        <pubTime>2018-02-26T06:21:20.000Z</pubTime>
+        
+        <tag>react</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/react-native-note-2/</loc>
     <lastmod>2018-02-22T09:46:28.000Z</lastmod>
     <data>
@@ -1054,27 +1071,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -1177,6 +1173,27 @@
         <tag>android</tag>
          
         <tag>interview</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>demo</tag>
+         
+        <tag>support</tag>
          
          
            
@@ -1292,12 +1309,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-3/</loc>
+    <loc>http://yoursite.com/android-support-v7-2/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（三）</title>
-        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（二）</title>
+        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -1313,12 +1330,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-support-v7-2/</loc>
+    <loc>http://yoursite.com/android-support-v7-3/</loc>
     <lastmod>2016-08-09T03:22:22.000Z</lastmod>
     <data>
         <display>
-        <title>Android Support V7官方Demo概览（二）</title>
-        <pubTime>2016-05-27T05:28:56.000Z</pubTime>
+        <title>Android Support V7官方Demo概览（三）</title>
+        <pubTime>2016-05-31T08:35:44.000Z</pubTime>
         
         <tag>android</tag>
          
@@ -1653,12 +1670,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <loc>http://yoursite.com/android-studio-tips-5/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（四）</title>
-        <pubTime>2015-07-28T12:42:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（五）</title>
+        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1676,12 +1693,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（二）</title>
-        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（四）</title>
+        <pubTime>2015-07-28T12:42:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1722,35 +1739,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     <data>
         <display>
-        <title>（译）Android Studio使用技巧系列教程（一）</title>
-        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
-        
-        <tag>android studio</tag>
-         
-        <tag>series</tag>
-         
-        <tag>tips</tag>
-         
-        <tag>translate</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-studio-tips-5/</loc>
-    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Studio使用技巧系列教程（五）</title>
-        <pubTime>2015-08-03T15:33:38.000Z</pubTime>
+        <title>（译）Android Studio使用技巧系列教程（二）</title>
+        <pubTime>2015-07-14T15:03:38.000Z</pubTime>
         
         <tag>android studio</tag>
          
@@ -1774,6 +1768,29 @@
         <display>
         <title>（译）Android Studio使用技巧系列教程（六）</title>
         <pubTime>2015-08-10T11:33:38.000Z</pubTime>
+        
+        <tag>android studio</tag>
+         
+        <tag>series</tag>
+         
+        <tag>tips</tag>
+         
+        <tag>translate</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-studio-tips-1/</loc>
+    <lastmod>2016-04-09T01:06:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Studio使用技巧系列教程（一）</title>
+        <pubTime>2015-07-08T13:33:38.000Z</pubTime>
         
         <tag>android studio</tag>
          

@@ -9,17 +9,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | yuweiguo&#39;s blog</title>
+  <title>React Native学习笔记（四） | yuweiguo&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hello world!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuweiguo's blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="本文介绍了MobX中一些简单的概念及React Native中的应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native学习笔记（四）">
+<meta property="og:url" content="http://yoursite.com/react-native-note-4/index.html">
 <meta property="og:site_name" content="yuweiguo's blog">
-<meta property="og:description" content="hello world!">
+<meta property="og:description" content="本文介绍了MobX中一些简单的概念及React Native中的应用。">
+<meta property="og:image" content="http://yoursite.com/assets/img/rn/mobx-flow.png">
+<meta property="og:image" content="http://yoursite.com/assets/img/rn/rn-3.gif">
+<meta property="og:updated_time" content="2018-02-27T08:37:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuweiguo's blog">
-<meta name="twitter:description" content="hello world!">
+<meta name="twitter:title" content="React Native学习笔记（四）">
+<meta name="twitter:description" content="本文介绍了MobX中一些简单的概念及React Native中的应用。">
   
     <link rel="alternative" href="/atom.xml" title="yuweiguo&#39;s blog" type="application/atom+xml">
   
@@ -174,493 +177,276 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-react-native-note-4" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Native学习笔记（四）
+    </h1>
+  
+
+        
+        <a href="/react-native-note-4/" class="archive-article-date">
+  	<time datetime="2018-02-26T06:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了MobX中一些简单的概念及React Native中的应用。</p>
+<a id="more"></a>
+<blockquote>
+<p>《绝句》<br>两个黄鹂鸣翠柳，一行白鹭上青天。<br>窗含西岭千秋雪，门泊东吴万里船。<br>—唐，杜甫</p>
+</blockquote>
+<h2 id="MobX简介"><a href="#MobX简介" class="headerlink" title="MobX简介"></a>MobX简介</h2><p>MobX 通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。MobX背后的哲学很简单:</p>
+<blockquote>
+<p>任何源自应用状态的东西都应该自动地获得。</p>
+</blockquote>
+<p>其中包括UI、数据序列化、服务器通讯，等等。</p>
+<p><img src="/assets/img/rn/mobx-flow.png" alt=""></p>
+<p>React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。</p>
+<p>对于应用开发中的常见问题，React 和 MobX 都提供了最优和独特的解决方案。React 提供了优化UI渲染的机制， 这种机制就是通过使用虚拟DOM来减少昂贵的DOM变化的数量。MobX 提供了优化应用状态与 React 组件同步的机制，这种机制就是使用响应式虚拟依赖状态图表，它只有在真正需要的时候才更新并且永远保持是最新的。</p>
+<h2 id="安装MobX"><a href="#安装MobX" class="headerlink" title="安装MobX"></a>安装MobX</h2><p>安装MobX：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> mobx <span class="comment">--save</span></span><br><span class="line">npm <span class="keyword">install</span> mobx-react <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
+<p>MobX推荐使用ES7的decorator语法，以实现最精炼的表达。安装装饰器支持:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="tag">i</span> --save-dev babel-plugin-<span class="attribute">transform</span>-decorators-legacy</span><br></pre></td></tr></table></figure>
+<p>然后在 <code>.babelrc</code> 文件中启用它:<br><em>.babelrc</em>:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">plugins</span>": <span class="value">[<span class="string">"transform-decorators-legacy"</span>]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="装饰器说明"><a href="#装饰器说明" class="headerlink" title="装饰器说明"></a>装饰器说明</h2><p>我们先来学习下几个简单的装饰器，然后通过一个实例来说明怎样使用。</p>
+<table>
+<thead>
+<tr>
+<th>装饰器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@observable</td>
+<td>用于将实例字段和属性 getter 变成可观察的。</td>
+</tr>
+<tr>
+<td>@action</td>
+<td>用于装饰可观察变量的状态的更新。在严格模式下，对于可观察变量的状态的更新必须使用此装饰器。</td>
+</tr>
+<tr>
+<td>@observer</td>
+<td>用于将 React 组件转变成响应式组件。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><p>用法: <code>useStrict(boolean)</code>。 <strong>全局性</strong> 地启用/禁用严格模式。建议启用严格模式，在严格模式下，所有修改可观察变量的地方必须（放在action中或）添加 <code>@action</code> 装饰器。下面我们在index.js文件中全局启用严格模式：</p>
+<p><em>index.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; AppRegistry &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useStrict &#125; <span class="keyword">from</span> <span class="string">'mobx'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>;</span><br><span class="line"></span><br><span class="line">useStrict(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(<span class="string">'RNTest'</span>, () =&gt; App);</span><br></pre></td></tr></table></figure></p>
+<h2 id="MobX使用"><a href="#MobX使用" class="headerlink" title="MobX使用"></a>MobX使用</h2><p>接下来我们使用MobX中的特性改造在上一篇文章中实现的功能，首先新建一个store类：</p>
+<p><em>/App/appCountStore.js</em><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">import</span> &#123;action, observable&#125; from <span class="string">"mobx"</span>;</span><br><span class="line"></span><br><span class="line"><span class="literal">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">AppCountStore</span></span>&#123;</span><br><span class="line">    <span class="annotation">@observable</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@action</span> addCount = () =&gt; &#123;</span><br><span class="line">        <span class="keyword">this</span>.count++;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，我们使用 <code>@observable</code> 定义count为可观察变量，由于在addCount方法中更新count变量的值，所以需要添加 <code>@action</code> 修饰。</p>
+<p>在上一篇文章中我们介绍了Component和PureComponent之间的区别，<code>@observer</code> 用同样的方式实现了 shouldComponentUpdate方法，所以我们使用Component即可。首先引入store类并实例化，在需要的地方引用store中的属性，然后使用 <code>@observer</code> 修饰组件类。</p>
+<p><em>/App/index.js</em><br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123;<span class="type">Component</span>&#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> &#123;<span class="type">StyleSheet</span>, <span class="type">Text</span>, <span class="type">Button</span>, <span class="type">View</span>&#125; from <span class="symbol">'react</span>-native';</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;observer&#125; from <span class="symbol">'mobx</span>-react';</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="type">AppCountStore</span> from './appCountStore';</span><br><span class="line"><span class="keyword">import</span> <span class="type">CustomToast</span> from './customToast';</span><br><span class="line"></span><br><span class="line">const appCount=<span class="keyword">new</span> <span class="type">AppCountStore</span>();</span><br><span class="line"></span><br><span class="line"><span class="annotation">@observer</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountText</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Component</span> &#123;</span></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (&lt;<span class="type">Text</span>&gt;&#123;appCount.count&#125;&lt;/<span class="type">Text</span>&gt;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@observer</span></span><br><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Component</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    pressButton = () =&gt; &#123;</span><br><span class="line">        appCount.addCount();</span><br><span class="line">        <span class="type">CustomToast</span>.show(<span class="string">"count is "</span>+appCount.count,<span class="type">CustomToast</span>.<span class="type">SHORT</span>);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        console.log(<span class="string">"render"</span>);</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</span><br><span class="line">                &lt;<span class="type">Button</span> onPress=&#123;<span class="keyword">this</span>.pressButton&#125;</span><br><span class="line">                        title=<span class="string">"Click Me"</span></span><br><span class="line">                        color=<span class="string">"#841584"</span>/&gt;</span><br><span class="line">                &lt;<span class="type">CountText</span> style=&#123;styles.countText&#125; /&gt;</span><br><span class="line">            &lt;/<span class="type">View</span>&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p><img src="/assets/img/rn/rn-3.gif" alt=""><br>图 运行效果</p>
+<p>关于 <code>@observer</code> 的使用：如果组件中用到了 <code>@observable</code> 可观察变量，那么组件就应该使用 <code>@observer</code> 修饰。MobX作者<a href="https://github.com/mweststrate" target="_blank" rel="external">mweststrate</a>推荐对父组件和子组件都使用 <code>@observer</code>。添加 <code>@observer</code> 对性能的影响可以忽略不计，不需要担心由此引发的性能问题，事实上作者在自己的项目中对所有的组件都是使用 <code>@observer</code> 修饰，也没有性能问题。详见：<a href="https://github.com/mobxjs/mobx/issues/101" target="_blank" rel="external">Do child components need @observer？</a></p>
+<p>查看完整源码：<a href="https://github.com/yuweiguocn/RNTest" target="_blank" rel="external">https://github.com/yuweiguocn/RNTest</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.jianshu.com/p/505d9d9fe36a" target="_blank" rel="external">https://www.jianshu.com/p/505d9d9fe36a</a></li>
+<li><a href="https://foio.github.io/mobx-react/" target="_blank" rel="external">https://foio.github.io/mobx-react/</a></li>
+<li><a href="http://cn.mobx.js.org/" target="_blank" rel="external">http://cn.mobx.js.org/</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>这世界如你一样，如此美好<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat1.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/displaying-the-snackbar/" class="archive-article-date">
-  	<time datetime="2017-03-19T02:56:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/displaying-the-snackbar/">（译）Snackbar的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/react-native-note-4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/using-the-cardview/" class="archive-article-date">
-  	<time datetime="2017-03-18T07:21:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/react-native-note-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Native学习笔记（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/using-the-cardview/">（译）CardView的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MobX简介"><span class="toc-number">1.</span> <span class="toc-text">MobX简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装MobX"><span class="toc-number">2.</span> <span class="toc-text">安装MobX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#装饰器说明"><span class="toc-number">3.</span> <span class="toc-text">装饰器说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#严格模式"><span class="toc-number">4.</span> <span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MobX使用"><span class="toc-number">5.</span> <span class="toc-text">MobX使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/floating-action-buttons/" class="archive-article-date">
-  	<time datetime="2017-03-18T03:37:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/floating-action-buttons/">（译）FloatingActionButton的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/using-the-app-toolbar/" class="archive-article-date">
-  	<time datetime="2017-03-14T12:11:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/using-the-app-toolbar/">（译）App Toolbar的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/handling-scrolls-with-coordinatorlayout/" class="archive-article-date">
-  	<time datetime="2017-03-13T09:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/handling-scrolls-with-coordinatorlayout/">（译）使用CoordinatorLayout处理滚动</a>
-    </h1>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'yuweiguo'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/material-design-primer/" class="archive-article-date">
-  	<time datetime="2017-03-11T08:47:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/material-design-primer/">（译）初识Material Design</a>
-    </h1>
-  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Mon Feb 26 2018 14:21:20 GMT+0800",
+  owner: 'yuweiguocn',
+  repo: 'yuweiguocn.github.io',
+  oauth: {
+    client_id: 'f348a9b0d5dca52c05ff',
+    client_secret: '900bfb0e9a9fa9aed4c9f4fea89e0a9d0f30601f',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/dynamic-color-using-palettes/" class="archive-article-date">
-  	<time datetime="2017-03-10T08:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/dynamic-color-using-palettes/">（译）使用Palettes提取颜色</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/design-support-library/" class="archive-article-date">
-  	<time datetime="2017-03-08T05:06:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/design-support-library/">（译）Android材料设计支持库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/view-hierarchy-animations/" class="archive-article-date">
-  	<time datetime="2017-03-03T09:56:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/view-hierarchy-animations/">（译）View层级动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/ripple-animation/" class="archive-article-date">
-  	<time datetime="2017-03-02T08:54:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/ripple-animation/">（译）Android水波纹动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">design</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">translate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -684,8 +470,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
