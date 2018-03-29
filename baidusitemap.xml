@@ -4,8 +4,65 @@
 
     
   <url>
+    <loc>http://yoursite.com/mac-tips-2/</loc>
+    <lastmod>2018-03-29T04:49:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac使用技巧（二）</title>
+        <pubTime>2018-03-28T02:28:10.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+        <tag>tips</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/mac-tips/</loc>
+    <lastmod>2018-03-29T04:49:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac使用技巧</title>
+        <pubTime>2016-01-17T12:35:29.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+        <tag>tips</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/mac-software-cheatsheet/</loc>
+    <lastmod>2018-03-28T02:21:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>快速查看Mac下软件的所有快捷键— CheatSheet</title>
+        <pubTime>2016-01-25T01:41:23.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+        <tag>software</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/react-native-note-7/</loc>
-    <lastmod>2018-03-19T03:09:20.000Z</lastmod>
+    <lastmod>2018-03-19T09:41:22.000Z</lastmod>
     <data>
         <display>
         <title>React Native学习笔记（七）</title>
@@ -1122,6 +1179,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/android-interview-java/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android面试——Java相关</title>
+        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>interview</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/android-guide-aidl/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
@@ -1138,27 +1216,6 @@
         <tag>doc</tag>
          
         <tag>guide</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>（译）Android Data Binding移除findViewById（二）</title>
-        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>data binding</tag>
-         
-        <tag>translate</tag>
          
          
            
@@ -1193,18 +1250,39 @@
 
     
   <url>
-    <loc>http://yoursite.com/android-interview-java/</loc>
+    <loc>http://yoursite.com/android-support-v4-1/</loc>
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     <data>
         <display>
-        <title>Android面试——Java相关</title>
-        <pubTime>2016-04-08T07:12:06.000Z</pubTime>
+        <title>Android Support V4官方Demo概览（一）</title>
+        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
         
         <tag>android</tag>
          
-        <tag>interview</tag>
+        <tag>demo</tag>
          
-        <tag>java</tag>
+        <tag>support</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>（译）Android Data Binding移除findViewById（二）</title>
+        <pubTime>2016-07-05T03:45:47.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>data binding</tag>
+         
+        <tag>translate</tag>
          
          
            
@@ -1224,27 +1302,6 @@
         <tag>android</tag>
          
         <tag>interview</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/android-support-v4-1/</loc>
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Support V4官方Demo概览（一）</title>
-        <pubTime>2016-03-11T09:16:49.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>demo</tag>
-         
-        <tag>support</tag>
          
          
            
@@ -1651,44 +1708,6 @@
         <tag>doc</tag>
          
         <tag>support</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/mac-software-cheatsheet/</loc>
-    <lastmod>2016-04-09T01:15:29.000Z</lastmod>
-    <data>
-        <display>
-        <title>快速查看Mac下软件的所有快捷键— CheatSheet</title>
-        <pubTime>2016-01-25T01:41:23.000Z</pubTime>
-        
-        <tag>mac</tag>
-         
-        <tag>software</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/mac-tips/</loc>
-    <lastmod>2016-04-09T01:10:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>mac使用笔记</title>
-        <pubTime>2016-01-17T12:35:29.000Z</pubTime>
-        
-        <tag>mac</tag>
-         
-        <tag>tips</tag>
          
          
            
