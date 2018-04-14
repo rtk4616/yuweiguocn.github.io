@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="yuweiguo's blog">
 <meta property="og:description" content="本文介绍了ReactNative封装View遇到的问题及解决方案，包括执行addView页面不刷新问题等。">
 <meta property="og:image" content="http://yoursite.com/assets/img/rn/rn-7.png">
-<meta property="og:updated_time" content="2018-04-14T07:43:08.000Z">
+<meta property="og:updated_time" content="2018-04-14T07:47:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决ReactNative封装View执行addView页面不刷新">
 <meta name="twitter:description" content="本文介绍了ReactNative封装View遇到的问题及解决方案，包括执行addView页面不刷新问题等。">
@@ -203,7 +203,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在版本开发过程中，有一个需求需要将某一页面整体封装为一个View供RecatNative使用。封装完测试遇到一些问题，包括执行addView后页面没刷新；使用代码动态执行Visiable无效；使用ViewPager只绘制初始化的page，后面的page没有被绘制；RecyclerView执行notiy无效等。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>查看⻚⾯布局层级会发现React Native会使用ReactRootView作为⻚⾯布局的根布局。</p>
-<p><img src="/assets/img/rn/rn-7.png" alt=""></p>
+<p><img src="/assets/img/rn/rn-7.png" alt=""><br>图 页面View层级</p>
 <p>查看<a href="https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/ReactRootView.java" target="_blank" rel="external">ReactRootView</a>源码会发现onLayout方法被重写了：</p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> left, <span class="keyword">int</span> top, <span class="keyword">int</span> right, <span class="keyword">int</span> bottom)</span> </span>&#123;</span><br><span class="line"><span class="comment">// No-op since UIManagerModule handles actually laying out children.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们知道ViewGroup的onLayout用于摆放子View，由于ReactRootView的onLayout方法被重写为空所以才导致我们封装View遇到的各种问题的出现。当View的布局被修改会调用requestLayout方法，我们可以在requestLayout方法手动执行测量及layout操作来解决此问题。</p>
@@ -326,6 +326,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/git-gui-gitk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          git 图形化操作工具——gitk
+        
+      </div>
+    </a>
   
   
     <a href="/mac-tips-2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -573,6 +582,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">error</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">tools</a>
               </li>
              
               <li class="article-tag-list-item">
