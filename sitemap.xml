@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/disable-auto-android-file-transfer/</loc>
+    
+    <lastmod>2018-07-14T06:35:30.113Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/command-line-autojump/</loc>
     
-    <lastmod>2018-07-14T06:08:21.890Z</lastmod>
+    <lastmod>2018-07-14T06:15:32.698Z</lastmod>
     
   </url>
   
@@ -436,21 +443,14 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/android-support-v4-1/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-guide-aidl/</loc>
-    
-    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/android-guide-bound-service/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -471,7 +471,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-data-binding-that-include-thing/</loc>
+    <loc>http://yoursite.com/android-guide-bound-service/</loc>
+    
+    <lastmod>2016-10-01T08:34:36.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/android-guide-aidl/</loc>
     
     <lastmod>2016-10-01T08:34:36.000Z</lastmod>
     
@@ -625,7 +632,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-2/</loc>
+    <loc>http://yoursite.com/android-studio-tips-4/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
@@ -653,14 +660,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-3/</loc>
+    <loc>http://yoursite.com/android-studio-tips-2/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/android-studio-tips-4/</loc>
+    <loc>http://yoursite.com/android-studio-tips-3/</loc>
     
     <lastmod>2016-04-09T01:06:53.000Z</lastmod>
     
