@@ -4,8 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/command-line-autojump/</loc>
+    <lastmod>2018-07-14T06:08:21.890Z</lastmod>
+    <data>
+        <display>
+        <title>命令行福利——切换目录autojump</title>
+        <pubTime>2018-07-14T05:55:40.000Z</pubTime>
+        
+        <tag>tips</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/git-gui-gitk/</loc>
-    <lastmod>2018-04-14T08:21:33.000Z</lastmod>
+    <lastmod>2018-04-14T08:28:52.000Z</lastmod>
     <data>
         <display>
         <title>git 图形化操作工具——gitk</title>
