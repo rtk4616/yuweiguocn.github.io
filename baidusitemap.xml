@@ -4,6 +4,44 @@
 
     
   <url>
+    <loc>http://yoursite.com/understand-proguard-outputs/</loc>
+    <lastmod>2018-07-27T07:07:56.450Z</lastmod>
+    <data>
+        <display>
+        <title>（译）理解混淆的输出</title>
+        <pubTime>2018-07-27T07:01:57.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>proguard</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/kotlin-note-1/</loc>
+    <lastmod>2018-07-15T02:05:44.138Z</lastmod>
+    <data>
+        <display>
+        <title>Kotlin学习笔记（一）</title>
+        <pubTime>2017-12-04T09:14:20.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>kotlin</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/disable-auto-android-file-transfer/</loc>
     <lastmod>2018-07-14T06:35:30.113Z</lastmod>
     <data>
@@ -262,25 +300,6 @@
         <tag>android</tag>
          
         <tag>gradle</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/kotlin-note-1/</loc>
-    <lastmod>2017-12-08T11:27:36.000Z</lastmod>
-    <data>
-        <display>
-        <title>Kotlin学习笔记（一）</title>
-        <pubTime>2017-12-04T09:14:20.000Z</pubTime>
-        
-        <tag>android</tag>
-         
-        <tag>kotlin</tag>
          
          
            
